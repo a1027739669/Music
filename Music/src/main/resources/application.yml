@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: LEGACYHTML5
+  datasource:
+    url: jdbc:mysql://localhost:3306/music?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    port: 6379
+    host: localhost
+  jpa:
+    generate-ddl: true
