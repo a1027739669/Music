@@ -2,9 +2,13 @@ package com.example.music.demo.service;
 
 import com.example.music.demo.entity.Label;
 import com.example.music.demo.entity.Song;
+import com.example.music.demo.entity.SongAndDyna;
 import com.example.music.demo.repository.LabelRepository;
+import com.example.music.demo.repository.SongAndCountRepository;
 import com.example.music.demo.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,10 +31,28 @@ public class IndexService {
     private SongRepository songRepository;
     @Autowired
     private LabelRepository labelRepository;
-    public List<Song> getSongWithHot(){
+    @Autowired
+    private SongAndCountRepository songAndCountRepository;
+
+    public List<Song> getSongWithHot() {
         return songRepository.getMorePlays();
     }
-    public List<Label> getAllLabel(){
+
+    public List<Label> getAllLabel() {
         return labelRepository.findAll();
     }
+
+    public List<Song> getNewMusics() {
+        return songRepository.getNewMusics();
+    }
+
+    public List<SongAndDyna> getMoreSearchs(){
+        Pageable pageable=PageRequest.of(1,6);
+        return songAndCountRepository.getMoreSearchs(pageable);
+    }
+    public List<SongAndDyna> getMoreDowns(){
+        Pageable pageable=PageRequest.of(1,6);
+        return songAndCountRepository.getMoreDowns(pageable);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.music.demo.repository;
 
 import com.example.music.demo.entity.Label;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * @ProjectName: Music
@@ -15,5 +16,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
+@Repository
 public interface LabelRepository extends JpaRepository<Label,Integer> {
 }

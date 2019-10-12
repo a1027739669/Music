@@ -1,6 +1,9 @@
 package com.example.music.demo.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @ProjectName: Music
@@ -15,26 +18,13 @@ import javax.persistence.*;
  * @Version: 1.0
  */
 @Entity
+@Data
 @Table(name = "label")
-public class Label {
+public class Label implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer label_id;
     private String label_name;
 
-    public Integer getLabel_id() {
-        return label_id;
-    }
 
-    public void setLabel_id(Integer label_id) {
-        this.label_id = label_id;
-    }
-
-    public String getLabel_name() {
-        return label_name;
-    }
-
-    public void setLabel_name(String label_name) {
-        this.label_name = label_name;
-    }
 }

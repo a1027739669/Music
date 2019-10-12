@@ -1,10 +1,9 @@
 spring:
-  thymeleaf:
+  freemarker:
     cache: false
-    encoding: UTF-8
-    suffix: .html
-    prefix: classpath:/templates/
-    mode: LEGACYHTML5
+    charset: UTF-8
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
   datasource:
     url: jdbc:mysql://localhost:3306/music?serverTimezone=Asia/Shanghai
     username: root

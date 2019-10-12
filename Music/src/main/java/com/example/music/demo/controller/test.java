@@ -1,7 +1,13 @@
 package com.example.music.demo.controller;
 
+import com.example.music.demo.entity.SongAndDyna;
+import com.example.music.demo.repository.SongAndCountRepository;
+import com.example.music.demo.service.IndexService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * @ProjectName: Music
@@ -17,8 +23,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class test {
-    @GetMapping("/")
+    @Autowired
+    private SongAndCountRepository songAndCountRepository;
+    @GetMapping("/test")
     public String test(){
-        return "index";
+       return "index";
     }
 }

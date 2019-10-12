@@ -1,30 +1,32 @@
 package com.example.music.demo.entity;
 
 
-
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * @ProjectName: Music
+ * @ProjectName: MusicPro
  * @Package: com.example.music.demo.entity
- * @ClassName: Song
+ * @ClassName: SongAndDyna
  * @Description: java类作用描述
  * @Author: 章宇翔
- * @CreateDate: 2019/10/11 10:05
+ * @CreateDate: 2019/10/11 20:05
  * @UpdateUser: 更新者
- * @UpdateDate: 2019/10/11 10:05
+ * @UpdateDate: 2019/10/11 20:05
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-@Entity
-@Table(name = "song")
+
 @Data
-public class Song  implements Serializable {
+@Entity
+@JsonSerialize
+@AllArgsConstructor
+public class SongAndDyna implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer song_id;
     private String song_name;
     private String song_singer;
@@ -38,6 +40,11 @@ public class Song  implements Serializable {
     private String song_file;
     private Integer label_id;
     private Integer album_id;
+    private Integer info_id;
+    private Integer info_plays;
+    private Integer info_search;
+    private Integer info_down;
 
-
+    public SongAndDyna() {
+    }
 }

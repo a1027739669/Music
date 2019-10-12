@@ -2,12 +2,14 @@ package com.example.music.demo.controller;
 
 import com.example.music.demo.entity.Label;
 import com.example.music.demo.entity.Song;
+import com.example.music.demo.entity.SongAndDyna;
 import com.example.music.demo.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,6 +36,14 @@ public class IndexController {
         modelMap.addAttribute("hot_song", songList);
         List<Label> labelList = indexService.getAllLabel();
         modelMap.addAttribute("labelList", labelList);
+        List<Song> newMusic=indexService.getNewMusics();
+        modelMap.addAttribute("newMusics",newMusic);
+        List<SongAndDyna> moreSearchlist=indexService.getMoreSearchs();
+        List<SongAndDyna> moreDownList=indexService.getMoreDowns();
+        List<List<SongAndDyna>> searchAndDown=new ArrayList<>();
+        searchAndDown.add(moreSearchlist);
+        searchAndDown.add(moreDownList);
+        modelMap.addAttribute("searchAndDown",searchAndDown);
         return "index";
     }
 }

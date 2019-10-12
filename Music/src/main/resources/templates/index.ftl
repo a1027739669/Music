@@ -1,16 +1,15 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="renderer" content="webkit">
-<meta name="keywords" content="">
-<meta name="description" content="">
-<title>我的音乐</title>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>我的音乐</title>
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
     <link type="text/css" rel="stylesheet" href="css/common.css">
     <link type="text/css" rel="stylesheet" href="css/index.css">
-    <link href="css/cssicon.css" rel="stylesheet"/>
 </head>
 
 <body class="index">
@@ -44,11 +43,11 @@
             </div>
             <div class="category-nav-body">
                 <div id="J_CategoryItems" class="category-items">
-
-                    <div class="item" data-index="1" th:each="label,labelStat:${labelList}"><h3>
-                        <a href="javascript:;" th:text="${label.label_name}"></a></h3>
-                    </div>
-
+                    <#list labelList as label>
+                        <div class="item" data-index="1"><h3>
+                                <a href="javascript:;">${label.label_name}</a></h3>
+                        </div>
+                    </#list>
                 </div>
             </div>
         </div>
@@ -58,18 +57,21 @@
             <div id="J_FocusSlider" class="focus">
                 <div id="bannerLeftBtn" class="banner_btn"></div>
                 <ul class="focus-list f_w">
-                    <li class="f_s"><div class="layz_load">
-                        <img data-src="image/datu-1.jpg" width="750" height="275" >
-</div>
+                    <li class="f_s">
+                        <div class="layz_load">
+                            <img data-src="songImg/1.jpg" width="750" height="275">
+
+                        </div>
+
                     </li>
                     <li class="f_s"><a target="play" href="{% url 'play' 13 %}" class="layz_load">
-                        <img data-src="image/datu-2.jpg" width="750" height="275"></a>
+                            <img data-src="image/datu-2.jpg" width="750" height="275"></a>
                     </li>
                     <li class="f_s"><a target="play" href="{% url 'play' 13 %}" class="layz_load">
-                        <img data-src="{% static '/image/datu-2.jpg' %}" width="750" height="275"></a>
+                            <img data-src="{% static '/image/datu-2.jpg' %}" width="750" height="275"></a>
                     </li>
                     <li class="f_s"><a target="play" href="{% url 'play' 13 %}" class="layz_load">
-                        <img data-src="{% static '/image/datu-2.jpg' %}" width="750" height="275"></a>
+                            <img data-src="{% static '/image/datu-2.jpg' %}" width="750" height="275"></a>
                     </li>
                 </ul>
                 <div id="bannerRightBtn" class="banner_btn"></div>
@@ -78,15 +80,12 @@
         <div class="aside">
             <h2>热门歌曲</h2>
             <ul>
-                <!--				{% for song in play_hot_song  %}-->
-                <!--					<li><span>{{ forloop.counter }}</span>-->
-                <!--                        <a target="play" href="{% url 'play' song.song.song_id %}" >{{ song.song.song_name }}</a>-->
-                <!--                    </li>-->
-                <!--				{% endfor  %}-->
-                <li th:each="song,songStat:${hot_song}">
-                    <span th:text="${songStat.count}"/>
-                    <a href="" th:text="${song.song_name}"></a>
-                </li>
+                <#list hot_song as song>
+                    <li>
+                        <span>${song_index ?if_exists+1}</span>
+                        <a href="">${song.song_name}</a>
+                    </li>
+                </#list>
             </ul>
         </div>
     </div>
@@ -98,21 +97,19 @@
         <div class="today-list-box slide">
             <div id="J_TodayRec" class="today-list">
                 <ul>
-                    {% for list in daily_recommendation %}
-                    {% if forloop.first %}
-                    <li class="first">
-                        {% else %}
-                    <li>
-                        {% endif %}
-                        <a class="pic layz_load pic_po" target="play" href="">
-                            <img data-src=""></a>
-                        <div class="name">
-                            <h3><a target="play" href="{% url 'play' list.song_id %}">{{ list.song_name }}</a></h3>
-                            <div class="singer"><span>{{ list.song_singer }}</span></div>
-                            <div class="times">发行时间：<span>{{ list.song_release }}</span></div>
-                        </div>
-                        <a target="play" href="{% url 'play' list.song_id %}" class="today-buy-button">去听听></a>
-                        {% endfor %}
+                    <#list newMusics as music>
+                        <li>
+                            <a class="pic layz_load pic_po" target="play" href="">
+                                <img data-src="/upload/${music.song_img}">
+                            </a>
+                            <div class="name">
+                                <h3><a href="">${music.song_name}</a></h3>
+                                <div class="singer"><span>${music.song_singer}</span></div>
+                                <div class="times">发行时间：<span>${music.song_release}</span></div>
+                            </div>
+                            <a href="{% url 'play' list.song_id %}" class="today-buy-button">去听听></a>
+                        </li>
+                    </#list>
                 </ul>
             </div>
         </div>
@@ -124,28 +121,29 @@
         </ul>
         <div class="tab-container">
             <div id="J_Tab_Con" class="tab-container-cell">
-                {% for list in all_ranking %}
-                {% if forloop.first %}
+                <#list searchAndDown as SeOrDown>
+                <#if SeOrDown_index==0>
                 <ul class="product-list clearfix t_s current">
-                    {% else %}
+                    <#else >
+
                     <ul class="product-list clearfix t_s" style="display:none;">
-                        {% endif %}
-                        {% for songs in list %}
-                        <li>
-                            <a target="play" href="{% url 'play' songs.song.song_id %}" class="pic layz_load pic_po">
-                                <img data-src=""></a>
-                            <h3><a target="play" href="{% url 'play' songs.song.song_id %}">{{ songs.song.song_name
-                                }}</a></h3>
-                            <div class="singer"><span>{{ songs.song.song_singer }}</span></div>
-                            {% if all_ranking|first == list %}
-                            <div class="times">搜索次数：<span>{{ songs.dynamic_search }}</span></div>
-                            {% else %}
-                            <div class="times">下载次数：<span>{{ songs.dynamic_down }}</span></div>
-                            {% endif %}
-                        </li>
-                        {% endfor %}
+                        </#if>
+                        <#list SeOrDown as son>
+                            <li>
+                                <a href="" class="pic layz_load pic_po">
+                                    <img data-src="/upload/${son.song_img}"></a>
+                                <h3><a target="play" href="">${son.song_name}</a></h3>
+                                <div class="singer"><span>${son.song_singer}</span></div>
+                                <#if SeOrDown_index==0>
+                                    <div class="times">搜索次数：<span>${son.info_search}</span></div>
+                                <#else>
+                                    <div class="times">下载次数：<span>${son.info_down}</span></div>
+
+                                </#if>
+                            </li>
+                        </#list >
                     </ul>
-                    {% endfor %}
+                    </#list>
                 </ul>
             </div>
         </div>
