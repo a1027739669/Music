@@ -2,16 +2,12 @@ package com.example.music.demo.service;
 
 import com.example.music.demo.entity.Label;
 import com.example.music.demo.entity.Song;
-import com.example.music.demo.entity.SongAndDyna;
 import com.example.music.demo.repository.LabelRepository;
-import com.example.music.demo.repository.SongAndCountRepository;
 import com.example.music.demo.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import javax.servlet.http.HttpSession;
+import java.util.*;
 
 /**
  * @ProjectName: Music
@@ -31,8 +27,7 @@ public class IndexService {
     private SongRepository songRepository;
     @Autowired
     private LabelRepository labelRepository;
-    @Autowired
-    private SongAndCountRepository songAndCountRepository;
+
 
     public List<Song> getSongWithHot() {
         return songRepository.getMorePlays();
@@ -46,13 +41,34 @@ public class IndexService {
         return songRepository.getNewMusics();
     }
 
-    public List<SongAndDyna> getMoreSearchs(){
-        Pageable pageable=PageRequest.of(1,6);
-        return songAndCountRepository.getMoreSearchs(pageable);
+    public List<Song> getMoreSearchMusics() {
+        return songRepository.getHotSearchMusics();
     }
-    public List<SongAndDyna> getMoreDowns(){
-        Pageable pageable=PageRequest.of(1,6);
-        return songAndCountRepository.getMoreDowns(pageable);
+
+    public List<Song> getMoreDownMusics() {
+        return songRepository.getMoreDownMusics();
+    }
+
+    public List<Song> setPlaySong(HttpSession httpSession, Integer id) {
+        Song song = songRepository.getOne(id);
+        List<Song> playlist= (List<Song>) httpSession.getAttribute("playlist");
+        if (playlist!=null) {
+            int index=playlist.indexOf(song);
+            if(index==-1)
+            playlist.add(0, song);
+            else
+                {
+                    Song temp=playlist.get(0);
+                    playlist.set(0,song);
+                    playlist.set(index,temp);
+                }
+            httpSession.setAttribute("playlist", playlist);
+        } else {
+            playlist = new ArrayList<>();
+            playlist.add(song);
+            httpSession.setAttribute("playlist", playlist);
+        }
+        return playlist;
     }
 
 }

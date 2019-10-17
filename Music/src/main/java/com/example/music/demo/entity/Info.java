@@ -21,6 +21,7 @@ import java.io.Serializable;
 @Table(name = "info")
 @Data
 public class Info implements Serializable {
+    private static final Long serialVersionUID=21412533252366436L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer info_id;
@@ -28,6 +29,4 @@ public class Info implements Serializable {
     private Integer info_search;
     private Integer info_down;
     private Integer song_id;
-
-
 }

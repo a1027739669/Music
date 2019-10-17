@@ -21,6 +21,7 @@ import java.io.Serializable;
 @Data
 @Table(name = "label")
 public class Label implements Serializable {
+    private static final Long serialVersionUID=2141253325236642356L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer label_id;

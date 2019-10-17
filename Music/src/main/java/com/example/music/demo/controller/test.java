@@ -1,13 +1,14 @@
 package com.example.music.demo.controller;
 
-import com.example.music.demo.entity.SongAndDyna;
-import com.example.music.demo.repository.SongAndCountRepository;
-import com.example.music.demo.service.IndexService;
+import com.example.music.demo.entity.Comment;
+import com.example.music.demo.entity.Song;
+import com.example.music.demo.repository.CommentRepository;
+import com.example.music.demo.repository.SongRepository;
+import com.example.music.demo.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 /**
  * @ProjectName: Music
@@ -23,10 +24,17 @@ import java.util.List;
  */
 @Controller
 public class test {
+
     @Autowired
-    private SongAndCountRepository songAndCountRepository;
+    private SongRepository songRepository;
+    @Autowired
+    private CommentRepository commentRepository;
+    @Autowired
+    private SongService songService;
     @GetMapping("/test")
-    public String test(){
-       return "index";
+    public String test(ModelMap modelMap,Integer songId){
+        Song song = songService.getOneDetail(songId);
+        modelMap.addAttribute("song", song);
+       return "detail";
     }
 }

@@ -23,11 +23,11 @@
             <input id="subSerch" type="submit" class="search-button" value="搜 索"/>
         </form>
         <div id="suggest" class="search-suggest"></div>
-        <div class="search-hot-words">
-            {% for song in search_song %}
-            <a target="play" href="{% url 'play' song.song.song_id %}">{{ song.song.song_name }}</a>
-            {% endfor %}
-        </div>
+<#--        <div class="search-hot-words">-->
+<#--            {% for song in search_song %}-->
+<#--            <a target="play" href="{% url 'play' song.song.song_id %}">{{ song.song.song_name }}</a>-->
+<#--            {% endfor %}-->
+<#--        </div>-->
     </div>
 </div>
 <div class="nav-box">
@@ -135,9 +135,9 @@
                                 <h3><a target="play" href="">${son.song_name}</a></h3>
                                 <div class="singer"><span>${son.song_singer}</span></div>
                                 <#if SeOrDown_index==0>
-                                    <div class="times">搜索次数：<span>${son.info_search}</span></div>
+                                    <div class="times">搜索次数：<span>${son.getInfo().info_search}</span></div>
                                 <#else>
-                                    <div class="times">下载次数：<span>${son.info_down}</span></div>
+                                    <div class="times">下载次数：<span>${son.getInfo().info_down}</span></div>
 
                                 </#if>
                             </li>

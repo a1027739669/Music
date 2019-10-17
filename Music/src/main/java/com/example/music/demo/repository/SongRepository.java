@@ -1,7 +1,6 @@
 package com.example.music.demo.repository;
 
 import com.example.music.demo.entity.Song;
-import com.example.music.demo.entity.SongAndDyna;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -28,4 +27,6 @@ public interface SongRepository extends JpaRepository<Song,Integer> {
     public List<Song> getNewMusics();
     @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id order by b.info_search desc limit 6")
     public List<Song> getHotSearchMusics();
+    @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id order by b.info_down desc limit 6")
+    public List<Song> getMoreDownMusics();
 }

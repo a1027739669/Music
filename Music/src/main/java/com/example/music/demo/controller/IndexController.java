@@ -2,7 +2,6 @@ package com.example.music.demo.controller;
 
 import com.example.music.demo.entity.Label;
 import com.example.music.demo.entity.Song;
-import com.example.music.demo.entity.SongAndDyna;
 import com.example.music.demo.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,11 +37,11 @@ public class IndexController {
         modelMap.addAttribute("labelList", labelList);
         List<Song> newMusic=indexService.getNewMusics();
         modelMap.addAttribute("newMusics",newMusic);
-        List<SongAndDyna> moreSearchlist=indexService.getMoreSearchs();
-        List<SongAndDyna> moreDownList=indexService.getMoreDowns();
-        List<List<SongAndDyna>> searchAndDown=new ArrayList<>();
-        searchAndDown.add(moreSearchlist);
-        searchAndDown.add(moreDownList);
+        List<List<Song>> searchAndDown=new ArrayList<>();
+        List<Song> list1=indexService.getMoreSearchMusics();
+        List<Song> list2=indexService.getMoreDownMusics();
+        searchAndDown.add(list1);
+        searchAndDown.add(list2);
         modelMap.addAttribute("searchAndDown",searchAndDown);
         return "index";
     }

@@ -1,8 +1,9 @@
 package com.example.music.demo.entity;
 
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.mapping.FetchProfile;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +23,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "song")
 @Data
-public class Song  implements Serializable {
+public class Song implements Serializable {
+    private static final Long serialVersionUID = 214646383835L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer song_id;
@@ -38,6 +40,11 @@ public class Song  implements Serializable {
     private String song_file;
     private Integer label_id;
     private Integer album_id;
-
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "Info", joinColumns = {@JoinColumn(name = "song_id")}, inverseJoinColumns = {@JoinColumn(name = "song_id")})
+    private Info info;
+    @ManyToOne(targetEntity = Album.class,fetch = FetchType.LAZY)
+    @JoinColumn(name="album_id",insertable = false,updatable = false,referencedColumnName="album_id")
+    @JsonIgnore
+    private Album album;
 }
