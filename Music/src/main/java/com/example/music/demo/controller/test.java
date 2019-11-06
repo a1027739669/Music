@@ -1,7 +1,5 @@
 package com.example.music.demo.controller;
 
-import com.example.music.demo.entity.Comment;
-import com.example.music.demo.entity.Song;
 import com.example.music.demo.repository.CommentRepository;
 import com.example.music.demo.repository.SongRepository;
 import com.example.music.demo.service.SongService;
@@ -32,9 +30,8 @@ public class test {
     @Autowired
     private SongService songService;
     @GetMapping("/test")
-    public String test(ModelMap modelMap,Integer songId){
-        Song song = songService.getOneDetail(songId);
-        modelMap.addAttribute("song", song);
-       return "detail";
+    public String test(ModelMap modelMap){
+
+       return "home2";
     }
 }

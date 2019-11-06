@@ -23,11 +23,6 @@
             <input id="subSerch" type="submit" class="search-button" value="搜 索"/>
         </form>
         <div id="suggest" class="search-suggest"></div>
-<#--        <div class="search-hot-words">-->
-<#--            {% for song in search_song %}-->
-<#--            <a target="play" href="{% url 'play' song.song.song_id %}">{{ song.song.song_name }}</a>-->
-<#--            {% endfor %}-->
-<#--        </div>-->
     </div>
 </div>
 <div class="nav-box">

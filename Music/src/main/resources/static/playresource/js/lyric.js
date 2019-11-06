@@ -19,7 +19,7 @@ function lyricCallback(url) {
         type:"post",
         success:function(data){
 
-            if(data == '暂无歌词') {
+            if(data == '') {
                 lyricTip('乐诗、悦动你的生活');
                 return false;
             }

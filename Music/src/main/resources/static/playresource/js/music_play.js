@@ -55,7 +55,7 @@ var krAudio = {
 
 	init:function(){//播放器初始化
 		this.audioDom.volume = 0.5;  //初始音量为一半
-		this.allItem = $("#main-list").children('.list-item').length; //播放列表的总数
+		// this.allItem = $("#main-list").children(".list-item").length; //播放列表的总数
 		this.time(); //正在播放和播放结束
 		this.controlTime("music-progress"); //播放进度条
 		this.controlVoice("volume-progress"); //音量条

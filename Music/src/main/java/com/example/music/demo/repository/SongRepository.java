@@ -29,4 +29,6 @@ public interface SongRepository extends JpaRepository<Song,Integer> {
     public List<Song> getHotSearchMusics();
     @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id order by b.info_down desc limit 6")
     public List<Song> getMoreDownMusics();
+    @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id and songorder by b.info_plays")
+    public List<Song> getSongPage();
 }

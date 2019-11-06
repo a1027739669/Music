@@ -25,7 +25,7 @@ import java.io.Serializable;
 public class Comment implements Serializable {
     private static final Long serialVersionUID=2141253325246858568L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer comment_id;
     private String comment_text;
     private Integer comment_user;

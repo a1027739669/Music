@@ -87,12 +87,12 @@
         <div class="player" id="player">
             <!--歌曲封面-->
             <div class="cover">
-                <img src="songImg/1.jpg" class="music-cover" id="music-cover">
+                <img src="" class="music-cover" id="music-cover">
             </div>
             <!--滚动歌词-->
             <div class="lyric">
                 <ul id="lyric">
-                    <li class='lyric-tip'></li>
+<#--                    <li class='lyric-tip'>gsgds</li>-->
                 </ul>
             </div>
             <div id="music-info" title="点击查看歌曲信息"></div>
@@ -174,5 +174,8 @@
 <script src="playresource/js/background-blur.min.js"></script>
 
 </body>
-
+<script type="text/javascript">
+    var long1="#{playlist ? size}";
+    krAudio.allItem = long1; //播放列表的总数
+</script>
 </html>

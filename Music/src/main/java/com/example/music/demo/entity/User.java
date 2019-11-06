@@ -21,10 +21,10 @@ import javax.persistence.*;
 @Table(name = "myuser")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String user_image;
-    private String usernmae;
+    private String username;
     private String password;
     private String last_login;
     private Integer is_super;
@@ -34,4 +34,5 @@ public class User {
     private String mobile;
     private String user_qq;
     private String user_wechat;
+    private Integer isAlive;
 }

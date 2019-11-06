@@ -23,10 +23,11 @@ import java.io.Serializable;
 public class Info implements Serializable {
     private static final Long serialVersionUID=21412533252366436L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer info_id;
     private Integer info_plays;
     private Integer info_search;
     private Integer info_down;
     private Integer song_id;
+
 }

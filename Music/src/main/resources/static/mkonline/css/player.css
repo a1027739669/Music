@@ -362,6 +362,16 @@ body {
     float: right;
     display: none;
 }
+.list-menuhome{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 0;
+    height: 36px;
+    margin-top: -18px;
+    float: right;
+    display: none;
+}
 .list-item:hover .list-menu {
     display: block;
 }

@@ -41,13 +41,13 @@
                         <a onclick="toPage(${commentPage.getNumber()},${song.song_id})" class="prev"
                            target="_self"><i></i>上一页</a>
                     </#if>
-                    <#if (commentPage.totalPages>=15)>
-                        <#list 0..14 as pageIndex>
-                            <#if pageIndex==commentPage.getNumber()%15>
-                                <span class="sel">${pageIndex+1}</span>
+                    <#if ((commentPage.totalPages-commentPage.getNumber())>=10)>
+                        <#list 0..9 as pageIndex>
+                            <#if pageIndex==commentPage.getNumber()%10>
+                                <span class="sel">${commentPage.getNumber()+1}</span>
                             <#else >
-                                <a onclick="toPage(${pageIndex+1},${song.song_id})"
-                                   >${pageIndex+1}</a>
+                                <a onclick="toPage(${pageIndex+1+(commentPage.getNumber()/10?int)*10},${song.song_id})"
+                                   >${pageIndex+1+((commentPage.getNumber()/10)?floor)*10}</a>
                             </#if>
                         </#list>
                     <#else>
