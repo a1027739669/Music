@@ -36,4 +36,5 @@ public class SongSheet {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "sheet_to_sheetdetail",joinColumns = {@JoinColumn(name = "sheetId")},inverseJoinColumns = {@JoinColumn(name = "sheetId",insertable = false,updatable = false)})
     public List<SheetDetail> details;
+    
 }

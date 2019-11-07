@@ -85,7 +85,7 @@
             <a href="javascript:;" class="mod_btn js_all_down" data-stat="y_new.toplist.downloadall"><i
                         class="mod_btn__icon_down"></i>下载</a>
         </div>
-        
+
   <div id="ranklist">
         <div class="mod_songlist">
             <ul class="songlist__header">
