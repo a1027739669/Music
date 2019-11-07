@@ -21,6 +21,7 @@ import javax.persistence.*;
 @Data
 @Table(name = "sheetdetail")
 public class SheetDetail {
+    private static final Long serialVersionUID = 214646532525L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
