@@ -33,13 +33,13 @@ public class RankingController {
     private SongService songService;
     @Autowired
     private LabelService labelService;
-    @GetMapping("/songRank")
+    @GetMapping("/guest/songRank")
     public String songRanking(ModelMap modelMap){
         List<Label> labelList = indexService.getAllLabel();
         modelMap.addAttribute("labelList", labelList);
         return "rank";
     }
-    @GetMapping("/songTable")
+    @GetMapping("/guest/songTable")
     public String songTable(ModelMap modelMap,Integer labelId,Integer pageId){
         Page<SongClass> songClassPage=songService.getSongPage(labelId, pageId);
         modelMap.addAttribute("songPage",songClassPage);

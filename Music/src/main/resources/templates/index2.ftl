@@ -1,789 +1,864 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
-	<link rel="stylesheet" href="qqmusiccss/css/base.css" />
-	<link rel="stylesheet" href="qqmusiccss/css/header.css" />
-	<link rel="stylesheet" href="qqmusiccss/css/content.css" />
-	<link rel="stylesheet" href="qqmusiccss/css/footer.css" />
-	<link rel="stylesheet" href="qqmusiccss/css/reset.css" />
+
+
+    <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
+    <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
+    <meta name="description"
+          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
+    <title>QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <script src="/bin/jquery-3.4.1.js"></script>
+    <script src="/js/head.js"></script>
+    <script src="/js/index.js"></script>
+
 </head>
 <body>
 
-	<!--             头部                   -->
-	<div class="header">
-		<div class="nav inner">
-			<div class="nav_t">
-				<div class="logo">
-					<a href="#"><img src="qqmusiccss/images/logo.png" alt="" /></a>
-				</div>
-				<div class="top_nav__item">
-					<ul>
-						<li><a href="#" class="current" title ="音乐馆">音乐馆</a></li>
-						<li><a href="#" title="我的音乐">我的音乐</a></li>
-						<li><a href="#" title="客户端">客户端</a></li>
-						<li><a href="#" title="音乐号">音乐号</a></li>
-						<li><a href="#" title="VIP">VIP</a></li>
-					
-					</ul>
-				</div>
-				<div class="search">
-					<input type="text" placeholder="搜索音乐、MV、歌单、用户" />
-					<i></i>
-				</div>
-				<div class="header_buttons">
-					<a href="#" class="sumbit">登录</a>
-					<a href="#" class="start">开通绿钻豪华版</a>
-					<a href="#" class="pay">开通付费包</a>
-
-				</div>
-
-			
-			</div>
-			<div class="nav_b">
-				<ul>
-					<li>
-						<a class="current" href="#">首页</a>
-					</li>
-					<li>
-						<a href="#">专辑</a>
-					</li>
-					<li>
-						<a href="#">歌手</a>
-					</li>
-					<li>
-						<a href="#">排行榜</a>
-					</li>
-					<li>
-						<a href="#">分类歌单</a>
-					</li>
-					<li>
-						<a href="#">电台</a>
-					</li>
-					<li>
-						<a href="#">MV</a>
-					</li>
-					<li>
-						<a href="#">数字专辑</a>
-					</li>
-					
-					
-				</ul>
-			</div>
-		</div>
-		
-	</div>
-	<div class="cl"></div>
-
-	<!--              内容                   -->
-	<!-- 歌单推荐 -->
-	<div class="content">
-		<div class="inner">
-			<div class="songSheet">
-				<div class="songSheet_h">
-					<h2><span>歌单推荐</span></h2>
-				</div>
-
-				<div class="songSheet_table">
-					<ul>
-						<li>
-							<a href="#" class="current">为你推荐</a>
-						</li>
-						<li>
-							<a href="#">网络歌曲</a>
-						</li>
-						<li>
-							<a href="#">国语</a>
-						</li>
-						<li>
-							<a href="#">粤语精选</a>
-						</li>	
-						<li>
-							<a href="#">劲爆DJ</a>
-						</li>
-						<li>
-							<a href="#">热门游戏</a>
-						</li>
-					
-					
-					</ul>
-				</div>
-				<div class="songSheet_content">
-					<ul>
-						<li>
-							<img src="qqmusiccss/images/汪苏泷.jpg" alt="" />
-							<a href="">每日新歌：汪苏泷深情献唱影视插曲</a>
-							<span>播放量：1.3万</span>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/华晨宇.jpg" alt="" />
-							<a href="">「花式摇滚VS峰式摇滚」引爆你压抑的灵魂</a>
-							<span>播放量：4416</span>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/桥.jpg" alt="" />
-							<a href="">古风·儿歌 | 藏剑少爷的学前音乐教材</a>
-							<span>播放量：13.6万</span>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/姑娘.jpg" alt="" />
-							<a href="">冷门电音：无法遗忘的女声诱惑</a>
-							<span>播放量：13.5万</span>
-							<i></i>
-						</li>
-						<li class="nomargin">
-							<img src="qqmusiccss/images/女生.jpg" alt="" />
-							<a href="">2018年3月华语新歌推荐</a>
-							<span>播放量：35.1万</span>
-							<i></i>
-						</li>
-
-					</ul>
-
-				</div>
-				<div class="songSheet_circles">
-					<ol>
-						<li class="current"></li>
-						<li></li>
-					</ol>
-				</div>
-				<div class="carrousel">
-					<a href="#" class="leftBtn"></a>
-					<a href="#" class="rightBtn"></a>
-				</div>
-
-				
-			</div>
-		</div>
-		
-	</div>
-	<div class="cl"></div>
-	<!-- 新歌首发 -->
-	<div class="content">
-		<div class="inner">
-			<div class="songSheet">
-				<div class="songSheet_h new">
-					<h2><span>新歌首发</span></h2>
-				</div>
-				<a href="#" class="playall"><i></i>播放全部</a>
-				<div class="songSheet_table area">
-					<ul>
-						<li>
-							<a href="#" class="current">内地</a>
-						</li>
-						<li>
-							<a href="#">港台</a>
-						</li>
-						<li>
-							<a href="#">欧美</a>
-						</li>
-						<li>
-							<a href="#">日本</a>
-						</li>	
-						<li>	
-							<a href="#">韩国</a>
-						</li>
-					</ul>
-				</div>
-				<div class="newsongs">
-					<ul>
-						<li class="first ">
-							<img src="qqmusiccss/images/newsong1.jpg" title ="No One Knows" />
-							<a href="#" title="No One Knows 《南方有乔木》电视剧插曲" class="current">No One Knows 《南方有乔木...</a>
-							<a href="#" class="songer" title="汪苏泷">汪苏泷</a>
-							<span>3:55</span>
-						</li>
-						<li class="first">
-							<img src="qqmusiccss/images/newsong2.jpg" title ="远大前程" />
-							<a href="#" title="远大前程">远大前程</a>
-							<a href="#" class="songer" title="南征北战NZBZ">南征北战NZBZ</a>
-							<span>3:23</span>
-						</li>
-						<li class="first">
-							<img src="qqmusiccss/images/newsong3.jpg" title ="想你的一夜" />
-							<a href="#" title="想你的一夜">想你的一夜</a>
-							<a href="#" class="songer" title="孙子涵">孙子涵</a>
-							<span>3:55</span>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong4.jpg" title ="《北京女子图鉴》网络剧主题曲" />
-							<a href="#" title="《北京女子图鉴》网络剧主题曲">送你一匹马 《北京女子...</a>
-							<a href="#" class="songer" title="金志文">金志文</a>
-							<span>2:56</span>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong5.jpg" title ="十八岁给我一个姑娘" />
-							<a href="#" title="十八岁给我一个姑娘">十八岁给我一个姑娘 《十八岁</a>
-							<a href="#" class="songer" title="好妹妹乐队">好妹妹乐队</a>
-							<span>4:02</span>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong6.jpg" title ="《新笑傲江湖》电视剧插曲" />
-							<a href="#" title="《新笑傲江湖》电视剧插曲">落花 《新笑傲江湖》电视剧插..</a>
-							<a href="#" class="songer" title="李琦">李琦</a>
-							<span>3:35</span>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong7.jpg" title ="Sorry" />
-							<a href="#" title="Sorry">Sorry</a>
-							<a href="#" class="songer" title="艾福杰尼">艾福杰尼</a>
-							<span>5:07</span>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong8.jpg" title ="我不想哭" />
-							<a href="#" title="我不想哭">我不想哭</a>
-							<a href="#" class="songer" title="晨曦">晨曦</a>
-							<span>4:12</span>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong9.jpg" title ="花开" />
-							<a href="#" title="花开">花开</a>
-							<a href="#" class="songer" title="陈粒">陈粒</a>
-							<span>3:46</span>
-						</li>
-						
-					</ul>
-				</div>
-				<div class="songSheet_circles">
-					<ol class="four">
-						<li class="current"></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ol>
-				</div>
-				<div class="carrousel">
-					<a href="#" class="leftBtn"></a>
-					<a href="#" class="rightBtn"></a>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<div class="cl"></div>
-	<!-- 精彩推荐 -->
-
-	<div class="content introduce">
-		<div class="inner">
-			<div class="songSheet">
-				<div class="songSheet_h exclusive">
-					<h2><span>精彩推荐</span></h2>
-				</div>
-				<div class="songSheet_table dujia">
-					<a href="#"><img src="qqmusiccss/images/独家张杰.jpg" alt="" /></a>
-					<a href="#"><img src="qqmusiccss/images/独家民谣.jpg" alt="" /></a>
-				</div>
-
-				<div class="songSheet_circles">
-					<ol class="three">
-						<li class="current"></li>
-						<li></li>
-						<li></li>
-					</ol>
-				</div>
-				<div class="carrousel dujiaBtn">
-					<a href="#" class="leftBtn"></a>
-					<a href="#" class="rightBtn"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="cl"></div>
-	<!-- 新碟首发 -->
-	<div class="content dishs">
-		<div class="inner">
-			<div class="songSheet">
-				<div class="songSheet_h dish">
-					<h2><span>新碟首发</span></h2>
-				</div>
-				<a href="#" class="more">更多<span></span></a>
-				<div class="songSheet_table area">
-					<ul>
-						<li>
-							<a href="#" class="current">内地</a>
-						</li>
-						<li>
-							<a href="#">港台</a>
-						</li>
-						<li>
-							<a href="#">欧美</a>
-						</li>
-						<li>
-							<a href="#">韩国</a>
-						</li>	
-						<li>	
-							<a href="#">日本</a>
-						</li>
-					</ul>
-				</div>
-
-				<div class="songSheet_content newdish">
-					<ul>
-						<li>
-							<img src="qqmusiccss/images/newdish1.jpg" alt="" />
-							<a href="">经典咏流传</a>
-							<a href="#" title="张杰">张杰</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish2.jpg" alt="" />
-							<a href="">杰姆金属音乐节 live合辑</a>
-							<a  href="#" title="华语群星">华语群星</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish3.jpg" alt="" />
-							<a href="">我在诛仙逍遥涧</a>
-							<a href="#" title="王俊凯">王俊凯</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish4.jpg" alt="" />
-							<a href="">千世劫</a>
-							<a  href="#" title="萌萌哒天团">萌萌哒天团</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish5.jpg" alt="" />
-							<a href="">郝云2016-2017冲动巡演全纪录</a>
-							<a  href="#" title="郝云">郝云</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish6.jpg" alt="" />
-							<a href="">永远的我</a>
-							<a  href="#" title="陈冰">陈冰</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish7.jpg" alt="" />
-							<a href="">青春不再回</a>
-							<a  href="#" title="许华升" >许华升</a>
-							<i></i>
-						</li><li>
-							<img src="qqmusiccss/images/newdish8.jpg" alt="" />
-							<a href="">别样桃花</a>
-							<a  href="#" title="徐子崴">徐子崴</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newsong9.jpg" alt="" />
-							<a href="">给你</a>
-							<a  href="#" title="曾缔">曾缔</a>
-							<i></i>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/newdish10.jpg" alt="" />
-							<a href="">幸福的弧度</a>
-							<a href="#" title="唐一嘉">唐一嘉</a>
-							<i></i>
-						</li>
-					
-					</ul>
-				</div>
-				<div class="songSheet_circles">
-					<ol class="four">
-						<li class="current"></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ol>
-				</div>
-				<div class="carrousel dishBtn">
-					<a href="#" class="leftBtn"></a>
-					<a href="#" class="rightBtn"></a>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<div class="cl"></div>
-
-	<!-- 排行榜 -->
-
-	<div class="content ranks">
-		<div class="inner">
-			<div class="songSheet">
-				<div class="songSheet_h rank">
-					<h2><span>排行榜</span></h2>
-				</div>
-				<a href="#" class="more rankbang">更多<span></span></a>
-				<div class="songranks">
-					<ul>
-						<li class="rank1">
-							<h3>
-								<a href="#">流行指数</a>
-								<span></span>
-							</h3>
-							<div class="ge">
-								<span>1 </span>
-								<a href="#">平凡之路</a>
-								<a   href="#" class="geshou">朴树</a>
-							</div>
-							<div class="ge er">
-								<span>2 </span>
-								<a  href="#">假行僧(live)</a>
-								<a  href="#" class="geshou">华晨宇</a>
-							</div>
-							<div class="ge san">
-								<span>3 </span>
-								<a  href="#">童话幻灭</a>
-								<a  href="#" class="geshou">蒋蒋/王乐乐</a>
-							</div>
-							<div class="ge si">
-								<span>4 </span>
-								<a  href="#">和你在一起</a>
-								<a  href="#" class="geshou">汪苏泷</a>
-							</div>
-							
-						</li>
-						<li  class="rank2">
-							<h3>
-								<a href="#">热歌</a>
-								<span></span>
-							</h3>
-							<div class="ge">
-								<span>1 </span>
-								<a href="#">离人愁</a>
-								<a   href="#" class="geshou">袁仁杰</a>
-							</div>
-							<div class="ge er">
-								<span>2 </span>
-								<a  href="#">体面</a>
-								<a  href="#" class="geshou">于文文</a>
-							</div>
-							<div class="ge san">
-								<span>3 </span>
-								<a  href="#">白羊</a>
-								<a  href="#" class="geshou">徐秉龙/沈以诚</a>
-							</div>
-							<div class="ge si">
-								<span>4 </span>
-								<a  href="#">空空如也</a>
-								<a  href="#" class="geshou">胡66</a>
-							</div>
-						</li>
-						<li class="rank3">
-							<h3>
-								<a href="#">新歌</a>
-								<span></span>
-							</h3>
-							<div class="ge">
-								<span>1 </span>
-								<a href="#">No One Knows</a>
-								<a   href="#" class="geshou">汪苏泷</a>
-							</div>
-							<div class="ge er">
-								<span>2 </span>
-								<a  href="#">送你一匹马</a>
-								<a  href="#" class="geshou">金志文</a>
-							</div>
-							<div class="ge san">
-								<span>3 </span>
-								<a  href="#">你不会懂</a>
-								<a  href="#" class="geshou">钟欣潼</a>
-							</div>
-							<div class="ge si">
-								<span>4 </span>
-								<a  href="#">想你一整夜</a>
-								<a  href="#" class="geshou">孙子涵</a>
-							</div>
-						</li>
-						<li class="rank4">
-							<h3>
-								<a href="#">欧美</a>
-								<span></span>
-							</h3>
-							<div class="ge">
-								<span>1 </span>
-								<a href="#">Everybody Hates Me</a>
-								<a   href="#" class="geshou">The Chainsmokers</a>
-							</div>
-							<div class="ge er">
-								<span>2 </span>
-								<a  href="#">Strawberries&amp;Ciga...</a>
-								<a  href="#" class="geshou">Troye Sivan</a>
-							</div>
-							<div class="ge san">
-								<span>3 </span>
-								<a  href="#">Done For Me</a>
-								<a  href="#" class="geshou">Charlie Puth/Kehlani</a>
-							</div>
-							<div class="ge si">
-								<span>4 </span>
-								<a  href="#">Remind Me to Forget</a>
-								<a  href="#" class="geshou">Kygo/Miguel</a>
-							</div>
-						</li>
-						<li class="nomargin rank5">
-							<h3>
-								<a href="#">韩国</a>
-								<span></span>
-							</h3>
-							<div class="ge">
-								<span>1 </span>
-								<a href="#">Look</a>
-								<a   href="#" class="geshou">GOT7 (갓세븐)</a>
-							</div>
-							<div class="ge er">
-								<span>2 </span>
-								<a  href="#">LOVE SCENARIO (사...</a>
-								<a  href="#" class="geshou">iKON (아이콘)</a>
-							</div>
-							<div class="ge san">
-								<span>3 </span>
-								<a  href="#">뿜뿜 (BBoom BBoom...</a>
-								<a  href="#" class="geshou">모모랜드 (MOMO...</a>
-							</div>
-							<div class="ge si">
-								<span>4 </span>
-								<a  href="#">별이 빛나는 밤(Star...</a>
-								<a  href="#" class="geshou">MAMAMOO (마마무)</a>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-			</div>	
-		</div>
-	</div>
-
-	<div class="cl"></div>
-
-	<!-- MV -->
-	<div class="content MVs">
-		<div class="inner">
-			<div class="songSheet">
-				<div class="songSheet_h MV">
-					<h2><span>MV</span></h2>
-				</div>
-				<div class="songSheet_table MV_content">
-					<ul>
-						<li>
-							<a href="#" class="current">精选</a>
-						</li>
-						<li>
-							<a href="#">内地</a>
-						</li>
-						<li>	
-							<a href="#">韩国</a>
-						</li>
-						<li>
-							<a href="#">港台</a>
-						</li>
-						<li>
-							<a href="#">欧美</a>
-						</li>
-						<li>
-							<a href="#">日本</a>
-						</li>	
-						
-					</ul>
-				</div>
+<!--header start-->
+<header class="header">
+    <div class="header-box">
+        <h1 class="header-title">
+            <a href="javascript:;"><img class="logo-img" src="/image/logo.png" alt="QQ音乐"></a>
+            <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
+        </h1>
+        <ul class="header-top-nav">
+            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">音乐馆</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="我的音乐">我的音乐</a></li>
+            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
+                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
+                <div class="nav-item-detail">
+                    <p>
+                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
+                    </p>
+                    <p>
+                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
+                    </p>
+                    <p>
+                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
+                    </p>
+                    <a href="javascript:;" class="client-download">下载体验</a>
+                </div>
+            </li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
+        </ul>
+        <#--            <ul class="header-sec-nav">-->
+        <#--                <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>-->
+        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>-->
+        <#--            </ul>-->
+        <div class="header-search">
+            <div class="search-input ">
+                <input type="text" placeholder="搜索音乐、MV、歌单、用户">
+                <button class="search-btn">
+                    <i class="icon-search sprite"></i>
+                </button>
+            </div>
+            <div class="search-box">
+                <div class="search-hot">
+                    <dl>
+                        <dt>热门搜索</dt>
+                        <dd>
+                            <a href="#" class="hot-link">
+                                <span class="hot-num">1</span>
+                                <span class="hot-name">野狼disco</span>
+                                <span class="hot-people">101.6w</span>
+                            </a>
+                            <a href="#" class="hot-link">
+                                <span class="hot-num">2</span>
+                                <span class="hot-name">那个女孩</span>
+                                <span class="hot-people">82.2w</span>
+                            </a>
+                            <a href="#" class="hot-link">
+                                <span class="hot-num">3</span>
+                                <span class="hot-name">大田后生仔</span>
+                                <span class="hot-people">66.1w</span>
+                            </a>
+                            <a href="#" class="hot-link">
+                                <span class="hot-num">4</span>
+                                <span class="hot-name">许嵩</span>
+                                <span class="hot-people">65.8w</span>
+                            </a>
+                            <a href="#" class="hot-link">
+                                <span class="hot-num">5</span>
+                                <span class="hot-name">遗憾</span>
+                                <span class="hot-people">43.9w</span>
+                            </a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="search-history">
+                    <dl class="history-list">
+                        <dt class="history-tit">搜索历史
+                            <a href="javascript:;" class="history-clear">
+                                <i class="icon-clear sprite"></i>
+                            </a>
+                        </dt>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="header__opt">
 
 
-				<div class="songSheet_content Mvideo">
-					<ul>
-						<li>
-							<img src="qqmusiccss/images/mv1.png" alt="" />
-							<a href="" title="披头士来了！－披头士乐队中国全曲库上线发行特别策划－ (Vol.2 被Beatles哪首歌一耳钟情？)">披头士来了！－披头士乐队中国...</a>
-							<a href="#" class="geshou" title="The Beatles">The Beatles</a>
-							<i></i>
-							<p><span></span>&nbsp;9536</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv2.png" alt="" />
-							<a href="" title = "最好的快要发生">最好的快要发生</a>
-							<a href="#" class="geshou" title="马天宇">马天宇</a>
-							<i></i>
-							<p><span></span>&nbsp;6925</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv3.png" alt="" />
-							<a href="" title="十八岁给我一个姑娘 (《十八岁给我一个姑娘》电视剧同名主题曲)">十八岁给我一个姑娘 (《十八岁..</a>
-							<a href="#" class="geshou" title="好妹妹乐队">好妹妹乐队</a>
-							<i></i>
-							<p><span></span>&nbsp;3.5万</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv4.png" alt="" />
-							<a href="" title="你不会懂 (网剧《动物系恋人啊》片尾特別指定曲)">你不会懂 (网剧《动物系恋人..</a>
-							<a href="#" class="geshou" title="钟欣潼">钟欣潼</a>
-							<i></i>
-							<p><span></span>&nbsp;2.9万</p>
-						</li>
-						<li class="nomargin">
-							<img src="qqmusiccss/images/mv5.png" alt="" />
-							<a href="" title="爱了很久的朋友 (《后来的我们》电影插曲)">爱了很久的朋友 (《后来的我...</a>
-							<a href="#" class="geshou" title="田馥甄">田馥甄</a>
-							<i></i>
-							<p><span></span>&nbsp;1.5万</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv6.png" alt="" />
-							<a href="" title = "明星">明星</a>
-							<a href="#" class="geshou" title="胡彦斌">胡彦斌</a>
-							<i></i>
-							<p><span></span>&nbsp;1万</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv7.png" alt="" />
-							<a href="" title = "远大前程 (《远大前程》电视剧同名主题曲)">远大前程 (《远大前程》电视...</a>
-							<a href="#" class="geshou" title="南征北战NZBZ">南征北战NZBZ</a>
-							<i></i>
-							<p><span></span>&nbsp;1.5万</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv8.png" alt="" />
-							<a href="" title = "Say I Do">Say I Do</a>
-							<a href="#" class="geshou" title="弦子">弦子</a>
-							<i></i>
-							<p><span></span>&nbsp;2.1万</p>
-						</li>
-						<li>
-							<img src="qqmusiccss/images/mv9.png" alt="" />
-							<a href="" title = "因为遇见你2018版 (《遇见你真好》电影片尾曲)">因为遇见你2018版 (《遇见你..</a>
-							<a href="#" class="geshou" title="王源">王源</a>
-							<i></i>
-							<p><span></span>&nbsp;3.1万</p>
-						</li>
-						<li class="nomargin">
-							<img src="qqmusiccss/images/mv10.png" alt="" />
-							<a href="" title = "红烧肉">红烧肉</a>
-							<a href="#" class="geshou" title="王蓉">王蓉</a>
-							<i></i>
-							<p><span></span>&nbsp;1.3万</p>
-						</li>
-						
-					</ul>
-				</div>
+            <!-- 未登录 -->
+            <span class="mod_top_login">
+		    <a class="top_login__link js_logined" href="//y.qq.com/portal/profile.html#stat=y_new.top.user_pic"
+               onclick="" style=""><img
+                        src="/upload/1.jpg"
+                        class="top_login__cover js_user_img"></a>
+                </span>
+            <!-- 用户信息 -->
 
-				<div class="songSheet_circles">
-					<ol class="four">
-						<li class="current"></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ol>
-				</div>
-				<div class="carrousel  mvBtn">
-					<a href="#" class="leftBtn"></a>
-					<a href="#" class="rightBtn"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="cl"></div>
-
-	<!--                   尾部             -->
-	<div class="footer">
-		<div class="inner">
-			<div class="footer_h">
-				<div class="info client">
-					<h3>下载QQ音乐客户端</h3>
-					<ul>
-						<li>
-							<a href="#" class="pc current">	<span>Pc版</span></a>
-						
-						</li>
-						<li>
-							<a href="#"  class="mac"><span>Mac版</span></a>
-							
-						</li>
-						<li>
-							<a href="#"  class="android"><span>Android版</span></a>
-							
-						</li>
-						<li>
-							<a href="#"  class="iphone"><span>iPhone版</span></a>
-							
-						</li>
-					</ul>
-				</div>
+        </div>
+    </div>
+</header>
+<!--main content-->
 
 
+<main>
+    <!--song list recommendation start-->
+    <div class="songList">
+        <div class="opt-switch">
+            <div class="switch-item s-left">
+                <a href="javascript:;" class="switch-btn btn-left">
+                    <i class="icon-arrow icon-left sprite"></i>
+                </a>
+            </div>
+            <div class="switch-item s-right">
+                <a href="javascript:;" class="switch-btn btn-right">
+                    <i class="icon-arrow icon-right sprite"></i>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="head-title">
+                <h2 class="icon-song-list icon-txt"></h2>
+            </div>
+            <div class="song-tab">
+                <a href="javascript:;" class="tab-item active">为你推荐</a>
+                <a href="javascript:;" class="tab-item">运动</a>
+                <a href="javascript:;" class="tab-item">背景音乐</a>
+                <a href="javascript:;" class="tab-item">网络歌曲</a>
+                <a href="javascript:;" class="tab-item">官方歌单</a>
+                <a href="javascript:;" class="tab-item">情歌</a>
+            </div>
+            <div class="playlist">
+                <ul class="playlist-ul">
+                    <#list randomSheet as sheet>
+                        <li class="playlist-item">
+                            <div class="item-box">
+                                <a href="javascript:;" class="link-img">
+                                    <img src="/upload/${sheet.sheetImg}" alt=""
+                                         class="playlist-link-img">
+                                    <i class="img-mask"></i>
+                                    <i class="img-btn"></i>
+                                </a>
+                                <h4 class="item-title">
+                                    <span><a href="javascript:;"><font
+                                                    color="black">${sheet.introduction}</font></a></span>
+                                </h4>
+                                <div class="play-people">
+                                    播放量：${sheet.support}万
+                                </div>
+                            </div>
+                        </li>
+                    </#list>
+                    <#list randomSheet as sheet>
+                        <li class="playlist-item">
+                            <div class="item-box">
+                                <a href="javascript:;" class="link-img">
+                                    <img src="/upload/${sheet.sheetImg}" alt=""
+                                         class="playlist-link-img">
+                                    <i class="img-mask"></i>
+                                    <i class="img-btn"></i>
+                                </a>
+                                <h4 class="item-title">
+                                    <span><a href="javascript:;">${sheet.introduction}</a></span>
+                                </h4>
+                                <div class="play-people">
+                                    播放量：${sheet.support}万
+                                </div>
+                            </div>
+                        </li>
+                    </#list>
+                </ul>
+            </div>
+            <div class="bottom-point">
+                <a href="javascript:;" class="bottom-point-item active">
+                    <i class="point "></i>
+                </a>
+                <a href="javascript:;" class="bottom-point-item">
+                    <i class="point"></i>
+                </a>
+            </div>
 
-				<div class="info client  special">
-						<h3>特色产品</h3>
-						<ul>
-							<li >
-								<a href="#"  class="kge"><span>全民K歌</span></a>
-							</li>
-							<li >
-								<a href="#"  class="super"><span>Super Sound</span></a>
-							</li>
-							<li >
-								<a href="#"  class="Qp"><span>QPlay</span></a>
-							</li>
-							<li  class="none"><a href="#"><span>车载互联</span></a></li>
-							<li  class="none"><a href="#"><span>QQ演出</span></a></li>
-							
-						</ul>
-				</div>
-				<div class="info client nomargin links">
-					<h3>合作链接</h3>
-					<ul>
-						<li><a href="#">CJ E&amp;M</a></li>
-						<li><a href="#">腾讯视频</a></li>
-						<li><a href="#">手机QQ空间</a></li>
-						<li><a href="#">最新版QQ</a></li>
-						<li><a href="#">腾讯社交广告</a></li>
-						<li><a href="#">电脑管家</a></li>
-						<li><a href="#">QQ浏览器</a></li>
-						<li><a href="#">腾讯微云</a></li>
-						<li><a href="#">腾讯云</a></li>
-						<li><a href="#">企鹅FM</a></li>
-						<li><a href="#">智能电视网</a></li>
-						<li><a href="#">当贝市场</a></li>
-					</ul>
+        </div>
 
-				</div>
-			</div>
-				
-			<div class="cl"></div>
-			<div class="footer_platform">
-				<h3>开放平台</h3>
-				<ul>
-					<li><a href="#">腾讯音乐人平台</a></li>
-					<li><a href="#">音乐号认证</a></li>
-					<li><a href="#">上传视频</a></li>
-					<li><a href="#">上传音频</a></li>
-				</ul>
-			</div>
-			<div class="footer_copyright">
-				<p>
-						<a href="#">关于腾讯</a> |
-						<a href="#">About Tencent</a> |
-						<a href="#">服务条款</a> |
-						<a href="#">用户服务协议</a> |
-						<a href="#">隐私政策</a> |
-						<a href="#">权利声明</a> |
-						<a href="#">广告服务</a> |
-						<a href="#">腾讯招聘</a> |
-						<a href="#">客服中心</a> |
-						<a href="#">网站导航</a> |
-					
-				</p>
-				<p>Copyright © 1998 - 2018 Tencent. by <a href="#">Cty</a><a href="#">All Rights Reserved.</a></p>
-				<p>腾讯公司 
-					<a href="#">版权所有</a>
-					<a href="#">腾讯网络文化经营许可证</a>
-				</p>
-			</div>
-		</div>
-	</div>
+    </div>
+    <!--new songs first-->
+    <div class="newSongs">
+        <div class="section-container">
+            <div class="new-songs-title">
+                <h2 class="tit-box icon-txt">
+                    <i class="icon-new-songs">新歌首发</i>
+                </h2>
+            </div>
+            <a href="javascript:;" class="play-all" onclick="playAll()">
+                <i class="icon-pause sprite"></i>
+                播放所有
+            </a>
+            <div class="new-songs-tab">
+                <a href="javascript:;" class="ns-tab-item active">最新</a>
+                <a href="javascript:;" class="ns-tab-item">内地</a>
+                <a href="javascript:;" class="ns-tab-item">港台</a>
+                <a href="javascript:;" class="ns-tab-item">欧美</a>
+                <a href="javascript:;" class="ns-tab-item">韩国</a>
+                <a href="javascript:;" class="ns-tab-item">日本</a>
+            </div>
+            <div class="newSongs-roll">
+                <div class="ns-roll-box">
 
-		<!-- 反馈	 -->
-	<div class="feedback">
-		<a href="#" class="up current"><span></span></a>
-		<a href="#" class="information"><span>反馈</span></a>
-		<a href="#" class="down"><span></span></a>
-	</div>
+                    <ul class="newSongs-list">
+                        <#list newMusices4 as newMusic4>
+                            <li class="newSongs-item">
+                                <div class="newSongs-item-box">
+                                    <a href="javascript:;" class="ns-img-box">
+                                        <img src="/upload/${newMusic4.song_img}" alt="">
+                                        <i class="ns-img-mask"></i>
+                                        <i class="ns-play-btn"></i>
+                                    </a>
+                                    <div class="song-content">
+                                        <h3 class="song-title">
+                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">
+                                                <font color="black"> ${newMusic4.song_name}</font>
+                                            </a>
+                                        </h3>
+                                        <p class="ns-author">
+                                            <a href="javascript:;" class="author-link"
+                                               title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>
+                                        </p>
+                                    </div>
+                                    <div class="ns-time">${newMusic4.song_time}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
 
+                    <ul class="newSongs-list">
+                        <#list newMusices1 as newMusic1>
+                            <li class="newSongs-item">
+                                <div class="newSongs-item-box">
+                                    <a href="javascript:;" class="ns-img-box">
+                                        <img src="/upload/${newMusic1.song_img}" alt="">
+                                        <i class="ns-img-mask"></i>
+                                        <i class="ns-play-btn"></i>
+                                    </a>
+                                    <div class="song-content">
+                                        <h3 class="song-title">
+                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">
+                                                <font color="black">  ${newMusic1.song_name}   </font>
+                                            </a>
+                                        </h3>
+                                        <p class="ns-author">
+                                            <a href="javascript:;" class="author-link"
+                                               title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>
+                                        </p>
+                                    </div>
+                                    <div class="ns-time">${newMusic1.song_time}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+                    <ul class="newSongs-list">
+                        <#list newMusices2 as newMusic2>
+                            <li class="newSongs-item">
+                                <div class="newSongs-item-box">
+                                    <a href="javascript:;" class="ns-img-box">
+                                        <img src="/upload/${newMusic2.song_img}" alt="">
+                                        <i class="ns-img-mask"></i>
+                                        <i class="ns-play-btn"></i>
+                                    </a>
+                                    <div class="song-content">
+                                        <h3 class="song-title">
+                                            <a href="javascript:;" class="song-tit-box" title="${newMusic2.song_name} ">
+                                                <font color="black">  ${newMusic2.song_name}   </font>
+                                            </a>
+                                        </h3>
+                                        <p class="ns-author">
+                                            <a href="javascript:;" class="author-link"
+                                               title="${newMusic2.getSinger().getSingerName()}">${newMusic2.getSinger().getSingerName()}</a>
+                                        </p>
+                                    </div>
+                                    <div class="ns-time">${newMusic2.song_time}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+                    <ul class="newSongs-list">
+                        <#list newMusices3 as newMusic3>
+                            <li class="newSongs-item">
+                                <div class="newSongs-item-box">
+                                    <a href="javascript:;" class="ns-img-box">
+                                        <img src="/upload/${newMusic3.song_img}" alt="">
+                                        <i class="ns-img-mask"></i>
+                                        <i class="ns-play-btn"></i>
+                                    </a>
+                                    <div class="song-content">
+                                        <h3 class="song-title">
+                                            <a href="javascript:;" class="song-tit-box" title="${newMusic3.song_name} ">
+                                                <font color="black">  ${newMusic3.song_name}   </font>
+                                            </a>
+                                        </h3>
+                                        <p class="ns-author">
+                                            <a href="javascript:;" class="author-link"
+                                               title="${newMusic3.getSinger().getSingerName()}">${newMusic3.getSinger().getSingerName()}</a>
+                                        </p>
+                                    </div>
+                                    <div class="ns-time">${newMusic3.song_time}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+                    <ul class="newSongs-list">
+                        <#list newMusices4 as newMusic4>
+                            <li class="newSongs-item">
+                                <div class="newSongs-item-box">
+                                    <a href="javascript:;" class="ns-img-box">
+                                        <img src="/upload/${newMusic4.song_img}" alt="">
+                                        <i class="ns-img-mask"></i>
+                                        <i class="ns-play-btn"></i>
+                                    </a>
+                                    <div class="song-content">
+                                        <h3 class="song-title">
+                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">
+                                                <font color="black">  ${newMusic4.song_name}   </font>
+                                            </a>
+                                        </h3>
+                                        <p class="ns-author">
+                                            <a href="javascript:;" class="author-link"
+                                               title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>
+                                        </p>
+                                    </div>
+                                    <div class="ns-time">${newMusic4.song_time}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+                    <ul class="newSongs-list">
+                        <#list newMusices1 as newMusic1>
+                            <li class="newSongs-item">
+                                <div class="newSongs-item-box">
+                                    <a href="javascript:;" class="ns-img-box">
+                                        <img src="/upload/${newMusic1.song_img}" alt="">
+                                        <i class="ns-img-mask"></i>
+                                        <i class="ns-play-btn"></i>
+                                    </a>
+                                    <div class="song-content">
+                                        <h3 class="song-title">
+                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">
+                                                <font color="black">  ${newMusic1.song_name}   </font>
+                                            </a>
+                                        </h3>
+                                        <p class="ns-author">
+                                            <a href="javascript:;" class="author-link"
+                                               title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>
+                                        </p>
+                                    </div>
+                                    <div class="ns-time">${newMusic1.song_time}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="bottom-point">
+                <a href="javascript:;" class="bottom-point-item active">
+                    <i class="point "></i>
+                </a>
+                <a href="javascript:;" class="bottom-point-item">
+                    <i class="point"></i>
+                </a>
+                <a href="javascript:;" class="bottom-point-item">
+                    <i class="point"></i>
+                </a>
+                <a href="javascript:;" class="bottom-point-item">
+                    <i class="point"></i>
+                </a>
+
+            </div>
+        </div>
+        <div class="opt-switch">
+            <div class="switch-item s-left">
+                <a href="javascript:;" class="switch-btn btn-left">
+                    <i class="icon-arrow icon-left sprite"></i>
+                </a>
+            </div>
+            <div class="switch-item s-right">
+                <a href="javascript:;" class="switch-btn btn-right">
+                    <i class="icon-arrow icon-right sprite"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--wonderful recommendation start-->
+    <#--    <div class="wonderful">-->
+    <#--        <div class="section-container">-->
+    <#--            <div class="new-songs-title">-->
+    <#--                <h2 class="tit-box icon-txt img-wonderful">-->
+    <#--                    <i class="icon-new-songs">精彩推荐</i>-->
+    <#--                </h2>-->
+    <#--            </div>-->
+    <#--            <div class="wonderful-roll">-->
+    <#--                <div class="ns-roll-box">-->
+    <#--                    <ul class="roll-item">-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_41.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_42.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                    </ul>-->
+
+    <#--                    <ul class="roll-item">-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_11.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_12.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                    </ul>-->
+    <#--                    <ul class="roll-item">-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_21.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_22.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                    </ul>-->
+    <#--                    <ul class="roll-item">-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_31.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_32.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                    </ul>-->
+    <#--                    <ul class="roll-item">-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_41.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_42.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                    </ul>-->
+
+    <#--                    <ul class="roll-item">-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_11.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                        <li class="roll-li"><a href="javascript:;" class="roll-links"><img src="./assets/img/wr_12.jpg"-->
+    <#--                                                                                           alt="" class="roll-img"></a>-->
+    <#--                        </li>-->
+    <#--                    </ul>-->
+    <#--                </div>-->
+    <#--            </div>-->
+    <#--            <div class="bottom-point">-->
+    <#--                <a href="javascript:;" class="bottom-point-item active">-->
+    <#--                    <i class="point "></i>-->
+    <#--                </a>-->
+    <#--                <a href="javascript:;" class="bottom-point-item">-->
+    <#--                    <i class="point"></i>-->
+    <#--                </a>-->
+    <#--                <a href="javascript:;" class="bottom-point-item">-->
+    <#--                    <i class="point"></i>-->
+    <#--                </a>-->
+    <#--                <a href="javascript:;" class="bottom-point-item">-->
+    <#--                    <i class="point"></i>-->
+    <#--                </a>-->
+
+    <#--            </div>-->
+    <#--        </div>-->
+    <#--        <div class="opt-switch">-->
+    <#--            <div class="switch-item s-left">-->
+    <#--                <a href="javascript:;" class="switch-btn btn-left">-->
+    <#--                    <i class="icon-arrow icon-left sprite"></i>-->
+    <#--                </a>-->
+    <#--            </div>-->
+    <#--            <div class="switch-item s-right">-->
+    <#--                <a href="javascript:;" class="switch-btn btn-right">-->
+    <#--                    <i class="icon-arrow icon-right sprite"></i>-->
+    <#--                </a>-->
+    <#--            </div>-->
+    <#--        </div>-->
+    <#--    </div>-->
+    <!--new dish first-->
+    <div class="newDish">
+        <div class="section-container">
+            <div class="new-songs-title">
+                <h2 class="tit-box2 icon-txt img-newDish">
+                    <i class="icon-new-songs"></i>
+                </h2>
+            </div>
+            <a href="javascript:;" class="newDish-link">
+                更多
+                <i class="icon-link-arrow sprite"></i>
+            </a>
+            <div class="new-songs-tab">
+                <a href="javascript:;" class="ns-tab-item active">内地</a>
+                <a href="javascript:;" class="ns-tab-item">港台</a>
+                <a href="javascript:;" class="ns-tab-item">欧美</a>
+                <a href="javascript:;" class="ns-tab-item">韩国</a>
+                <a href="javascript:;" class="ns-tab-item">日本</a>
+                <a href="javascript:;" class="ns-tab-item">其他</a>
+            </div>
+            <div class="newDish-roll">
+                <ul class="newDish-item">
+                    <#list newAlbums as newAlbum>
+                        <li class="dish-list">
+                            <div class="dish-list-box">
+                                <a href="javascript:;" class="dish-img-box">
+                                    <img src="/upload/${newAlbum.album_img}" alt="" class="dish-img">
+                                    <i class="ns-img-mask"></i>
+                                    <i class="icon-play play"></i>
+                                </a>
+                                <h4 class="dish-title">
+                                    <a href="javascript:;" class="title-link"><font
+                                                color="black">${newAlbum.album_name}</font></a>
+                                </h4>
+                                <div class="dish-author">
+                                    <a href="javascript:;" class="author-link"
+                                       title="${newAlbum.album_singer}">${newAlbum.album_singer}</a>
+                                </div>
+                            </div>
+                        </li>
+                    </#list>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--the charts start-->
+    <div class="charts">
+        <div class="section-container">
+            <div class="new-songs-title">
+                <h2 class="tit-box icon-txt img-charts">
+                    <i class="icon-new-songs">排行榜</i>
+                </h2>
+            </div>
+            <a href="javascript:;" class="newDish-link chart-link">
+                更多
+                <i class="icon-link-arrow sprite"></i>
+            </a>
+            <div class="charts-box">
+                <ul class="chart-list">
+                    <li class="chart-item">
+                        <div class="chart-box">
+                            <div class="chart-bg"></div>
+                            <i class="icon-play play litter-icon"></i>
+                            <i class="chart-line"></i>
+                            <h3 class="chart-head">
+                                <a href="javascript:;" class="chart-title">流行指数</a>
+                            </h3>
+                            <ul class="chart-songList">
+                                <li class="chart-song">
+                                    <div class="chart-num">1</div>
+                                    <div class="chart-name">那什么</div>
+                                    <div class="chart-author">永彬Ryan.B/李晧轩</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">2</div>
+                                    <div class="chart-name">这就是爱情</div>
+                                    <div class="chart-author">李代沫</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">3</div>
+                                    <div class="chart-name">Lose You To Love Me</div>
+                                    <div class="chart-author">Selena Gomez</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="chart-item">
+                        <div class="chart-box">
+                            <div class="chart-bg"></div>
+                            <i class="icon-play play litter-icon"></i>
+                            <i class="chart-line"></i>
+                            <h3 class="chart-head">
+                                <a href="javascript:;" class="chart-title">热歌</a>
+                            </h3>
+                            <ul class="chart-songList">
+                                <li class="chart-song">
+                                    <div class="chart-num">1</div>
+                                    <div class="chart-name">野狼Disco（feat.陈伟霆）</div>
+                                    <div class="chart-author">宝石Gem/陈伟霆</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">2</div>
+                                    <div class="chart-name">嚣张</div>
+                                    <div class="chart-author">en</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">3</div>
+                                    <div class="chart-name">说好不哭（with 五月天阿信）</div>
+                                    <div class="chart-author">周杰伦</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="chart-item">
+                        <div class="chart-box">
+                            <div class="chart-bg"></div>
+                            <i class="icon-play play litter-icon"></i>
+                            <i class="chart-line"></i>
+                            <h3 class="chart-head">
+                                <a href="javascript:;" class="chart-title">新歌</a>
+                            </h3>
+                            <ul class="chart-songList">
+                                <li class="chart-song">
+                                    <div class="chart-num">1</div>
+                                    <div class="chart-name">野狼Disco（feat.陈伟霆）</div>
+                                    <div class="chart-author">宝石Gem/陈伟霆</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">2</div>
+                                    <div class="chart-name">悬溺</div>
+                                    <div class="chart-author">葛东琪</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">3</div>
+                                    <div class="chart-name">涅槃 (Phoenix)</div>
+                                    <div class="chart-author">英雄联盟</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="chart-item">
+                        <div class="chart-box">
+                            <div class="chart-bg"></div>
+                            <i class="icon-play play litter-icon"></i>
+                            <i class="chart-line"></i>
+                            <h3 class="chart-head">
+                                <a href="javascript:;" class="chart-title">欧美</a>
+                            </h3>
+                            <ul class="chart-songList">
+                                <li class="chart-song">
+                                    <div class="chart-num">1</div>
+                                    <div class="chart-name">涅槃 (Phoenix)</div>
+                                    <div class="chart-author">英雄联盟</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">2</div>
+                                    <div class="chart-name">10,000 Hours</div>
+                                    <div class="chart-author">Dan + Shay/Justin Bieber</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">3</div>
+                                    <div class="chart-name">Lose You To Love Me</div>
+                                    <div class="chart-author">Selena Gomez</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="chart-item">
+                        <div class="chart-box">
+                            <div class="chart-bg"></div>
+                            <i class="icon-play play litter-icon"></i>
+                            <i class="chart-line"></i>
+                            <h3 class="chart-head">
+                                <a href="javascript:;" class="chart-title">韩国</a>
+                            </h3>
+                            <ul class="chart-songList">
+                                <li class="chart-song">
+                                    <div class="chart-num">1</div>
+                                    <div class="chart-name">KILL THIS LOVE (JP Ver.)</div>
+                                    <div class="chart-author">BLACKPINK</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">2</div>
+                                    <div class="chart-name">SOSO</div>
+                                    <div class="chart-author">WINNER (위너)</div>
+                                </li>
+                                <li class="chart-song">
+                                    <div class="chart-num">3</div>
+                                    <div class="chart-name">싫다고 말해 (Put It Straight) (Nightmare Version)</div>
+                                    <div class="chart-author">(여자)아이들 ((女)孩子们)</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!--footer-->
+<footer class="footer-container">
+    <div class="section-container">
+        <div class="footer-info">
+            <div class="footer-download">
+                <h3 class="footer-tit">下载QQ音乐客户端</h3>
+                <ul class="download-list">
+                    <li class="download-item">
+                        <a href="javascript:;" class="download-link">
+                            <i class="icon-pc footer"></i>
+                            PC版
+                        </a>
+                    </li>
+                    <li class="download-item">
+                        <a href="javascript:;" class="download-link">
+                            <i class="icon-mac footer"></i>
+                            Mac版
+                        </a>
+                    </li>
+                    <li class="download-item">
+                        <a href="javascript:;" class="download-link">
+                            <i class="icon-android footer"></i>
+                            Android版
+                        </a>
+                    </li>
+                    <li class="download-item">
+                        <a href="javascript:;" class="download-link">
+                            <i class="icon-iphone footer"></i>
+                            iPhone版
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-product">
+                <h3 class="footer-tit">特色产品</h3>
+                <ul class="product-list">
+                    <li class="product-item product-img">
+                        <a href="javascript:;" class="product-link">
+                            <i class="icon-kg footer"></i>
+                            全民K歌
+                        </a>
+                    </li>
+                    <li class="product-item product-img">
+                        <a href="javascript:;" class="product-link">
+                            <i class="icon-super footer"></i>
+                            Super Sound
+                        </a>
+                    </li>
+                    <li class="product-item product-img">
+                        <a href="javascript:;" class="product-link">
+                            <i class="icon-qplay footer"></i>
+                            QPlay
+                        </a>
+                    </li>
+                    <li class="product-item">
+                        <a href="javascript:;" class="product-link">车载互动</a>
+                    </li>
+                    <li class="product-item">
+                        <a href="javascript:;" class="product-link">QQ演出</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-group">
+                <h3 class="footer-tit">TME集团官网</h3>
+                <ul class="group-list">
+                    <li class="group-item">
+                        <a href="javascript:;" class="group-link">腾讯音乐</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-link">
+                <h3 class="footer-tit">合作链接</h3>
+                <ul class="footer_link_list">
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">CJ ENM</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯视频</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">手机QQ空间</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">最新版QQ</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯社交广告</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">电脑管家</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">QQ浏览器</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯微云</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯云</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">企鹅FM</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">智能电视网</a>
+                    </li>
+                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">当贝市场</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-platform">
+                <h3 class="footer-tit">开放平台</h3>
+                <ul class="platform-list">
+                    <li class="platform-item">
+                        <a href="javascript:;" class="platform-link">腾讯音乐人</a>
+                    </li>
+                    <li class="platform-item">
+                        <a href="javascript:;" class="platform-link">音乐号认证</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+
+            <p class="copyright-p">
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="关于腾讯">关于腾讯</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="About Tencent">About Tencent</a>
+                |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="服务条款">服务条款</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="用户服务协议">用户服务协议</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="隐私政策">隐私政策</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="权利声明">权利声明</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="广告服务">广告服务</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="腾讯招聘">腾讯招聘</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="客服中心">客服中心</a> |
+                <a href="javascript:;" class="copyright-p-link" target="_blank" title="网站导航">网站导航</a>
+            </p>
+
+            <p class="copyright-p">Copyright &copy; 1998 - <span id="copyYear">2019</span> Tencent. <a target="_blank"
+                                                                                                       href="javascript:;"
+                                                                                                       title="All Rights Reserved."
+                                                                                                       class="copyright-p-link">All
+                    Rights Reserved.</a></p>
+            <p class="copyright-p">腾讯公司 <a class="copyright-p-link" target="_blank" href="javascript:;" title="版权所有">版权所有</a>
+                <a target="_blank" href="javascript:;" class="copyright-p-link" title="腾讯网络文化经营许可证">腾讯网络文化经营许可证</a></p>
+        </div>
+    </div>
+</footer>
+<!--section-btn-->
+<a href="javascript:;" class="backTop bottom-btn">
+    <i class="icon-back-top"></i>
+</a>
+<a href="javascript:;" class="feedback bottom-btn">反馈</a>
+<a href="javascript:; " class="openPlay bottom-btn"></a>
 </body>
+<script type="text/javascript">
+
+    function playAll() {
+        window.open("/playAll");
+    }
+</script>
+
 </html>

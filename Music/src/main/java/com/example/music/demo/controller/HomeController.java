@@ -1,6 +1,10 @@
 package com.example.music.demo.controller;
 
+import com.example.music.demo.entity.User;
+import com.example.music.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -17,8 +21,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class HomeController {
-    @GetMapping("/home")
-    public String toHome(){
-        return "home";
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/user/home")
+    public String toHome(ModelMap modelMap) {
+        User user = userService.getUser("admin", "123456");
+        modelMap.addAttribute("user", user);
+        return "home2";
     }
 }

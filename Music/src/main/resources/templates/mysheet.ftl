@@ -31,7 +31,7 @@
     <link rel="icon" type="image/png" href="https://img.alicdn.com/tfs/TB1qP4zgY5YBuNjSspoXXbeNFXa-550-550.png">
 
 
-    <link type="text/css" rel="stylesheet" href="kuwocss/styles.css">
+    <link type="text/css" rel="stylesheet" href="/kuwocss/styles.css">
 
 
     <link href="./虾米音乐 - 发现音乐新世界2_files/styles.css" rel="stylesheet">

@@ -25,12 +25,17 @@ import java.util.List;
 public class DetailService {
     @Autowired
     private CommentRepository commentRepository;
-    public Page<Comment> getSongPages(Integer page,Integer songId){
-        Pageable pageable= PageRequest.of(page-1,10, Sort.Direction.DESC,"commentDate");
-        List<Comment> commentList=  commentRepository.findAllBySongId(songId);
-        int start = (int)pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > commentList.size() ? commentList.size() : ( start + pageable.getPageSize());
-        Page<Comment> commentPage=new PageImpl<>(commentList.subList(start,end),pageable,commentList.size());
+
+    public Page<Comment> getSongPages(Integer page, Integer songId) {
+        Pageable pageable = PageRequest.of(page - 1, 40);
+        List<Comment> commentList = commentRepository.findAllBySongId(songId);
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > commentList.size() ? commentList.size() : (start + pageable.getPageSize());
+        Page<Comment> commentPage = new PageImpl<>(commentList.subList(start, end), pageable, commentList.size());
         return commentPage;
+    }
+
+    public Integer getTotalComNub(Integer songId) {
+        return commentRepository.findAllBySongId(songId).size();
     }
 }

@@ -48,4 +48,20 @@ public class SongService {
         Page<SongClass> songClassPage = new PageImpl<>(songClassList.subList(start, end), pageable, songClassList.size());
         return songClassPage;
     }
+
+    public List<Song> getNewMusicies(){
+        return songRepository.getNewMusics();
+    }
+    public Page<Song> getSongPages(Integer page, Integer singerId) {
+        Pageable pageable = PageRequest.of(page - 1, 20);
+        List<Song> songList = songRepository.findAllBySingerId(singerId);
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > songList.size() ? songList.size() : (start + pageable.getPageSize());
+        Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
+        return songPage;
+    }
+
+    public Integer getTotalSongNumber(Integer singerId) {
+        return songRepository.findAllBySingerId(singerId).size();
+    }
 }

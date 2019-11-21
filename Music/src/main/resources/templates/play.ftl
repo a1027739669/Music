@@ -23,15 +23,15 @@
     <title>Lily_music</title>
 
     <!-- 引入jQuery官方类库 -->
-    <script src="playresource/js/jquery.min.js"></script>
+    <script src="/playresource/js/jquery.min.js"></script>
     <!-- 总样式表 -->
-    <link rel="stylesheet" type="text/css" href="playresource/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/playresource/css/index.css">
     <!-- 响应式优化 -->
-    <link rel="stylesheet" type="text/css" href="playresource/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/playresource/css/mobile.css">
     <!-- 滚动条美化 -->
-    <link rel="stylesheet" type="text/css" href="playresource/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="/playresource/css/jquery.mCustomScrollbar.min.css">
     <!-- layer弹窗插件 -->
-    <link rel="stylesheet" href="playresource/js/layer/skin/default/layer.css?v=3.0.2302" id="layuicss-skinlayercss">
+    <link rel="stylesheet" href="/playresource/js/layer/skin/default/layer.css?v=3.0.2302" id="layuicss-skinlayercss">
     <!-- 加载动画 -->
 <#--    <link type="text/css" rel="stylesheet" href="playresource/css/kr-loading.css" />-->
 </head>
@@ -70,11 +70,11 @@
                 </div>
                 <#if playlist ? exists>
                 <#list playlist as playsong>
-                <div class="list-item" data-url="/getwav/${playsong.song_file}" data-pic="/upload/${playsong.song_img}" data-lrc="/getlyric/${playsong.song_lyrics}" data-no="${playsong_index+1}">
+                <div class="list-item" data-url="/getwav/${playsong.song_file}" data-pic="/upload/${playsong.song_img}" data-lrc="/getlyric/${playsong.song_lyrics}" data-no="${playsong_index+1}" data-name="${playsong.song_name}">
                     <span class="list-num">${playsong_index+1}</span>
                     <span class="list-mobile-menu"></span>
                     <span class="music-album">${playsong.song_time}</span>
-                    <span class="auth-name">${playsong.song_singer}</span>
+                    <span class="auth-name">${playsong.getSinger().getSingerName()}</span>
                     <span class="music-name">${playsong.song_name}</span>
                 </div>
                 </#list>
@@ -156,26 +156,29 @@
 <a id="downabo" download=""></a>
 
 <!-- 加载动画相关js -->
-<script src="playresource/js/sg.js"></script>
-<script src="playresource/js/kr_util.js"></script>
+<script src="/playresource/js/sg.js"></script>
+<script src="/playresource/js/kr_util.js"></script>
 <!-- layer弹窗插件 -->
-<script src="playresource/js/layer/layer.js"></script>
+<script src="/playresource/js/layer/layer.js"></script>
 <!-- 滚动条美化插件 -->
-<script src="playresource/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/playresource/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <!-- 粘贴复制的插件 -->
-<script type="text/javascript" src="playresource/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/playresource/js/clipboard.min.js"></script>
 <!-- 列表方法 -->
-<script src="playresource/js/list_function.js"></script>
+<script src="/playresource/js/list_function.js"></script>
 <!-- 注册播放器 -->
-<script src="playresource/js/music_play.js"></script>
+<script src="/playresource/js/music_play.js"></script>
 <!-- 歌词解析装载 -->
-<script src="playresource/js/loadlyc.js"></script>
+<script src="/playresource/js/loadlyc.js"></script>
 <!-- 背景模糊化插件 -->
-<script src="playresource/js/background-blur.min.js"></script>
+<script src="/playresource/js/background-blur.min.js"></script>
 
 </body>
 <script type="text/javascript">
     var long1="#{playlist ? size}";
     krAudio.allItem = long1; //播放列表的总数
+</script>
+<script>
+
 </script>
 </html>

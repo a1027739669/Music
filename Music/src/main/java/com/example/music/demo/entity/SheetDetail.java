@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @ProjectName: MusicPro
@@ -20,15 +21,18 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "sheetdetail")
-public class SheetDetail {
-    private static final Long serialVersionUID = 214646532525L;
+public class SheetDetail  implements Serializable {
+    private static final Long serialVersionUID = 2146465325298825L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer songId;
     private Integer sheetId;
-    @ManyToOne(targetEntity = Song.class,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,targetEntity = Song.class,fetch = FetchType.EAGER)
     @JoinColumn(name="songId",insertable = false,updatable = false,referencedColumnName="song_id")
     @JsonIgnore
     private Song song;
+    @ManyToOne(targetEntity = SongSheet.class,fetch = FetchType.EAGER)
+    @JoinColumn(name = "sheetId" , insertable = false, updatable = false, referencedColumnName = "id")
+    private SongSheet songSheet;
 }

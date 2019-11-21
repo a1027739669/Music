@@ -1,5 +1,6 @@
 package com.example.music.demo.repository;
 
+import com.example.music.demo.entity.Comment;
 import com.example.music.demo.entity.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -23,7 +24,7 @@ import java.util.List;
 public interface SongRepository extends JpaRepository<Song,Integer> {
     @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id order by b.info_plays desc limit 10 ")
     public List<Song> getMorePlays();
-    @Query(nativeQuery = true,value = "select * from song c order by c.song_release desc limit 3")
+    @Query(nativeQuery = true,value = "select * from song c order by c.song_release desc limit 36")
     public List<Song> getNewMusics();
     @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id order by b.info_search desc limit 6")
     public List<Song> getHotSearchMusics();
@@ -31,4 +32,6 @@ public interface SongRepository extends JpaRepository<Song,Integer> {
     public List<Song> getMoreDownMusics();
     @Query(nativeQuery = true,value = "select  c.* from song c,info b where c.song_id = b.song_id and songorder by b.info_plays")
     public List<Song> getSongPage();
+    @Query(nativeQuery = true,value = "select * from song where song_singer=:singerId  ")
+    public List<Song> findAllBySingerId(Integer singerId);
 }

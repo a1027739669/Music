@@ -4,104 +4,119 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <meta name="baidu-site-verification" content="xaLcM8mGHG">
     <meta name="verify-v1" content="gNntuhTm2rH7Qa/GPp6lf0mIp9KQsjejNs+i1LZhG7U=">
-
-    <title>发现音乐新世界</title>
-    <link type="text/css" rel="stylesheet" href="kuwocss/style4.css">
-    <link type="text/css" rel="stylesheet" href="kuwocss/styles.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <script src="/bin/jquery-3.4.1.js"></script>
+    <script src="/js/head.js"></script>
+    <script src="/js/index.js"></script>
+    <link type="text/css" rel="stylesheet" href="/kuwocss/style4.css">
+    <link type="text/css" rel="stylesheet" href="/kuwocss/styles.css">
 </head>
-
 
 <body data-spm="12028041">
 <div id="app">
     <div class="page-container">
-<#--        <div class="top-nav" data-spm="topnav">-->
-<#--            <div class="top-nav-wrapper"><a href="https://www.xiami.com/">-->
-<#--                    <div class="logo"></div>-->
-<#--                </a>-->
-<#--                <div class="links"><a href="https://www.xiami.com/">发现</a><a-->
-<#--                            href="https://www.xiami.com/user/null">我的音乐</a><a href="https://i.xiami.com/"-->
-<#--                                                                              target="_blank" rel="noreferrer noopener">音乐人</a><a-->
-<#--                            href="https://emumo.xiami.com/apps/mobile" target="_blank"-->
-<#--                            rel="noreferrer noopener">客户端下载</a><a href="https://www.xiami.com/vip">会员中心</a></div>-->
-<#--                <div class="search"><input value="" placeholder="汪峰">-->
-<#--                    <div class="iconfont"></div>-->
-<#--                </div>-->
-<#--                <div class="user">-->
-<#--                    <div class="login-text">登录/注册</div>-->
-<#--                </div>-->
-<#--            </div>-->
-<#--            -->
-<#--            -->
-<#--        </div>-->
-        <div class="header">
-            <div class="container">
-                <div class="head" data-v-5b4abc5f="">
-                    <div class="flex_c" data-v-5b4abc5f="">
-                        <ul class="nav" data-v-5b4abc5f="">
-                            <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>
-                            <li class="item active" data-v-5b4abc5f=""><a href="http://www.kuwo.cn/"
-                                                                          class="nuxt-link-active"
-                                                                          data-v-5b4abc5f="">发现音乐</a></li>
-                            <li class="item" data-v-5b4abc5f=""><a href="http://www.kuwo.cn/down" data-v-5b4abc5f=""
-                                                                   class="">下载客户端</a></li>
-                            <li class="item" data-v-5b4abc5f=""><a rel="nofollow"
-                                                                   href="http://g.koowo.com/g.real?aid=text_ad_3214&amp;url=http://x.kuwo.cn/KuwoLive/OpenLiveRoomLinkForKw?from=1001008053"
-                                                                   target="_blank" data-v-5b4abc5f="">音乐现场</a></li>
-                            <li class="item" data-v-5b4abc5f=""><a target="_blank"
-                                                                   href="http://vip1.kuwo.cn/vip/added/vip_2016/index.jsp?from=1"
-                                                                   data-v-5b4abc5f="">VIP会员</a></li>
-                            <li class="item" data-v-5b4abc5f=""><a target="_blank" rel="nofollow"
-                                                                   href="https://detail.tmall.com/item.htm?id=522001391451"
-                                                                   data-v-5b4abc5f="">酷我耳机</a></li>
-                            <li class="item sub_out" data-v-5b4abc5f=""><a href="javascript:;" data-v-5b4abc5f="">更多
-                                    <i class="down iconfont icon-bar_icon_arrow_" data-v-5b4abc5f=""></i> <i
-                                            class="up iconfont  icon-pop_icon_returntop" data-v-5b4abc5f=""></i></a>
-                                <ul class="sub_nav" data-v-5b4abc5f="">
-                                    <li data-v-5b4abc5f=""><a target="_blank" rel="nofollow"
-                                                              href="https://y.tencentmusic.com/#/"
-                                                              data-v-5b4abc5f="">腾讯音乐人</a></li>
-                                    <li data-v-5b4abc5f=""><a target="_blank" rel="nofollow"
-                                                              href="http://www.kuwo.cn/web/cdpack/index"
-                                                              data-v-5b4abc5f="">HiFi音乐</a></li>
-                                    <li data-v-5b4abc5f=""><a target="_blank"
-                                                              href="http://www.kuwo.cn/static/page/ugcVideo/index.html"
-                                                              data-v-5b4abc5f="">酷我视频</a></li>
-                                    <li data-v-5b4abc5f=""><a target="_blank"
-                                                              href="http://www.kuwo.cn/static/page/anchor/index.html"
-                                                              data-v-5b4abc5f="">主播电台</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+        <header class="header">
+            <div class="header-box">
+                <h1 class="header-title">
+                    <a href="javascript:;"><img class="logo-img" src="image/logo.png" alt="QQ音乐"></a>
+                    <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
+                </h1>
+                <ul class="header-top-nav">
+                    <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">音乐馆</a></li>
+                    <li class="top-nav-item"><a href="#" class="tnav-link" title="我的音乐">我的音乐</a></li>
+                    <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
+                        <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
+                        <div class="nav-item-detail">
+                            <p>
+                                <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
+                            </p>
+                            <p>
+                                <i class="detail-icon icon-du"> </i>独家音效 全面升级
+                            </p>
+                            <p>
+                                <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
+                            </p>
+                            <a href="javascript:;" class="client-download">下载体验</a>
+                        </div>
+                    </li>
+                    <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
+                    <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
+                </ul>
+                <#--            <ul class="header-sec-nav">-->
+                <#--                <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>-->
+                <#--                <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>-->
+                <#--            </ul>-->
+                <div class="header-search">
+                    <div class="search-input ">
+                        <input type="text" placeholder="搜索音乐、MV、歌单、用户">
+                        <button class="search-btn">
+                            <i class="icon-search sprite"></i>
+                        </button>
                     </div>
-                    <div class="flex_c nav_r" data-v-5b4abc5f="">
-                        <div class="search_out" data-v-5b4abc5f="">
-                            <div data-v-641b187a="" data-v-5b4abc5f="">
-                                <div class="search_inn flex_c" data-v-641b187a=""><i
-                                            class="icon iconfont icon-header_icon_search_" data-v-641b187a=""></i>
-                                    <input maxlength="128" type="text" placeholder="搜索音乐/MV/歌单/歌手" value=""
-                                           class="search" data-v-641b187a=""> <!----></div>
-                                <div class="list" data-v-641b187a=""><p class="tit" style="display:block;"
-                                                                        data-v-641b187a="">大家都在搜</p>
-                                    <ul data-v-641b187a=""></ul>
-                                </div>
-                            </div>
+                    <div class="search-box">
+                        <div class="search-hot">
+                            <dl>
+                                <dt>热门搜索</dt>
+                                <dd>
+                                    <a href="#" class="hot-link">
+                                        <span class="hot-num">1</span>
+                                        <span class="hot-name">野狼disco</span>
+                                        <span class="hot-people">101.6w</span>
+                                    </a>
+                                    <a href="#" class="hot-link">
+                                        <span class="hot-num">2</span>
+                                        <span class="hot-name">那个女孩</span>
+                                        <span class="hot-people">82.2w</span>
+                                    </a>
+                                    <a href="#" class="hot-link">
+                                        <span class="hot-num">3</span>
+                                        <span class="hot-name">大田后生仔</span>
+                                        <span class="hot-people">66.1w</span>
+                                    </a>
+                                    <a href="#" class="hot-link">
+                                        <span class="hot-num">4</span>
+                                        <span class="hot-name">许嵩</span>
+                                        <span class="hot-people">65.8w</span>
+                                    </a>
+                                    <a href="#" class="hot-link">
+                                        <span class="hot-num">5</span>
+                                        <span class="hot-name">遗憾</span>
+                                        <span class="hot-people">43.9w</span>
+                                    </a>
+                                </dd>
+                            </dl>
                         </div>
-                        <div class="user_img_out" data-v-5b4abc5f=""><img src="./酒醉的蝴蝶_崔伟立_单曲在线试听_酷我音乐_files/100"
-                                                                          alt="" class="user_img"
-                                                                          data-v-5b4abc5f="">
-                            <div class="exit flex_c" data-v-5b4abc5f=""><i class="iconfont icon-icon_user_"
-                                                                           data-v-5b4abc5f=""></i> <span
-                                        data-v-5b4abc5f="">退出登录</span></div>
+                        <div class="search-history">
+                            <dl class="history-list">
+                                <dt class="history-tit">搜索历史
+                                    <a href="javascript:;" class="history-clear">
+                                        <i class="icon-clear sprite"></i>
+                                    </a>
+                                </dt>
+                            </dl>
                         </div>
-                    </div> <!----></div>
+                    </div>
+                </div>
+                <div class="header-opt">
+<#--                    <a href="javascript:;" class="h-login">登录</a>-->
+<#--                    <div class="login-mark"></div>-->
+                    <div class="avatar" style="background-image: url(&quot;//pic.xiami.net/images/avatar_new/559876939_1571361716.jpg?x-oss-process=image/resize,limit_0,s_60,m_fill&quot;);"></div>
+                </div>
             </div>
-        </div>
+        </header>
         <div class="content-wrapper">
             <div class="my-music-view">
                 <div class="sticky-leftbar is-affixed" data-spm="leftbar" style="position: relative;">
@@ -110,15 +125,15 @@
                         <div class="leftbar-content">
                             <div class="personal-panel">
                                 <div class="avatar"
-                                     style="opacity: 1; background-image: url(image/user.jpg);"></div>
-                                <div class="name">渡</div>
+                                     style="opacity: 1; background-image: url('/upload/${user.user_image}');"></div>
+                                <div class="name">
+                                    ${user.username}
+                                </div>
                                 <div class="tag clearfix">
                                     <div class="iconfont levelTag"></div>
                                 </div>
                                 <div class="visitor-action">
-                                    <div class="button unselectable remarkable">关注<span class="ripple"
-                                                                                        style="height: 105px; width: 105px; top: 0px; left: 0px;"></span>
-                                    </div>
+
                                     <div class="button unselectable iconfont chat"><span class="ripple"
                                                                                           style="height: 40px; width: 40px; top: 0px; left: 0px;"></span>
                                     </div>
@@ -171,14 +186,11 @@
                     </div>
                     <div class="collect-list">
                         <div class="block-title unselectable"><h2>创建的歌单 1</h2>
-
                             <div class="external">
-                                <div class="button unselectable remarkable">关注<span class="ripple"
-                                                                                    style="height: 105px; width: 105px; top: 0px; left: 0px;"></span>
-                                </div>
+                                <el-button type="success" round>成功按钮</el-button>
                                 <a
-                                        href="">
-                                    <div class="action">|&nbsp;    全部
+                                        href="https://www.xiami.com/list/collect?id=430803050&amp;type=favorite">
+                                    <div class="action">|全部
                                         <div class="button unselectable action round">
                                             <div class="iconfont"></div>
                                             <span class="ripple"
@@ -435,7 +447,8 @@
                                         href="http://www.fliggy.com/" target="_blank" rel="noreferrer noopener">飞猪</a><a
                                         href="https://ju.taobao.com/" target="_blank"
                                         rel="noreferrer noopener">聚划算</a><a href="https://www.aliyun.com/"
-                                                                            target="_blank" rel="noreferrer noopener">阿里云</a><a
+                                                                            target="_blank"
+                                                                            rel="noreferrer noopener">阿里云</a><a
                                         href="https://www.alimama.com/" target="_blank"
                                         rel="noreferrer noopener">阿里妈妈</a><a
                                         href="https://www.1688.com/alphabet_sitemap.html" target="_blank"
@@ -448,7 +461,8 @@
                                                                            rel="noreferrer noopener">UC</a><a
                                         href="http://www.aligames.com/" target="_blank"
                                         rel="noreferrer noopener">阿里游戏</a><a href="https://www.damai.cn/"
-                                                                             target="_blank" rel="noreferrer noopener">大麦网</a><a
+                                                                             target="_blank"
+                                                                             rel="noreferrer noopener">大麦网</a><a
                                         href="https://www.etao.com/" target="_blank" rel="noreferrer noopener">一淘</a><a
                                         href="http://www.9game.cn/kuangyebiaoche9/" target="_blank"
                                         rel="noreferrer noopener">狂野飙车9</a><a href="https://uccricket.ucweb.com/"
@@ -630,7 +644,17 @@
 <div class="modal-wrapper"></div>
 <nav role="menu" tabindex="-1" class="react-contextmenu contextmenu-player-play-quality-context-menu"
      style="position: fixed; opacity: 0; pointer-events: none;"></nav>
-
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return { visible: false }
+        }
+    })
+</script>
 <script></script>
 <iframe src="./虾米音乐 - 发现音乐新世界_files/blk.html" id="_oid_ifr_" style="width: 0px; height: 0px; display: none;"></iframe>
 </body>

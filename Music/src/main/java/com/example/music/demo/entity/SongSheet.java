@@ -1,9 +1,12 @@
 package com.example.music.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.EAN;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,20 +24,25 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "songsheet")
-public class SongSheet {
+public class SongSheet  implements Serializable {
+    private static final Long serialVersionUID = 24646383756924598L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer sheetId;
     private String sheetName;
     private Integer userId;
-    private Integer support;
-    private String createDate;
+    private Float support;
+    @Temporal(TemporalType.DATE)
+    private Date createDate;
     private String introduction;
     private Integer createId;
     private Integer isShare;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "sheet_to_sheetdetail",joinColumns = {@JoinColumn(name = "sheetId")},inverseJoinColumns = {@JoinColumn(name = "sheetId",insertable = false,updatable = false)})
+    private String sheetImg;
+    private Integer playCount;
+    @OneToMany(targetEntity = SheetDetail.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="songSheet")
     public List<SheetDetail> details;
-    
+    @ManyToOne(targetEntity = User.class,fetch = FetchType.EAGER)
+    @JoinColumn(name="createId",insertable = false,updatable = false,referencedColumnName="id")
+    @JsonIgnore
+    private User user;
 }

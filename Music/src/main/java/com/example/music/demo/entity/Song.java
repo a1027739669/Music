@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,29 +26,35 @@ import java.util.List;
 @Table(name = "song")
 @Data
 public class Song implements Serializable {
-    private static final Long serialVersionUID = 214646383835L;
+    private static final Long serialVersionUID = 21464638383509887L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer song_id;
     private String song_name;
-    private String song_singer;
+    private Integer song_singer;
     private String song_time;
-    private String song_album;
     private String song_languages;
     private Integer songType;
-    private String song_release;
+    @Temporal(TemporalType.DATE)
+    private Date song_release;
     private String song_img;
     private String song_lyrics;
     private String song_file;
     private Integer album_id;
+    private Integer isOnline;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "Info", joinColumns = {@JoinColumn(name = "song_id")}, inverseJoinColumns = {@JoinColumn(name = "song_id")})
     private Info info;
     @ManyToOne(targetEntity = Album.class,fetch = FetchType.LAZY)
-    @JoinColumn(name="album_id",insertable = false,updatable = false,referencedColumnName="album_id")
+    @JoinColumn(name="album_id",insertable =false,updatable =false)
     @JsonIgnore
     private Album album;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "song_to_songclass",joinColumns = {@JoinColumn(name = "songType")},inverseJoinColumns = {@JoinColumn(name = "songType",insertable = false,updatable = false)})
     private List<SongClass> songClasses;
+    @ManyToOne(targetEntity = Singer.class,fetch = FetchType.EAGER)
+    @JoinColumn(name = "song_singer",insertable = false,updatable = false)
+    private Singer singer;
+    @Transient
+    private Integer totalComNum;
 }

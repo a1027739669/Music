@@ -1,5 +1,9 @@
 package com.example.music.demo.repository;
 
+import com.example.music.demo.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  * @ProjectName: MusicPro
  * @Package: com.example.music.demo.repository
@@ -12,5 +16,7 @@ package com.example.music.demo.repository;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-public interface UserRepository {
+@Repository
+public interface UserRepository extends JpaRepository<User,Integer> {
+    public User findByUsernameAndPassword(String username,String password);
 }

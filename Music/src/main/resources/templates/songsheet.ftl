@@ -8,15 +8,15 @@
     <meta name="description" content="">
     <title>我的音乐</title>
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
-    <link type="text/css" rel="stylesheet" href="qqmusiccss/layout_0412.css">
-    <link type="text/css" rel="stylesheet" href="qqmusiccss/popup_login.css">
-    <link type="text/css" rel="stylesheet" href="qqmusiccss/qb-ie-remind.css">
-    <link type="text/css" rel="stylesheet" href="qqmusiccss/song_detail.css">
-    <link type="text/css" rel="stylesheet" href="css/common.css">
-    <link type="text/css" rel="stylesheet" href="qqmusiccss/playlist_detail_d1aad22f.css">
-    <link type="text/css" rel="stylesheet" href="playresource/css/home.css">
-    <script data-main="js/index.js" src="js/require.js"></script>
-    <script src="js/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/qqmusiccss/layout_0412.css">
+    <link type="text/css" rel="stylesheet" href="/qqmusiccss/popup_login.css">
+    <link type="text/css" rel="stylesheet" href="/qqmusiccss/qb-ie-remind.css">
+    <link type="text/css" rel="stylesheet" href="/qqmusiccss/song_detail.css">
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/qqmusiccss/playlist_detail_d1aad22f.css">
+    <link type="text/css" rel="stylesheet" href="/playresource/css/home.css">
+    <script data-main="js/index2.js" src="/js/require.js"></script>
+    <script src="/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="header">

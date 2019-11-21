@@ -8,15 +8,15 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>我的音乐</title>
-    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
-    <link type="text/css" rel="stylesheet" href="css/common.css">
-    <link type="text/css" rel="stylesheet" href="css/user.css">
-    <link type="text/css" rel="stylesheet" href="playresource/css/home.css">
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/user.css">
+    <link type="text/css" rel="stylesheet" href="/playresource/css/home.css">
 </head>
 
 <body class="member">
 <div class="header">
-    <a href="/" class="logo" title="首页"><img src="image/logo.png" ></a>
+    <a href="/" class="logo" title="首页"><img src="/image/logo.png" ></a>
     <div class="search-box">
         <form id="searchForm" action="{% url 'search' 1 %}" method="post" target="_blank">
             {% csrf_token %}

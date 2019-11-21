@@ -1,10 +1,14 @@
 package com.example.music.demo.service;
 
+import com.example.music.demo.entity.Comment;
 import com.example.music.demo.entity.Label;
 import com.example.music.demo.entity.Song;
+import com.example.music.demo.entity.SongSheet;
 import com.example.music.demo.repository.LabelRepository;
 import com.example.music.demo.repository.SongRepository;
+import com.example.music.demo.repository.SongSheetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -27,7 +31,8 @@ public class IndexService {
     private SongRepository songRepository;
     @Autowired
     private LabelRepository labelRepository;
-
+    @Autowired
+    private SongSheetRepository songSheetRepository;
 
     public List<Song> getSongWithHot() {
         return songRepository.getMorePlays();
@@ -70,5 +75,18 @@ public class IndexService {
         }
         return playlist;
     }
-
+    public Page<SongSheet> getSheetList(Integer page, Integer rankMethod) {
+        Pageable pageable = PageRequest.of(page - 1, 20);
+        List<SongSheet> songSheetList;
+        if(rankMethod==1)
+        songSheetList =songSheetRepository.findAll1();
+        else{
+            songSheetList =songSheetRepository.findAll2();
+        }
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
+        Page<SongSheet> songSheetsPage = new PageImpl<>(songSheetList.subList(start, end), pageable, songSheetList.size());
+        List<SongSheet> test=songSheetsPage.getContent();
+        return songSheetsPage;
+    }
 }

@@ -21,7 +21,7 @@ import java.io.Serializable;
 @Table(name = "info")
 @Data
 public class Info implements Serializable {
-    private static final Long serialVersionUID=21412533252366436L;
+    private static final Long serialVersionUID=214125332523664767L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer info_id;

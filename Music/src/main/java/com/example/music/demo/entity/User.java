@@ -3,6 +3,9 @@ package com.example.music.demo.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ProjectName: MusicPro
@@ -19,20 +22,24 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "myuser")
-public class User {
+public class User  implements Serializable {
+    private static final Long serialVersionUID = 2464097246924598L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String user_image;
     private String username;
     private String password;
-    private String last_login;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date last_login;
+    private String introduction;
     private Integer is_super;
-    private String nicheng;
     private String email;
-    private String create_date;
+    @Temporal(TemporalType.DATE)
+    private Date create_date;
     private String mobile;
     private String user_qq;
     private String user_wechat;
     private Integer isAlive;
+    private Integer reported;
 }

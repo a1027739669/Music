@@ -1,0 +1,50 @@
+#seth{display:inline;behavior:url(#default#homepage)}
+#setf{display:inline}
+#sekj{margin-left:14px}
+#st,#sekj{display:none}
+.s_ipt_wr{border:1px solid #b6b6b6;border-color:#7b7b7b #b6b6b6 #b6b6b6 #7b7b7b;background:#fff;display:inline-block;vertical-align:top;width:539px;margin-right:0;border-right-width:0;border-color:#b8b8b8 transparent #ccc #b8b8b8;overflow:hidden}
+.wrapper_s .s_ipt_wr{width:439px}
+.wrapper_s .s_ipt{width:434px}
+.wrapper_s .s_ipt_tip{width:434px}
+.s_ipt_wr:hover,.s_ipt_wr.ipthover{border-color:#999 transparent #b3b3b3 #999}
+.s_ipt_wr.iptfocus{border-color:#4791ff transparent #4791ff #4791ff}
+.s_ipt_tip{color:#aaa;position:absolute;z-index:-10;font:16px/22px arial;height:32px;line-height:32px;padding-left:7px;overflow:hidden;width:526px}
+.s_ipt{width:526px;height:22px;font:16px/18px arial;line-height:22px;margin:6px 0 0 7px;padding:0;background:transparent;border:0;outline:0;-webkit-appearance:none}
+#kw{position:relative}
+#u .username i{background-position:-408px -144px}
+.bdpfmenu,.usermenu{border:1px solid #d1d1d1;position:absolute;width:105px;top:36px;z-index:302;box-shadow:1px 1px 5px #d1d1d1;-webkit-box-shadow:1px 1px 5px #d1d1d1;-moz-box-shadow:1px 1px 5px #d1d1d1;-o-box-shadow:1px 1px 5px #d1d1d1}
+.bdpfmenu{font-size:12px;background-color:#fff}
+.bdpfmenu a,.usermenu a{display:block;text-align:left;margin:0!important;padding:0 9px;line-height:26px;text-decoration:none}
+.briiconsbg{background-repeat:no-repeat;background-size:300px 18px;background-image:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/icons_0c37e9b.png);background-image:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/icons_809ae65.gif)\9}
+#u{z-index:301;position:absolute;right:0;top:0;margin:21px 9px 5px 0;padding:0}
+.wrapper_s #u{margin-right:3px}
+#u a{text-decoration:underline;color:#333;margin:0 7px}
+.wrapper_s #u a{margin-right:0 6px}
+#u div a{text-decoration:none}
+#u a:hover{text-decoration:underline}
+#u .back_org{color:#666;float:left;display:inline-block;height:24px;line-height:24px}
+#u .bri{display:inline-block;width:24px;height:24px;float:left;line-height:24px;color:transparent;background:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/icons_0c37e9b.png) no-repeat 4px 3px;background-size:300px 18px;background-image:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/icons_809ae65.gif)\9;overflow:hidden}
+#u .bri:hover,#u .bri.brihover{background-position:-18px 3px}
+#mCon #imeSIcon{background-position:-408px -144px;margin-left:0}
+#mCon span{color:#333}
+.bdpfmenu a:link,.bdpfmenu a:visited,#u .usermenu a:link,#u .usermenu a:visited{background:#fff;color:#333}
+.bdpfmenu a:hover,.bdpfmenu a:active,#u .usermenu a:hover,#u .usermenu a:active{background:#38f;text-decoration:none;color:#fff}
+.bdpfmenu{width:70px}
+.usermenu{width:68px;right:8px}
+#wrapper .bdnuarrow{width:0;height:0;font-size:0;line-height:0;display:block;position:absolute;top:-10px;left:50%;margin-left:-5px}
+#wrapper .bdnuarrow em,#wrapper .bdnuarrow i{width:0;height:0;font-size:0;line-height:0;display:block;position:absolute;border:5px solid transparent;border-style:dashed dashed solid}
+#wrapper .bdnuarrow em{border-bottom-color:#d8d8d8;top:-1px}
+#wrapper .bdnuarrow i{border-bottom-color:#fff;top:0}
+#prefpanel{background:#fafafa;display:none;opacity:0;position:fixed;_position:absolute;top:-359px;z-index:500;width:100%;min-width:960px;border-bottom:1px solid #ebebeb}
+#prefpanel form{_width:850px}
+#kw_tip{cursor:default;display:none;margin-top:1px}
+#bds-message-wrapper{top:43px}
+.quickdelete-wrap{position:relative}
+.quickdelete-wrap input{width:500px}
+.wrapper_l .quickdelete-wrap input{width:500px}
+.wrapper_s .quickdelete-wrap input{width:402px}
+input::-ms-clear{display:none}
+.quickdelete{width:32px;height:32px;background:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/quickdelete_33e3eb8.png) no-repeat;background-position:10px 10px;position:absolute;display:block}
+.quickdelete:hover{background-position:10px -24px}
+#lh a{margin-left:25px}
+.bdbriwrapper-tuiguang{display:none!important}

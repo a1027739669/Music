@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ProjectName: MusicPro
@@ -21,12 +23,16 @@ import java.io.Serializable;
 @Data
 @Table(name = "album")
 public class Album implements Serializable {
-    private static final Long serialVersionUID=2141253325246858568L;
+    private static final Long serialVersionUID=2141253325248708908L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer album_id;
     private String album_name;
     private String album_img;
-    private String album_release;
-    private String album_singer;
+    @Temporal(TemporalType.DATE)
+    private Date album_release;
+    private Integer album_singer;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "album_to_song",joinColumns = {@JoinColumn(name = "album_id")},inverseJoinColumns = {@JoinColumn(name = "album_id",insertable = false,updatable = false)})
+    private List<Song> songList;
 }

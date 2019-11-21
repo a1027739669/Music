@@ -30,7 +30,7 @@ import java.util.List;
 public class PlayController {
     @Autowired
     private IndexService indexService;
-    @RequestMapping("/playSong")
+    @RequestMapping("/guest/playSong")
     public String play(HttpSession httpSession, Integer id, ModelMap modelMap){
         List<Song> playlist=indexService.setPlaySong(httpSession,id);
         modelMap.addAttribute("playlist",playlist);

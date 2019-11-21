@@ -23,7 +23,7 @@ import java.io.Serializable;
 @Data
 @Table(name = "song_class")
 public class SongClass implements Serializable {
-    private static final Long serialVersionUID = 2146463837566585L;
+    private static final Long serialVersionUID = 246463837566585098L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -34,7 +34,7 @@ public class SongClass implements Serializable {
     @JoinColumn(name="labelId",insertable = false,updatable = false,referencedColumnName="id")
     @JsonIgnore
     private Label label;
-    @ManyToOne(targetEntity = Song.class,fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Song.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="songId",insertable = false,updatable = false,referencedColumnName="song_id")
     @JsonIgnore
     private Song song;

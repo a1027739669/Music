@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @ProjectName: MusicPro
@@ -29,7 +30,8 @@ public class Comment implements Serializable {
     private Integer comment_id;
     private String comment_text;
     private Integer comment_user;
-    private String commentDate;
+    @Temporal(TemporalType.DATE)
+    private Date commentDate;
     private Integer songId;
     private Integer support;
     @ManyToOne(targetEntity = User.class,fetch = FetchType.LAZY)

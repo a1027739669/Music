@@ -1,5 +1,7 @@
 package com.example.music.demo.repository;
 
+import com.example.music.demo.entity.Info;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,5 +17,5 @@ import org.springframework.stereotype.Repository;
  * @Version: 1.0
  */
 @Repository
-public interface InfoRepository {
+public interface InfoRepository extends JpaRepository<Info, Integer> {
 }
