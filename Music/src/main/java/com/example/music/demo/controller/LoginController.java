@@ -6,10 +6,12 @@ import com.aliyuncs.exceptions.ClientException;
 import com.example.music.demo.config.AliyunSMS;
 import com.example.music.demo.entity.User;
 import com.example.music.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @ProjectName: MusicPro
@@ -25,6 +27,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class LoginController {
+    @Autowired
+    private UserService userService;
     @PostMapping(value = "/SMSVerification")
     @ResponseBody
     public void SMSVerification( String telephone) throws ClientException {
@@ -40,10 +44,23 @@ public class LoginController {
         System.out.println("RequestId=" + response.getRequestId());
         System.out.println("BizId=" + response.getBizId());
     }
-    @ResponseBody
-    @RequestMapping(value = "/guest/login")
-    public String login(@RequestParam String username, @RequestParam String password, HttpServletRequest request){
 
-        return "yes";
+    @PostMapping(value = "/guest/login")
+    @ResponseBody
+    public String login(@RequestParam String username,@RequestParam String password, HttpSession session){
+        User user=userService.findByUserName(username);
+        if(user == null){
+            user=userService.findByPhone(username);
+            if(user == null)
+                return "用户名不存在";
+        }
+        if(!user.getPassword().equals(password))
+            return "密码错误";
+        else {
+            session.setAttribute("user",user);
+
+            return "登录成功";
+        }
+
     }
 }

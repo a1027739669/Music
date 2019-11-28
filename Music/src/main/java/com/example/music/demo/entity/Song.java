@@ -42,16 +42,14 @@ public class Song implements Serializable {
     private String song_file;
     private Integer album_id;
     private Integer isOnline;
-    @OneToOne(fetch = FetchType.LAZY)
+    private String songLabel;
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(name = "Info", joinColumns = {@JoinColumn(name = "song_id")}, inverseJoinColumns = {@JoinColumn(name = "song_id")})
     private Info info;
     @ManyToOne(targetEntity = Album.class,fetch = FetchType.LAZY)
     @JoinColumn(name="album_id",insertable =false,updatable =false)
     @JsonIgnore
     private Album album;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "song_to_songclass",joinColumns = {@JoinColumn(name = "songType")},inverseJoinColumns = {@JoinColumn(name = "songType",insertable = false,updatable = false)})
-    private List<SongClass> songClasses;
     @ManyToOne(targetEntity = Singer.class,fetch = FetchType.EAGER)
     @JoinColumn(name = "song_singer",insertable = false,updatable = false)
     private Singer singer;

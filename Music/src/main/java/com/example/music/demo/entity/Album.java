@@ -1,5 +1,6 @@
 package com.example.music.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -32,7 +33,15 @@ public class Album implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date album_release;
     private Integer album_singer;
+    private String introduction;
+    private String labels;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "album_to_song",joinColumns = {@JoinColumn(name = "album_id")},inverseJoinColumns = {@JoinColumn(name = "album_id",insertable = false,updatable = false)})
     private List<Song> songList;
+    @ManyToOne(targetEntity = Singer.class,fetch = FetchType.EAGER)
+    @JoinColumn(name="album_singer",insertable =false,updatable =false)
+    @JsonIgnore
+    private Singer singer;
+    @OneToMany(targetEntity = AlbumDetail.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="album")
+    public List<AlbumDetail> details;
 }

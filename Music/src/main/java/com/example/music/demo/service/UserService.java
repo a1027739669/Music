@@ -29,4 +29,12 @@ public class UserService {
         }
         return null;
     }
+
+    public User findByUserName(String username) {
+        return userRepository.findUserByUsername(username);
+    }
+
+    public User findByPhone(String username) {
+        return userRepository.findByMobile(username);
+    }
 }

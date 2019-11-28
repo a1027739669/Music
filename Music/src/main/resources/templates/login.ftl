@@ -110,13 +110,13 @@
 <div id="reg_setp">
 	<div class="back_setp">返回</div>
 	<div class="blogo"></div>
-<#--	<div id="setp_quicklogin">-->
-<#--		<h3>您可以选择以下第三方帐号直接登录代码笔记，一分钟完成注册</h3>-->
-<#--		<ul class="quicklogin_socical">-->
-<#--			<li class="quicklogin_socical_weibo"><a href="http://www.jb51.net">微博帐号注册</a></li>-->
-<#--			<li class="quicklogin_socical_qq" style="margin:0;"><a href="http://www.jb51.net">QQ帐号注册</a></li>-->
-<#--		</ul>-->
-<#--	</div>-->
+	<div id="setp_quicklogin">
+		<h3>您可以选择以下第三方帐号直接登录代码笔记，一分钟完成注册</h3>
+		<ul class="quicklogin_socical">
+			<li class="quicklogin_socical_weibo"><a href="http://www.jb51.net">微博帐号注册</a></li>
+			<li class="quicklogin_socical_qq" style="margin:0;"><a href="http://www.jb51.net">QQ帐号注册</a></li>
+		</ul>
+	</div>
 	<!-- 会员注册 -->
 	<div id='regist_container' style="display: none;">
 		<div id="lab1">

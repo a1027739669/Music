@@ -21,6 +21,8 @@
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/playlist.css-max_age=2592000.css">
     <script src="/bin/jquery-3.4.1.js"></script>
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
@@ -162,6 +164,7 @@
                                                                data-v-47314719></i><span data-v-47314719>评论</span>
                                     </button>
                                 </div>
+
                                 <div data-v-47314719>
                                     <div data-v-edb94b72 data-v-47314719>
                                         <div class="list_head head_name_album" style="display:block;" data-v-edb94b72>
@@ -222,14 +225,6 @@
                                         </div>
                                     </div>
                                 </div>
-<#--                                <div class="page-wrap pagination" data-v-9fcc0c74 data-v-47314719><i-->
-<#--                                            class="li-page iconfont icon-icon_pageup notPointer" data-v-9fcc0c74></i>-->
-<#--                                    <ul class="flex_c" data-v-9fcc0c74>-->
-<#--                                        <li style="background:#FFDF1F;" data-v-9fcc0c74><span-->
-<#--                                                    class="notCursor currentPage" data-v-9fcc0c74>1</span></li>-->
-<#--                                        <li data-v-9fcc0c74><span data-v-9fcc0c74>2</span></li>-->
-<#--                                    </ul>-->
-<#--                                    <i class="li-page iconfont icon-icon_pagedown" data-v-9fcc0c74></i></div>-->
                             </div>
                             <div id="comment_con" class="comment_con" data-v-47314719>
                                 <section class="all-comment" style="display:block;"><!----> </section>

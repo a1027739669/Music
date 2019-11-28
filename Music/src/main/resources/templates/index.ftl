@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
+    <script type="text/javascript" src="/js/jQuery3.4.js"></script>
+    <script type="text/javascript"  src="/layui/layui.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
@@ -10,12 +13,14 @@
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/css/head.css">
-    <script src="/bin/jquery-3.4.1.js"></script>
+
+
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
-
     <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
-
+    <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
+    <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
     <script type="text/javascript">
@@ -43,6 +48,8 @@
 
 
             $("#sigup_now,.reg a").click(function () {
+                $("#reg_setp,#setp_quicklogin").show();
+                $("#reg_setp").animate({left: 0}, 500, "easeOutQuart");
             });
 
             $(".back_setp").click(function () {
@@ -65,8 +72,8 @@
             <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
         </h1>
         <ul class="header-top-nav">
-            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">音乐馆</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="我的音乐">我的音乐</a></li>
+            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
+            <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
             <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
                 <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
                 <div class="nav-item-detail">
@@ -83,19 +90,19 @@
                 </div>
             </li>
             <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
+
         </ul>
-        <#--            <ul class="header-sec-nav">-->
-        <#--                <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>-->
-        <#--            </ul>-->
+                    <ul class="header-sec-nav">
+                        <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>
+                        <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>
+                    </ul>
         <div class="header-search">
             <div class="search-input ">
                 <input type="text" placeholder="搜索音乐、MV、歌单、用户">
@@ -148,8 +155,52 @@
             </div>
         </div>
         <div class="header-opt">
-            <a href="javascript:;" class="h-login" id="openlogin">登录</a>
-            <div class="login-mark"></div>
+            <#if Session["user"] ? exists>
+                <!-- 未登录 -->
+                <span class="mod_top_login">
+		    <a class="top_login__link js_logined" href="//y.qq.com/portal/profile.html#stat=y_new.top.user_pic"
+               style=""><img id="userImg"
+                             src="http://thirdqq.qlogo.cn/g?b=sdk&amp;k=ZbfpT8QjY6vdqW4ePRkkIg&amp;s=140&amp;t=1558784273"
+                             class="top_login__cover js_user_img"></a>
+                </span>
+                <!-- 用户信息 -->
+                <div class="popup_user">
+
+                    <div class="popup_user_toolbar">
+                        <!--绿钻-->
+                        <div class="popup_user_toolbar__item">
+                            <div class="popup_user_toolbar__tit"><a href="//y.qq.com/portal/vipportal/index.html"
+                                                                    target="_blank" rel="noopener">绿钻豪华版</a>
+                            </div>
+                            <div class="popup_user_toolbar__desc c_tx_thin">
+
+                                2019-12-03 到期
+
+                            </div>
+                            <a class="mod_btn_green popup_user_toolbar__btn_vip js_openvip" href="javascript:;"
+                               data-aid="music.pc.20318.newyqqhover" data-stat="music.20318.btnclick.pc">续费</a>
+                        </div>
+
+                        <!--付费包-->
+
+                        <div class="popup_user_toolbar__item">
+                            <div class="popup_user_toolbar__tit js_msgcenterdiv"><a
+                                        href="//y.qq.com/portal/msg_center.html#stat=y_new.top.pop.msg_center"
+                                        onclick="setStatCookie&amp;&amp;setStatCookie();">评论通知</a>
+                            </div>
+                        </div>
+                        <div class="popup_user_toolbar__item">
+                            <div class="popup_user_toolbar__tit"><a href="javascript:;" class="js_logout"
+                                                                    data-stat="y_new.top.pop.logout">退出QQ登录</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            <#else >
+                <a href="javascript:;" class="h-login" id="openlogin">登录</a>
+                <div class="login-mark"></div>
+            </#if>
         </div>
     </div>
 </header>
@@ -171,13 +222,13 @@
             <h3><span class="fl">手机登录</span><span class="login_warning" style="display:none">用户名或密码错误</span>
                 <div class="clear"></div>
             </h3>
-            <form action="/guest/login" method="post" id="login_form">
+            <form id="login_form">
                 <div class="logininput">
                     <input type="text" name="username" class="loginusername" value="" placeholder="手机/用户名"/>
                     <input type="password" name="password" class="loginuserpasswordt" value="" placeholder="密码"/>
                 </div>
                 <div class="loginbtn">
-                    <div class="loginsubmit fl"><input type="submit" value="登录" class="btn" /></div>
+                    <div class="loginsubmit fl"><input type="button" value="登录" class="btn" id="submit"/></div>
                     <div class="fl" style="margin:26px 0 0 0;"><input id="bcdl" type="checkbox" checked="true"/>保持登录
                     </div>
                     <div class="fr" style="margin:26px 0 0 0;"><a href="http://www.jb51.net/">忘记密码?</a></div>
@@ -187,17 +238,50 @@
         </div>
     </div>
 
-<#--    <div class="thirdlogin">-->
-<#--        <div class="pd50">-->
-<#--            <h4>用第三方帐号直接登录</h4>-->
-<#--            <ul>-->
-<#--                <li id="sinal"><a href="http://www.jb51.net">微博帐号注册</a></li>-->
-<#--                <li id="qql"><a href="http://www.jb51.net">QQ帐号注册</a></li>-->
-<#--            </ul>-->
-<#--            <div class="clear"></div>-->
-<#--        </div>-->
-<#--    </div>-->
+    <#--    <div class="thirdlogin">-->
+    <#--        <div class="pd50">-->
+    <#--            <h4>用第三方帐号直接登录</h4>-->
+    <#--            <ul>-->
+    <#--                <li id="sinal"><a href="http://www.jb51.net">微博帐号注册</a></li>-->
+    <#--                <li id="qql"><a href="http://www.jb51.net">QQ帐号注册</a></li>-->
+    <#--            </ul>-->
+    <#--            <div class="clear"></div>-->
+    <#--        </div>-->
+    <#--    </div>-->
 
+</div>
+<div id="reg_setp">
+    <div class="back_setp">返回</div>
+    <div class="blogo"></div>
+    <div id="setp_quicklogin">
+        <h3>您可以选择以下第三方帐号直接登录代码笔记，一分钟完成注册</h3>
+        <ul class="quicklogin_socical">
+            <li class="quicklogin_socical_weibo"><a href="http://www.jb51.net">微博帐号注册</a></li>
+            <li class="quicklogin_socical_qq" style="margin:0;"><a href="http://www.jb51.net">QQ帐号注册</a></li>
+        </ul>
+    </div>
+    <!-- 会员注册 -->
+    <div id='regist_container' style="display: none;">
+        <div id="lab1">
+            <span id="lab_login">会员注册</span>
+            <span id="lab_toLogin">
+						&emsp;已有账号&nbsp;
+						<span id='toLogin' style="color: #EB9316;cursor: pointer;">立即登录</span>
+					</span>
+        </div>
+        <div id="form_container2" style="padding-top: 25px;">
+
+            <input type="text" class="form-control" value="admin"  placeholder="用户名" id="regist_account"/>
+            <input type="password" class="form-control" placeholder="密码" id="regist_password1" />
+            <input type="password" class="form-control" placeholder="确认密码" id="regist_password2" />
+            <input type="text" class="form-control" placeholder="手机号" id="regist_phone" />
+            <input type="text" class="form-control" placeholder="验证码" id="regist_vcode" />
+            <!--<button id="getVCode" type="button" class="btn btn-success" >获取验证码</button>-->
+            <input id="getVCode" type="button" class="btn btn-success" value="点击发送验证码" onclick="sendCode(this)" />
+
+        </div>
+        <input type="button" value="注册" class="btn btn-success" id="regist_btn" />
+    </div>
 </div>
 <main>
     <!--song list recommendation start-->
@@ -612,7 +696,7 @@
                                 </h4>
                                 <div class="dish-author">
                                     <a href="javascript:;" class="author-link"
-                                       title="${newAlbum.album_singer}">${newAlbum.album_singer}</a>
+                                       title="${newAlbum.album_singer}">${newAlbum.getSinger().singerName}</a>
                                 </div>
                             </div>
                         </li>
@@ -924,10 +1008,64 @@
 <a href="javascript:; " class="openPlay bottom-btn"></a>
 </body>
 <script type="text/javascript">
-
     function playAll() {
         window.open("/playAll");
     }
-</script>
 
+    $(document).ready(function () {
+        $("#userImg").mouseover(function () {
+            $(".popup_user").addClass("drop");
+        })
+        $("#userImg").mouseout(function () {
+            $('.popup_user').removeClass("drop");
+        })
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+        });
+        $('#submit').click(function () {
+            var d = {};
+            var t = $("#login_form").serializeArray(); // 默认是json 格式
+            $.each(t, function() {
+                //console.info(t)
+                d[this.name] = this.value;
+                console.info(d)
+            });
+            var username=d["username"];
+            var password=d["password"];
+
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "text",//预期服务器返回的数据类型
+                url: "/guest/login",//url
+                data: $('#login_form').serialize(),
+                async: false,
+                success: function (result) {
+                    if (result != "登录成功") {
+                        layer.alert(result);
+                    } else {
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    function toHome() {
+        <#if Session["user"] ? exists>
+        window.location.href="/user/home";
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        </#if>
+    }
+</script>
 </html>

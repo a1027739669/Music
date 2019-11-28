@@ -26,4 +26,5 @@ public class Label implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String label_name;
+
 }

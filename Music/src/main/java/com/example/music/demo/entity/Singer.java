@@ -33,6 +33,8 @@ public class Singer implements Serializable {
     private String country;
     private String singerImg;
     private String sex;
+    private String labels;
+    private Integer support;
     @Transient
     private Integer totalSongs;
     @Transient

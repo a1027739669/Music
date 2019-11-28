@@ -1,9 +1,6 @@
 package com.example.music.demo.service;
 
-import com.example.music.demo.entity.Comment;
 import com.example.music.demo.entity.Song;
-import com.example.music.demo.entity.SongClass;
-import com.example.music.demo.repository.SongClassRepository;
 import com.example.music.demo.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -28,26 +25,24 @@ import java.util.List;
 public class SongService {
     @Autowired
     private SongRepository songRepository;
-    @Autowired
-    private SongClassRepository songClassRepository;
 
     public Song getOneDetail(Integer id) {
         return songRepository.getOne(id);
     }
-
-    public Page<SongClass> getSongPage(Integer labelId, Integer pageId) {
-        Pageable pageable = PageRequest.of(pageId - 1, 20);
-        List<SongClass> songClassList = new ArrayList<>();
-        if (labelId != 0) {
-            songClassList = songClassRepository.getSongPage(labelId);
-        } else {
-            songClassList = songClassRepository.getSongPageAll();
-        }
-        int start = (int) pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > songClassList.size() ? songClassList.size() : (start + pageable.getPageSize());
-        Page<SongClass> songClassPage = new PageImpl<>(songClassList.subList(start, end), pageable, songClassList.size());
-        return songClassPage;
-    }
+//
+//    public Page<SongClass> getSongPage(Integer labelId, Integer pageId) {
+//        Pageable pageable = PageRequest.of(pageId - 1, 20);
+//        List<SongClass> songClassList = new ArrayList<>();
+//        if (labelId != 0) {
+//            songClassList = songClassRepository.getSongPage(labelId);
+//        } else {
+//            songClassList = songClassRepository.getSongPageAll();
+//        }
+//        int start = (int) pageable.getOffset();
+//        int end = (start + pageable.getPageSize()) > songClassList.size() ? songClassList.size() : (start + pageable.getPageSize());
+//        Page<SongClass> songClassPage = new PageImpl<>(songClassList.subList(start, end), pageable, songClassList.size());
+//        return songClassPage;
+//    }
 
     public List<Song> getNewMusicies(){
         return songRepository.getNewMusics();
@@ -64,4 +59,10 @@ public class SongService {
     public Integer getTotalSongNumber(Integer singerId) {
         return songRepository.findAllBySingerId(singerId).size();
     }
+
+    public List<Song> findAllByLabelsLike(String label){
+        return songRepository.findAllBySongLabelLike("%"+label+"%");
+    }
+
+
 }

@@ -1,14 +1,15 @@
 package com.example.music.demo.controller;
 
+import com.example.music.demo.entity.*;
 import com.example.music.demo.repository.*;
-import com.example.music.demo.service.IndexService;
-import com.example.music.demo.service.RedisService;
-import com.example.music.demo.service.SongService;
-import com.example.music.demo.service.SongSheetService;
+import com.example.music.demo.service.*;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 
 /**
@@ -43,10 +44,16 @@ public class test {
     private SongSheetService songSheetService;
     @Autowired
     private AlbumRepository albumRepository;
+    @Autowired
+    private LabelService labelService;
+    @Autowired
+    private AlbumDetailRepository albumDetailRepository;
+    @Autowired
+    private SingerRepository singerRepository;
     @GetMapping("/test")
-    public String test(ModelMap modelMap){
+    public String test(ModelMap modelMap) {
 
-       return "login";
+        return "myinfo";
     }
 
 }

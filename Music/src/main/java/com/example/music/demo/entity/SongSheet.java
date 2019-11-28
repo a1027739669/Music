@@ -39,6 +39,7 @@ public class SongSheet  implements Serializable {
     private Integer isShare;
     private String sheetImg;
     private Integer playCount;
+    private String labels;
     @OneToMany(targetEntity = SheetDetail.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="songSheet")
     public List<SheetDetail> details;
     @ManyToOne(targetEntity = User.class,fetch = FetchType.EAGER)

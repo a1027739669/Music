@@ -18,118 +18,36 @@
     <script src="/bin/jquery-3.4.1.js"></script>
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
-
+    <link type="text/css" rel="stylesheet" href="/kuwocss/style4.css">
+    <link type="text/css" rel="stylesheet" href="/kuwocss/styles.css">
 </head>
 <body>
 
-<!--header start-->
 <header class="header">
-    <div class="header-box">
-        <h1 class="header-title">
-            <a href="javascript:;"><img class="logo-img" src="/image/logo.png" alt="QQ音乐"></a>
-            <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
-        </h1>
-        <ul class="header-top-nav">
-            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">音乐馆</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="我的音乐">我的音乐</a></li>
-            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
-                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
-                <div class="nav-item-detail">
-                    <p>
-                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
-                    </p>
-                    <a href="javascript:;" class="client-download">下载体验</a>
-                </div>
-            </li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
-        </ul>
-        <#--            <ul class="header-sec-nav">-->
-        <#--                <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>-->
-        <#--            </ul>-->
-        <div class="header-search">
-            <div class="search-input ">
-                <input type="text" placeholder="搜索音乐、MV、歌单、用户">
-                <button class="search-btn">
-                    <i class="icon-search sprite"></i>
-                </button>
-            </div>
-            <div class="search-box">
-                <div class="search-hot">
-                    <dl>
-                        <dt>热门搜索</dt>
-                        <dd>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">1</span>
-                                <span class="hot-name">野狼disco</span>
-                                <span class="hot-people">101.6w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">2</span>
-                                <span class="hot-name">那个女孩</span>
-                                <span class="hot-people">82.2w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">3</span>
-                                <span class="hot-name">大田后生仔</span>
-                                <span class="hot-people">66.1w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">4</span>
-                                <span class="hot-name">许嵩</span>
-                                <span class="hot-people">65.8w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">5</span>
-                                <span class="hot-name">遗憾</span>
-                                <span class="hot-people">43.9w</span>
-                            </a>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="search-history">
-                    <dl class="history-list">
-                        <dt class="history-tit">搜索历史
-                            <a href="javascript:;" class="history-clear">
-                                <i class="icon-clear sprite"></i>
-                            </a>
-                        </dt>
-                    </dl>
-                </div>
-            </div>
+<!--header start-->
+<header class="top-nav" data-spm="topnav" style="" data-spm-anchor-id="a2oj1.12028025.0.topnav.54776ee15cuq3P">
+    <div class="top-nav-wrapper"><a class="active" aria-current="page" href="/">
+            <div class="logo"></div>
+        </a>
+        <div class="links"><a class="active" aria-current="page" href="/">发现</a><a href="/user/430803050">我的音乐</a><a
+                    href="//i.xiami.com" target="_blank" rel="noreferrer noopener">音乐人</a><a
+                    href="//emumo.xiami.com/apps/mobile" target="_blank" rel="noreferrer noopener">客户端下载</a><a
+                    href="/vip">会员中心</a></div>
+        <div class="search"><input value="" placeholder="EXO">
+            <div class="iconfont"></div>
         </div>
-        <div class="header__opt">
-
-
-            <!-- 未登录 -->
-            <span class="mod_top_login">
-		    <a class="top_login__link js_logined" href="//y.qq.com/portal/profile.html#stat=y_new.top.user_pic"
-               onclick="" style=""><img
-                        src="/upload/1.jpg"
-                        class="top_login__cover js_user_img"></a>
-                </span>
-            <!-- 用户信息 -->
-
+        <div class="message-center"><a href="/message">
+                <div class="iconfont"></div>
+            </a></div>
+        <div class="user">
+            <div class="avatar"
+                 style="background-image: url(&quot;//pic.xiami.net/images/avatar_new/559876939_1571361716.jpg?x-oss-process=image/resize,limit_0,s_60,m_fill&quot;);"
+                 data-spm-anchor-id="a2oj1.12028025.topnav.i0.54776ee15cuq3P"></div>
         </div>
     </div>
 </header>
-<!--main content-->
 
-
+</header>
 <main>
     <!--song list recommendation start-->
     <div class="songList">
@@ -157,47 +75,47 @@
                 <a href="javascript:;" class="tab-item">官方歌单</a>
                 <a href="javascript:;" class="tab-item">情歌</a>
             </div>
-            <div class="playlist">
-                <ul class="playlist-ul">
-                    <#list randomSheet as sheet>
-                        <li class="playlist-item">
-                            <div class="item-box">
-                                <a href="javascript:;" class="link-img">
-                                    <img src="/upload/${sheet.sheetImg}" alt=""
-                                         class="playlist-link-img">
-                                    <i class="img-mask"></i>
-                                    <i class="img-btn"></i>
-                                </a>
-                                <h4 class="item-title">
-                                    <span><a href="javascript:;"><font
-                                                    color="black">${sheet.introduction}</font></a></span>
-                                </h4>
-                                <div class="play-people">
-                                    播放量：${sheet.support}万
-                                </div>
-                            </div>
-                        </li>
-                    </#list>
-                    <#list randomSheet as sheet>
-                        <li class="playlist-item">
-                            <div class="item-box">
-                                <a href="javascript:;" class="link-img">
-                                    <img src="/upload/${sheet.sheetImg}" alt=""
-                                         class="playlist-link-img">
-                                    <i class="img-mask"></i>
-                                    <i class="img-btn"></i>
-                                </a>
-                                <h4 class="item-title">
-                                    <span><a href="javascript:;">${sheet.introduction}</a></span>
-                                </h4>
-                                <div class="play-people">
-                                    播放量：${sheet.support}万
-                                </div>
-                            </div>
-                        </li>
-                    </#list>
-                </ul>
-            </div>
+            <#--            <div class="playlist">-->
+            <#--                <ul class="playlist-ul">-->
+            <#--                    <#list randomSheet as sheet>-->
+            <#--                        <li class="playlist-item">-->
+            <#--                            <div class="item-box">-->
+            <#--                                <a href="javascript:;" class="link-img">-->
+            <#--                                    <img src="/upload/${sheet.sheetImg}" alt=""-->
+            <#--                                         class="playlist-link-img">-->
+            <#--                                    <i class="img-mask"></i>-->
+            <#--                                    <i class="img-btn"></i>-->
+            <#--                                </a>-->
+            <#--                                <h4 class="item-title">-->
+            <#--                                    <span><a href="javascript:;"><font-->
+            <#--                                                    color="black">${sheet.introduction}</font></a></span>-->
+            <#--                                </h4>-->
+            <#--                                <div class="play-people">-->
+            <#--                                    播放量：${sheet.support}万-->
+            <#--                                </div>-->
+            <#--                            </div>-->
+            <#--                        </li>-->
+            <#--                    </#list>-->
+            <#--                    <#list randomSheet as sheet>-->
+            <#--                        <li class="playlist-item">-->
+            <#--                            <div class="item-box">-->
+            <#--                                <a href="javascript:;" class="link-img">-->
+            <#--                                    <img src="/upload/${sheet.sheetImg}" alt=""-->
+            <#--                                         class="playlist-link-img">-->
+            <#--                                    <i class="img-mask"></i>-->
+            <#--                                    <i class="img-btn"></i>-->
+            <#--                                </a>-->
+            <#--                                <h4 class="item-title">-->
+            <#--                                    <span><a href="javascript:;">${sheet.introduction}</a></span>-->
+            <#--                                </h4>-->
+            <#--                                <div class="play-people">-->
+            <#--                                    播放量：${sheet.support}万-->
+            <#--                                </div>-->
+            <#--                            </div>-->
+            <#--                        </li>-->
+            <#--                    </#list>-->
+            <#--                </ul>-->
+            <#--            </div>-->
             <div class="bottom-point">
                 <a href="javascript:;" class="bottom-point-item active">
                     <i class="point "></i>
@@ -230,163 +148,163 @@
                 <a href="javascript:;" class="ns-tab-item">韩国</a>
                 <a href="javascript:;" class="ns-tab-item">日本</a>
             </div>
-            <div class="newSongs-roll">
-                <div class="ns-roll-box">
+            <#--            <div class="newSongs-roll">-->
+            <#--                <div class="ns-roll-box">-->
 
-                    <ul class="newSongs-list">
-                        <#list newMusices4 as newMusic4>
-                            <li class="newSongs-item">
-                                <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
-                                        <img src="/upload/${newMusic4.song_img}" alt="">
-                                        <i class="ns-img-mask"></i>
-                                        <i class="ns-play-btn"></i>
-                                    </a>
-                                    <div class="song-content">
-                                        <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">
-                                                <font color="black"> ${newMusic4.song_name}</font>
-                                            </a>
-                                        </h3>
-                                        <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
-                                               title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>
-                                        </p>
-                                    </div>
-                                    <div class="ns-time">${newMusic4.song_time}</div>
-                                </div>
-                            </li>
-                        </#list>
-                    </ul>
+            <#--                    <ul class="newSongs-list">-->
+            <#--                        <#list newMusices4 as newMusic4>-->
+            <#--                            <li class="newSongs-item">-->
+            <#--                                <div class="newSongs-item-box">-->
+            <#--                                    <a href="javascript:;" class="ns-img-box">-->
+            <#--                                        <img src="/upload/${newMusic4.song_img}" alt="">-->
+            <#--                                        <i class="ns-img-mask"></i>-->
+            <#--                                        <i class="ns-play-btn"></i>-->
+            <#--                                    </a>-->
+            <#--                                    <div class="song-content">-->
+            <#--                                        <h3 class="song-title">-->
+            <#--                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">-->
+            <#--                                                <font color="black"> ${newMusic4.song_name}</font>-->
+            <#--                                            </a>-->
+            <#--                                        </h3>-->
+            <#--                                        <p class="ns-author">-->
+            <#--                                            <a href="javascript:;" class="author-link"-->
+            <#--                                               title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>-->
+            <#--                                        </p>-->
+            <#--                                    </div>-->
+            <#--                                    <div class="ns-time">${newMusic4.song_time}</div>-->
+            <#--                                </div>-->
+            <#--                            </li>-->
+            <#--                        </#list>-->
+            <#--                    </ul>-->
 
-                    <ul class="newSongs-list">
-                        <#list newMusices1 as newMusic1>
-                            <li class="newSongs-item">
-                                <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
-                                        <img src="/upload/${newMusic1.song_img}" alt="">
-                                        <i class="ns-img-mask"></i>
-                                        <i class="ns-play-btn"></i>
-                                    </a>
-                                    <div class="song-content">
-                                        <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">
-                                                <font color="black">  ${newMusic1.song_name}   </font>
-                                            </a>
-                                        </h3>
-                                        <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
-                                               title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>
-                                        </p>
-                                    </div>
-                                    <div class="ns-time">${newMusic1.song_time}</div>
-                                </div>
-                            </li>
-                        </#list>
-                    </ul>
-                    <ul class="newSongs-list">
-                        <#list newMusices2 as newMusic2>
-                            <li class="newSongs-item">
-                                <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
-                                        <img src="/upload/${newMusic2.song_img}" alt="">
-                                        <i class="ns-img-mask"></i>
-                                        <i class="ns-play-btn"></i>
-                                    </a>
-                                    <div class="song-content">
-                                        <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic2.song_name} ">
-                                                <font color="black">  ${newMusic2.song_name}   </font>
-                                            </a>
-                                        </h3>
-                                        <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
-                                               title="${newMusic2.getSinger().getSingerName()}">${newMusic2.getSinger().getSingerName()}</a>
-                                        </p>
-                                    </div>
-                                    <div class="ns-time">${newMusic2.song_time}</div>
-                                </div>
-                            </li>
-                        </#list>
-                    </ul>
-                    <ul class="newSongs-list">
-                        <#list newMusices3 as newMusic3>
-                            <li class="newSongs-item">
-                                <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
-                                        <img src="/upload/${newMusic3.song_img}" alt="">
-                                        <i class="ns-img-mask"></i>
-                                        <i class="ns-play-btn"></i>
-                                    </a>
-                                    <div class="song-content">
-                                        <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic3.song_name} ">
-                                                <font color="black">  ${newMusic3.song_name}   </font>
-                                            </a>
-                                        </h3>
-                                        <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
-                                               title="${newMusic3.getSinger().getSingerName()}">${newMusic3.getSinger().getSingerName()}</a>
-                                        </p>
-                                    </div>
-                                    <div class="ns-time">${newMusic3.song_time}</div>
-                                </div>
-                            </li>
-                        </#list>
-                    </ul>
-                    <ul class="newSongs-list">
-                        <#list newMusices4 as newMusic4>
-                            <li class="newSongs-item">
-                                <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
-                                        <img src="/upload/${newMusic4.song_img}" alt="">
-                                        <i class="ns-img-mask"></i>
-                                        <i class="ns-play-btn"></i>
-                                    </a>
-                                    <div class="song-content">
-                                        <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">
-                                                <font color="black">  ${newMusic4.song_name}   </font>
-                                            </a>
-                                        </h3>
-                                        <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
-                                               title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>
-                                        </p>
-                                    </div>
-                                    <div class="ns-time">${newMusic4.song_time}</div>
-                                </div>
-                            </li>
-                        </#list>
-                    </ul>
-                    <ul class="newSongs-list">
-                        <#list newMusices1 as newMusic1>
-                            <li class="newSongs-item">
-                                <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
-                                        <img src="/upload/${newMusic1.song_img}" alt="">
-                                        <i class="ns-img-mask"></i>
-                                        <i class="ns-play-btn"></i>
-                                    </a>
-                                    <div class="song-content">
-                                        <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">
-                                                <font color="black">  ${newMusic1.song_name}   </font>
-                                            </a>
-                                        </h3>
-                                        <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
-                                               title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>
-                                        </p>
-                                    </div>
-                                    <div class="ns-time">${newMusic1.song_time}</div>
-                                </div>
-                            </li>
-                        </#list>
-                    </ul>
+            <#--                    <ul class="newSongs-list">-->
+            <#--                        <#list newMusices1 as newMusic1>-->
+            <#--                            <li class="newSongs-item">-->
+            <#--                                <div class="newSongs-item-box">-->
+            <#--                                    <a href="javascript:;" class="ns-img-box">-->
+            <#--                                        <img src="/upload/${newMusic1.song_img}" alt="">-->
+            <#--                                        <i class="ns-img-mask"></i>-->
+            <#--                                        <i class="ns-play-btn"></i>-->
+            <#--                                    </a>-->
+            <#--                                    <div class="song-content">-->
+            <#--                                        <h3 class="song-title">-->
+            <#--                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">-->
+            <#--                                                <font color="black">  ${newMusic1.song_name}   </font>-->
+            <#--                                            </a>-->
+            <#--                                        </h3>-->
+            <#--                                        <p class="ns-author">-->
+            <#--                                            <a href="javascript:;" class="author-link"-->
+            <#--                                               title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>-->
+            <#--                                        </p>-->
+            <#--                                    </div>-->
+            <#--                                    <div class="ns-time">${newMusic1.song_time}</div>-->
+            <#--                                </div>-->
+            <#--                            </li>-->
+            <#--                        </#list>-->
+            <#--                    </ul>-->
+            <#--                    <ul class="newSongs-list">-->
+            <#--                        <#list newMusices2 as newMusic2>-->
+            <#--                            <li class="newSongs-item">-->
+            <#--                                <div class="newSongs-item-box">-->
+            <#--                                    <a href="javascript:;" class="ns-img-box">-->
+            <#--                                        <img src="/upload/${newMusic2.song_img}" alt="">-->
+            <#--                                        <i class="ns-img-mask"></i>-->
+            <#--                                        <i class="ns-play-btn"></i>-->
+            <#--                                    </a>-->
+            <#--                                    <div class="song-content">-->
+            <#--                                        <h3 class="song-title">-->
+            <#--                                            <a href="javascript:;" class="song-tit-box" title="${newMusic2.song_name} ">-->
+            <#--                                                <font color="black">  ${newMusic2.song_name}   </font>-->
+            <#--                                            </a>-->
+            <#--                                        </h3>-->
+            <#--                                        <p class="ns-author">-->
+            <#--                                            <a href="javascript:;" class="author-link"-->
+            <#--                                               title="${newMusic2.getSinger().getSingerName()}">${newMusic2.getSinger().getSingerName()}</a>-->
+            <#--                                        </p>-->
+            <#--                                    </div>-->
+            <#--                                    <div class="ns-time">${newMusic2.song_time}</div>-->
+            <#--                                </div>-->
+            <#--                            </li>-->
+            <#--                        </#list>-->
+            <#--                    </ul>-->
+            <#--                    <ul class="newSongs-list">-->
+            <#--                        <#list newMusices3 as newMusic3>-->
+            <#--                            <li class="newSongs-item">-->
+            <#--                                <div class="newSongs-item-box">-->
+            <#--                                    <a href="javascript:;" class="ns-img-box">-->
+            <#--                                        <img src="/upload/${newMusic3.song_img}" alt="">-->
+            <#--                                        <i class="ns-img-mask"></i>-->
+            <#--                                        <i class="ns-play-btn"></i>-->
+            <#--                                    </a>-->
+            <#--                                    <div class="song-content">-->
+            <#--                                        <h3 class="song-title">-->
+            <#--                                            <a href="javascript:;" class="song-tit-box" title="${newMusic3.song_name} ">-->
+            <#--                                                <font color="black">  ${newMusic3.song_name}   </font>-->
+            <#--                                            </a>-->
+            <#--                                        </h3>-->
+            <#--                                        <p class="ns-author">-->
+            <#--                                            <a href="javascript:;" class="author-link"-->
+            <#--                                               title="${newMusic3.getSinger().getSingerName()}">${newMusic3.getSinger().getSingerName()}</a>-->
+            <#--                                        </p>-->
+            <#--                                    </div>-->
+            <#--                                    <div class="ns-time">${newMusic3.song_time}</div>-->
+            <#--                                </div>-->
+            <#--                            </li>-->
+            <#--                        </#list>-->
+            <#--                    </ul>-->
+            <#--                    <ul class="newSongs-list">-->
+            <#--                        <#list newMusices4 as newMusic4>-->
+            <#--                            <li class="newSongs-item">-->
+            <#--                                <div class="newSongs-item-box">-->
+            <#--                                    <a href="javascript:;" class="ns-img-box">-->
+            <#--                                        <img src="/upload/${newMusic4.song_img}" alt="">-->
+            <#--                                        <i class="ns-img-mask"></i>-->
+            <#--                                        <i class="ns-play-btn"></i>-->
+            <#--                                    </a>-->
+            <#--                                    <div class="song-content">-->
+            <#--                                        <h3 class="song-title">-->
+            <#--                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">-->
+            <#--                                                <font color="black">  ${newMusic4.song_name}   </font>-->
+            <#--                                            </a>-->
+            <#--                                        </h3>-->
+            <#--                                        <p class="ns-author">-->
+            <#--                                            <a href="javascript:;" class="author-link"-->
+            <#--                                               title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>-->
+            <#--                                        </p>-->
+            <#--                                    </div>-->
+            <#--                                    <div class="ns-time">${newMusic4.song_time}</div>-->
+            <#--                                </div>-->
+            <#--                            </li>-->
+            <#--                        </#list>-->
+            <#--                    </ul>-->
+            <#--                    <ul class="newSongs-list">-->
+            <#--                        <#list newMusices1 as newMusic1>-->
+            <#--                            <li class="newSongs-item">-->
+            <#--                                <div class="newSongs-item-box">-->
+            <#--                                    <a href="javascript:;" class="ns-img-box">-->
+            <#--                                        <img src="/upload/${newMusic1.song_img}" alt="">-->
+            <#--                                        <i class="ns-img-mask"></i>-->
+            <#--                                        <i class="ns-play-btn"></i>-->
+            <#--                                    </a>-->
+            <#--                                    <div class="song-content">-->
+            <#--                                        <h3 class="song-title">-->
+            <#--                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">-->
+            <#--                                                <font color="black">  ${newMusic1.song_name}   </font>-->
+            <#--                                            </a>-->
+            <#--                                        </h3>-->
+            <#--                                        <p class="ns-author">-->
+            <#--                                            <a href="javascript:;" class="author-link"-->
+            <#--                                               title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>-->
+            <#--                                        </p>-->
+            <#--                                    </div>-->
+            <#--                                    <div class="ns-time">${newMusic1.song_time}</div>-->
+            <#--                                </div>-->
+            <#--                            </li>-->
+            <#--                        </#list>-->
+            <#--                    </ul>-->
 
-                </div>
-            </div>
+            <#--                </div>-->
+            <#--            </div>-->
             <div class="bottom-point">
                 <a href="javascript:;" class="bottom-point-item active">
                     <i class="point "></i>
@@ -527,29 +445,29 @@
                 <a href="javascript:;" class="ns-tab-item">日本</a>
                 <a href="javascript:;" class="ns-tab-item">其他</a>
             </div>
-            <div class="newDish-roll">
-                <ul class="newDish-item">
-                    <#list newAlbums as newAlbum>
-                        <li class="dish-list">
-                            <div class="dish-list-box">
-                                <a href="javascript:;" class="dish-img-box">
-                                    <img src="/upload/${newAlbum.album_img}" alt="" class="dish-img">
-                                    <i class="ns-img-mask"></i>
-                                    <i class="icon-play play"></i>
-                                </a>
-                                <h4 class="dish-title">
-                                    <a href="javascript:;" class="title-link"><font
-                                                color="black">${newAlbum.album_name}</font></a>
-                                </h4>
-                                <div class="dish-author">
-                                    <a href="javascript:;" class="author-link"
-                                       title="${newAlbum.album_singer}">${newAlbum.album_singer}</a>
-                                </div>
-                            </div>
-                        </li>
-                    </#list>
-                </ul>
-            </div>
+            <#--            <div class="newDish-roll">-->
+            <#--                <ul class="newDish-item">-->
+            <#--                    <#list newAlbums as newAlbum>-->
+            <#--                        <li class="dish-list">-->
+            <#--                            <div class="dish-list-box">-->
+            <#--                                <a href="javascript:;" class="dish-img-box">-->
+            <#--                                    <img src="/upload/${newAlbum.album_img}" alt="" class="dish-img">-->
+            <#--                                    <i class="ns-img-mask"></i>-->
+            <#--                                    <i class="icon-play play"></i>-->
+            <#--                                </a>-->
+            <#--                                <h4 class="dish-title">-->
+            <#--                                    <a href="javascript:;" class="title-link"><font-->
+            <#--                                                color="black">${newAlbum.album_name}</font></a>-->
+            <#--                                </h4>-->
+            <#--                                <div class="dish-author">-->
+            <#--                                    <a href="javascript:;" class="author-link"-->
+            <#--                                       title="${newAlbum.album_singer}">${newAlbum.album_singer}</a>-->
+            <#--                                </div>-->
+            <#--                            </div>-->
+            <#--                        </li>-->
+            <#--                    </#list>-->
+            <#--                </ul>-->
+            <#--            </div>-->
         </div>
     </div>
     <!--the charts start-->
@@ -859,6 +777,15 @@
     function playAll() {
         window.open("/playAll");
     }
+
+    $(document).ready(function () {
+        $("#userImg").mouseover(function () {
+            $(".popup_user").addClass("drop");
+        })
+        $("#userImg").mouseout(function () {
+            $('.popup_user').removeClass("drop");
+        })
+    });
 </script>
 
 </html>

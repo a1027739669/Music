@@ -86,16 +86,5 @@ public class IndexController {
         modelMap.addAttribute("playlist",playlist);
         return "play";
     }
-    @GetMapping("/guest/sheettable")
-    public String getSheetList(ModelMap modelMap,Integer rankMethod,Integer pageId) {
 
-        Page<SongSheet> sheetsPage = indexService.getSheetList(pageId,rankMethod);
-
-        modelMap.addAttribute("sheetsPage", sheetsPage);
-        return "sheettable";
-    }
-    @GetMapping("/guest/sheetlist")
-    public String detail(ModelMap modelMap){
-        return "sheetlist";
-    }
 }

@@ -5,6 +5,7 @@ import com.example.music.demo.repository.LabelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.logging.Level;
 
 /**
@@ -23,7 +24,12 @@ import java.util.logging.Level;
 public class LabelService {
     @Autowired
     private LabelRepository labelRepository;
-    public Label getLabelById(Integer labelId){
+
+    public Label getLabelById(Integer labelId) {
         return labelRepository.getLabelById(labelId);
+    }
+
+    public List<Label> findAll(){
+        return labelRepository.findAll();
     }
 }

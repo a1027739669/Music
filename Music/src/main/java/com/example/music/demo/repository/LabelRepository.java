@@ -4,6 +4,8 @@ import com.example.music.demo.entity.Label;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @ProjectName: Music
  * @Package: com.example.music.demo.repository
@@ -19,4 +21,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LabelRepository extends JpaRepository<Label,Integer> {
     public Label getLabelById(Integer id);
+
+    public List<Label> findAll();
 }

@@ -34,6 +34,7 @@ public class User  implements Serializable {
     private Date last_login;
     private String introduction;
     private Integer is_super;
+    private String nicheng;
     private String email;
     @Temporal(TemporalType.DATE)
     private Date create_date;
@@ -42,4 +43,5 @@ public class User  implements Serializable {
     private String user_wechat;
     private Integer isAlive;
     private Integer reported;
+    private Integer allPlay;
 }

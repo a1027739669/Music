@@ -1,10 +1,18 @@
 package com.example.music.demo.service;
 
+import com.example.music.demo.entity.Album;
 import com.example.music.demo.entity.Singer;
 import com.example.music.demo.repository.SingerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -23,8 +31,40 @@ import java.util.List;
 public class SingerService {
     @Autowired
     private SingerRepository singerRepository;
-    public Singer getSingerById(Integer singerId){
-           return singerRepository.findSingerById(singerId);
+
+    public Singer getSingerById(Integer singerId) {
+        return singerRepository.findSingerById(singerId);
     }
 
+    public Page<Singer> getSingerList(String country,String sex,String label, Integer pageId) {
+        Pageable pageable = PageRequest.of(pageId- 1, 80);
+        List<Singer> singerList=new ArrayList<>();
+        if(label.equals("全部"))
+          singerList=singerRepository.findAll();
+        else
+            singerList = singerRepository.findByLabelsLike("%" + label+ "%");
+        if(!country.equals("全部")){
+            for (int i = singerList.size()-1; i>=0 ; i--) {
+                if(!singerList.get(i).getCountry().equals(country))
+                    singerList.remove(i);
+            }
+        }
+        if(!sex.equals("全部")){
+            for (int i = singerList.size()-1; i>=0 ; i--) {
+                if(!singerList.get(i).getSex().equals(sex))
+                    singerList.remove(i);
+            }
+        }
+        Collections.sort(singerList, new Comparator<Singer>() {
+            @Override
+            public int compare(Singer o1, Singer o2) {
+                return -o1.getSupport().compareTo(o2.getSupport());
+            }
+        });
+        singerList.remove(singerList.size() - 1);
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > singerList.size() ? singerList.size() : (start + pageable.getPageSize());
+        Page<Singer> singerPage = new PageImpl<>(singerList.subList(start, end), pageable, singerList.size());
+        return singerPage;
+    }
 }

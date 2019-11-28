@@ -24,8 +24,9 @@ body{
     margin: 0 auto;
     max-width: 1200px;
     min-width: 1100px;
-    height: 90px;
+    height: 142px;
 }
+
 .header-box .header-title{
     position: absolute;
     top: 22px;
@@ -44,12 +45,14 @@ body{
 .header-top-nav .top-nav-item{
     position: relative;
     float: left;
+    font-weight: lighter;
 }
 .header-top-nav .top-nav-item.active{
-    background-color: #31c27c;
+    /*background-color: #31c27c;*/
+    font-weight: bolder;
 }
 .header-top-nav .active a{
-    color: #fff;
+    color: #31c27c;
 }
 .tnav-link{
     display: block;
