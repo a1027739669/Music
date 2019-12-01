@@ -53,7 +53,7 @@ public class test {
     @GetMapping("/test")
     public String test(ModelMap modelMap) {
 
-        return "myinfo";
+        return "singerlist";
     }
 
 }

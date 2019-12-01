@@ -9,7 +9,7 @@
     </ul>
     <#list songList.content as song>
         <#if (song_index%2==0)>
-            <#if (((pageIndex-1)*20+song_index+1)<=2)>
+            <#if (((pageIndex-1)*20+song_index+1)<=3)>
                 <li mid="244499239" ix="0">
                     <div class="songlist__item" onmouseover="this.className=(this.className+' songlist__item--hover')"
                          onmouseout="this.className=this.className.replace(/ songlist__item--hover/, '')">
@@ -39,17 +39,12 @@
                                     <span class="icon_txt">添加到歌单</span>
                                 </a>
 
-                                <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="VIP下载"
+                                <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载"
                                    aria-haspopup="true" data-target="menu_down">
                                     <i class="list_menu__icon_down_vip"></i>
-                                    <span class="icon_txt">VIP下载</span>
+                                    <span class="icon_txt">下载</span>
                                 </a>
 
-                                <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享"
-                                   aria-haspopup="true" data-aria="menu_share">
-                                    <i class="list_menu__icon_share"></i>
-                                    <span class="icon_txt">分享</span>
-                                </a>
                             </div>
                         </div>
 
@@ -258,7 +253,7 @@
             </#if>
         </#if>
     </#list>
-    <div class="mod_page_nav js_pager_comment">
+    <div class="mod_page_nav js_pager_comment" id="js_pager_comment">
         <#if (songList.totalPages==1)>
             <strong class="current">1</strong>
         <#elseif (songList.totalPages>1)&&(songList.totalPages<=4)>
@@ -374,6 +369,7 @@
             success: function (data) {
                 $("#songList").empty();
                 $("#songList").append(data);
+                window.location.hash = "#rankName";
             }
         });
     }

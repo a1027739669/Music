@@ -43,5 +43,6 @@ public class User  implements Serializable {
     private String user_wechat;
     private Integer isAlive;
     private Integer reported;
-    private Integer allPlay;
+    @OneToMany(targetEntity = UserCollection.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy ="user")
+    public List<UserCollection> userCollections;
 }

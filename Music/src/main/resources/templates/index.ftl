@@ -9,7 +9,7 @@
     <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
     <meta name="description"
           content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
-    <title>QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
+    <title>我的音乐</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/css/head.css">
@@ -74,34 +74,15 @@
         <ul class="header-top-nav">
             <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
-            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
-                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
-                <div class="nav-item-detail">
-                    <p>
-                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
-                    </p>
-                    <a href="javascript:;" class="client-download">下载体验</a>
-                </div>
-            </li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
+            <li class="top-nav-item"><a href="/guest/rank" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="/guest/sheetlist" class="tnav-link" title="音乐号">分类歌单</a></li>
+
 
         </ul>
                     <ul class="header-sec-nav">
                         <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>
-                        <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>
+                        <li class="sec-nav-item"><a href="/guest/singerlist" class="nav-link">歌手</a></li>
+                        <li class="sec-nav-item"><a href="/guest/albumlist" class="nav-link">专辑</a></li>
                     </ul>
         <div class="header-search">
             <div class="search-input ">
@@ -115,31 +96,13 @@
                     <dl>
                         <dt>热门搜索</dt>
                         <dd>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">1</span>
-                                <span class="hot-name">野狼disco</span>
-                                <span class="hot-people">101.6w</span>
+                            <#list hotSearch as hot>
+                            <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                <span class="hot-num">${hot_index+1}</span>
+                                <span class="hot-name">${hot.song_name}</span>
+                                <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
                             </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">2</span>
-                                <span class="hot-name">那个女孩</span>
-                                <span class="hot-people">82.2w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">3</span>
-                                <span class="hot-name">大田后生仔</span>
-                                <span class="hot-people">66.1w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">4</span>
-                                <span class="hot-name">许嵩</span>
-                                <span class="hot-people">65.8w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">5</span>
-                                <span class="hot-name">遗憾</span>
-                                <span class="hot-people">43.9w</span>
-                            </a>
+                            </#list>
                         </dd>
                     </dl>
                 </div>
@@ -315,14 +278,14 @@
                     <#list randomSheet as sheet>
                         <li class="playlist-item">
                             <div class="item-box">
-                                <a href="javascript:;" class="link-img">
+                                <a href="" onclick="playAllSheet(${sheet.id})" class="link-img">
                                     <img src="/upload/${sheet.sheetImg}" alt=""
                                          class="playlist-link-img">
                                     <i class="img-mask"></i>
                                     <i class="img-btn"></i>
                                 </a>
                                 <h4 class="item-title">
-                                    <span><a href="javascript:;"><font
+                                    <span><a href="/guest/sheetDetail?sheetId=${sheet.id}"><font
                                                     color="black">${sheet.introduction}</font></a></span>
                                 </h4>
                                 <div class="play-people">
@@ -334,14 +297,14 @@
                     <#list randomSheet as sheet>
                         <li class="playlist-item">
                             <div class="item-box">
-                                <a href="javascript:;" class="link-img">
+                                <a href="" onclick="playAllSheet(${sheet.id})" class="link-img">
                                     <img src="/upload/${sheet.sheetImg}" alt=""
                                          class="playlist-link-img">
                                     <i class="img-mask"></i>
                                     <i class="img-btn"></i>
                                 </a>
                                 <h4 class="item-title">
-                                    <span><a href="javascript:;">${sheet.introduction}</a></span>
+                                    <span><a href="/guest/sheetDetail?sheetId=${sheet.id}">${sheet.introduction}</a></span>
                                 </h4>
                                 <div class="play-people">
                                     播放量：${sheet.support}万
@@ -390,19 +353,19 @@
                         <#list newMusices4 as newMusic4>
                             <li class="newSongs-item">
                                 <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
+                                    <a href="" onclick="playSong(${newMusic4.song_id})" class="ns-img-box">
                                         <img src="/upload/${newMusic4.song_img}" alt="">
                                         <i class="ns-img-mask"></i>
                                         <i class="ns-play-btn"></i>
                                     </a>
                                     <div class="song-content">
                                         <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">
+                                            <a href="/guest/detail?songId=${newMusic4.song_id}" class="song-tit-box" title="${newMusic4.song_name} ">
                                                 <font color="black"> ${newMusic4.song_name}</font>
                                             </a>
                                         </h3>
                                         <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
+                                            <a href="/guest/singerDetail?singerId=${newMusic4.getSinger().id}" class="author-link"
                                                title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>
                                         </p>
                                     </div>
@@ -416,19 +379,19 @@
                         <#list newMusices1 as newMusic1>
                             <li class="newSongs-item">
                                 <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
+                                    <a href="javascript:;" onclick="playSong(${newMusic1.song_id})" class="ns-img-box">
                                         <img src="/upload/${newMusic1.song_img}" alt="">
                                         <i class="ns-img-mask"></i>
                                         <i class="ns-play-btn"></i>
                                     </a>
                                     <div class="song-content">
                                         <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">
+                                            <a href="/guest/detail?songId=${newMusic1.song_id}" class="song-tit-box" title="${newMusic1.song_name} ">
                                                 <font color="black">  ${newMusic1.song_name}   </font>
                                             </a>
                                         </h3>
                                         <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
+                                            <a href="/guest/singerDetail?singerId=${newMusic1.getSinger().id}" class="author-link"
                                                title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>
                                         </p>
                                     </div>
@@ -441,19 +404,19 @@
                         <#list newMusices2 as newMusic2>
                             <li class="newSongs-item">
                                 <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
+                                    <a href="javascript:;" onclick="playSong(${newMusic2.song_id})" class="ns-img-box">
                                         <img src="/upload/${newMusic2.song_img}" alt="">
                                         <i class="ns-img-mask"></i>
                                         <i class="ns-play-btn"></i>
                                     </a>
                                     <div class="song-content">
                                         <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic2.song_name} ">
+                                            <a href="/guest/detail?songId=${newMusic2.song_id}" class="song-tit-box" title="${newMusic2.song_name} ">
                                                 <font color="black">  ${newMusic2.song_name}   </font>
                                             </a>
                                         </h3>
                                         <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
+                                            <a href="/guest/singerDetail?singerId=${newMusic2.getSinger().id}" class="author-link"
                                                title="${newMusic2.getSinger().getSingerName()}">${newMusic2.getSinger().getSingerName()}</a>
                                         </p>
                                     </div>
@@ -466,19 +429,19 @@
                         <#list newMusices3 as newMusic3>
                             <li class="newSongs-item">
                                 <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
+                                    <a href="javascript:;" onclick="playSong(${newMusic3.song_id})"  class="ns-img-box">
                                         <img src="/upload/${newMusic3.song_img}" alt="">
                                         <i class="ns-img-mask"></i>
                                         <i class="ns-play-btn"></i>
                                     </a>
                                     <div class="song-content">
                                         <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic3.song_name} ">
+                                            <a href="/guest/detail?songId=${newMusic3.song_id}" class="song-tit-box" title="${newMusic3.song_name} ">
                                                 <font color="black">  ${newMusic3.song_name}   </font>
                                             </a>
                                         </h3>
                                         <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
+                                            <a href="/guest/singerDetail?singerId=${newMusic3.getSinger().id}" class="author-link"
                                                title="${newMusic3.getSinger().getSingerName()}">${newMusic3.getSinger().getSingerName()}</a>
                                         </p>
                                     </div>
@@ -491,19 +454,19 @@
                         <#list newMusices4 as newMusic4>
                             <li class="newSongs-item">
                                 <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
+                                    <a href="javascript:;" onclick="playSong(${newMusic4.song_id})" class="ns-img-box">
                                         <img src="/upload/${newMusic4.song_img}" alt="">
                                         <i class="ns-img-mask"></i>
                                         <i class="ns-play-btn"></i>
                                     </a>
                                     <div class="song-content">
                                         <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic4.song_name} ">
+                                            <a href="/guest/detail?songId=${newMusic4.song_id}" class="song-tit-box" title="${newMusic4.song_name} ">
                                                 <font color="black">  ${newMusic4.song_name}   </font>
                                             </a>
                                         </h3>
                                         <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
+                                            <a href="/guest/singerDetail?singerId=${newMusic4.getSinger().id}" class="author-link"
                                                title="${newMusic4.getSinger().getSingerName()}">${newMusic4.getSinger().getSingerName()}</a>
                                         </p>
                                     </div>
@@ -516,19 +479,19 @@
                         <#list newMusices1 as newMusic1>
                             <li class="newSongs-item">
                                 <div class="newSongs-item-box">
-                                    <a href="javascript:;" class="ns-img-box">
+                                    <a href="javascript:;" onclick="playSong(${newMusic1.song_id})" class="ns-img-box">
                                         <img src="/upload/${newMusic1.song_img}" alt="">
                                         <i class="ns-img-mask"></i>
                                         <i class="ns-play-btn"></i>
                                     </a>
                                     <div class="song-content">
                                         <h3 class="song-title">
-                                            <a href="javascript:;" class="song-tit-box" title="${newMusic1.song_name} ">
+                                            <a href="/guest/detail?songId=${newMusic1.song_id}" class="song-tit-box" title="${newMusic1.song_name} ">
                                                 <font color="black">  ${newMusic1.song_name}   </font>
                                             </a>
                                         </h3>
                                         <p class="ns-author">
-                                            <a href="javascript:;" class="author-link"
+                                            <a href="/guest/singerDetail?singerId=${newMusic1.getSinger().id}" class="author-link"
                                                title="${newMusic1.getSinger().getSingerName()}">${newMusic1.getSinger().getSingerName()}</a>
                                         </p>
                                     </div>
@@ -685,17 +648,17 @@
                     <#list newAlbums as newAlbum>
                         <li class="dish-list">
                             <div class="dish-list-box">
-                                <a href="javascript:;" class="dish-img-box">
+                                <a href="javascript:;" onclick="playAllAlbum(${newAlbum.albumId})" class="dish-img-box">
                                     <img src="/upload/${newAlbum.album_img}" alt="" class="dish-img">
                                     <i class="ns-img-mask"></i>
                                     <i class="icon-play play"></i>
                                 </a>
                                 <h4 class="dish-title">
-                                    <a href="javascript:;" class="title-link"><font
+                                    <a href="/guest/albumDetail?albumId=${newAlbum.albumId}" class="title-link"><font
                                                 color="black">${newAlbum.album_name}</font></a>
                                 </h4>
                                 <div class="dish-author">
-                                    <a href="javascript:;" class="author-link"
+                                    <a href="/guest/singerDetail?singerId=${newAlbum.getSinger().id}" class="author-link"
                                        title="${newAlbum.album_singer}">${newAlbum.getSinger().singerName}</a>
                                 </div>
                             </div>
@@ -1009,9 +972,17 @@
 </body>
 <script type="text/javascript">
     function playAll() {
-        window.open("/playAll");
+        window.open("/guest/playAll");
     }
-
+    function playAllSheet(sheetId){
+        window.open("/guest/playSheet?sheetId="+sheetId);
+    }
+    function playAllAlbum(albumId){
+        window.open("/guest/playAlbum?albumId="+albumId);
+    }
+    function playSong(songId){
+        window.open("/guest/playSong?id="+songId);
+    }
     $(document).ready(function () {
         $("#userImg").mouseover(function () {
             $(".popup_user").addClass("drop");
@@ -1049,6 +1020,7 @@
                         layer.alert(result);
                     } else {
                         location.reload();
+                        layer.msg("登录成功!");
                     }
                 },
                 error: function () {

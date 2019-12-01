@@ -1,5 +1,7 @@
 package com.example.music.demo.service;
+import	java.util.ArrayList;
 
+import com.example.music.demo.entity.SheetDetail;
 import com.example.music.demo.entity.Song;
 import com.example.music.demo.entity.SongSheet;
 import com.example.music.demo.repository.SongSheetRepository;
@@ -73,5 +75,24 @@ public class SongSheetService {
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
         return songSheetList.subList(start,end);
+    }
+
+    public List<SongSheet> findRelative(Integer songId) {
+        List<SongSheet> ans=new ArrayList<> ();
+        List<SongSheet> temp=songSheetRepository.findAll3();
+        for (int i = 0; i <temp.size() ; i++) {
+            SongSheet songSheet=temp.get(i);
+            List<SheetDetail> sheetDetailList=songSheet.getDetails();
+            if(sheetDetailList!=null&&sheetDetailList.size()>0){
+                for(int j=0;j<sheetDetailList.size();j++){
+                    if(sheetDetailList.get(j).getSongId().equals(songId)){
+                        ans.add(songSheet);
+                    }
+                }
+            }
+            if(ans.size()>=3)
+                break;
+        }
+        return ans;
     }
 }

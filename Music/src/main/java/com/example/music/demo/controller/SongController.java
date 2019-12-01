@@ -49,16 +49,4 @@ public class SongController {
         return "singersongstable";
     }
 
-    @GetMapping("/guest/singerDetail")
-    public String detail(ModelMap modelMap, Integer singerId) throws IOException {
-        Singer singer=singerService.getSingerById(singerId);
-        singer.setTotalSongs(songService.getTotalSongNumber(singerId));
-        singer.setTotalAlbums(albumService.findAlbumBySingerId(singerId).size());
-        modelMap.addAttribute("singer", singer);
-        List<Album> albumList=albumService.findAlbumBySingerId(singerId);
-        if(albumList!=null){
-            modelMap.addAttribute("albumList",albumList);
-        }
-        return "singer";
-    }
 }

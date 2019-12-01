@@ -33,7 +33,7 @@ public class Song implements Serializable {
     private String song_name;
     private Integer song_singer;
     private String song_time;
-    private String song_languages;
+    private String songLanguages;
     private Integer songType;
     @Temporal(TemporalType.DATE)
     private Date song_release;

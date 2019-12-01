@@ -29,6 +29,8 @@ public class Singer implements Serializable {
     private String singerName;
     @Temporal(TemporalType.DATE)
     private Date birthday;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String introduction;
     private String country;
     private String singerImg;

@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <script type="text/javascript" src="/js/jQuery3.4.js"></script>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="baidu-site-verification" content="xaLcM8mGHG">
-    <meta name="verify-v1" content="gNntuhTm2rH7Qa/GPp6lf0mIp9KQsjejNs+i1LZhG7U=">
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/css/head2.css">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
+    <meta name="description"
+          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
+    <meta name="mobile-agent" content="format==[html5];url=https://y.qq.com/m/index.html">
+    <meta name="applicable-device" content="pc">
+    <title>专辑库 - QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/bin/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/album.css-max_age=2592000&v=20160831.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/popup_login.css?max_age=25920000">
+    <style type="text/css">.emojicon-m {
+            min-height: 1em !important;
+            min-width: 1em !important;
+            max-height: 1em !important;
+            max-width: 1em !important;
+            vertical-align: middle !important;
+            float: none !important;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            display: inline-block;
+        }</style>
+    <link rel="stylesheet" type="text/css"
+          href="/mediastyle/yqq/qb-ie-remind.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/mediastyle/yqq/playlist.css-max_age=2592000.css"/>
+
+    <link rel="stylesheet" href="/css/head2.css">
     <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
     <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
     <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
     <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
     <link type="text/css" rel="stylesheet" href="/kuwocss/style4.css">
-
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
     <link type="text/css" rel="stylesheet" href="/kuwocss/styles.css">
@@ -296,7 +322,7 @@
                     <div class="collect-list">
                         <div class="block-title unselectable"><h2>创建的歌单</h2>
                             <div class="external">
-                                <a href="/user/create" class="mod_btn js_follow" ><i class="mod_btn__icon_more"
+                                <a href="/user/create" class="mod_btn js_follow"><i class="mod_btn__icon_more"
                                                                                     data-status="0"></i>新建歌单</a>
                                 <a
                                         href="">
@@ -317,9 +343,6 @@
                                                     <div class="cover"
                                                          style="background-image: url('/upload/${create.sheetImg}');">
                                                         <div class="count"><i class="iconfont"></i>${create.support}
-                                                        </div>
-                                                        <div class="action">
-                                                            <button class="play"><i class="iconfont"></i></button>
                                                         </div>
                                                     </div>
                                                 </a></div>

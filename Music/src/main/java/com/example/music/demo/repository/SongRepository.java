@@ -41,4 +41,6 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
     public List<Song> findAllBySingerId(Integer singerId);
 
     public List<Song> findAllBySongLabelLike(String lebel);
+
+    public List<Song> findAllBySongLanguages(String language);
 }

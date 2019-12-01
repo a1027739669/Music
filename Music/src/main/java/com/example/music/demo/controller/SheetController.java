@@ -1,12 +1,10 @@
 package com.example.music.demo.controller;
 
+import com.example.music.demo.entity.Label;
 import com.example.music.demo.entity.SheetDetail;
 import com.example.music.demo.entity.Song;
 import com.example.music.demo.entity.SongSheet;
-import com.example.music.demo.service.IndexService;
-import com.example.music.demo.service.SheetDetailService;
-import com.example.music.demo.service.SongService;
-import com.example.music.demo.service.SongSheetService;
+import com.example.music.demo.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +19,7 @@ import java.util.ArrayList;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,6 +45,10 @@ public class SheetController {
     private SongService songService;
     @Autowired
     private IndexService indexService;
+    @Autowired
+    private RedisService redisService;
+    @Autowired
+    private LabelService labelService;
     @GetMapping("/guest/sheetDetail")
     public String sheetDetail(ModelMap modelMap, Integer sheetId) {
         SongSheet songSheet = songSheetService.findById(sheetId);
@@ -60,6 +63,20 @@ public class SheetController {
             }
         }
         modelMap.addAttribute("likes", likes);
+        if (redisService.get("hotSearch") != null) {
+            List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
+            if (hotSearch.size() >= 5)
+                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+            else
+                modelMap.addAttribute("hotSearch", hotSearch);
+        } else {
+            List<Song> hotSearch = indexService.getMoreSearchMusics();
+            redisService.set("hotSearch", hotSearch, (long) 1, TimeUnit.DAYS);
+            if (hotSearch.size() >= 5)
+                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+            else
+                modelMap.addAttribute("hotSearch", hotSearch);
+        }
         return "sheetdetail";
     }
 
@@ -103,15 +120,33 @@ public class SheetController {
         return "success";
     }
     @GetMapping("/guest/sheettable")
-    public String getSheetList(ModelMap modelMap,Integer rankMethod,Integer pageId) {
+    public String getSheetList(ModelMap modelMap,Integer rankMethod,Integer pageId,String label) {
 
-        Page<SongSheet> sheetsPage = indexService.getSheetList(pageId,rankMethod);
-
+        Page<SongSheet> sheetsPage = indexService.getSheetList(pageId,rankMethod,label);
+        modelMap.addAttribute("currentLabel",label);
+        modelMap.addAttribute("currentRankId",rankMethod);
         modelMap.addAttribute("sheetsPage", sheetsPage);
         return "sheettable";
     }
     @GetMapping("/guest/sheetlist")
     public String detail(ModelMap modelMap){
+        List<Label> labelList=labelService.findAll();
+        modelMap.addAttribute("labelList",labelList);
+        if (redisService.get("hotSearch") != null) {
+            List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
+            if (hotSearch.size() >= 5)
+                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+            else
+                modelMap.addAttribute("hotSearch", hotSearch);
+        } else {
+            List<Song> hotSearch = indexService.getMoreSearchMusics();
+            redisService.set("hotSearch", hotSearch, (long) 1, TimeUnit.DAYS);
+            if (hotSearch.size() >= 5)
+                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+            else
+                modelMap.addAttribute("hotSearch", hotSearch);
+        }
+        modelMap.addAttribute("tempLabel","全部");
         return "sheetlist";
     }
 }

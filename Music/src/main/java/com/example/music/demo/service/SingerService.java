@@ -3,6 +3,7 @@ package com.example.music.demo.service;
 import com.example.music.demo.entity.Album;
 import com.example.music.demo.entity.Singer;
 import com.example.music.demo.repository.SingerRepository;
+import org.dom4j.util.SimpleSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -36,22 +37,22 @@ public class SingerService {
         return singerRepository.findSingerById(singerId);
     }
 
-    public Page<Singer> getSingerList(String country,String sex,String label, Integer pageId) {
-        Pageable pageable = PageRequest.of(pageId- 1, 80);
-        List<Singer> singerList=new ArrayList<>();
-        if(label.equals("全部"))
-          singerList=singerRepository.findAll();
-        else
-            singerList = singerRepository.findByLabelsLike("%" + label+ "%");
-        if(!country.equals("全部")){
-            for (int i = singerList.size()-1; i>=0 ; i--) {
-                if(!singerList.get(i).getCountry().equals(country))
+    public Page<Singer> getSingerList(String country, String sex, String label, Integer pageId) {
+        Pageable pageable = PageRequest.of(pageId - 1, 80);
+        List<Singer> singerList = new ArrayList<>();
+        if (label.equals("全部"))
+            singerList = singerRepository.findAll();
+        else{
+            singerList = singerRepository.findByLabelsLike("%" + label + "%");}
+        if (!country.equals("全部")) {
+            for (int i = singerList.size() - 1; i >= 0; i--) {
+                if (!singerList.get(i).getCountry().equals(country))
                     singerList.remove(i);
             }
         }
-        if(!sex.equals("全部")){
-            for (int i = singerList.size()-1; i>=0 ; i--) {
-                if(!singerList.get(i).getSex().equals(sex))
+        if (!sex.equals("全部")) {
+            for (int i = singerList.size() - 1; i >= 0; i--) {
+                if (!singerList.get(i).getSex().equals(sex))
                     singerList.remove(i);
             }
         }
@@ -61,10 +62,17 @@ public class SingerService {
                 return -o1.getSupport().compareTo(o2.getSupport());
             }
         });
-        singerList.remove(singerList.size() - 1);
+        for (int i = singerList.size()-1; i>=0 ; i--) {
+            if(singerList.get(i).getId().equals(0))
+                singerList.remove(i);
+        }
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > singerList.size() ? singerList.size() : (start + pageable.getPageSize());
         Page<Singer> singerPage = new PageImpl<>(singerList.subList(start, end), pageable, singerList.size());
         return singerPage;
+    }
+
+    public List<Singer> findLikes(String label) {
+        return singerRepository.findByLabelsLike("%"+label+"%");
     }
 }

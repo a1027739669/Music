@@ -43,17 +43,27 @@ public class RankingService {
             } else if (rankClassId == 3) {
                 songList = indexService.getMoreDownMusics();
             }
-        } else {
-            songList = songService.findAllByLabelsLike(labelService.getLabelById(rankClassId - 10).getLabel_name());
-
-            Collections.sort(songList, new Comparator<Song>() {
-                @Override
-                public int compare(Song o1, Song o2) {
-                    return o1.getInfo().getInfo_plays().compareTo(o2.getInfo().getInfo_plays());
-                }
-            });
+        } else if(rankClassId==4){
+            songList = songService.findAllByLauguage("国语");
         }
-
+        else if(rankClassId==5){
+            songList = songService.findAllByLauguage("粤语");
+        }
+        else if(rankClassId==6){
+            songList = songService.findAllByLauguage("英语");
+        }
+        else if(rankClassId==7){
+            songList = songService.findAllByLauguage("韩语");
+        }
+        else if(rankClassId==8){
+            songList = songService.findAllByLauguage("日语");
+        }
+        Collections.sort(songList, new Comparator<Song>() {
+            @Override
+            public int compare(Song o1, Song o2) {
+                return o1.getInfo().getInfo_plays().compareTo(o2.getInfo().getInfo_plays());
+            }
+        });
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > songList.size() ? songList.size() : (start + pageable.getPageSize());
         Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());

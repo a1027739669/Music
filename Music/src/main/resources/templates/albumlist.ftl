@@ -51,34 +51,15 @@
         <ul class="header-top-nav">
             <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
-            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
-                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
-                <div class="nav-item-detail">
-                    <p>
-                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
-                    </p>
-                    <a href="javascript:;" class="client-download">下载体验</a>
-                </div>
-            </li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">分类歌单</a></li>
+
 
         </ul>
         <ul class="header-sec-nav">
             <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>
+            <li class="sec-nav-item"><a href="/guest/singerlist" class="nav-link">歌手</a></li>
+            <li class="sec-nav-item"><a href="/guest/albumlist" class="nav-link">专辑</a></li>
         </ul>
         <div class="header-search">
             <div class="search-input ">
@@ -92,31 +73,13 @@
                     <dl>
                         <dt>热门搜索</dt>
                         <dd>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">1</span>
-                                <span class="hot-name">野狼disco</span>
-                                <span class="hot-people">101.6w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">2</span>
-                                <span class="hot-name">那个女孩</span>
-                                <span class="hot-people">82.2w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">3</span>
-                                <span class="hot-name">大田后生仔</span>
-                                <span class="hot-people">66.1w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">4</span>
-                                <span class="hot-name">许嵩</span>
-                                <span class="hot-people">65.8w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">5</span>
-                                <span class="hot-name">遗憾</span>
-                                <span class="hot-people">43.9w</span>
-                            </a>
+                            <#list hotSearch as hot>
+                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                    <span class="hot-num">${hot_index+1}</span>
+                                    <span class="hot-name">${hot.song_name}</span>
+                                    <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
+                                </a>
+                            </#list>
                         </dd>
                     </dl>
                 </div>
@@ -264,29 +227,10 @@
 
 
 <div class="mod_loading" id="before_page" style="display: none;"><i class="icon_txt">加载中</i></div>
-<div class="main" style="">
+<div class="main" style="" id="main">
     <!-- 标签筛选 -->
-    <div class="mod_tag" id="tag_list">
-        <div class="tag__list">
 
-            <a href="javascript:;" class="tag__item tag__item--select" data-id="area|1">华语</a>
 
-            <a href="javascript:;" class="tag__item " data-id="area|2">港台</a>
-
-            <a href="javascript:;" class="tag__item " data-id="area|3">欧美</a>
-
-            <a href="javascript:;" class="tag__item " data-id="area|4">韩国</a>
-
-            <a href="javascript:;" class="tag__item " data-id="area|5">日本</a>
-
-            <a href="javascript:;" class="tag__item " data-id="area|6">其他</a>
-
-        </div>
-    </div>
-
-    <div class="mod_part_detail" id="allalbum">
-
-    </div>
 
 
 </div>
@@ -304,8 +248,8 @@
                 'pageId': page,
             },
             success: function (data) {
-                $("#allalbum").empty();
-                $("#allalbum").append(data);
+                $("#main").empty();
+                $("#main").append(data);
             }
         });
     }

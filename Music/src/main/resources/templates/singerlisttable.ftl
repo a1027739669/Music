@@ -3,54 +3,54 @@
 
     <div class="singer_tag__list js_area">
         <#if currentCoun=="全部">
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'全部','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">全部</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'全部','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">全部</a>
         </#if>
         <#if currentCoun=="内地">
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'内地','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">内地</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'内地','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">内地</a>
         </#if>
 
         <#if currentCoun=="港台">
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'港台','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">港台</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'港台','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">港台</a>
         </#if>
         <#if currentCoun=="欧美">
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'欧美','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">欧美</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'欧美','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">欧美</a>
         </#if>
         <#if (currentCoun=="日本")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'日本','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">日本</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'日本','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">日本</a>
         </#if>
         <#if (currentCoun=="韩国")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'韩国','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">韩国</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'韩国','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">韩国</a>
         </#if>
 
         <#if (currentCoun=="其他")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'其他','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">其他</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'其他','${currentSex?js_string}','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">其他</a>
         </#if>
 
@@ -60,33 +60,33 @@
     <div class="singer_tag__list js_sex">
 
         <#if (currentSex=="全部")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'${currentCoun?js_string}','全部','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">全部</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'${currentCoun?js_string}','全部','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">全部</a>
         </#if>
 
         <#if (currentSex=="男")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'${currentCoun?js_string}','男','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">男</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'${currentCoun?js_string}','男','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">男</a>
         </#if>
         <#if (currentSex=="女")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'${currentCoun?js_string}','女','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">女</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'${currentCoun?js_string}','女','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">女</a>
         </#if>
 
         <#if (currentSex=="组合")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'${currentCoun?js_string}','组合','${currentLabel?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">组合</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'${currentCoun?js_string}','组合','${currentLabel?js_string}')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">组合</a>
         </#if>
 
@@ -95,18 +95,18 @@
     <div class="singer_tag__list js_genre">
 
         <#if (currentLabel=="全部")>
-            <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+            <a onclick="toList(1,'${currentCoun?js_string}','${currentSex?js_string}','全部')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                data-key="area" data-id="-100" hidefocus="">全部</a>
         <#else >
-            <a href="javascript:;" class="singer_tag__item"
+            <a onclick="toList(1,'${currentCoun?js_string}','${currentSex?js_string}','全部')" class="singer_tag__item"
                data-key="area" data-id="-100" hidefocus="">全部</a>
         </#if>
         <#list labelList as label>
             <#if currentLabel==label.label_name>
-                <a href="javascript:;" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
+                <a onclick="toList(1,'${currentCoun?js_string}','${currentSex?js_string}','${label.label_name?js_string}')" class="singer_tag__item singer_tag__item--all singer_tag__item--select"
                    data-key="area" data-id="-100" hidefocus="">${label.label_name}</a>
             <#else >
-                <a href="javascript:;" class="singer_tag__item"
+                <a onclick="toList(1,'${currentCoun?js_string}','${currentSex?js_string}','${label.label_name?js_string}')" class="singer_tag__item"
                    data-key="area" data-id="-100" hidefocus="">${label.label_name}</a>
             </#if>
         </#list>
@@ -121,7 +121,7 @@
                 <#if (singer_index<=9)>
                     <li class="singer_list__item">
                         <div class="singer_list__item_box">
-                            <a href=""
+                            <a href="/guest/singerDetail?singerId=${singer.id}"
                                onclick="" class="singer_list__cover js_singer"
                                hidefocus="true" data-stat="y_new.singerlist.singerpic"
                                data-singerid="4558" title="周杰伦">
@@ -132,7 +132,7 @@
                                 </#if>
                             </a>
                             <h3 class="singer_list__title"><a
-                                        href=""
+                                        href="/guest/singerDetail?singerId=${singer.id}"
                                         onclick=""
                                         data-id="4558" class="js_singer" data-stat="y_new.singerlist.singername"
                                         title="周杰伦">${singer.singerName}</a></h3>
@@ -148,7 +148,7 @@
         <#list singerPage.content as singer>
             <#if (singer_index>=10)>
                 <li class="singer_list_txt__item"><a
-                            href=""
+                            href="/guest/singerDetail?singerId=${singer.id}"
                             onclick="" class="singer_list_txt__link js_singer"
                             data-stat="y_new.singerlist.singername" data-singermid="003Nz2So3XXYek" data-singerid="143"
                             title="陈奕迅">${singer.singerName}</a></li>

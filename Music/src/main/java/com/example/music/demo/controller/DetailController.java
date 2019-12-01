@@ -3,8 +3,10 @@ package com.example.music.demo.controller;
 
 import com.example.music.demo.entity.Comment;
 import com.example.music.demo.entity.Song;
+import com.example.music.demo.entity.SongSheet;
 import com.example.music.demo.service.DetailService;
 import com.example.music.demo.service.SongService;
+import com.example.music.demo.service.SongSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -37,7 +39,8 @@ public class DetailController {
     private DetailService detailService;
     @Autowired
     private SongService songService;
-
+    @Autowired
+    private SongSheetService songSheetService;
     @GetMapping("/guest/songDetail")
     public String getDetail(ModelMap modelMap, Integer songId, Integer pageId) {
         Song song = songService.getOneDetail(songId);
@@ -53,6 +56,8 @@ public class DetailController {
         Song song = songService.getOneDetail(songId);
         song.setTotalComNum(detailService.getTotalComNub(songId));
         modelMap.addAttribute("song", song);
+        List<SongSheet> relative=songSheetService.findRelative(songId);
+        modelMap.addAttribute("relativeSheet",relative);
         String filePath="D:/MUSICRESOURCE/lyic/"+song.getSong_lyrics();
         File file = new File(filePath);
         if (file.exists()) {
@@ -68,6 +73,6 @@ public class DetailController {
             if(lyric.size()!=0)
             modelMap.addAttribute("lyric",lyric);
         }
-        return "detail";
+        return "detail2";
     }
 }

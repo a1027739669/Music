@@ -2,19 +2,17 @@
 <html lang="zh-cn">
 <head>
     <script type="text/javascript" src="/js/jQuery3.4.js"></script>
-    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script type="text/javascript"  src="/layui/layui.js"></script>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
     <meta name="description"
           content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
-    <title>QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
+    <title>我的音乐</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/css/head.css">
-
-
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
@@ -60,6 +58,25 @@
 
         });
     </script>
+    <script src="/bin/jquery-3.4.1.js"></script>
+    <script src="/js/head.js"></script>
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
+    <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
+    <style type="text/css">.emojicon-m {
+            min-height: 1em !important;
+            min-width: 1em !important;
+            max-height: 1em !important;
+            max-width: 1em !important;
+            vertical-align: middle !important;
+            float: none !important;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            display: inline-block;
+        }</style>
+
+    <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
 
 </head>
 <body class="os_mac">
@@ -72,35 +89,16 @@
         <ul class="header-top-nav">
             <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
-            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
-                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
-                <div class="nav-item-detail">
-                    <p>
-                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
-                    </p>
-                    <a href="javascript:;" class="client-download">下载体验</a>
-                </div>
-            </li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">分类歌单</a></li>
+
+
         </ul>
-        <#--            <ul class="header-sec-nav">-->
-        <#--                <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>-->
-        <#--            </ul>-->
+        <ul class="header-sec-nav">
+            <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>
+            <li class="sec-nav-item"><a href="/guest/singerlist" class="nav-link">歌手</a></li>
+            <li class="sec-nav-item"><a href="/guest/albumlist" class="nav-link">专辑</a></li>
+        </ul>
         <div class="header-search">
             <div class="search-input ">
                 <input type="text" placeholder="搜索音乐、MV、歌单、用户">
@@ -113,31 +111,13 @@
                     <dl>
                         <dt>热门搜索</dt>
                         <dd>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">1</span>
-                                <span class="hot-name">野狼disco</span>
-                                <span class="hot-people">101.6w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">2</span>
-                                <span class="hot-name">那个女孩</span>
-                                <span class="hot-people">82.2w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">3</span>
-                                <span class="hot-name">大田后生仔</span>
-                                <span class="hot-people">66.1w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">4</span>
-                                <span class="hot-name">许嵩</span>
-                                <span class="hot-people">65.8w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">5</span>
-                                <span class="hot-name">遗憾</span>
-                                <span class="hot-people">43.9w</span>
-                            </a>
+                            <#list hotSearch as hot>
+                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                    <span class="hot-num">${hot_index+1}</span>
+                                    <span class="hot-name">${hot.song_name}</span>
+                                    <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
+                                </a>
+                            </#list>
                         </dd>
                     </dl>
                 </div>
@@ -203,7 +183,9 @@
     </div>
 </header>
 <!--main content-->
+
 <div class="loginmask"></div>
+
 <div id="loginalert">
 
     <div class="pd20 loginpd">
@@ -267,16 +249,16 @@
         </div>
         <div id="form_container2" style="padding-top: 25px;">
 
-            <input type="text" class="form-control" value="admin" placeholder="用户名" id="regist_account"/>
-            <input type="password" class="form-control" placeholder="密码" id="regist_password1"/>
-            <input type="password" class="form-control" placeholder="确认密码" id="regist_password2"/>
-            <input type="text" class="form-control" placeholder="手机号" id="regist_phone"/>
-            <input type="text" class="form-control" placeholder="验证码" id="regist_vcode"/>
+            <input type="text" class="form-control" value="admin"  placeholder="用户名" id="regist_account"/>
+            <input type="password" class="form-control" placeholder="密码" id="regist_password1" />
+            <input type="password" class="form-control" placeholder="确认密码" id="regist_password2" />
+            <input type="text" class="form-control" placeholder="手机号" id="regist_phone" />
+            <input type="text" class="form-control" placeholder="验证码" id="regist_vcode" />
             <!--<button id="getVCode" type="button" class="btn btn-success" >获取验证码</button>-->
-            <input id="getVCode" type="button" class="btn btn-success" value="点击发送验证码" onclick="sendCode(this)"/>
+            <input id="getVCode" type="button" class="btn btn-success" value="点击发送验证码" onclick="sendCode(this)" />
 
         </div>
-        <input type="button" value="注册" class="btn btn-success" id="regist_btn"/>
+        <input type="button" value="注册" class="btn btn-success" id="regist_btn" />
     </div>
 </div>
 <div class="main">
@@ -380,13 +362,6 @@
                                                aria-haspopup="true" data-target="menu_down">
                                                 <i class="list_menu__icon_down"></i>
                                                 <span class="icon_txt">下载</span>
-                                            </a>
-
-                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share"
-                                               title="分享"
-                                               aria-haspopup="true" data-aria="menu_share">
-                                                <i class="list_menu__icon_share"></i>
-                                                <span class="icon_txt">分享</span>
                                             </a>
                                         </div>
                                     </div>
@@ -501,13 +476,13 @@
 
         </div>
         <div class="detail_layout__other">
+
             <div class="mod_about js_box" id="album_desc" style="display:block;">
                 <h3 class="about__tit">简介</h3>
                 <div class="about__cont">
                     <p>${sheetDetail.introduction} </p>
                 </div>
             </div>
-
         </div>
         <!-- 专辑简介 -->
     </div>
@@ -764,4 +739,8 @@
     </div>
 </div>
 </body>
+<script type="text/javascript">
+
+
+</script>
 </html>

@@ -49,10 +49,21 @@ public class AlbumService {
                 return -o1.getAlbum_release().compareTo(o2.getAlbum_release());
             }
         });
-        albumList.remove(albumList.size()-1);
+        for (int i = albumList.size() -1; i >=0 ; i--) {
+            if(albumList.get(i).getAlbumId().equals(1))
+                albumList.remove(i);
+        }
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > albumList.size() ? albumList.size() : (start + pageable.getPageSize());
         Page<Album> albums = new PageImpl<>(albumList.subList(start, end), pageable, albumList.size());
         return albums;
+    }
+
+    public Album findByAlbumId(Integer albumId){
+        return albumRepository.findAlbumByAlbumId(albumId);
+    }
+
+    public List<Album> findOthers(Integer id) {
+        return albumRepository.findAllByAlbum_singer2(id);
     }
 }

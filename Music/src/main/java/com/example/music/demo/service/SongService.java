@@ -64,5 +64,8 @@ public class SongService {
         return songRepository.findAllBySongLabelLike("%"+label+"%");
     }
 
+    public List<Song> findAllByLauguage(String language){
+         return songRepository.findAllBySongLanguages(language);
+    }
 
 }

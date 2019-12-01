@@ -369,377 +369,151 @@
                     </div>
                 </div>
             </div>
-            <div style="clear:both"></div>
-            <div class="xm-footer" style="visibility:visible" data-spm="footer">
-                <div class="xm-footer-content">
-                    <div class="main-block">
-                        <div class="info-panel">
-                            <div class="info">
-                                <div class="info-name">关于虾米</div>
-                                <div class="info-value">
-                                    <div class="links"><a href="//emumo.xiami.com/about" target="_blank"
-                                                          rel="noreferrer noopener">关于我们</a><a
-                                                href="https://job.alibaba.com/zhaopin/positionList.htm?keyWord=JXU5NjNGJXU5MUNDJXU5N0YzJXU0RTUw&amp;_input_charset=UTF-8"
-                                                target="_blank" rel="noreferrer noopener">虾米招聘</a><a
-                                                href="//emumo.xiami.com/contact" target="_blank"
-                                                rel="noreferrer noopener">联系我们</a><a
-                                                href="//act.xiami.com/wow/xiami/act/legal-agreement" target="_blank"
-                                                rel="noreferrer noopener">隐私权政策</a><a href="//emumo.xiami.com/alicare"
-                                                                                      target="_blank"
-                                                                                      rel="noreferrer noopener">联系客服</a><a
-                                                href="//emumo.xiami.com/feedback" target="_blank"
-                                                rel="noreferrer noopener">意见反馈</a><a href="//emumo.xiami.com/"
-                                                                                     target="_blank"
-                                                                                     rel="noreferrer noopener">回旧版</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="info-name">入驻虾米</div>
-                                <div class="info-value">
-                                    <div class="links"><a href="https://i.xiami.com/musician/pr" target="_blank"
-                                                          rel="noreferrer noopener">音乐人</a><a
-                                                href="http://act.xiami.com/wow/xiami/act/guize" target="_blank"
-                                                rel="noreferrer noopener">音乐专栏</a></div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="info-name">资料补全</div>
-                                <div class="info-value">
-                                    <div class="links"><a href="//emumo.xiami.com/wiki/addalbum" target="_blank"
-                                                          rel="noreferrer noopener">添加资料</a><a
-                                                href="//emumo.xiami.com/music/want" target="_blank"
-                                                rel="noreferrer noopener">大家想要的专辑</a><a
-                                                href="//emumo.xiami.com/space/upload-audio" target="_blank"
-                                                rel="noreferrer noopener">音频上传</a><a href="//link.xiami.com/mv/myMv"
-                                                                                     target="_blank"
-                                                                                     rel="noreferrer noopener">MV上传</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="info-name">桌面端</div>
-                                <div class="info-value">
-                                    <div class="links"><a
-                                                href="https://files.xiami.com/webh5/files/xiamiWin/068ba49b0603140cabe09fc34771cd70.xiami7.2.7.exe"
-                                                target="_self" rel="noreferrer noopener">PC电脑</a><a
-                                                href="https://gxiami.alicdn.com/xiami-desktop/update/XiamiMac756.dmg"
-                                                target="_self" rel="noreferrer noopener">苹果电脑</a></div>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="info-name">合作伙伴</div>
-                                <div class="info-value">
-                                    <div class="partners">
-                                        <div class="partners-row">
-                                            <div class="partner" title="环球唱片"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-30px 0"></div>
-                                            <div class="partner" title="华纳唱片"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-90px 0"></div>
-                                            <div class="partner" title="索尼音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-150px 0"></div>
-                                            <div class="partner" title="滚石唱片"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-210px 0"></div>
-                                            <div class="partner" title="BMG"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-270px 0"></div>
-                                            <div class="partner" title="Spinnin"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-330px 0"></div>
-                                            <div class="partner" title="相信音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-390px 0"></div>
-                                            <div class="partner" title="福茂唱片"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-450px 0"></div>
-                                            <div class="partner" title="华研国际"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-510px 0"></div>
-                                            <div class="partner" title="寰亚"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-570px 0"></div>
-                                            <div class="partner" title="英皇"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-630px 0"></div>
-                                        </div>
-                                        <div class="partners-row">
-                                            <div class="partner" title="愛貝克思"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-690px 0"></div>
-                                            <div class="partner" title="EMI"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-750px 0"></div>
-                                            <div class="partner" title="LOEN"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-810px 0"></div>
-                                            <div class="partner" title="CJ"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-870px 0"></div>
-                                            <div class="partner" title="JYP"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-930px 0"></div>
-                                            <div class="partner" title="SM"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-990px 0"></div>
-                                            <div class="partner" title="风潮音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1050px 0"></div>
-                                            <div class="partner" title="海蝶"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1110px 0"></div>
-                                            <div class="partner" title="金牌大风"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1170px 0"></div>
-                                            <div class="partner" title="天娱"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1230px 0"></div>
-                                            <div class="partner" title="种子音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1290px 0"></div>
-                                        </div>
-                                        <div class="partners-row">
-                                            <div class="partner" title="拿索斯"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1350px 0"></div>
-                                            <div class="partner" title="贝阁唱片"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1410px 0"></div>
-                                            <div class="partner" title="丰华"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1470px 0"></div>
-                                            <div class="partner" title="京文唱片"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1530px 0"></div>
-                                            <div class="partner" title="兵马司"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1590px 0"></div>
-                                            <div class="partner" title="恒大"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1650px 0"></div>
-                                            <div class="partner" title="发现音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1710px 0"></div>
-                                            <div class="partner" title="蜂鸟音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1770px 0"></div>
-                                            <div class="partner" title="角头音乐"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1830px 0"></div>
-                                            <div class="partner" title="美力星空"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1890px 0"></div>
-                                            <div class="partner" title="痛仰"
-                                                 style="background-image:url(https://img.alicdn.com/tfs/TB1ma80GVOWBuNjy0FiXXXFxVXa-3960-60.png);background-position:-1950px 0"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="follow-us">
-                            <div class="follow-us-title">关注我们</div>
-                            <div class="follow-us-icons"><a class="iconfont" href="https://weibo.com/xiamixiamixiami"
-                                                            target="_blank" rel="noreferrer noopener"></a><span
-                                        class="iconfont"></span><a class="iconfont"
-                                                                    href="https://www.zhihu.com/org/xia-mi-yin-yue/activities"
-                                                                    target="_blank" rel="noreferrer noopener"></a>
-                            </div>
-                        </div>
-                        <div class="app-qrcode-container">
-                            <div class="app-qrcode-title">虾米音乐App</div>
-                            <img class="app-qrcode"
-                                 src="https://img.alicdn.com/tfs/TB1td6jIpOWBuNjy0FiXXXFxVXa-300-300.png"></div>
-                    </div>
-                    <div class="division"></div>
-                    <div class="weakened-block">
-                        <div class="ali-links">
-                            <div class="ali-links-row"><a href="https://www.taobao.com" target="_blank"
-                                                          rel="noreferrer noopener">淘宝网</a><a
-                                        href="https://www.tmall.com" target="_blank" rel="noreferrer noopener">天猫</a><a
-                                        href="https://www.alipay.com/" target="_blank" rel="noreferrer noopener">支付宝</a><a
-                                        href="http://www.fliggy.com" target="_blank" rel="noreferrer noopener">飞猪</a><a
-                                        href="https://ju.taobao.com" target="_blank" rel="noreferrer noopener">聚划算</a><a
-                                        href="https://www.aliyun.com" target="_blank"
-                                        rel="noreferrer noopener">阿里云</a><a href="https://www.alimama.com"
-                                                                            target="_blank" rel="noreferrer noopener">阿里妈妈</a><a
-                                        href="https://www.1688.com/alphabet_sitemap.html" target="_blank"
-                                        rel="noreferrer noopener">1688</a><a href="http://www.alios.cn" target="_blank"
-                                                                             rel="noreferrer noopener">AliOS</a></div>
-                            <div class="ali-links-row"><a href="https://aliqin.tmall.com" target="_blank"
-                                                          rel="noreferrer noopener">阿里通信</a><a
-                                        href="https://wanwang.aliyun.com" target="_blank"
-                                        rel="noreferrer noopener">万网</a><a href="http://www.ucweb.com/" target="_blank"
-                                                                           rel="noreferrer noopener">UC</a><a
-                                        href="http://www.aligames.com" target="_blank"
-                                        rel="noreferrer noopener">阿里游戏</a><a href="https://www.damai.cn/"
-                                                                             target="_blank" rel="noreferrer noopener">大麦网</a><a
-                                        href="https://www.etao.com" target="_blank" rel="noreferrer noopener">一淘</a><a
-                                        href="http://www.9game.cn/kuangyebiaoche9/" target="_blank"
-                                        rel="noreferrer noopener">狂野飙车9</a><a href="https://uccricket.ucweb.com"
-                                                                              target="_blank" rel="noreferrer noopener">UCCricket</a>
-                            </div>
-                        </div>
-                        <div class="copyright">
-                            <div>© 2007 - 2019 杭州阿里巴巴音乐科技有限公司</div>
-                            <div><a href="https://img.xiami.net/download/wangwenxukezheng.png" target="_blank"
-                                    rel="noreferrer noopener">浙网文[2018]3192-218号</a> <a
-                                        href="http://www.miibeian.gov.cn/" target="_blank" rel="noreferrer noopener">浙ICP备18050417号-2</a>
-                                阿里巴巴旗下网站
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="music-context-menu">
-            <nav role="menu" tabindex="-1" style="position:fixed;opacity:0;pointer-events:none"
-                 class="react-contextmenu">
-                <nav class="react-contextmenu-item react-contextmenu-submenu" style="position:relative" role="menuitem"
-                     tabindex="-1" aria-haspopup="true">
-                    <div class="react-contextmenu-item">
-                        <div class="content">加入歌单</div>
+        <footer class="footer-container">
+            <div class="section-container">
+                <div class="footer-info">
+                    <div class="footer-download">
+                        <h3 class="footer-tit">下载QQ音乐客户端</h3>
+                        <ul class="download-list">
+                            <li class="download-item">
+                                <a href="javascript:;" class="download-link">
+                                    <i class="icon-pc footer"></i>
+                                    PC版
+                                </a>
+                            </li>
+                            <li class="download-item">
+                                <a href="javascript:;" class="download-link">
+                                    <i class="icon-mac footer"></i>
+                                    Mac版
+                                </a>
+                            </li>
+                            <li class="download-item">
+                                <a href="javascript:;" class="download-link">
+                                    <i class="icon-android footer"></i>
+                                    Android版
+                                </a>
+                            </li>
+                            <li class="download-item">
+                                <a href="javascript:;" class="download-link">
+                                    <i class="icon-iphone footer"></i>
+                                    iPhone版
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <nav style="position:absolute;transition:opacity 1ms;top:0;left:100%"
-                         class="react-contextmenu collect-submenu" role="menu" tabindex="-1">
-                        <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><a
-                                    href="/newCollect">
-                                <div class="content">加入新的歌单</div>
-                            </a></div>
-                    </nav>
-                </nav>
-                <div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1"
-                     aria-disabled="false" aria-orientation="horizontal"></div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">添加到播放列表</div>
-                </div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">手机试听</div>
-                </div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">分享</div>
-                </div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><a
-                            href="/song/undefined#comments">
-                        <div class="content">评论</div>
-                    </a></div>
-            </nav>
-            <div class="react-contextmenu-wrapper">
-                <div></div>
-            </div>
-        </div>
-        <div class="account-context-menu">
-            <nav role="menu" tabindex="-1"
-                 style="position: fixed; opacity: 0; pointer-events: none; top: 50px; left: 1166.33px;"
-                 class="react-contextmenu">
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><a
-                            href="/account?spm=a2oj1.12028025.0.0.54776ee1SYPnuN" data-spm-anchor-id="">
-                        <div class="content" data-spm-anchor-id="">管理个人信息</div>
-                    </a></div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><a href="/vip">
-                        <div class="content">我的会员</div>
-                    </a></div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">我的道具</div>
-                </div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">虾币充值</div>
-                </div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">兑换码</div>
-                </div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><a
-                            href="/setting">
-                        <div class="content">设置</div>
-                    </a></div>
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">退出登录</div>
-                </div>
-            </nav>
-            <div class="react-contextmenu-wrapper">
-                <div></div>
-            </div>
-        </div>
-        <div class="user-context-menu-wrap">
-            <nav role="menu" tabindex="-1" style="position:fixed;opacity:0;pointer-events:none"
-                 class="react-contextmenu">
-                <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-                    <div class="content">举报</div>
-                </div>
-            </nav>
-            <div class="react-contextmenu-wrapper">
-                <div></div>
-            </div>
-        </div>
-        <div class="player unselectable " data-spm="player">
-            <audio src="https://s320.xiami.net/812/634530812/2102403759/1792609930_1475219394904.mp3?ccode=xiami_web_web&amp;expire=86400&amp;duration=253&amp;psid=0cc4dd4a182a01c70b32f8e8f28fdaaa&amp;ups_client_netip=117.150.2.82&amp;ups_ts=1574666151&amp;ups_userid=430803050&amp;utid=lkz7Feb0AwACAXWWB4hql8hE&amp;vid=1792609930&amp;fn=1792609930_1475219394904.mp3&amp;vkey=B5307fc45acbe619fe136587b4ce6c318"></audio>
-            <div class="common-mode active"
-                 style="max-width: 1440px; opacity: 1; transform: translateY(0px); bottom: 0px;">
-                <div class="play-list-container invisible"></div>
-                <div class="audio-progress">
-                    <div class="range ">
-                        <div class="bar" style="right: 100%; padding-right: 0px;">
-                            <div class="handle" style="margin-left: 0px;">00:00/04:13</div>
-                        </div>
+                    <div class="footer-product">
+                        <h3 class="footer-tit">特色产品</h3>
+                        <ul class="product-list">
+                            <li class="product-item product-img">
+                                <a href="javascript:;" class="product-link">
+                                    <i class="icon-kg footer"></i>
+                                    全民K歌
+                                </a>
+                            </li>
+                            <li class="product-item product-img">
+                                <a href="javascript:;" class="product-link">
+                                    <i class="icon-super footer"></i>
+                                    Super Sound
+                                </a>
+                            </li>
+                            <li class="product-item product-img">
+                                <a href="javascript:;" class="product-link">
+                                    <i class="icon-qplay footer"></i>
+                                    QPlay
+                                </a>
+                            </li>
+                            <li class="product-item">
+                                <a href="javascript:;" class="product-link">车载互动</a>
+                            </li>
+                            <li class="product-item">
+                                <a href="javascript:;" class="product-link">QQ演出</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="play-bar" style="background-color:#FFF;box-shadow:0 1px 0 inset #F2F2F2">
-                    <div class="music"><a class="cover-link" href="/song/xMP9w8dd289">
-                            <div class="transitive-image unselectable"><img class="" src="about:blank"><img
-                                        class="active"
-                                        src="//pic.xiami.net/images/album/img42/218842/2188421475218842.jpg?x-oss-process=image/resize,limit_0,s_144,m_fill">
-                            </div>
-                        </a>
-                        <div class="info">
-                            <div class="scroll">
-                                <div class="content"><a class="title" href="/song/xMP9w8dd289">搁浅 (Live)</a></div>
-                            </div>
-                            <div class="singers"><a href="/artist/iim17edb">周杰伦</a></div>
-                        </div>
-                        <div class="select">
-                            <div>
-                                <div class="quality-selector"><span class="iconfont"></span><span
-                                            class="iconfont arrow"></span></div>
-                            </div>
-                            <div class="react-contextmenu-wrapper">
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="favorite iconfont"></div>
-                        <div class="roma iconfont"></div>
-                        <div class="more iconfont"></div>
-                    </div>
-                    <div class="main-control-wrapper">
-                        <div class="main-control">
-                            <div class="prev iconfont"></div>
-                            <div class="play-btn"><span class="iconfont"></span></div>
-                            <div class="next iconfont"></div>
-                        </div>
-                    </div>
-                    <div class="tunings">
-                        <div class="volume-control">
-                            <div class="iconfont"></div>
-                            <div class="range ">
-                                <div class="bar">
-                                    <div class="handle"></div>
-                                    <style>.volume-control .bar {
-                                            width: 100%;
-                                        }
 
-                                        .volume-control .bar .handle {
-                                            background-color: #FF410F
-                                        }</style>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="play-mode-control">
-                            <div class="iconfont"></div>
-                        </div>
-                        <div class="lyric-control iconfont"></div>
-                        <div class="play-list-control iconfont"></div>
-                        <div class="immersion-control iconfont"></div>
+                    <div class="footer-group">
+                        <h3 class="footer-tit">TME集团官网</h3>
+                        <ul class="group-list">
+                            <li class="group-item">
+                                <a href="javascript:;" class="group-link">腾讯音乐</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-link">
+                        <h3 class="footer-tit">合作链接</h3>
+                        <ul class="footer_link_list">
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">CJ ENM</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯视频</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">手机QQ空间</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">最新版QQ</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯社交广告</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">电脑管家</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">QQ浏览器</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯微云</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯云</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">企鹅FM</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">智能电视网</a>
+                            </li>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">当贝市场</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-platform">
+                        <h3 class="footer-tit">开放平台</h3>
+                        <ul class="platform-list">
+                            <li class="platform-item">
+                                <a href="javascript:;" class="platform-link">腾讯音乐人</a>
+                            </li>
+                            <li class="platform-item">
+                                <a href="javascript:;" class="platform-link">音乐号认证</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div class="footer-copyright">
+
+                    <p class="copyright-p">
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="关于腾讯">关于腾讯</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="About Tencent">About Tencent</a>
+                        |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="服务条款">服务条款</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="用户服务协议">用户服务协议</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="隐私政策">隐私政策</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="权利声明">权利声明</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="广告服务">广告服务</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="腾讯招聘">腾讯招聘</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="客服中心">客服中心</a> |
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="网站导航">网站导航</a>
+                    </p>
+
+                    <p class="copyright-p">Copyright &copy; 1998 - <span id="copyYear">2019</span> Tencent. <a target="_blank"
+                                                                                                               href="javascript:;"
+                                                                                                               title="All Rights Reserved."
+                                                                                                               class="copyright-p-link">All
+                            Rights Reserved.</a></p>
+                    <p class="copyright-p">腾讯公司 <a class="copyright-p-link" target="_blank" href="javascript:;" title="版权所有">版权所有</a>
+                        <a target="_blank" href="javascript:;" class="copyright-p-link" title="腾讯网络文化经营许可证">腾讯网络文化经营许可证</a></p>
+                </div>
             </div>
-        </div>
-        <div class="back-to-top" data-spm="back2top">
-            <div class="button unselectable invisible iconfont round"><span class="ripple"
-                                                                             style="height: 40px; width: 40px; top: 0px; left: 0px;"></span>
-            </div>
-        </div>
+        </footer>
     </div>
+
 </div>
 <div class="modal-wrapper"></div>
-<nav role="menu" tabindex="-1" style="position: fixed; opacity: 0; pointer-events: none;"
-     class="react-contextmenu contextmenu-player-play-quality-context-menu">
-    <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-        <div class="content">
-            <div class="play-quality-option">
-                <div class="quality-text">高品质 HQ</div>
-            </div>
-        </div>
-    </div>
-    <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-        <div class="content">
-            <div class="play-quality-option">
-                <div class="quality-text">标准</div>
-            </div>
-        </div>
-    </div>
-</nav>
 
-<iframe style="width: 0px; height: 0px; display: none;"
-        src="//g.alicdn.com/alilog/oneplus/blk.html#coid=lkz7Feb0AwACAXWWB4hql8hE&amp;noid=" id="_oid_ifr_"></iframe>
 <nav role="menu" tabindex="-1" style="position: fixed; opacity: 0; pointer-events: none;"
      class="react-contextmenu contextmenu-form-select-sex">
     <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
@@ -1717,5 +1491,6 @@
 </nav>
 <nav role="menu" tabindex="-1" style="position: fixed; opacity: 0; pointer-events: none;"
      class="react-contextmenu contextmenu-form-select-city"></nav>
+
 </body>
 </html>

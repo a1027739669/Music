@@ -27,7 +27,7 @@ public class Album implements Serializable {
     private static final Long serialVersionUID=2141253325248708908L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer album_id;
+    private Integer albumId;
     private String album_name;
     private String album_img;
     @Temporal(TemporalType.DATE)
@@ -35,13 +35,11 @@ public class Album implements Serializable {
     private Integer album_singer;
     private String introduction;
     private String labels;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "album_to_song",joinColumns = {@JoinColumn(name = "album_id")},inverseJoinColumns = {@JoinColumn(name = "album_id",insertable = false,updatable = false)})
-    private List<Song> songList;
     @ManyToOne(targetEntity = Singer.class,fetch = FetchType.EAGER)
     @JoinColumn(name="album_singer",insertable =false,updatable =false)
     @JsonIgnore
     private Singer singer;
     @OneToMany(targetEntity = AlbumDetail.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="album")
     public List<AlbumDetail> details;
+
 }

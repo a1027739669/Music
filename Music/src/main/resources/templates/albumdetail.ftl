@@ -73,35 +73,16 @@
         <ul class="header-top-nav">
             <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
-            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
-                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
-                <div class="nav-item-detail">
-                    <p>
-                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
-                    </p>
-                    <a href="javascript:;" class="client-download">下载体验</a>
-                </div>
-            </li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">分类歌单</a></li>
+
+
         </ul>
-        <#--            <ul class="header-sec-nav">-->
-        <#--                <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">新碟</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">排行榜</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">分类菜单</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">电台</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">MV</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">数字专辑</a></li>-->
-        <#--                <li class="sec-nav-item"><a href="#" class="nav-link">票务</a></li>-->
-        <#--            </ul>-->
+        <ul class="header-sec-nav">
+            <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>
+            <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>
+            <li class="sec-nav-item"><a href="#" class="nav-link">专辑</a></li>
+        </ul>
         <div class="header-search">
             <div class="search-input ">
                 <input type="text" placeholder="搜索音乐、MV、歌单、用户">
@@ -114,31 +95,13 @@
                     <dl>
                         <dt>热门搜索</dt>
                         <dd>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">1</span>
-                                <span class="hot-name">野狼disco</span>
-                                <span class="hot-people">101.6w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">2</span>
-                                <span class="hot-name">那个女孩</span>
-                                <span class="hot-people">82.2w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">3</span>
-                                <span class="hot-name">大田后生仔</span>
-                                <span class="hot-people">66.1w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">4</span>
-                                <span class="hot-name">许嵩</span>
-                                <span class="hot-people">65.8w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">5</span>
-                                <span class="hot-name">遗憾</span>
-                                <span class="hot-people">43.9w</span>
-                            </a>
+                            <#list hotSearch as hot>
+                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                    <span class="hot-num">${hot_index+1}</span>
+                                    <span class="hot-name">${hot.song_name}</span>
+                                    <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
+                                </a>
+                            </#list>
                         </dd>
                     </dl>
                 </div>
@@ -204,7 +167,9 @@
     </div>
 </header>
 <!--main content-->
+
 <div class="loginmask"></div>
+
 <div id="loginalert">
 
     <div class="pd20 loginpd">
@@ -286,38 +251,28 @@
     <div class="mod_data" itemscope="" itemtype="http://schema.org/MusicRecording">
             <span class="data__cover">
                 <img id="albumImg"
-                     src="//y.gtimg.cn/music/photo_new/T002R300x300M000002ap9w33aAKKP_1.jpg?max_age=2592000"
-                     onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
+                     src="/upload/${album.album_img}"
                      alt="C位爱情" class="data__photo">
                 <i class="data__cover_mask"></i>
             </span>
         <div class="data__cont">
             <div class="data__name">
-                <h1 class="data__name_txt" title="C位爱情">C位爱情</h1>
+                <h1 class="data__name_txt" title="C位爱情">${album.album_name}</h1>
             </div>
 
             <div class="data__singer">
                 <i class="icon_singer sprite"></i><a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html"
                                                      class="js_singer data__singer_txt" itemprop="byArtist"
                                                      data-id="001C0c6j1VyLfh" data-stat="y_new.album.header.singername"
-                                                     data-mid="001C0c6j1VyLfh" title="黑龙">黑龙</a>
+                                                     data-mid="001C0c6j1VyLfh"
+                                                     title="黑龙">${album.getSinger().singerName}</a>
             </div>
 
             <ul class="data__info">
 
 
-                <li class="data_info__item">流派：POP流行</li>
-
-
-                <li class="data_info__item data_info__item--even">语种：国语</li>
-
-
-                <li class="data_info__item">发行时间：2019-11-25</li>
-
-
-
-
-
+                <li class="data_info__item">标签：<#list album.labels ? split(',') as label>${label}&emsp;</#list></li>
+                <li class="data_info__item">发行时间：${album.album_release}</li>
             </ul>
 
             <div class="data__actions" role="toolbar">
@@ -344,108 +299,120 @@
 
 
                 <ul class="songlist__list" id="song_box">
+                    <#list album.getDetails() as detail>
+                        <#if (detail_index%2==0)>
+                            <li mid="245520530">
+                                <div class="songlist__item">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__number">${detail_index+1}</div>
+                                    <div class="songlist__songname">
 
-                    <li mid="245520530">
-                        <div class="songlist__item songlist__item--current">
-                            <div class="songlist__edit songlist__edit--check sprite">
-                                <input type="checkbox" class="songlist__checkbox">
-                            </div>
-                            <div class="songlist__number">1</div>
-                            <div class="songlist__songname">
-
-                                <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
+<#--                                        <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>-->
 
 
-                                <span class="songlist__songname_txt"><a href="//y.qq.com/n/yqq/song/004PR70Y3XglIu.html"
-                                                                        title="C位爱情">C位爱情</a></span>
-                                <div class="mod_list_menu">
-                                    <a href="//y.qq.com/portal/player.html"
-                                       class="list_menu__item list_menu__play js_play" title="播放">
-                                        <i class="list_menu__icon_play"></i>
-                                        <span class="icon_txt">播放</span>
-                                    </a>
-                                    <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单"
-                                       aria-haspopup="true" data-target="menu_add">
-                                        <i class="list_menu__icon_add"></i>
-                                        <span class="icon_txt">添加到歌单</span>
-                                    </a>
+                                        <span class="songlist__songname_txt"><a
+                                                    href="//y.qq.com/n/yqq/song/004PR70Y3XglIu.html"
+                                                    title="C位爱情">${detail.getSong().song_name}</a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="//y.qq.com/portal/player.html"
+                                               class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav"
+                                               title="添加到歌单"
+                                               aria-haspopup="true" data-target="menu_add">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
 
-                                    <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载"
-                                       aria-haspopup="true" data-target="menu_down">
-                                        <i class="list_menu__icon_down"></i>
-                                        <span class="icon_txt">下载</span>
-                                    </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down"
+                                               title="下载"
+                                               aria-haspopup="true" data-target="menu_down">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
 
-                                    <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享"
-                                       aria-haspopup="true" data-aria="menu_share">
-                                        <i class="list_menu__icon_share"></i>
-                                        <span class="icon_txt">分享</span>
-                                    </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share"
+                                               title="分享"
+                                               aria-haspopup="true" data-aria="menu_share">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html" title="黑龙"
+                                           class="singer_name">${detail.getSong().getSinger().singerName}</a>
+
+                                    </div>
+                                    <div class="songlist__time">${detail.getSong().song_time}</div>
+                                    <div class="songlist__other">
+                                    </div>
+                                </div>
+                            </li>
+
+                    <#else>
+                        <li mid="245520531">
+                            <div class="songlist__item songlist__item--even">
+                                <div class="songlist__edit songlist__edit--check sprite">
+                                    <input type="checkbox" class="songlist__checkbox">
+                                </div>
+                                <div class="songlist__number">${detail_index+1}</div>
+                                <div class="songlist__songname">
+
+                                    <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
+
+
+                                    <span class="songlist__songname_txt"><a
+                                                href="//y.qq.com/n/yqq/song/004PR70Y3XglIu.html"
+                                                title="C位爱情">${detail.getSong().song_name}</a></span>
+                                    <div class="mod_list_menu">
+                                        <a href="//y.qq.com/portal/player.html"
+                                           class="list_menu__item list_menu__play js_play" title="播放">
+                                            <i class="list_menu__icon_play"></i>
+                                            <span class="icon_txt">播放</span>
+                                        </a>
+                                        <a href="javascript:;" class="list_menu__item list_menu__add js_fav"
+                                           title="添加到歌单"
+                                           aria-haspopup="true" data-target="menu_add">
+                                            <i class="list_menu__icon_add"></i>
+                                            <span class="icon_txt">添加到歌单</span>
+                                        </a>
+
+                                        <a href="javascript:;" class="list_menu__item list_menu__down js_down"
+                                           title="下载"
+                                           aria-haspopup="true" data-target="menu_down">
+                                            <i class="list_menu__icon_down"></i>
+                                            <span class="icon_txt">下载</span>
+                                        </a>
+
+                                        <a href="javascript:;" class="list_menu__item list_menu__share js_share"
+                                           title="分享"
+                                           aria-haspopup="true" data-aria="menu_share">
+                                            <i class="list_menu__icon_share"></i>
+                                            <span class="icon_txt">分享</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="songlist__artist">
+
+
+                                    <a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html" title="黑龙"
+                                       class="singer_name">${detail.getSong().getSinger().singerName}</a>
+
+                                </div>
+                                <div class="songlist__time">${detail.getSong().song_time}</div>
+                                <div class="songlist__other">
                                 </div>
                             </div>
-                            <div class="songlist__artist">
-
-
-                                <a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html" title="黑龙"
-                                   class="singer_name">黑龙</a>
-
-                            </div>
-                            <div class="songlist__time">03:23</div>
-                            <div class="songlist__other">
-                            </div>
-                        </div>
-                    </li>
-
-                    <li mid="245520531">
-                        <div class="songlist__item songlist__item--even">
-                            <div class="songlist__edit songlist__edit--check sprite">
-                                <input type="checkbox" class="songlist__checkbox">
-                            </div>
-                            <div class="songlist__number">2</div>
-                            <div class="songlist__songname">
-
-                                <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
-
-
-                                <span class="songlist__songname_txt"><a href="//y.qq.com/n/yqq/song/001LPyu31TiIot.html"
-                                                                        title="C位爱情 (伴奏)">C位爱情 (伴奏)</a></span>
-                                <div class="mod_list_menu">
-                                    <a href="//y.qq.com/portal/player.html"
-                                       class="list_menu__item list_menu__play js_play" title="播放">
-                                        <i class="list_menu__icon_play"></i>
-                                        <span class="icon_txt">播放</span>
-                                    </a>
-                                    <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单"
-                                       aria-haspopup="true" data-target="menu_add">
-                                        <i class="list_menu__icon_add"></i>
-                                        <span class="icon_txt">添加到歌单</span>
-                                    </a>
-
-                                    <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载"
-                                       aria-haspopup="true" data-target="menu_down">
-                                        <i class="list_menu__icon_down"></i>
-                                        <span class="icon_txt">下载</span>
-                                    </a>
-
-                                    <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享"
-                                       aria-haspopup="true" data-aria="menu_share">
-                                        <i class="list_menu__icon_share"></i>
-                                        <span class="icon_txt">分享</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="songlist__artist">
-
-
-                                <a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html" title="黑龙"
-                                   class="singer_name">黑龙</a>
-
-                            </div>
-                            <div class="songlist__time">03:23</div>
-                            <div class="songlist__other">
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                        </#if>
+                    </#list>
 
                 </ul>
 
@@ -464,11 +431,11 @@
 
         </div>
         <div class="detail_layout__other">
-            <div class="mod_about" id="album_desc" style="display:;">
+            <div class="mod_about" id="album_desc" style="display:block;">
                 <h3 class="about__tit">简介</h3>
                 <div class="about__cont">
                     <p>
-                        歌手黑龙2019冬日最新单曲《C位爱情》动感来袭，一首黑龙标志性风格的歌曲正式上线。这首单曲同样也是国内知名音乐人邢榕老师也就是黑龙《38度6》的创作者为其精心制作。因二人的多次合作，所以在音乐风格把控上有了很高的水准，优秀的词曲创作加上黑龙独特的演绎风格和嗓音赋予了这首歌曲茁壮的生命力。在歌曲里爱情就好比一个巨大的华丽舞台，灯光耀眼氛围愉快。在这个舞台上人来人往，各自出演。而我对别人视而不见，只有你在我眼中C位出演。</p>
+                        ${album.introduction}</p>
                 </div>
             </div>
 
@@ -476,151 +443,35 @@
                 <h3 class="other_part__tit">此歌手的其他专辑</h3>
                 <div class="mod_playlist">
                     <ul class="playlist__list">
-
-                        <li class="playlist__item"
-                            onmouseover="this.className=(this.className+' playlist__item--hover')"
-                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                            <div class="playlist__item_box">
-                                <div class="playlist__cover mod_cover"><a
-                                            href="//y.qq.com/n/yqq/album/003QG00d1xCn4N.html" class="js_album"
-                                            data-stat="y_new.album.otheralbum.click" data-albummid="003QG00d1xCn4N"
-                                            data-albumid="54951"><img
-                                                src="//y.gtimg.cn/music/photo_new/T002R90x90M000003QG00d1xCn4N_1.jpg?max_age=2592000"
-                                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
-                                                alt="被情伤过的女人" class="playlist__pic"><i
-                                                class="mod_cover__icon_play js_play"
-                                                data-stat="y_new.album.otheralbum.play"></i></a></div>
-                                <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                href="//y.qq.com/n/yqq/album/003QG00d1xCn4N.html" class="js_album"
-                                                data-stat="y_new.album.otheralbum.click" data-albummid="003QG00d1xCn4N"
-                                                data-albumid="54951" title="被情伤过的女人">被情伤过的女人</a></span></h4>
-                                <div class="playlist__author">
-                                    2009-10-20
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="playlist__item"
-                            onmouseover="this.className=(this.className+' playlist__item--hover')"
-                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                            <div class="playlist__item_box">
-                                <div class="playlist__cover mod_cover"><a
-                                            href="//y.qq.com/n/yqq/album/002apS0o2REau5.html" class="js_album"
-                                            data-stat="y_new.album.otheralbum.click" data-albummid="002apS0o2REau5"
-                                            data-albumid="13371"><img
-                                                src="//y.gtimg.cn/music/photo_new/T002R90x90M000002apS0o2REau5_3.jpg?max_age=2592000"
-                                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
-                                                alt="回心转意" class="playlist__pic"><i class="mod_cover__icon_play js_play"
-                                                                                    data-stat="y_new.album.otheralbum.play"></i></a>
-                                </div>
-                                <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                href="//y.qq.com/n/yqq/album/002apS0o2REau5.html" class="js_album"
-                                                data-stat="y_new.album.otheralbum.click" data-albummid="002apS0o2REau5"
-                                                data-albumid="13371" title="回心转意">回心转意</a></span></h4>
-                                <div class="playlist__author">
-                                    2003-06-01
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="playlist__item"
-                            onmouseover="this.className=(this.className+' playlist__item--hover')"
-                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                            <div class="playlist__item_box">
-                                <div class="playlist__cover mod_cover"><a
-                                            href="//y.qq.com/n/yqq/album/003zLdPC3iZV5f.html" class="js_album"
-                                            data-stat="y_new.album.otheralbum.click" data-albummid="003zLdPC3iZV5f"
-                                            data-albumid="32997"><img
-                                                src="//y.gtimg.cn/music/photo_new/T002R90x90M000003zLdPC3iZV5f_1.jpg?max_age=2592000"
-                                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
-                                                alt="我爱你你却爱着他" class="playlist__pic"><i
-                                                class="mod_cover__icon_play js_play"
-                                                data-stat="y_new.album.otheralbum.play"></i></a></div>
-                                <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                href="//y.qq.com/n/yqq/album/003zLdPC3iZV5f.html" class="js_album"
-                                                data-stat="y_new.album.otheralbum.click" data-albummid="003zLdPC3iZV5f"
-                                                data-albumid="32997" title="我爱你你却爱着他">我爱你你却爱着他</a></span></h4>
-                                <div class="playlist__author">
-                                    2007-09-25
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="playlist__item"
-                            onmouseover="this.className=(this.className+' playlist__item--hover')"
-                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                            <div class="playlist__item_box">
-                                <div class="playlist__cover mod_cover"><a
-                                            href="//y.qq.com/n/yqq/album/002Tx4zi2bsZqm.html" class="js_album"
-                                            data-stat="y_new.album.otheralbum.click" data-albummid="002Tx4zi2bsZqm"
-                                            data-albumid="459896"><img
-                                                src="//y.gtimg.cn/music/photo_new/T002R90x90M000002Tx4zi2bsZqm_1.jpg?max_age=2592000"
-                                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
-                                                alt="来生只做陌生人" class="playlist__pic"><i
-                                                class="mod_cover__icon_play js_play"
-                                                data-stat="y_new.album.otheralbum.play"></i></a></div>
-                                <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                href="//y.qq.com/n/yqq/album/002Tx4zi2bsZqm.html" class="js_album"
-                                                data-stat="y_new.album.otheralbum.click" data-albummid="002Tx4zi2bsZqm"
-                                                data-albumid="459896" title="来生只做陌生人">来生只做陌生人</a></span></h4>
-                                <div class="playlist__author">
-                                    2014-03-12
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="playlist__item"
-                            onmouseover="this.className=(this.className+' playlist__item--hover')"
-                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                            <div class="playlist__item_box">
-                                <div class="playlist__cover mod_cover"><a
-                                            href="//y.qq.com/n/yqq/album/004Td6ai0o1Hj3.html" class="js_album"
-                                            data-stat="y_new.album.otheralbum.click" data-albummid="004Td6ai0o1Hj3"
-                                            data-albumid="980657"><img
-                                                src="//y.gtimg.cn/music/photo_new/T002R90x90M000004Td6ai0o1Hj3_1.jpg?max_age=2592000"
-                                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
-                                                alt="疯了疯了" class="playlist__pic"><i class="mod_cover__icon_play js_play"
-                                                                                    data-stat="y_new.album.otheralbum.play"></i></a>
-                                </div>
-                                <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                href="//y.qq.com/n/yqq/album/004Td6ai0o1Hj3.html" class="js_album"
-                                                data-stat="y_new.album.otheralbum.click" data-albummid="004Td6ai0o1Hj3"
-                                                data-albumid="980657" title="疯了疯了">疯了疯了</a></span></h4>
-                                <div class="playlist__author">
-                                    2015-04-07
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="playlist__item"
-                            onmouseover="this.className=(this.className+' playlist__item--hover')"
-                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                            <div class="playlist__item_box">
-                                <div class="playlist__cover mod_cover"><a
-                                            href="//y.qq.com/n/yqq/album/001ieFQS1axjGm.html" class="js_album"
-                                            data-stat="y_new.album.otheralbum.click" data-albummid="001ieFQS1axjGm"
-                                            data-albumid="37485"><img
-                                                src="//y.gtimg.cn/music/photo_new/T002R90x90M000001ieFQS1axjGm_1.jpg?max_age=2592000"
-                                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
-                                                alt="爱的太累" class="playlist__pic"><i class="mod_cover__icon_play js_play"
-                                                                                    data-stat="y_new.album.otheralbum.play"></i></a>
-                                </div>
-                                <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                href="//y.qq.com/n/yqq/album/001ieFQS1axjGm.html" class="js_album"
-                                                data-stat="y_new.album.otheralbum.click" data-albummid="001ieFQS1axjGm"
-                                                data-albumid="37485" title="爱的太累">爱的太累</a></span></h4>
-                                <div class="playlist__author">
-                                    2008-12-17
-                                </div>
-                            </div>
-                        </li>
-
-
+                        <#if others ? exists>
+                            <#list others as other>
+                                <li class="playlist__item"
+                                    onmouseover="this.className=(this.className+' playlist__item--hover')"
+                                    onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
+                                    <div class="playlist__item_box">
+                                        <div class="playlist__cover mod_cover"><a
+                                                    href="//y.qq.com/n/yqq/album/003QG00d1xCn4N.html" class="js_album"
+                                                    data-stat="y_new.album.otheralbum.click"
+                                                    data-albummid="003QG00d1xCn4N"
+                                                    data-albumid="54951"><img
+                                                        src="/upload/${other.album_img}"
+                                                        onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
+                                                        alt="被情伤过的女人" class="playlist__pic"><i
+                                                        class="mod_cover__icon_play js_play"
+                                                        data-stat="y_new.album.otheralbum.play"></i></a></div>
+                                        <h4 class="playlist__title"><span class="playlist__title_txt"><a
+                                                        href="//y.qq.com/n/yqq/album/003QG00d1xCn4N.html"
+                                                        class="js_album"
+                                                        data-stat="y_new.album.otheralbum.click"
+                                                        data-albummid="003QG00d1xCn4N"
+                                                        data-albumid="54951" title="被情伤过的女人">${other.album_name}</a></span></h4>
+                                        <div class="playlist__author">
+                                            ${album.album_release}
+                                        </div>
+                                    </div>
+                                </li>
+                            </#list>
+                        </#if>
                     </ul>
                 </div>
             </div>
@@ -780,7 +631,6 @@
         </div>
     </div>
 </footer>
-
 
 
 <!-- 添加到 -->

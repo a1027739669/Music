@@ -2,10 +2,7 @@ package com.example.music.demo.controller;
 
 
 import com.example.music.demo.entity.Song;
-import com.example.music.demo.service.IndexService;
-import com.example.music.demo.service.LabelService;
-import com.example.music.demo.service.RankingService;
-import com.example.music.demo.service.SongService;
+import com.example.music.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -13,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -37,6 +35,8 @@ public class RankingController {
     private LabelService labelService;
     @Autowired
     private RankingService rankingService;
+    @Autowired
+    private RedisService redisService;
     @GetMapping("/guest/rankDetail")
     public String getRankDetail(ModelMap modelMap, Integer rankClassId, Integer pageId) {
         modelMap.addAttribute("classId",rankClassId);
@@ -48,6 +48,11 @@ public class RankingController {
 
     @GetMapping("/guest/rank")
     public String detail(ModelMap modelMap) throws IOException {
+        List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
+        if (hotSearch.size() >= 5)
+            modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+        else
+            modelMap.addAttribute("hotSearch", hotSearch);
         return "rank";
     }
 

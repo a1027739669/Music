@@ -17,9 +17,9 @@
                      style="display:none;" contenteditable="true"></div>
             </div>
             <!--字数超过后添加comment__tips--warn_tx 去掉c_tx_thin-->
-            <#--                <div class="comment__tips js_comment_tips c_tx_thin" data-max="300">剩余<span-->
-            <#--                            class="c_tx_highlight">300</span>字-->
-            <#--                </div>-->
+                            <div class="comment__tips js_comment_tips c_tx_thin" data-max="300">剩余<span
+                                        class="c_tx_highlight">300</span>字
+                            </div>
         </div>
         <a class="comment__face js_cmt_face" href="javascript:;" data-type="reply"><i
                     class="icon_comment icon_comment_face"></i></a>

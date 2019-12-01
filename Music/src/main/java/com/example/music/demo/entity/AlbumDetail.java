@@ -33,6 +33,7 @@ public class AlbumDetail implements Serializable {
     @JsonIgnore
     private Song song;
     @ManyToOne(targetEntity = Album.class,fetch = FetchType.EAGER)
-    @JoinColumn(name = "albumId" , insertable = false, updatable = false, referencedColumnName = "album_id")
+    @JoinColumn(name = "albumId" , insertable = false, updatable = false, referencedColumnName = "albumId")
     private Album album;
+
 }

@@ -89,4 +89,22 @@ public class IndexService {
         List<SongSheet> test=songSheetsPage.getContent();
         return songSheetsPage;
     }
+    public Page<SongSheet> getSheetList(Integer page, Integer rankMethod,String label) {
+        Pageable pageable = PageRequest.of(page - 1, 20);
+        List<SongSheet> songSheetList;
+        if(rankMethod==1)
+            songSheetList =songSheetRepository.findAll1();
+        else{
+            songSheetList =songSheetRepository.findAll2();
+        }
+        if(!label.equals("全部"))
+        for (int i = songSheetList.size()-1; i>=0 ; i--) {
+            if(!songSheetList.get(i).getLabels().contains(label))
+                songSheetList.remove(i);
+        }
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
+        Page<SongSheet> songSheetsPage = new PageImpl<>(songSheetList.subList(start, end), pageable, songSheetList.size());
+        return songSheetsPage;
+    }
 }
