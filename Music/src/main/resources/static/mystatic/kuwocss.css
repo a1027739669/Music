@@ -304,7 +304,7 @@
 
 .button.remarkable {
     color: #fff;
-    background-color: #32CD32
+    background-color: #ff410f
 }
 
 .button.selector {
@@ -824,7 +824,7 @@
     padding-top: 100%;
     border-radius: 2px;
     background: #d9d9d9 no-repeat 50%;
-    background-size:100% 100%;
+    background-size: contain;
     box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .05), inset -1px -1px 0 rgba(0, 0, 0, .05)
 }
 
@@ -881,7 +881,7 @@
 }
 
 .collect-item .wrapper .cover .action button.play {
-    background-color: #00ae75;
+    background-color: #ff4a0f
 }
 
 .collect-item .wrapper .cover .action i.iconfont {
@@ -1313,7 +1313,7 @@
     width: 2px;
     height: 100%;
     margin-left: 2px;
-    background-color: #00ae75;
+    background-color: #ff410f;
     -webkit-animation: play .9s infinite alternate linear;
     animation: play .9s infinite alternate linear
 }
@@ -1426,7 +1426,7 @@
 }
 
 .song-table tr.hover .index-container .play-btn, .song-table tr:hover .index-container .play-btn {
-    color: #00ae75;
+    color: #ff410f;
     display: block
 }
 
@@ -3585,7 +3585,7 @@
 
 .modal-wrapper .modal.active {
     overflow: auto;
-    display: block;
+    display: block
 }
 
 .modal-wrapper .modal.active:before {
@@ -4655,6 +4655,7 @@
 }
 
 .collect-view {
+    position: relative;
     width: 100%
 }
 
@@ -4668,6 +4669,14 @@
 
 .collect-view .comment-list-wrapper {
     margin: 30px 15px
+}
+
+.collect-view .info-wrapper {
+    position: relative
+}
+
+.collect-view .info-wrapper .loading {
+    top: 200px
 }
 
 .alert {
@@ -7038,7 +7047,7 @@
     height: 205px;
     border-radius: 50%;
     background-color: #e4e1da;
-    background-size: 100% 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: 50%;
     overflow: hidden
@@ -10485,7 +10494,7 @@ button.swiper-pagination-bullet {
     margin-right: 40px;
     height: 30px;
     width: 108px;
-    background: 50%/contain no-repeat url("/image/logo.png");
+    background: 50%/contain no-repeat url("//img.alicdn.com/tfs/TB1kdkmh3DqK1RjSZSyXXaxEVXa-216-60.png");
     cursor: pointer
 }
 
@@ -10516,7 +10525,7 @@ button.swiper-pagination-bullet {
 }
 
 .top-nav .links > a:hover {
-    color: #31c27c
+    color: #ff410f
 }
 
 .top-nav .links > a.active {
@@ -14059,12 +14068,12 @@ pre {
 }
 
 .page-container .content-wrapper .view-without-leftbar {
-    margin: 25px 0 94px
+    margin: 40px 0 94px
 }
 
 .page-container .content-wrapper .view-body {
     margin-left: 280px;
-    padding: 25px 0 94px
+    padding: 40px 0 94px
 }
 
 .show-modal #popup-modal {

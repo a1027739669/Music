@@ -1,51 +1,161 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="/js/jQuery3.4.js"></script>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="baidu-site-verification" content="xaLcM8mGHG">
-    <meta name="verify-v1" content="gNntuhTm2rH7Qa/GPp6lf0mIp9KQsjejNs+i1LZhG7U=">
+    <script type="text/javascript"  src="/layui/layui.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
+    <meta name="description"
+          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
+    <title>我的音乐</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/css/head.css">
-    <script type="text/javascript" src="/layui/layui.js"></script>
+    <link rel="stylesheet" href="/css/head2.css">
+
+
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
     <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
     <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
     <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
-    <link type="text/css" rel="stylesheet" href="/kuwocss/style4.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var k = !0;
+
+            $(".loginmask").css("opacity", 0.8);
+
+            if ($.browser.version <= 6) {
+                $('#reg_setp,.loginmask').height($(document).height());
+            }
+
+            $(".thirdlogin ul li:odd").css({marginRight: 0});
+
+            $("#openlogin").click(function () {
+                k && "0px" != $("#loginalert").css("top") && ($("#loginalert").show(), $(".loginmask").fadeIn(500), $("#loginalert").animate({top: 0}, 400, "easeOutQuart"))
+            });
+
+            $(".loginmask,.closealert").click(function () {
+                k && (k = !1, $("#loginalert").animate({top: -600}, 400, "easeOutQuart", function () {
+                    $("#loginalert").hide();
+                    k = !0
+                }), $(".loginmask").fadeOut(500))
+            });
+
+
+            $("#sigup_now,.reg a").click(function () {
+                $("#reg_setp,#setp_quicklogin").show();
+                $("#reg_setp").animate({left: 0}, 500, "easeOutQuart");
+            });
+
+            $(".back_setp").click(function () {
+                "block" == $("#setp_quicklogin").css("display") && $("#reg_setp").animate({left: "100%"}, 500, "easeOutQuart", function () {
+                    $("#reg_setp,#setp_quicklogin").hide()
+                })
+            });
+
+        });
+    </script>
     <link type="text/css" rel="stylesheet" href="/kuwocss/styles.css">
 </head>
-<body data-spm="12028529">
-<div id="app">
-    <div class="page-container">
-        <div class="top-nav" data-spm="topnav" data-spm-max-idx="">
-            <div class="top-nav-wrapper"><a href="/" data-spm-anchor-id="">
-                    <div class="logo"></div>
-                </a>
-                <div class="links"><a href="/" data-spm-anchor-id="">发现</a><a
-                            href="/user/430803050?spm=a2oj1.12028025.topnav.3.54776ee17CG89x"
-                            data-spm-anchor-id="">我的音乐</a><a href="//i.xiami.com" target="_blank"
-                                                             rel="noreferrer noopener" data-spm-anchor-id="">音乐人</a><a
-                            href="//emumo.xiami.com/apps/mobile" target="_blank" rel="noreferrer noopener"
-                            data-spm-anchor-id="">客户端下载</a><a href="/vip" data-spm-anchor-id="">会员中心</a></div>
-                <div class="search"><input value="" placeholder="五月天">
-                    <div class="iconfont"></div>
+<header class="header">
+    <div class="header-box">
+        <h1 class="header-title">
+            <a href="javascript:;"><img class="logo-img" src="/image/logo.png" alt="QQ音乐"></a>
+            <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
+        </h1>
+        <ul class="header-top-nav">
+            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
+            <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
+            <li class="top-nav-item"><a href="/guest/rank" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="/guest/sheetlist" class="tnav-link" title="音乐号">分类歌单</a></li>
+
+
+        </ul>
+        <div class="header-search">
+            <div class="search-input ">
+                <input type="text" placeholder="搜索音乐、MV、歌单、用户">
+                <button class="search-btn">
+                    <i class="icon-search sprite"></i>
+                </button>
+            </div>
+            <div class="search-box">
+                <div class="search-hot">
+                    <dl>
+                        <dt>热门搜索</dt>
+                        <dd>
+                            <#list hotSearch as hot>
+                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                    <span class="hot-num">${hot_index+1}</span>
+                                    <span class="hot-name">${hot.song_name}</span>
+                                    <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
+                                </a>
+                            </#list>
+                        </dd>
+                    </dl>
                 </div>
-                <div class="message-center"><a href="/message" data-spm-anchor-id="">
-                        <div class="iconfont"></div>
-                    </a></div>
-                <div class="user">
-                    <div class="avatar"
-                         style="background-image: url(songImg/1.jpg);"></div>
+                <div class="search-history">
+                    <dl class="history-list">
+                        <dt class="history-tit">搜索历史
+                            <a href="javascript:;" class="history-clear">
+                                <i class="icon-clear sprite"></i>
+                            </a>
+                        </dt>
+                    </dl>
                 </div>
             </div>
         </div>
+        <div class="header-opt">
+            <#if Session["user"] ? exists>
+                <!-- 未登录 -->
+                <span class="mod_top_login">
+		    <a class="top_login__link js_logined"
+               style=""><img id="userImg"
+                             src="/upload/${user.user_image}"
+                             class="top_login__cover js_user_img"></a>
+                </span>
+                <!-- 用户信息 -->
+                <div class="popup_user">
+
+                    <div class="popup_user_toolbar">
+                        <!--绿钻-->
+                        <div class="popup_user_toolbar__item">
+                            <div class="popup_user_toolbar__tit"><a href="/user/userinfo"
+                                                                    target="_blank" rel="noopener">个人信息</a>
+                            </div>
+                        </div>
+
+                        <!--付费包-->
+
+                        <div class="popup_user_toolbar__item">
+                            <div class="popup_user_toolbar__tit js_msgcenterdiv"><a
+                                        href="//y.qq.com/portal/msg_center.html#stat=y_new.top.pop.msg_center"
+                                        onclick="setStatCookie&amp;&amp;setStatCookie();">评论通知</a>
+                            </div>
+                        </div>
+                        <div class="popup_user_toolbar__item">
+                            <div class="popup_user_toolbar__tit"><a href="javascript:;" class="js_logout"
+                                                                    data-stat="y_new.top.pop.logout">退出QQ登录</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            <#else >
+                <a href="javascript:;" class="h-login" id="openlogin">登录</a>
+                <div class="login-mark"></div>
+            </#if>
+        </div>
+    </div>
+</header>
+<body data-spm="12028529">
+<div id="app">
+    <div class="page-container">
+
         <div class="content-wrapper">
             <div class="edit-collect-view  view-without-leftbar">
                 <div class="title" data-spm-anchor-id="a2oj1.12028529.0.i1.56e436b7UQitQs">创建歌单</div>
@@ -114,7 +224,7 @@
                                                                      style="height: 170px; width: 170px; top: 0px; left: 0px;"></span>
                             </div>
                             <div class="button unselectable" onclick="submitSheet()">保存<span class="ripple"
-                                                                              style="height: 170px; width: 170px; top: 0px; left: 0px;"></span>
+                                                                                             style="height: 170px; width: 170px; top: 0px; left: 0px;"></span>
                             </div>
                         </div>
                     </div>
@@ -284,6 +394,24 @@
 
 </body>
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#userImg").mouseover(function () {
+            $(".popup_user").addClass("drop");
+        })
+        $("#userImg").mouseout(function () {
+            $('.popup_user').removeClass("drop");
+        })
+        $(".popup_user").mouseover(function () {
+            $(".popup_user").addClass("drop");
+        })
+        $(".popup_user").mouseout(function () {
+            $('.popup_user').removeClass("drop");
+        })
+    });
+</script>
+<script type="text/javascript">
+
     layui.use('layer', function () {
         var layer = layui.layer;
     });
@@ -345,23 +473,23 @@
         myform.append('userId', userId);
         var tags = $("#selected div span").text().toString().trim();
         myform.append('tags',tags);
-            $.ajax({
-                url: "/user/createSheet",
-                type: "POST",
-                data: myform,
-                async: false,
-                contentType: false,
-                processData: false,
-                success: function (result) {
+        $.ajax({
+            url: "/user/createSheet",
+            type: "POST",
+            data: myform,
+            async: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
                 alert("成功");
-                },
-                error: function (data) {
-                    $.messager.alert("警告", "文件上传失败！", "warning", function () {
-                        var file = document.getElementById('file');
-                        file.value = '';
-                    });
-                }
-            });
+            },
+            error: function (data) {
+                $.messager.alert("警告", "文件上传失败！", "warning", function () {
+                    var file = document.getElementById('file');
+                    file.value = '';
+                });
+            }
+        });
 
     }
 

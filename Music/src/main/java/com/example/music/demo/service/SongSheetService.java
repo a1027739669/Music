@@ -4,7 +4,9 @@ import	java.util.ArrayList;
 import com.example.music.demo.entity.SheetDetail;
 import com.example.music.demo.entity.Song;
 import com.example.music.demo.entity.SongSheet;
+import com.example.music.demo.entity.UserCollection;
 import com.example.music.demo.repository.SongSheetRepository;
+import com.example.music.demo.repository.UserCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +30,9 @@ import java.util.List;
 public class SongSheetService {
     @Autowired
     private SongSheetRepository songSheetRepository;
+
+    @Autowired
+    private UserCollectionRepository userCollectionRepository;
 
     public Integer getSize() {
         return songSheetRepository.findAll().size();
@@ -95,4 +100,6 @@ public class SongSheetService {
         }
         return ans;
     }
+
+
 }

@@ -1,70 +1,54 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 <head>
+    <meta charset="utf-8">
     <script type="text/javascript" src="/js/jQuery3.4.js"></script>
-    <script type="text/javascript"  src="/layui/layui.js"></script>
+    <script type="text/javascript" src="/layui/layui.js"></script>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Language" content="zh-cn">
     <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
     <meta name="description"
           content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
-    <title>我的音乐</title>
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/css/head2.css">
-
-
+    <meta name="mobile-agent" content="format==[html5];url=https://y.qq.com/m/index.html">
+    <meta name="applicable-device" content="pc">
+    <title>我的收藏</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/bin/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/album.css-max_age=2592000&v=20160831.css">
+    <link rel="stylesheet" href="/mediastyle/yqq/popup_login.css?max_age=25920000">
+    <style type="text/css">.emojicon-m {
+            min-height: 1em !important;
+            min-width: 1em !important;
+            max-height: 1em !important;
+            max-width: 1em !important;
+            vertical-align: middle !important;
+            float: none !important;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            display: inline-block;
+        }</style>
+    <link rel="stylesheet" type="text/css"
+          href="/mediastyle/yqq/qb-ie-remind.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/mediastyle/yqq/playlist.css-max_age=2592000.css"/>
+
+    <link rel="stylesheet" href="/css/head2.css">
     <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
     <link rel="stylesheet" href="/mediastyle/yqq/layout_0412.css-max_age=25920000&v=20190312.css">
     <link rel="stylesheet" href="/mediastyle/yqq/singer_detail_59cfe684.css-max_age=25920000.css">
     <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
+    <link type="text/css" rel="stylesheet" href="/kuwocss/style4.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var k = !0;
-
-            $(".loginmask").css("opacity", 0.8);
-
-            if ($.browser.version <= 6) {
-                $('#reg_setp,.loginmask').height($(document).height());
-            }
-
-            $(".thirdlogin ul li:odd").css({marginRight: 0});
-
-            $("#openlogin").click(function () {
-                k && "0px" != $("#loginalert").css("top") && ($("#loginalert").show(), $(".loginmask").fadeIn(500), $("#loginalert").animate({top: 0}, 400, "easeOutQuart"))
-            });
-
-            $(".loginmask,.closealert").click(function () {
-                k && (k = !1, $("#loginalert").animate({top: -600}, 400, "easeOutQuart", function () {
-                    $("#loginalert").hide();
-                    k = !0
-                }), $(".loginmask").fadeOut(500))
-            });
-
-
-            $("#sigup_now,.reg a").click(function () {
-                $("#reg_setp,#setp_quicklogin").show();
-                $("#reg_setp").animate({left: 0}, 500, "easeOutQuart");
-            });
-
-            $(".back_setp").click(function () {
-                "block" == $("#setp_quicklogin").css("display") && $("#reg_setp").animate({left: "100%"}, 500, "easeOutQuart", function () {
-                    $("#reg_setp,#setp_quicklogin").hide()
-                })
-            });
-
-        });
-    </script>
-    <link type="text/css" rel="stylesheet" href="/mystatic/kuwocss.css">
+    <link type="text/css" rel="stylesheet" href="/kuwocss/styles.css">
 </head>
-
-
-<!--header start-->
 <header class="header">
     <div class="header-box">
         <h1 class="header-title">
@@ -155,7 +139,10 @@
         </div>
     </div>
 </header>
+<!--main content-->
+
 <div class="loginmask"></div>
+
 <div id="loginalert">
 
     <div class="pd20 loginpd">
@@ -231,145 +218,178 @@
         <input type="button" value="注册" class="btn btn-success" id="regist_btn"/>
     </div>
 </div>
-<body data-spm="12028206" style="">
-<#--<div class="modal-wrapper" >-->
-<#--    <div class="modal  opened" data-spm-anchor-id="a2oj1.12028197.0.i1.9d6869bbFvgbhe"><div class="modal-inner"><span class="close-btn iconfont white left"></span><div class="setting-modal"><div id="passport-form" class="need-validata"><div class="passport-form-movie">-->
-<#--                        <video loop="" autoplay=""-->
-<#--                               src="https://files.xiami.com/webh5/files/video/30b4a859bbf33d5fc708685d6ddd2a0f.123222.mp4"></video>-->
-<#--                        <i></i></div>-->
-<#--                    <div class="passport-form-content">-->
-<#--                        <div class="set-password">-->
-<#--                            <div class="setting-form verify-mobile">-->
-<#--                                <div class="title">请先验证手机号</div>-->
-<#--                                <form>-->
-<#--                                    <div class="form-block"><label>手机号</label>-->
-<#--                                        <div style="background-color: rgb(247, 247, 247); width: 100%; height: 30px; line-height: 30px; padding: 0px 8px;">-->
-<#--                                            +86 13697288552-->
-<#--                                        </div>-->
-<#--                                    </div>-->
-<#--                                    <div class="form-block">-->
-<#--                                        <div id="captcha_verifyMobile" class="nc-container" data-nc-idx="1">-->
-<#--                                            <div id="nc_1_wrapper" class="nc_wrapper">-->
-<#--                                                <div id="nc_1_n1t" class="nc_scale">-->
-<#--                                                    <div id="nc_1__bg" class="nc_bg"></div>-->
-<#--                                                    <span id="nc_1_n1z" class="nc_iconfont btn_slide"></span>-->
-<#--                                                    <div id="nc_1__scale_text" class="scale_text"><span-->
-<#--                                                                class="nc-lang-cnt" data-nc-lang="_startTEXT">请按住滑块，拖动到最右边</span>-->
-<#--                                                    </div>-->
-<#--                                                    <div id="nc_1_clickCaptcha" class="clickCaptcha">-->
-<#--                                                        <div class="clickCaptcha_text">-->
-<#--                                                            <b id="nc_1__captcha_text" class="nc_captch_text"></b>-->
-<#--                                                            <i id="nc_1__btn_2"-->
-<#--                                                               class="nc_iconfont nc_btn_2 btn_refresh"></i>-->
-<#--                                                        </div>-->
-<#--                                                        <div class="clickCaptcha_img"></div>-->
-<#--                                                        <div class="clickCaptcha_btn"></div>-->
-<#--                                                    </div>-->
-<#--                                                    <div id="nc_1_imgCaptcha" class="imgCaptcha">-->
-<#--                                                        <div class="imgCaptcha_text"><input id="nc_1_captcha_input"-->
-<#--                                                                                            maxlength="6" type="text"-->
-<#--                                                                                            style="ime-mode:disabled">-->
-<#--                                                        </div>-->
-<#--                                                        <div class="imgCaptcha_img" id="nc_1__imgCaptcha_img"></div>-->
-<#--                                                        <i id="nc_1__btn_1" class="nc_iconfont nc_btn_1 btn_refresh"-->
-<#--                                                           onclick="document.getElementById('nc_1__imgCaptcha_img').children[0].click()"></i>-->
-<#--                                                        <div class="imgCaptcha_btn">-->
-<#--                                                            <div id="nc_1__captcha_img_text"-->
-<#--                                                                 class="nc_captcha_img_text"></div>-->
-<#--                                                            <div id="nc_1_scale_submit" class="nc_scale_submit"></div>-->
-<#--                                                        </div>-->
-<#--                                                    </div>-->
-<#--                                                    <div id="nc_1_cc" class="nc-cc"></div>-->
-<#--                                                    <i id="nc_1__voicebtn" tabindex="0" role="button"-->
-<#--                                                       class="nc_voicebtn nc_iconfont" style="display:none"></i>-->
-<#--                                                    <b id="nc_1__helpbtn" class="nc_helpbtn"><span class="nc-lang-cnt"-->
-<#--                                                                                                   data-nc-lang="_learning">了解新功能</span></b>-->
-<#--                                                </div>-->
-<#--                                                <div id="nc_1__voice" class="nc_voice"></div>-->
-<#--                                            </div>-->
-<#--                                        </div>-->
-<#--                                    </div>-->
-<#--                                    <div class="form-block"><label>验证码</label>-->
-<#--                                        <div class="form-input-inline"><input id="smsCode" placeholder="请输入验证码"-->
-<#--                                                                              maxlength="6" pattern="\d*" value="">-->
-<#--                                            <div class="sms-code">-->
-<#--                                                <button disabled="">发送验证码</button>-->
-<#--                                            </div>-->
-<#--                                        </div>-->
-<#--                                    </div>-->
-<#--                                </form>-->
-<#--                                <div class="button unselectable submit-button disabled">下一步<span class="ripple"-->
-<#--                                                                                                 style="height: 280px; width: 280px; top: 0px; left: 0px;"></span>-->
-<#--                                </div>-->
-<#--                            </div>-->
-<#--                        </div>-->
-<#--                    </div>-->
-<#--                </div>-->
-<#--            </div>-->
-<#--        </div>-->
-<#--    </div>-->
-<#--</div>-->
+<body data-spm="12028340">
 <div id="app">
-    <div class="page-container" data-spm-anchor-id="a2oj1.12028206.0.i2.5d6336b7gtEKf7">
-
+    <div class="page-container">
         <div class="content-wrapper">
-            <div class="user-info-set-view view-without-leftbar">
-                <div class="user-info-set-title" data-spm-anchor-id="a2oj1.12028206.0.i1.5d6336b7gtEKf7">管理个人信息</div>
-                <div class="user-info-set-main">
-                    <div class="user-info">
-                        <div class="user-avatar">
-                            <div class="user-avatar-area">
-                                <div class="user-avatar-container" id="user-avatar-container"
-                                     style="background-image: url('/upload/${user.user_image}');"></div>
-                                <div class="user-avatar-change" ><span
-                                            class="user-avatar-change-icon iconfont" id="icon" onclick="shangchuan()"></span><input type="file"
-                                                                                                                                     class="user-avatar-input"
-                                                                                                                                     accept="image/*"
-                                                                                                                                     hidden="" id="image" onchange="changepic(this)"></div>
-                            </div>
-                            <div class="user-avatar-desc">
-                                <div>图片最佳尺寸 1200*1200</div>
-                                <div>支持Gif、jpg、png等多种格式。</div>
-                                <br>
-                            </div>
-                        </div>
+            <div class="recent-view view-without-leftbar">
+                <div class="recent-header"><h2>我的收藏</h2>
+                    <div class="tabs unselectable">
+                        <div class="tab active">歌曲 ${myCollection ? size}</div>
                     </div>
-                    <div class="user-info-set">
-                        <div class="form-card">
-                            <div class="form-name">昵称<span class="limit-txt">最多12个字符</span></div>
-                            <div><input class="text-form" type="text" placeholder="" value="${user.username}"
-                                        data-spm-anchor-id="a2oj1.12028206.0.i0.5d6336b7gtEKf7"></div>
-                        </div>
-                        <div class="form-card">
-                            <div class="form-name">手机号<span class="limit-txt">绑定的手机号</span></div>
-                            <div><input class="text-form" type="text" placeholder="" value="${user.mobile}"></div>
-                        </div>
-                        <div class="form-card">
-                            <div class="form-name">邮箱<span class="limit-txt">绑定之后可用邮箱登录</span></div>
-                            <div><input class="text-form" type="text" placeholder="" value="${user.email}"></div>
-                        </div>
-                        <div class="form-card">
-                            <div class="form-name">签名<span class="limit-txt">最多25个字符</span></div>
-                            <div>
-                                <input class="text-form" type="text" placeholder="" value="我还没想好要写什么..."></div>
-                        </div>
-                        <div class="form-card">
-                            <div class="form-name">性别</div>
-                            <div>
-                                <select id="select">
-                                    <option value="volvo">保密</option>
-                                    <option value="saab">男</option>
-                                    <option value="opel">女</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="button unselectable form-submit"
-                             style="color: rgb(255, 255, 255); background-color: #31c27c;">保存<span
-                                    class="ripple" style="height: 170px; width: 170px; top: 0px; left: 0px;"></span>
+                </div>
+                <div class="recent-action" data-spm-anchor-id="a2oj1.12028364.0.i0.2bca279109pyWD">
+                    <div class="button unselectable random remarkable"><span class="iconfont"></span>全部播放<span
+                                class="ripple" style="height: 130px; width: 130px; top: 0px; left: 0px;"></span></div>
+                    <div class="button unselectable">全部下载<span class="ripple"
+                                                               style="height: 105px; width: 105px; top: 0px; left: 0px;"></span>
+                    </div>
+                </div>
+                <div class="recent-content">
+                    <div class="table idle song-table">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="th-index" style="width: 8%;">#</th>
+                                    <th class="th-songName" style="width: 23%;">歌曲</th>
+                                    <th class="th-artist" style="width: 23%;">歌手</th>
+                                    <th class="th-album" style="width: 23%;">专辑</th>
+                                    <th class="th-duration" style="width: 23%;">时长</th>
+                                </tr>
+                                <tr class="division">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <#if myCollection? exists>
+                                    <#list myCollection as col>
+                                        <#if (col_index%2==0)>
+                                            <tr class="even">
+                                                <td>
+                                                    <div class="index-container"><span
+                                                                class="em index">${col_index+1}</span>
+                                                        <div class="audio-icon unselectable">
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -1.2s;"></div>
+                                                            <div class="column paused"></div>
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -1.5s;"></div>
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -0.9s;"></div>
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -0.6s;"></div>
+                                                        </div>
+                                                        <div class="iconfont play-btn" onclick="playSong(${col.getSong().song_id})"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="songName-container">
+                                                        <div class="with-mv-icon">
+                                                            <div class="custom-content">
+                                                                <div class="song-name em"><a
+                                                                            href="/song/8GiFGD1c06e">${col.getSong().song_name}</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="artist-container">
+                                                        <div class="singers"><a
+                                                                    href="/artist/hfud5ee8">${col.getSong().getSinger().singerName}</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="album-container">
+                                                        <div class="album"><a
+                                                                    href="/album/g0s48fe6d">${col.getSong().getAlbum().album_name}</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="duration-container ops-container"><span
+                                                                class="duration">${col.getSong().song_time}</span>
+                                                        <div class="operations ops-right">
+                                                            <div class="ops-item">
+                                                                <div class="iconfont"></div>
+                                                            </div>
+                                                            <div class="ops-item">
+                                                                <div class="iconfont"></div>
+                                                            </div>
+                                                            <div class="ops-item">
+                                                                <div class="iconfont"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <#else >
+                                            <tr class="odd">
+                                                <td>
+                                                    <div class="index-container"><span
+                                                                class="em index">${col_index+1}</span>
+                                                        <div class="audio-icon unselectable">
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -1.2s;"></div>
+                                                            <div class="column paused"></div>
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -1.5s;"></div>
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -0.9s;"></div>
+                                                            <div class="column paused"
+                                                                 style="animation-delay: -0.6s;"></div>
+                                                        </div>
+                                                        <div class="iconfont play-btn" onclick="playSong(${col.getSong().song_id}"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="songName-container">
+                                                        <div class="with-mv-icon">
+                                                            <div class="custom-content">
+                                                                <div class="song-name em"><a
+                                                                            href="/song/8GiFGD1c06e">${col.getSong().song_name}</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="artist-container">
+                                                        <div class="singers"><a
+                                                                    href="/artist/hfud5ee8">${col.getSong().getSinger().singerName}</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="album-container">
+                                                        <div class="album"><a
+                                                                    href="/album/g0s48fe6d">${col.getSong().getAlbum().album_name}</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="duration-container ops-container"><span
+                                                                class="duration">${col.getSong().song_time}</span>
+                                                        <div class="operations ops-right">
+                                                            <div class="ops-item">
+                                                                <div class="iconfont"></div>
+                                                            </div>
+                                                            <div class="ops-item">
+                                                                <div class="iconfont"></div>
+                                                            </div>
+                                                            <div class="ops-item">
+                                                                <div class="iconfont"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </#if>
+                                    </#list>
+                                </#if>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <div style="clear:both"></div>
         </div>
         <footer class="footer-container">
             <div class="section-container">
@@ -445,7 +465,8 @@
                     <div class="footer-link">
                         <h3 class="footer-tit">合作链接</h3>
                         <ul class="footer_link_list">
-                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">CJ ENM</a>
+                            <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">CJ
+                                    ENM</a>
                             </li>
                             <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯视频</a>
                             </li>
@@ -488,7 +509,8 @@
 
                     <p class="copyright-p">
                         <a href="javascript:;" class="copyright-p-link" target="_blank" title="关于腾讯">关于腾讯</a> |
-                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="About Tencent">About Tencent</a>
+                        <a href="javascript:;" class="copyright-p-link" target="_blank" title="About Tencent">About
+                            Tencent</a>
                         |
                         <a href="javascript:;" class="copyright-p-link" target="_blank" title="服务条款">服务条款</a> |
                         <a href="javascript:;" class="copyright-p-link" target="_blank" title="用户服务协议">用户服务协议</a> |
@@ -500,93 +522,27 @@
                         <a href="javascript:;" class="copyright-p-link" target="_blank" title="网站导航">网站导航</a>
                     </p>
 
-                    <p class="copyright-p">Copyright &copy; 1998 - <span id="copyYear">2019</span> Tencent. <a target="_blank"
-                                                                                                               href="javascript:;"
-                                                                                                               title="All Rights Reserved."
-                                                                                                               class="copyright-p-link">All
+                    <p class="copyright-p">Copyright &copy; 1998 - <span id="copyYear">2019</span> Tencent. <a
+                                target="_blank"
+                                href="javascript:;"
+                                title="All Rights Reserved."
+                                class="copyright-p-link">All
                             Rights Reserved.</a></p>
-                    <p class="copyright-p">腾讯公司 <a class="copyright-p-link" target="_blank" href="javascript:;" title="版权所有">版权所有</a>
-                        <a target="_blank" href="javascript:;" class="copyright-p-link" title="腾讯网络文化经营许可证">腾讯网络文化经营许可证</a></p>
+                    <p class="copyright-p">腾讯公司 <a class="copyright-p-link" target="_blank" href="javascript:;"
+                                                   title="版权所有">版权所有</a>
+                        <a target="_blank" href="javascript:;" class="copyright-p-link"
+                           title="腾讯网络文化经营许可证">腾讯网络文化经营许可证</a></p>
                 </div>
             </div>
         </footer>
     </div>
 
 </div>
-<div class="modal-wrapper"></div>
-
-<nav role="menu" tabindex="-1" style="position: fixed; opacity: 0; pointer-events: none;"
-     class="react-contextmenu contextmenu-form-select-sex">
-    <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-        <div class="content">
-            <div class="form-select">男</div>
-        </div>
-    </div>
-    <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-        <div class="content">
-            <div class="form-select">女</div>
-        </div>
-    </div>
-    <div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false">
-        <div class="content">
-            <div class="form-select">保密</div>
-        </div>
-    </div>
-</nav>
 
 </body>
 <script type="text/javascript">
-    function shangchuan() {
-        $("#image").click();
-    }
-
-    function submitSheet() {
-        var myform = new FormData();
-        myform.append('file', $("#file")[0].files[0]);
-        myform.append('sheetName', $("#sheetName").val());
-        myform.append('textArea', $("#textarea").val());
-        var userId='${Session["user"].id}';
-        myform.append('userId', userId);
-        var tags = $("#selected div span").text().toString().trim();
-        myform.append('tags',tags);
-        $.ajax({
-            url: "/user/createSheet",
-            type: "POST",
-            data: myform,
-            async: false,
-            contentType: false,
-            processData: false,
-            success: function (result) {
-                alert("成功");
-            },
-            error: function (data) {
-                $.messager.alert("警告", "文件上传失败！", "warning", function () {
-                    var file = document.getElementById('file');
-                    file.value = '';
-                });
-            }
-        });
-
-    }
-</script>
-<script>
-    function changepic(obj) {
-        //console.log(obj.files[0]);//这里可以获取上传文件的name
-        var newsrc=getObjectURL(obj.files[0]);
-        $('#user-avatar-container').css("background-image","url(" + newsrc+ ")");
-    }
-    //建立一個可存取到該file的url
-    function getObjectURL(file) {
-        var url = null ;
-        // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
-        if (window.createObjectURL!=undefined) { // basic
-            url = window.createObjectURL(file) ;
-        } else if (window.URL!=undefined) { // mozilla(firefox)
-            url = window.URL.createObjectURL(file) ;
-        } else if (window.webkitURL!=undefined) { // webkit or chrome
-            url = window.webkitURL.createObjectURL(file) ;
-        }
-        return url ;
+    function playSong(songId){
+        window.open("/guest/playSong?id="+songId);
     }
 </script>
 </html>

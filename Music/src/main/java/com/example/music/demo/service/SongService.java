@@ -1,7 +1,10 @@
 package com.example.music.demo.service;
 
 import com.example.music.demo.entity.Song;
+import com.example.music.demo.entity.UserCollection;
 import com.example.music.demo.repository.SongRepository;
+import com.example.music.demo.repository.UserCollectionRepository;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,12 @@ import java.util.List;
 public class SongService {
     @Autowired
     private SongRepository songRepository;
+    @Autowired
+    private UserCollectionRepository userCollectionRepository;
+
+    public List<UserCollection> getMyCollection(Integer id) {
+        return userCollectionRepository.findAllByUserId(id);
+    }
 
     public Song getOneDetail(Integer id) {
         return songRepository.getOne(id);

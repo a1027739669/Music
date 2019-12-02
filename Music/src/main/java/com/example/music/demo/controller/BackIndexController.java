@@ -18,8 +18,5 @@ import	java.util.function.Consumer;
  */
 @Controller
 public class BackIndexController {
-    @GetMapping("/back/welcome")
-    public String backWelcome(){
-        return "pages/welcome";
-    }
+
 }

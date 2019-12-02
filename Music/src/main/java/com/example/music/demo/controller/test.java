@@ -9,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -50,10 +53,19 @@ public class test {
     private AlbumDetailRepository albumDetailRepository;
     @Autowired
     private SingerRepository singerRepository;
+    @Autowired
+    private UserRepository userRepository;
     @GetMapping("/test")
-    public String test(ModelMap modelMap) {
-
-        return "singerlist";
+    public String test(ModelMap modelMap, HttpSession session) {
+        User user=userRepository.findUserByUsername("admin");
+        modelMap.addAttribute("user",user);
+        session.setAttribute("user",user);
+        List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
+        if (hotSearch.size() >= 5)
+            modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+        else
+            modelMap.addAttribute("hotSearch", hotSearch);
+       return "myinfo";
     }
 
 }

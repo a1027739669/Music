@@ -58,23 +58,10 @@
         <ul class="header-top-nav">
             <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
-            <li class="top-nav-item detail-hover"><a href="#" class="tnav-link" title="客户端">客户端</a>
-                <img src="./assets/img/mark_1.png" alt="" class="top-nav-img">
-                <div class="nav-item-detail">
-                    <p>
-                        <i class="detail-icon icon-hd"></i>HQ高品质 全员开启
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-du"> </i>独家音效 全面升级
-                    </p>
-                    <p>
-                        <i class="detail-icon icon-cloth"></i>轻盈视觉 动态皮肤
-                    </p>
-                    <a href="javascript:;" class="client-download">下载体验</a>
-                </div>
-            </li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">音乐号</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="VIP">VIP</a></li>
+            <li class="top-nav-item"><a href="/guest/rank" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="/guest/sheetlist" class="tnav-link" title="音乐号">分类歌单</a></li>
+
+
         </ul>
         <div class="header-search">
             <div class="search-input ">
@@ -88,31 +75,13 @@
                     <dl>
                         <dt>热门搜索</dt>
                         <dd>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">1</span>
-                                <span class="hot-name">野狼disco</span>
-                                <span class="hot-people">101.6w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">2</span>
-                                <span class="hot-name">那个女孩</span>
-                                <span class="hot-people">82.2w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">3</span>
-                                <span class="hot-name">大田后生仔</span>
-                                <span class="hot-people">66.1w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">4</span>
-                                <span class="hot-name">许嵩</span>
-                                <span class="hot-people">65.8w</span>
-                            </a>
-                            <a href="#" class="hot-link">
-                                <span class="hot-num">5</span>
-                                <span class="hot-name">遗憾</span>
-                                <span class="hot-people">43.9w</span>
-                            </a>
+                            <#list hotSearch as hot>
+                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                    <span class="hot-num">${hot_index+1}</span>
+                                    <span class="hot-name">${hot.song_name}</span>
+                                    <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
+                                </a>
+                            </#list>
                         </dd>
                     </dl>
                 </div>
@@ -131,9 +100,9 @@
             <#if Session["user"] ? exists>
                 <!-- 未登录 -->
                 <span class="mod_top_login">
-		    <a class="top_login__link js_logined" href="//y.qq.com/portal/profile.html#stat=y_new.top.user_pic"
+		    <a class="top_login__link js_logined"
                style=""><img id="userImg"
-                             src="http://thirdqq.qlogo.cn/g?b=sdk&amp;k=ZbfpT8QjY6vdqW4ePRkkIg&amp;s=140&amp;t=1558784273"
+                             src="/upload/${user.user_image}"
                              class="top_login__cover js_user_img"></a>
                 </span>
                 <!-- 用户信息 -->
@@ -142,16 +111,9 @@
                     <div class="popup_user_toolbar">
                         <!--绿钻-->
                         <div class="popup_user_toolbar__item">
-                            <div class="popup_user_toolbar__tit"><a href="//y.qq.com/portal/vipportal/index.html"
-                                                                    target="_blank" rel="noopener">绿钻豪华版</a>
+                            <div class="popup_user_toolbar__tit"><a href="/user/userinfo"
+                                                                    target="_blank" rel="noopener">个人信息</a>
                             </div>
-                            <div class="popup_user_toolbar__desc c_tx_thin">
-
-                                2019-12-03 到期
-
-                            </div>
-                            <a class="mod_btn_green popup_user_toolbar__btn_vip js_openvip" href="javascript:;"
-                               data-aid="music.pc.20318.newyqqhover" data-stat="music.20318.btnclick.pc">续费</a>
                         </div>
 
                         <!--付费包-->
@@ -259,7 +221,6 @@
 <body data-spm="12028041">
 <div id="app">
     <div class="page-container">
-
         <div class="content-wrapper">
             <div class="my-music-view">
                 <div class="sticky-leftbar is-affixed" data-spm="leftbar" style="position: relative;">
@@ -290,7 +251,6 @@
                                 <div class="info-count"><a href="https://www.xiami.com/record/430803050">
                                         <div class="item">
                                             <div class="item-count">0</div>
-                                            <div class="item-name">累计播放</div>
                                         </div>
                                     </a>
                                 </div>
@@ -300,20 +260,20 @@
                 </div>
                 <div class="view-body">
                     <div class="count-list" style="margin-top: 0px;">
-                        <div class="count-item"><a href="https://www.xiami.com/recent/430803050">
+                        <div class="count-item"><a href="/user/recentplay">
                                 <div class="count-wrap">
                                     <div class="iconfont"></div>
                                     <div class="content">
-                                        <div class="count">0</div>
+                                        <div class="count">${recentPlay ? size}</div>
                                         <div class="name">最近播放</div>
                                     </div>
                                 </div>
                             </a></div>
-                        <div class="count-item"><a href="https://www.xiami.com/favorite/430803050">
+                        <div class="count-item"><a href="/user/mycollection">
                                 <div class="count-wrap">
                                     <div class="iconfont"></div>
                                     <div class="content">
-                                        <div class="count">0</div>
+                                        <div class="count">${myCollection ? size}</div>
                                         <div class="name">所有收藏</div>
                                     </div>
                                 </div>
@@ -426,7 +386,84 @@
 </div>
 
 
-<div class="modal-wrapper"></div>
+<div class="modal-wrapper">
+    <div class="modal opened" data-spm-anchor-id="a2oj1.12028197.0.i1.9d682791YSjW3g">
+        <div class="modal-inner"><span class="close-btn iconfont white left"></span>
+            <div class="setting-modal">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <video loop="" autoplay=""
+                               src="https://files.xiami.com/webh5/files/video/30b4a859bbf33d5fc708685d6ddd2a0f.123222.mp4"></video>
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="set-password">
+                            <div class="setting-form verify-mobile">
+                                <div class="title">请先验证手机号</div>
+                                <form>
+                                    <div class="form-block"><label>手机号</label>
+                                        <div style="background-color: rgb(247, 247, 247); width: 100%; height: 30px; line-height: 30px; padding: 0px 8px;">
+                                            +86 ${user.mobile}
+                                        </div>
+                                    </div>
+                                    <div class="form-block">
+                                        <div id="captcha_verifyMobile" class="nc-container" data-nc-idx="1">
+                                            <div id="nc_1_wrapper" class="nc_wrapper">
+                                                <div id="nc_1_n1t" class="nc_scale">
+                                                    <div id="nc_1__bg" class="nc_bg"></div>
+                                                    <span id="nc_1_n1z" class="nc_iconfont btn_slide"></span>
+                                                    <div id="nc_1_clickCaptcha" class="clickCaptcha">
+                                                        <div class="clickCaptcha_text">
+                                                            <b id="nc_1__captcha_text" class="nc_captch_text"></b>
+                                                            <i id="nc_1__btn_2"
+                                                               class="nc_iconfont nc_btn_2 btn_refresh"></i>
+                                                        </div>
+                                                        <div class="clickCaptcha_img"></div>
+                                                        <div class="clickCaptcha_btn"></div>
+                                                    </div>
+                                                    <div id="nc_1_imgCaptcha" class="imgCaptcha">
+                                                        <div class="imgCaptcha_text"><input id="nc_1_captcha_input"
+                                                                                            maxlength="6" type="text"
+                                                                                            style="ime-mode:disabled">
+                                                        </div>
+                                                        <div class="imgCaptcha_img" id="nc_1__imgCaptcha_img"></div>
+                                                        <i id="nc_1__btn_1" class="nc_iconfont nc_btn_1 btn_refresh"
+                                                           onclick="document.getElementById('nc_1__imgCaptcha_img').children[0].click()"></i>
+                                                        <div class="imgCaptcha_btn">
+                                                            <div id="nc_1__captcha_img_text"
+                                                                 class="nc_captcha_img_text"></div>
+                                                            <div id="nc_1_scale_submit" class="nc_scale_submit"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="nc_1_cc" class="nc-cc"></div>
+                                                    <i id="nc_1__voicebtn" tabindex="0" role="button"
+                                                       class="nc_voicebtn nc_iconfont" style="display:none"></i>
+                                                    <b id="nc_1__helpbtn" class="nc_helpbtn"><span class="nc-lang-cnt"
+                                                                                                   data-nc-lang="_learning">了解新功能</span></b>
+                                                </div>
+                                                <div id="nc_1__voice" class="nc_voice"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-block"><label>验证码</label>
+                                        <div class="form-input-inline"><input id="smsCode" placeholder="请输入验证码"
+                                                                              maxlength="6" pattern="\d*" value="">
+                                            <div class="sms-code">
+                                                <button disabled="">发送验证码</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="button unselectable submit-button disabled">下一步<span class="ripple"
+                                                                                                 style="height: 280px; width: 280px; top: 0px; left: 0px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </body>
@@ -437,6 +474,12 @@
             $(".popup_user").addClass("drop");
         })
         $("#userImg").mouseout(function () {
+            $('.popup_user').removeClass("drop");
+        })
+        $(".popup_user").mouseover(function () {
+            $(".popup_user").addClass("drop");
+        })
+        $(".popup_user").mouseout(function () {
             $('.popup_user').removeClass("drop");
         })
     });
