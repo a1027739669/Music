@@ -1,5 +1,4 @@
 package com.example.music.demo.controller;
-
 import java.io.File;
 import java.io.IOException;
 import com.example.music.demo.entity.*;
@@ -421,6 +420,31 @@ public class BackIndexController {
         album.setLabels(label);
         albumService.save(album);
         return "修改成功";
+    }
+
+    @GetMapping("/back/labellist")
+    public String labelList(ModelMap modelMap){
+        List<Label> labelList=labelService.findAll();
+        modelMap.addAttribute("labellist",labelList);
+        return "back/labellist";
+    }
+
+    @GetMapping("/back/addlabel")
+    public String addlabel(){
+        return "back/addlabel";
+    }
+    @PostMapping("/back/toaddlabel")
+    @ResponseBody
+    public String toAddLabel(String labelname){
+      Label label=labelService.findByLabelName(labelname);
+        if(label!=null)
+            return "标签已存在";
+        else {
+            label=new Label();
+         label.setLabel_name(labelname);
+         labelService.save(label);
+         return "添加成功";
+        }
     }
 
 }

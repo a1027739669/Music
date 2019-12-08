@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.logging.Level;
+
 
 /**
  * @ProjectName: MusicPro
@@ -31,5 +31,13 @@ public class LabelService {
 
     public List<Label> findAll(){
         return labelRepository.findAll();
+    }
+
+    public Label findByLabelName(String labelname) {
+        return labelRepository.findLabelByLabel_name(labelname);
+    }
+
+    public void save(Label label) {
+        labelRepository.save(label);
     }
 }

@@ -2,6 +2,7 @@ package com.example.music.demo.repository;
 
 import com.example.music.demo.entity.Label;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,4 +24,7 @@ public interface LabelRepository extends JpaRepository<Label,Integer> {
     public Label getLabelById(Integer id);
 
     public List<Label> findAll();
+
+    @Query(nativeQuery = true,value = "select  * from label where label_name=:labelName")
+    public Label findLabelByLabel_name(String labelName);
 }
