@@ -2,6 +2,7 @@ package com.example.music.demo.service;
 
 import com.example.music.demo.entity.Album;
 import com.example.music.demo.entity.Singer;
+import com.example.music.demo.entity.SongSheet;
 import com.example.music.demo.repository.SingerRepository;
 import org.dom4j.util.SimpleSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @ProjectName: MusicPro
@@ -73,6 +71,58 @@ public class SingerService {
     }
 
     public List<Singer> findLikes(String label) {
-        return singerRepository.findByLabelsLike("%"+label+"%");
+        String[] labels = label.split(",");
+        Set<Singer> singerSet = new HashSet<>();
+        for (int i = 0; i < labels.length; i++) {
+            List<Singer> temp = singerRepository.findByLabelsLike("%" + labels[i] + "%");
+            for (int j = 0; j < temp.size(); j++) {
+                Singer singer = temp.get(j);
+                singerSet.add(singer);
+                if (singerSet.size() >= 5)
+                    break;
+            }
+            if (singerSet.size() >= 5)
+                break;
+        }
+        List<Singer> singerList = new ArrayList<>(singerSet);
+
+        return singerList;
+    }
+
+    public List<Singer> findSingerWithIdNotZero() {
+        return singerRepository.findAllByIdNot(0);
+    }
+
+    public Page<Singer> findAllByInfo(String info, Integer pageId) {
+        List<Singer> singerList=singerRepository.findAllBySingerNameLike("%"+info+"%");
+        for (int i = singerList.size()-1; i>=0 ; i--) {
+            if(singerList.get(i).getId()==0)
+                singerList.remove(i);
+        }
+        Pageable pageable = PageRequest.of(pageId - 1, 60);
+
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > singerList.size() ? singerList.size() : (start + pageable.getPageSize());
+        Page<Singer> singerPage = new PageImpl<>(singerList.subList(start, end), pageable, singerList.size());
+        return singerPage;
+    }
+
+    public String save(Singer singer){
+          Singer singer1=singerRepository.findSingerBySingerName(singer.getSingerName());
+          if(singer1!=null)
+              return "歌手已存在";
+          else {
+              singerRepository.save(singer);
+              return "添加成功";
+          }
+    }
+
+    public String save2(Singer singer){
+        singerRepository.save(singer);
+        return "修改成功";
+    }
+
+    public List<Singer> findAll() {
+        return singerRepository.findAll();
     }
 }

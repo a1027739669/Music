@@ -231,8 +231,8 @@
                 <div class="recent-action" data-spm-anchor-id="a2oj1.12028364.0.i0.2bca279109pyWD">
                     <div class="button unselectable random remarkable"><span class="iconfont"></span>全部播放<span
                                 class="ripple" style="height: 130px; width: 130px; top: 0px; left: 0px;"></span></div>
-                    <div class="button unselectable">全部下载<span class="ripple"
-                                                               style="height: 105px; width: 105px; top: 0px; left: 0px;"></span>
+                    <div class="button unselectable" onclick="alldown()">全部下载<span class="ripple"
+                                                                                   style="height: 105px; width: 105px; top: 0px; left: 0px;"></span>
                     </div>
                 </div>
                 <div class="recent-content">
@@ -274,7 +274,9 @@
                                                             <div class="column paused"
                                                                  style="animation-delay: -0.6s;"></div>
                                                         </div>
-                                                        <div class="iconfont play-btn" onclick="playSong(${col.getSong().song_id})"></div>
+                                                        <div class="iconfont play-btn"
+                                                             onclick="playSong(${col.getSong().song_id})">
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -335,7 +337,9 @@
                                                             <div class="column paused"
                                                                  style="animation-delay: -0.6s;"></div>
                                                         </div>
-                                                        <div class="iconfont play-btn" onclick="playSong(${col.getSong().song_id}"></div>
+                                                        <div class="iconfont play-btn"
+                                                             onclick="playSong(${col.getSong().song_id}">
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -541,8 +545,30 @@
 
 </body>
 <script type="text/javascript">
-    function playSong(songId){
-        window.open("/guest/playSong?id="+songId);
+    function playSong(songId) {
+        window.open("/guest/playSong?id=" + songId);
+    }
+</script>
+<script type="text/javascript">
+    function alldown() {
+        //获取所有被选的图片的名称与绝对路径放入数组
+        var imgNameList = [];
+        var imgUrlList = [];
+        <#if myCollection ? exists>
+        <#list myCollection as collection>
+        var tempname = '${collection.getSong().song_file}';
+        var temp = tempname.split('.');
+        var suffix = temp[temp.length - 1];
+        imgNameList.push('${collection.getSong().song_name}' + '.' + suffix);
+        imgUrlList.push("D:/MUSICRESOURCE/yinpin/" + '${collection.getSong().song_file}');
+        </#list>
+        </#if>
+
+        <#--       -->
+        var paths = encodeURI(encodeURI(imgUrlList));
+        var names = encodeURI(encodeURI(imgNameList));
+        //将名称传入后台
+        window.location.href = "/user/downsong?names=" + names + "&paths=" + paths;
     }
 </script>
 </html>

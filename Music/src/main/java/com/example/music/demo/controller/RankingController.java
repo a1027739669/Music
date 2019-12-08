@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -42,17 +43,27 @@ public class RankingController {
         modelMap.addAttribute("classId",rankClassId);
         modelMap.addAttribute("pageIndex",pageId);
         Page<Song> songList = rankingService.getSongRank(pageId,rankClassId);
+        if(songList.getContent().size()>0)
         modelMap.addAttribute("songList", songList);
         return "rankingtable";
     }
 
     @GetMapping("/guest/rank")
     public String detail(ModelMap modelMap) throws IOException {
-        List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
-        if (hotSearch.size() >= 5)
-            modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
-        else
-            modelMap.addAttribute("hotSearch", hotSearch);
+        if (redisService.get("hotSearch") != null) {
+            List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
+            if (hotSearch.size() >= 5)
+                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+            else
+                modelMap.addAttribute("hotSearch", hotSearch);
+        } else {
+            List<Song> hotSearch = indexService.getMoreSearchMusics();
+            redisService.set("hotSearch", hotSearch, (long) 1, TimeUnit.DAYS);
+            if (hotSearch.size() >= 5)
+                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+            else
+                modelMap.addAttribute("hotSearch", hotSearch);
+        }
         return "rank";
     }
 

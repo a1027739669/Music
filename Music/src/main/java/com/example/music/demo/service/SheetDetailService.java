@@ -28,4 +28,11 @@ public class SheetDetailService {
         return sheetDetailRepository.findAllBySheetId(sheetId);
     }
 
+    public void save(SheetDetail sheetDetail) {
+        sheetDetailRepository.save(sheetDetail);
+    }
+
+    public SheetDetail findBySongIdAndSheetId(Integer sheetId, Integer songId) {
+    return sheetDetailRepository.findSheetDetailBySongIdAndSheetId(sheetId, songId);
+    }
 }

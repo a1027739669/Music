@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -57,15 +58,31 @@ public class test {
     private UserRepository userRepository;
     @GetMapping("/test")
     public String test(ModelMap modelMap, HttpSession session) {
-        User user=userRepository.findUserByUsername("admin");
-        modelMap.addAttribute("user",user);
-        session.setAttribute("user",user);
-        List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
-        if (hotSearch.size() >= 5)
-            modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
-        else
-            modelMap.addAttribute("hotSearch", hotSearch);
-       return "myinfo";
+
+//        if (redisService.get("hotSearch") != null) {
+//            List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
+//            if (hotSearch.size() >= 5)
+//                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+//            else
+//                modelMap.addAttribute("hotSearch", hotSearch);
+//        } else {
+//            List<Song> hotSearch = indexService.getMoreSearchMusics();
+//            redisService.set("hotSearch", hotSearch, (long) 1, TimeUnit.DAYS);
+//            if (hotSearch.size() >= 5)
+//                modelMap.addAttribute("hotSearch", hotSearch.subList(0, 5));
+//            else
+//                modelMap.addAttribute("hotSearch", hotSearch);
+//        }
+
+//        List<Song> songList1=new ArrayList<>();
+//        List<Song> songList2=new ArrayList<>();
+//        List<Song> songList3=new ArrayList<>();
+//        List<Song> songList4=new ArrayList<>();
+//        redisService.set("user1",songList1);
+//        redisService.set("user2",songList2);
+//        redisService.set("user3",songList3);
+//        redisService.set("user4",songList4);
+       return "back/backindex";
     }
 
 }

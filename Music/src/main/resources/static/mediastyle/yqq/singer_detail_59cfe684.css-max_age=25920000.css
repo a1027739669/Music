@@ -535,7 +535,6 @@
     width: 34px;
     line-height: 20px;
     color: #fff;
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#3A000000', endColorstr='#3A000000');
     background: rgba(0, 0, 0, .23);
     text-align: center;
     font-size: 12px
@@ -707,7 +706,6 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#19000000', endColorstr='#19000000');
     background: rgba(0, 0, 0, .1)
 }
 
@@ -1024,7 +1022,7 @@ body:last-child .songlist_tips .popup_data_detail__arrow {
 }
 
 .songlist__edit {
-    display: none
+    display: none;
 }
 
 .songlist__checkbox {
@@ -1208,32 +1206,16 @@ body:last-child .songlist_tips .popup_data_detail__arrow {
         animation: play .7s forwards ease-in-out
     }
 
-    @-webkit-keyframes play {0 {
-    opacity: 1;
-    -webkit-transform: translateY(0)
-}100% {
-    opacity: 0;
-    -webkit-transform: translateY(-40px)
-}
-}
 
-@keyframes play {
 
-0
-{
-    opacity: 1
-;
-    transform: translateY(0)
-}
-100
-%
+
 {
     opacity: 0
 ;
     transform: translateY(-20px)
 }
 }
-}
+
 .mod_cover__mask {
     position: absolute;
     left: 0;
@@ -1249,7 +1231,6 @@ body:last-child .songlist_tips .popup_data_detail__arrow {
 
 .mod_cover:hover .mod_cover__icon_play {
     background: 0 0 \9;
-    filter: progid:dximagetransform.microsoft.alphaimageloader(src="http://imgcache.gtimg.cn/mediastyle/yqq/img/cover_play.png", sizingmethod="crop") alpha(opacity=90);
     opacity: .9;
     -webkit-transform: scale(1) translateZ(0);
     -webkit-transition-property: opacity, -webkit-transform;
@@ -1329,8 +1310,8 @@ body:last-child .songlist_tips .popup_data_detail__arrow {
 
 .data__name {
     overflow: hidden;
-    height: 50px;
-    line-height: 50px
+    height: 63px;
+    line-height: 63px
 }
 
 .data__name_txt {
@@ -1626,7 +1607,7 @@ body {
 
 .data__name {
     overflow: hidden;
-    line-height: 50px
+    line-height: 63px
 }
 
 .data__name_txt {

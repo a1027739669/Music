@@ -52,6 +52,7 @@ public class SingerController {
         modelMap.addAttribute("currentCoun", country);
         modelMap.addAttribute("currentSex", sex);
         modelMap.addAttribute("currentLabel", label);
+        if(singerPage.getContent().size()>0)
         modelMap.addAttribute("singerPage", singerPage);
         List<Label> labelList = labelService.findAll();
         modelMap.addAttribute("labelList", labelList);
@@ -66,7 +67,7 @@ public class SingerController {
         singer.setTotalAlbums(albumService.findAlbumBySingerId(singerId).size());
         modelMap.addAttribute("singer", singer);
         List<Album> albumList = albumService.findAlbumBySingerId(singerId);
-        if (albumList != null) {
+        if (albumList != null&&albumList.size()>0) {
             modelMap.addAttribute("albumList", albumList);
         }
         List<Singer> likes = singerService.findLikes(singer.getLabels());
@@ -76,13 +77,18 @@ public class SingerController {
                 return -o1.getSupport().compareTo(o2.getSupport());
             }
         });
+        for(int i=likes.size()-1;i>=0; i--){
+             if(likes.get(i).getId().equals(singerId))
+                 likes.remove(i);
+        }
         if(likes.size()>0){
         if (likes.size() >= 5)
             modelMap.addAttribute("likes", likes.subList(0, 5));
         else
             modelMap.addAttribute("likes", likes);
         }
-
+       List<Song> hotSearch=redisService.getHotSearch();
+        modelMap.addAttribute("hotSearch",hotSearch);
         return "singer";
     }
 

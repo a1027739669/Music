@@ -1,18 +1,18 @@
 <html lang="zh-cn">
 <head>
     <script type="text/javascript" src="/js/jQuery3.4.js"></script>
-    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script type="text/javascript"  src="/layui/layui.js"></script>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
     <meta name="description"
           content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
-    <title>QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
+    <title>我的音乐</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/css/head.css">
-
+    <link rel="stylesheet" href="/css/head2.css">
+    <link rel="stylesheet" href="/mystatic/kuwocss.css">
 
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
@@ -22,46 +22,8 @@
     <link rel="stylesheet" href="/qqmusiccss/popup_login.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var k = !0;
-
-            $(".loginmask").css("opacity", 0.8);
-
-            if ($.browser.version <= 6) {
-                $('#reg_setp,.loginmask').height($(document).height());
-            }
-
-            $(".thirdlogin ul li:odd").css({marginRight: 0});
-
-            $("#openlogin").click(function () {
-                k && "0px" != $("#loginalert").css("top") && ($("#loginalert").show(), $(".loginmask").fadeIn(500), $("#loginalert").animate({top: 0}, 400, "easeOutQuart"))
-            });
-
-            $(".loginmask,.closealert").click(function () {
-                k && (k = !1, $("#loginalert").animate({top: -600}, 400, "easeOutQuart", function () {
-                    $("#loginalert").hide();
-                    k = !0
-                }), $(".loginmask").fadeOut(500))
-            });
-
-
-            $("#sigup_now,.reg a").click(function () {
-                $("#reg_setp,#setp_quicklogin").show();
-                $("#reg_setp").animate({left: 0}, 500, "easeOutQuart");
-            });
-
-            $(".back_setp").click(function () {
-                "block" == $("#setp_quicklogin").css("display") && $("#reg_setp").animate({left: "100%"}, 500, "easeOutQuart", function () {
-                    $("#reg_setp,#setp_quicklogin").hide()
-                })
-            });
-
-        });
-    </script>
-
 </head>
-<body class="os_mac">
+<body >
 <!-- 头部 S -->
 
 <header class="header">
@@ -71,17 +33,17 @@
             <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
         </h1>
         <ul class="header-top-nav">
-            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
+            <li class="top-nav-item active"><a href="/guest/index" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
             <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">排行榜</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">分类歌单</a></li>
+            <li class="top-nav-item"><a href="/guest/sheetlist" class="tnav-link" title="音乐号">分类歌单</a></li>
 
 
         </ul>
         <ul class="header-sec-nav">
-            <li class="sec-nav-item active"><a href="#" class="nav-link">首页</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">歌手</a></li>
-            <li class="sec-nav-item"><a href="#" class="nav-link">专辑</a></li>
+            <li class="sec-nav-item"><a href="#" class="nav-link">首页</a></li>
+            <li class="sec-nav-item"><a href="/guest/singerlist" class="nav-link">歌手</a></li>
+            <li class="sec-nav-item active"><a href="/guest/albumlist" class="nav-link">专辑</a></li>
         </ul>
         <div class="header-search">
             <div class="search-input ">
@@ -96,7 +58,7 @@
                         <dt>热门搜索</dt>
                         <dd>
                             <#list hotSearch as hot>
-                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                <a href="/guest/detail?songId=${hot.songId}" class="hot-link">
                                     <span class="hot-num">${hot_index+1}</span>
                                     <span class="hot-name">${hot.song_name}</span>
                                     <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
@@ -152,8 +114,8 @@
                             </div>
                         </div>
                         <div class="popup_user_toolbar__item">
-                            <div class="popup_user_toolbar__tit"><a href="javascript:;" class="js_logout"
-                                                                    data-stat="y_new.top.pop.logout">退出QQ登录</a>
+                            <div class="popup_user_toolbar__tit"><a onclick="loginout()" class="js_logout"
+                                                                    data-stat="y_new.top.pop.logout">退出登录</a>
                             </div>
                         </div>
 
@@ -168,96 +130,20 @@
 </header>
 <!--main content-->
 
-<div class="loginmask"></div>
 
-<div id="loginalert">
-
-    <div class="pd20 loginpd">
-        <h3><i class="closealert fr"></i>
-            <div class="clear"></div>
-        </h3>
-        <div class="loginwrap">
-            <div class="loginh">
-                <div class="fl">会员登录</div>
-                <div class="fr">还没有账号<a id="sigup_now" href="javascript:void(0);">立即注册</a></div>
-            </div>
-            <h3><span class="fl">手机登录</span><span class="login_warning" style="display:none">用户名或密码错误</span>
-                <div class="clear"></div>
-            </h3>
-            <form id="login_form">
-                <div class="logininput">
-                    <input type="text" name="username" class="loginusername" value="" placeholder="手机/用户名"/>
-                    <input type="password" name="password" class="loginuserpasswordt" value="" placeholder="密码"/>
-                </div>
-                <div class="loginbtn">
-                    <div class="loginsubmit fl"><input type="button" value="登录" class="btn" id="submit"/></div>
-                    <div class="fl" style="margin:26px 0 0 0;"><input id="bcdl" type="checkbox" checked="true"/>保持登录
-                    </div>
-                    <div class="fr" style="margin:26px 0 0 0;"><a href="http://www.jb51.net/">忘记密码?</a></div>
-                    <div class="clear"></div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <#--    <div class="thirdlogin">-->
-    <#--        <div class="pd50">-->
-    <#--            <h4>用第三方帐号直接登录</h4>-->
-    <#--            <ul>-->
-    <#--                <li id="sinal"><a href="http://www.jb51.net">微博帐号注册</a></li>-->
-    <#--                <li id="qql"><a href="http://www.jb51.net">QQ帐号注册</a></li>-->
-    <#--            </ul>-->
-    <#--            <div class="clear"></div>-->
-    <#--        </div>-->
-    <#--    </div>-->
-
-</div>
-<div id="reg_setp">
-    <div class="back_setp">返回</div>
-    <div class="blogo"></div>
-    <div id="setp_quicklogin">
-        <h3>您可以选择以下第三方帐号直接登录代码笔记，一分钟完成注册</h3>
-        <ul class="quicklogin_socical">
-            <li class="quicklogin_socical_weibo"><a href="http://www.jb51.net">微博帐号注册</a></li>
-            <li class="quicklogin_socical_qq" style="margin:0;"><a href="http://www.jb51.net">QQ帐号注册</a></li>
-        </ul>
-    </div>
-    <!-- 会员注册 -->
-    <div id='regist_container' style="display: none;">
-        <div id="lab1">
-            <span id="lab_login">会员注册</span>
-            <span id="lab_toLogin">
-						&emsp;已有账号&nbsp;
-						<span id='toLogin' style="color: #EB9316;cursor: pointer;">立即登录</span>
-					</span>
-        </div>
-        <div id="form_container2" style="padding-top: 25px;">
-
-            <input type="text" class="form-control" value="admin" placeholder="用户名" id="regist_account"/>
-            <input type="password" class="form-control" placeholder="密码" id="regist_password1"/>
-            <input type="password" class="form-control" placeholder="确认密码" id="regist_password2"/>
-            <input type="text" class="form-control" placeholder="手机号" id="regist_phone"/>
-            <input type="text" class="form-control" placeholder="验证码" id="regist_vcode"/>
-            <!--<button id="getVCode" type="button" class="btn btn-success" >获取验证码</button>-->
-            <input id="getVCode" type="button" class="btn btn-success" value="点击发送验证码" onclick="sendCode(this)"/>
-
-        </div>
-        <input type="button" value="注册" class="btn btn-success" id="regist_btn"/>
-    </div>
-</div>
 <!-- 头部 E -->
 
 <div class="main">
-    <div class="mod_data" itemscope="" itemtype="http://schema.org/MusicRecording">
+    <div class="mod_data" itemscope="" >
             <span class="data__cover">
                 <img id="albumImg"
                      src="/upload/${album.album_img}"
-                     alt="C位爱情" class="data__photo">
+                      class="data__photo">
                 <i class="data__cover_mask"></i>
             </span>
         <div class="data__cont">
             <div class="data__name">
-                <h1 class="data__name_txt" title="C位爱情">${album.album_name}</h1>
+                <h1 class="data__name_txt" >${album.albumName}</h1>
             </div>
 
             <div class="data__singer">
@@ -277,17 +163,22 @@
 
             <div class="data__actions" role="toolbar">
 
-                <a href="//y.qq.com/portal/player.html" class="mod_btn_green js_all_play"
+                <a onclick="playAllAlbum(${album.albumId})" class="mod_btn_green js_all_play"
                    data-stat="y_new.album.header.playall"><i class="mod_btn_green__icon_play"></i>播放全部</a>
-                <a href="javascript:;" class="mod_btn js_more" data-mid="002ap9w33aAKKP" data-id="9381415"
-                   data-stat="y_new.album.header.more"><i class="mod_btn__icon_menu"></i>更多</a>
+                <a onclick="AllAddToSheet(this)"
+               class="mod_btn js_more" data-mid="002ap9w33aAKKP" data-id="9381415"
+                   data-stat="y_new.album.header.more"><i class="mod_btn__icon_add"></i>添加到</a>
+                <a onclick="alldownsong()" class="mod_btn js_more" data-mid="002ap9w33aAKKP" data-id="9381415"
+                   data-stat="y_new.album.header.more"><i class="mod_btn__icon_menu"></i>下载</a>
+                <a id="batchope" class="mod_btn js_more" data-mid="002ap9w33aAKKP" data-id="9381415"
+                   data-stat="y_new.album.header.more"><i class="mod_btn__icon_batch"></i>批量操作</a>
             </div>
         </div>
     </div>
     <div class="detail_layout">
         <div class="detail_layout__main">
 
-            <div class="mod_songlist">
+            <div class="mod_songlist" id="songList">
                 <ul class="songlist__header">
                     <li class="songlist__edit songlist__edit--check sprite">
                         <input type="checkbox" class="songlist__checkbox js_check_all">
@@ -301,7 +192,7 @@
                 <ul class="songlist__list" id="song_box">
                     <#list album.getDetails() as detail>
                         <#if (detail_index%2==0)>
-                            <li mid="245520530">
+                            <li mid="245520530" ix="${detail.songId}">
                                 <div class="songlist__item">
                                     <div class="songlist__edit songlist__edit--check sprite">
                                         <input type="checkbox" class="songlist__checkbox">
@@ -313,34 +204,28 @@
 
 
                                         <span class="songlist__songname_txt"><a
-                                                    href="//y.qq.com/n/yqq/song/004PR70Y3XglIu.html"
+                                                    href="/guest/songDetail?songId=${detail.getSong().songId}"
                                                     title="C位爱情">${detail.getSong().song_name}</a></span>
                                         <div class="mod_list_menu">
-                                            <a href="//y.qq.com/portal/player.html"
+                                            <a onclick="playSong(${detail.getSong().songId})"
                                                class="list_menu__item list_menu__play js_play" title="播放">
                                                 <i class="list_menu__icon_play"></i>
                                                 <span class="icon_txt">播放</span>
                                             </a>
-                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav"
+                                            <a onclick="addtosheet(this,${detail.getSong().songId})" class="list_menu__item list_menu__add js_fav"
                                                title="添加到歌单"
                                                aria-haspopup="true" data-target="menu_add">
                                                 <i class="list_menu__icon_add"></i>
                                                 <span class="icon_txt">添加到歌单</span>
                                             </a>
 
-                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down"
+                                            <a onclick="downSingle(${detail.getSong().songId})" class="list_menu__item list_menu__down js_down"
                                                title="下载"
                                                aria-haspopup="true" data-target="menu_down">
                                                 <i class="list_menu__icon_down"></i>
                                                 <span class="icon_txt">下载</span>
                                             </a>
 
-                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share"
-                                               title="分享"
-                                               aria-haspopup="true" data-aria="menu_share">
-                                                <i class="list_menu__icon_share"></i>
-                                                <span class="icon_txt">分享</span>
-                                            </a>
                                         </div>
                                     </div>
                                     <div class="songlist__artist">
@@ -357,7 +242,7 @@
                             </li>
 
                     <#else>
-                        <li mid="245520531">
+                        <li mid="245520531" ix="${detail.songId}">
                             <div class="songlist__item songlist__item--even">
                                 <div class="songlist__edit songlist__edit--check sprite">
                                     <input type="checkbox" class="songlist__checkbox">
@@ -417,19 +302,10 @@
                 </ul>
 
             </div>
-            <div class="mod_songlist_toolbar mod_songlist_toolbar--edit js_foot_batch" style="display:none;">
-                <div class="songlist__edit songlist__edit--check sprite" style="display:none;">
-                    <input type="checkbox" class="songlist__checkbox js_check_all">
-                </div>
-                <a href="//y.qq.com/portal/player.html" class="mod_btn js_all_play"
-                   data-stat="y_new.album.songlist.playall"><i class="mod_btn__icon_play"></i>播放全部</a>
-                <a href="javascript:;" class="mod_btn js_all_fav"><i class="mod_btn__icon_add"></i>添加到</a>
-                <a href="javascript:;" class="mod_btn js_all_down"><i class="mod_btn__icon_down"></i>下载</a>
-                <a href="javascript:;" class="mod_btn js_batch"><i class="mod_btn__icon_batch"></i>批量操作</a>
-            </div>
-
 
         </div>
+
+
         <div class="detail_layout__other">
             <div class="mod_about" id="album_desc" style="display:block;">
                 <h3 class="about__tit">简介</h3>
@@ -450,7 +326,7 @@
                                     onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
                                     <div class="playlist__item_box">
                                         <div class="playlist__cover mod_cover"><a
-                                                    href="//y.qq.com/n/yqq/album/003QG00d1xCn4N.html" class="js_album"
+                                                    href="/guest/albumDetail?albumId=${other.albumId}" class="js_album"
                                                     data-stat="y_new.album.otheralbum.click"
                                                     data-albummid="003QG00d1xCn4N"
                                                     data-albumid="54951"><img
@@ -460,17 +336,19 @@
                                                         class="mod_cover__icon_play js_play"
                                                         data-stat="y_new.album.otheralbum.play"></i></a></div>
                                         <h4 class="playlist__title"><span class="playlist__title_txt"><a
-                                                        href="//y.qq.com/n/yqq/album/003QG00d1xCn4N.html"
+                                                        href="/guest/albumDetail?albumId=${album.albumId}"
                                                         class="js_album"
                                                         data-stat="y_new.album.otheralbum.click"
                                                         data-albummid="003QG00d1xCn4N"
-                                                        data-albumid="54951" title="被情伤过的女人">${other.album_name}</a></span></h4>
+                                                        data-albumid="54951">${other.albumName}</a></span></h4>
                                         <div class="playlist__author">
                                             ${album.album_release}
                                         </div>
                                     </div>
                                 </li>
                             </#list>
+                            <#else >
+                            <p>暂无其他专辑</p>
                         </#if>
                     </ul>
                 </div>
@@ -489,9 +367,7 @@
     </div>
 </div>
 <!-- 跟头图保持一致 -->
-<div class="bg_detail"><i class="bg_detail__pic"
-                          style="background-image:url(//y.gtimg.cn/music/photo_new/T002R300x300M000002ap9w33aAKKP_1.jpg?max_age=2592000);"></i>
-</div>
+
 <footer class="footer-container">
     <div class="section-container">
         <div class="footer-info">
@@ -634,33 +510,419 @@
 
 
 <!-- 添加到 -->
-<div class="mod_operate_menu" style="position: absolute; display: none; left: 351px; top: 599px;" id="fav_pop">
+<div class="mod_operate_menu" style="position: absolute; display: none; left: 434px; top: 594px;" id="fav_pop">
     <div class="operate_menu__cont">
         <a href="javascript:;" class="operate_menu__link js_addto_playlist">播放队列</a>
         <ul role="menu" class="operate_menu__list operate_menu__top_line operate_menu__bottom_line">
-
-            <li class="operate_menu__item">
-                <a href="javascript:;" class="operate_menu__link js_addto_taogelist operate_menu__link--disabled"
-                   data-dirid="201" title="我喜欢 "><i class="operate_menu__icon_like"></i>我喜欢 </a>
-            </li>
-
-            <li class="operate_menu__item">
-                <a href="javascript:;" class="operate_menu__link js_addto_taogelist" data-dirid="2"
-                   title="2013-09-15试听列表 ">2013-09-15试听列表 </a>
-            </li>
-
-            <li class="operate_menu__item">
-                <a href="javascript:;" class="operate_menu__link js_addto_taogelist" data-dirid="1"
-                   title="one ">one </a>
-            </li>
-
-            <li class="operate_menu__item">
-                <a href="javascript:;" class="operate_menu__link js_addto_taogelist" data-dirid="3" title="姓章的勿动的 ">姓章的勿动的 </a>
-            </li>
-
+            <#if Session['loginusersheet'] ? exists>
+                <#list Session['loginusersheet'] as tempsheet>
+                    <li class="operate_menu__item">
+                        <a onclick="toAdd(${tempsheet.id})"
+                           class="operate_menu__link js_addto_taogelist"
+                           data-dirid="201" title="${tempsheet.sheetName}"><i
+                                    class="operate_menu__icon_like"></i>${tempsheet.sheetName} </a>
+                    </li>
+                </#list>
+            </#if>
         </ul>
-        <a href="javascript:;" class="operate_menu__link js_addto_new"><i class="operate_menu__icon_add sprite"></i>添加到新歌单</a>
+        <a onclick="addtonewsheet()" class="operate_menu__link js_addto_new"><i
+                    class="operate_menu__icon_add sprite"></i>创建新歌单</a>
+    </div>
+</div>
+<div class="modal-wrapper">
+    <div class="modal opened" id="loginmodel">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel1"></span>
+            <div class="popup-login">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="popup-login-wrapper">
+                            <div id="login-container">
+                                <div class="login-tab"><span class="current"
+                                    >账户登录</span><span
+                                            class=""
+                                            data-spm-anchor-id="a2oj1.12028025.0.i1.54776ee1fdgM1B">手机验证码</span></div>
+                                <form id="loginform">
+                                    <div class="account-login">
+                                        <div class="form-block"><label for="account">账号</label><input id="username"
+                                                                                                      type="text"
+                                                                                                      placeholder="请输入邮箱或手机"
+                                                                                                      autocomplete="off"
+                                                                                                      autocorrect="off"
+                                                                                                      autocapitalize="off"
+                                                                                                      spellcheck="false"
+                                                                                                      class=""></div>
+                                        <div class="form-block"><label for="password">密码</label><input id="password"
+                                                                                                       type="password"
+                                                                                                       placeholder="请输入密码">
+                                        </div>
+                                        <div class="form-block form-action">
+                                            <button id="account-login-submit" type="button">登录</button>
+                                        </div>
+                                        <div class="form-block form-extra"><a class="right">忘记密码？</a><a
+                                                    id="loginregister">注册</a></div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-wrapper">
+    <div class="modal opened" id="registermodel">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel2"></span>
+            <div class="popup-login">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="popup-register-wrapper">
+                            <div id="agreement-container">
+                                <div class="agreement-title">新用户注册<em>轻松两步即可完成注册</em></div>
+                                <form>
+                                    <div class="agreement-content">
+                                        <div class="form-block"><label for="mobile">手机号</label>
+                                            <div class="form-input-inline">
+                                                <div class="country-code unselectable">
+                                                    <div class="select">
+                                                        <div>
+                                                            <div class="button unselectable selector">+86<span
+                                                                        class="iconfont selector-icon"></span><span
+                                                                        class="ripple"
+                                                                        style="height: 80px; width: 80px; top: 0px; left: 0px;"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="react-contextmenu-wrapper">
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input id="mobile" type="tel" placeholder="请输入手机号" autocomplete="off"
+                                                       autocorrect="off" autocapitalize="off" spellcheck="false"
+                                                       maxlength="11" class=""></div>
+                                        </div>
+                                        <div class="form-block"><label for="smsCode">验证码</label>
+                                            <div class="form-input-inline"><input id="smsCode" type="text"
+                                                                                  placeholder="请输入验证码" maxlength="6"
+                                                                                  pattern="\d*" class="" value="">
+                                                <div class="sms-code">
+                                                    <button disabled="">发送验证码</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-block form-action">
+                                            <button id="agreement-submit">下一步</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="step-notice"><a id="returnlogin">返回登录</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-wrapper">
+    <div class="modal opened" id="secondstep">
+        <div class="modal-inner"><span class="close-btn iconfont white left"></span>
+            <div class="popup-login">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="popup-register-wrapper">
+                            <div id="register-container">
+                                <div class="register-title">新用户注册<em>请输入6-12位密码</em></div>
+                                <form>
+                                    <div class="register-pwd">
+                                        <div class="form-block"><label for="password">密码</label><input id="password"
+                                                                                                       type="password"
+                                                                                                       placeholder="请输入你要设定的密码"
+                                                                                                       autocomplete="off"
+                                                                                                       class=""></div>
+                                        <div class="form-block"><label for="pw2">重复密码</label><input id="pw2"
+                                                                                                    type="password"
+                                                                                                    placeholder="再输入一次你设定的密码"
+                                                                                                    autocomplete="off"
+                                                                                                    class=""></div>
+                                        <div class="form-block form-action">
+                                            <button id="register-submit">完成注册</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="step-notice"><a id="laststep">返回上一步</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    function playAllAlbum(albumId) {
+        window.open("/guest/playAlbum?albumId=" + albumId);
+    }
+</script>
+
+<script type="text/javascript">
+    function playAll() {
+        window.open("/guest/playAll");
+    }
+
+    function playAllSheet(sheetId) {
+        window.open("/guest/playSheet?sheetId=" + sheetId);
+    }
+
+    function playAllAlbum(albumId) {
+        window.open("/guest/playAlbum?albumId=" + albumId);
+    }
+
+    function playSong(songId) {
+        window.open("/guest/playSong?id=" + songId);
+    }
+
+    function singledown(songId){
+        <#if Session['user'] ? exists>
+        window.location.href="/user/downsinglesong?id="+songId;
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        return;
+        </#if>
+    }
+
+    function moreope(t) {
+        var left = $(t).offset().left;
+        var top = $(t).offset().top;
+        <#if Session['user'] ? exists>
+        $("#first_menu_1").css("left", left + 15 + "px");
+        $("#first_menu_1").css("top", top + 20 + "px");
+        $("#first_menu_1").css("display", "block");
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        return;
+        </#if>
+    }
+
+    function AllAddToSheet(t) {
+        var left = $(t).offset().left;
+        var top = $(t).offset().top;
+        var songIdList = [];
+        if($("#songList").hasClass("mod_songlist--edit")) {
+            $("#songList li").each(function (index, item) {
+                if (typeof ($(item).attr("ix")) != "undefined") {
+                    if ($(item).find(".sprite").hasClass("songlist__edit--check"))
+                        songIdList.push($(item).attr("ix"));
+                }
+            });
+        }
+        if(songIdList.length===0){
+            layer.msg("请先进行批量操作");
+            return;
+        }
+        <#if Session['user'] ? exists>
+        $("#fav_pop").css("left", left + 15 + "px");
+        $("#fav_pop").css("top", top + 20 + "px");
+        $("#fav_pop").css("display", "block");
+        $("#fav_pop").data("songId", songIdList);
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        return;
+        </#if>
+
+    }
+
+    function addtosheet(t,songId) {
+        var left = $(t).offset().left;
+        var top = $(t).offset().top;
+
+        <#if Session['user'] ? exists>
+        $("#fav_pop").css("left", left + 20 + "px");
+        $("#fav_pop").css("top", top  + "px");
+        $("#fav_pop").css("display", "block");
+        $("#fav_pop").data("songId",songId);
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        </#if>
+    }
+
+    function loginout() {
+        $.ajax({
+            url: '/user/loginout',
+            type: 'GET',
+            traditional: true,
+            success: function (data) {
+                layer.msg(data);
+                location.reload();
+            }
+        });
+    }
+
+    function toAdd(sheetId) {
+        var songId=$("#fav_pop").data("songId");
+        $.ajax({
+            url: '/user/addtosheet',
+            type: 'GET',
+            traditional: true,
+            data: {
+                'sheetId': sheetId,
+                'songId': songId,
+            },
+            success: function (data) {
+                layer.msg(data);
+            }
+        });
+    }
+
+    function alldownsong() {
+        var songIdList = [];
+        <#if Session['user'] ? exists>
+        $(".songlist__list li").each(
+            function (index,item) {
+                songIdList.push($(item).attr("ix"));
+            }
+        );
+        window.location.href = "/user/downsongbyids?ids="+songIdList;
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        return;
+        </#if>
+
+    }
+
+    $(document).ready(function () {
+        $("#userImg").mouseover(function () {
+            $(".popup_user").addClass("drop");
+        })
+        $(".popup_user").mouseleave(function () {
+            $('.popup_user').removeClass("drop");
+        })
+        $("#fav_pop").mouseleave(function () {
+            $("#fav_pop").css("display", "none");
+        });
+        $("#first_menu_1").mouseleave(function () {
+            $("#first_menu_1").css("display", "none");
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+        });
+        $('#account-login-submit').click(function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "text",//预期服务器返回的数据类型
+                url: "/guest/login",//url
+                data: {"username": username, "password": password},
+                async: false,
+                success: function (result) {
+                    if (result != "登录成功") {
+                        layer.alert(result);
+                    } else {
+                       location.reload();
+                        layer.msg("登录成功!");
+                    }
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    function toHome() {
+        <#if Session["user"] ? exists>
+        window.location.href = "/user/home";
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        </#if>
+    }
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#openlogin").click(function () {
+            $("#loginmodel").addClass("active");
+        });
+        $("#loginregister").click(function () {
+            $("#loginmodel").removeClass("active");
+            $("#registermodel").addClass("active");
+        });
+        $("#returnlogin").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").addClass("active");
+        });
+        $("#cancel1").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+        });
+        $("#cancel2").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#batchope").click(function () {
+            if ($("#batchope").text() === "批量操作") {
+                $("#batchope").text("取消批量操作");
+                $("#songList").addClass("mod_songlist--edit");
+            } else {
+                $("#batchope").text("批量操作");
+                $("#songList").removeClass("mod_songlist--edit");
+            }
+        });
+    });
+
+    function allclick(t) {
+        if($(t).parent(".songlist__edit").hasClass("songlist__edit--check")){
+            $(t).parent(".songlist__edit").removeClass("songlist__edit--check");
+            $(".songlist__edit").each(
+                function (index,item) {
+                    $(item).removeClass("songlist__edit--check");
+                }
+            );
+        }
+        else {
+            $(t).parent(".songlist__edit").addClass("songlist__edit--check");
+            $(".songlist__edit").each(
+                function (index,item) {
+                    $(item).addClass("songlist__edit--check");
+                }
+            );
+        }
+    }
+
+    function changestate(t) {
+        if($(t).parent(".songlist__edit").hasClass("songlist__edit--check")){
+            $(t).parent(".songlist__edit").removeClass("songlist__edit--check");
+        }
+        else
+        {
+            $(t).parent(".songlist__edit").addClass("songlist__edit--check");
+        }
+    }
+
+</script>
 </html>

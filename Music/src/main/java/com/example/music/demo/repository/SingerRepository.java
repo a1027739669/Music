@@ -23,4 +23,10 @@ public interface SingerRepository extends JpaRepository<Singer,Integer> {
     public Singer findSingerById(Integer singerId);
 
     public List<Singer> findByLabelsLike(String label);
+
+    public List<Singer> findAllByIdNot(Integer id);
+
+    public List<Singer> findAllBySingerNameLike(String singerName);
+
+    public Singer findSingerBySingerName(String name);
 }

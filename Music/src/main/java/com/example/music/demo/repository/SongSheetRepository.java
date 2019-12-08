@@ -6,9 +6,11 @@ import com.example.music.demo.entity.Song;
 import com.example.music.demo.entity.SongSheet;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -24,12 +26,13 @@ import java.util.List;
  * @Version: 1.0
  */
 @Repository
+@Transactional
 public interface SongSheetRepository extends JpaRepository<SongSheet, Integer> {
     public List<SongSheet> findByIdIn(List<Integer> numbers);
 
     public SongSheet findSongSheetById(Integer id);
 
-    @Query(nativeQuery = true, value = "select  c.* from songsheet c  order by support desc ")
+    @Query(nativeQuery = true, value = "select  c.* from songsheet c  order by play_count desc ")
     public List<SongSheet> findAll1();
 
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  order by support desc limit 1000")
@@ -51,5 +54,9 @@ public interface SongSheetRepository extends JpaRepository<SongSheet, Integer> {
 
     public List<SongSheet> findByLabelsLike(String labels);
 
+    public List<SongSheet> findAllBySheetNameLike(String name);
+
+    @Modifying
+    public void deleteSongSheetById(Integer sheetId);
 
 }

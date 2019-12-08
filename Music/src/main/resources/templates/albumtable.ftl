@@ -34,45 +34,54 @@
         </div>
     </div>
     <div class="mod_part_detail" id="allalbum">
-        <div class="mod_playlist mod_playlist--all">
-            <ul class="playlist__list" id="album_list">
-                <#list albumPage.content as album>
-                    <li class="playlist__item"
-                        onmouseover="this.className=(this.className+' playlist__item--hover')"
-                        onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
-                        <div class="playlist__item_box">
-                            <div class="playlist__cover mod_cover" style="visibility: visible;">
-                                <a class="js_album" onclick="playAllAlbum(${album.albumId})"
-                                   data-stat="y_new.album_lib.album_pic">
-                                    <img src="/upload/${album.album_img}"
-                                         alt="此情此景" class="playlist__pic" style="display: block; visibility: visible;">
-                                    <i class="mod_cover__icon_play js_play" data-stat="y_new.album_lib.album_play"></i>
-                                </a>
-                            </div>
-                            <h4 class="playlist__title">
+        <#if albumPage? exists>
+            <div class="mod_playlist mod_playlist--all">
+                <ul class="playlist__list" id="album_list">
+                    <#list albumPage.content as album>
+                        <li class="playlist__item"
+                            onmouseover="this.className=(this.className+' playlist__item--hover')"
+                            onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
+                            <div class="playlist__item_box">
+                                <div class="playlist__cover mod_cover" style="visibility: visible;">
+                                    <a class="js_album" onclick="playAllAlbum(${album.albumId})"
+                                       data-stat="y_new.album_lib.album_pic">
+                                        <img src="/upload/${album.album_img}"
+                                             alt="此情此景" class="playlist__pic"
+                                             style="display: block; visibility: visible;">
+                                        <i class="mod_cover__icon_play js_play"
+                                           data-stat="y_new.album_lib.album_play"></i>
+                                    </a>
+                                </div>
+                                <h4 class="playlist__title">
 			<span class="playlist__title_txt">
 				<a href="/guest/albumDetail?albumId=${album.albumId}"
                    onclick="" class="js_album"
                    data-stat="y_new.album_lib.album_name" data-albummid="002rmKH83FOcnD"
-                   title="此情此景">${album.album_name}</a>
+                   title="此情此景">${album.albumName}</a>
 			</span>
-                            </h4>
-                            <div class="playlist__author" title="李佳璐">
+                                </h4>
+                                <div class="playlist__author" title="李佳璐">
 
 
-                                <#--                    <a href="" class="js_singer"-->
-                                <#--                       data-singermid="000kIeH91GinlQ">${album.getSinger().singerName}</a>-->
+                                    <#--                    <a href="" class="js_singer"-->
+                                    <#--                       data-singermid="000kIeH91GinlQ">${album.getSinger().singerName}</a>-->
 
 
+                                </div>
+                                <div class="playlist__other">
+                                    ${album.album_release}
+                                </div>
                             </div>
-                            <div class="playlist__other">
-                                ${album.album_release}
-                            </div>
-                        </div>
-                    </li>
-                </#list>
-            </ul>
-        </div>
+                        </li>
+                    </#list>
+                </ul>
+            </div>
+        <#else >
+            <div class="none_txt">
+                <i class="none_txt__symbol"></i>
+                <p>什么都没有</p>
+            </div>
+        </#if>
     </div>
     <div class="mod_page_nav js_pager_comment">
         <#if (albumPage.totalPages==1)>

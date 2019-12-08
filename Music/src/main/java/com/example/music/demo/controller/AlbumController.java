@@ -1,11 +1,12 @@
 package com.example.music.demo.controller;
 
 import com.example.music.demo.entity.Album;
-import com.example.music.demo.entity.AlbumDetail;
+import com.example.music.demo.entity.Singer;
 import com.example.music.demo.entity.Song;
 import com.example.music.demo.service.AlbumService;
 import com.example.music.demo.service.IndexService;
 import com.example.music.demo.service.RedisService;
+import com.example.music.demo.service.SingerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -36,11 +37,14 @@ public class AlbumController {
     private IndexService indexService;
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private SingerService singerService;
 
     @GetMapping("/guest/albumtable")
     public String getAlbumList(ModelMap modelMap, String category, Integer pageId) {
         Page<Album> albumPage = albumService.getAlbumList(pageId, category);
         modelMap.addAttribute("currentCate", category);
+        if(albumPage.getContent().size()>0)
         modelMap.addAttribute("albumPage", albumPage);
         return "albumtable";
     }
@@ -87,8 +91,19 @@ public class AlbumController {
             if (others.get(i).getAlbumId().equals(album.getAlbumId()))
                 others.remove(i);
         }
-        if(others!=null&&others.size()>0)
+        if(others.size()>0)
         modelMap.addAttribute("others",others);
         return "albumdetail";
+    }
+
+    @GetMapping("/guest/singeralbums")
+    public String singerAlbums(ModelMap modelMap,Integer singerId){
+        Singer singer =singerService.getSingerById(singerId);
+        List<Album> albumList=albumService.findAlbumBySingerId(singerId);
+        List<Song> hotSearch=redisService.getHotSearch();
+        modelMap.addAttribute("hotSearch",hotSearch);
+        modelMap.addAttribute("singer",singer);
+        modelMap.addAttribute("albumlist",albumList);
+        return "singeralbumlist";
     }
 }

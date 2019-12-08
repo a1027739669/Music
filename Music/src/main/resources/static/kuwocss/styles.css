@@ -1966,7 +1966,7 @@
     text-overflow: ellipsis;
     margin-top: 5px;
     font-size: 12px;
-    color: #ff410f
+    color: #1aa62a;
 }
 
 #artist-container {
@@ -2614,6 +2614,7 @@
     margin: 0 auto;
     position: relative;
     cursor: pointer;
+    background-size: 100% 100%;
     box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .05), inset -1px -1px 0 rgba(0, 0, 0, .05)
 }
 
@@ -3490,9 +3491,9 @@
 
 .comment-item .hot {
     font-size: 10px;
-    color: #ff410f;
+    color: #00ae75;
     border-radius: 3px;
-    border: 1px solid #ff410f;
+    border: 1px solid #00ae75;
     padding: 0 2px
 }
 
@@ -3526,7 +3527,7 @@
 }
 
 .comment .comment-reply .reply-list-control .list-control {
-    color: #ff410f;
+    color: #00ae75;
     cursor: pointer
 }
 
@@ -3575,7 +3576,7 @@
 }
 
 .modal-wrapper .modal .modal-inner .close-btn.white {
-    color: #fff
+    color: #969696;
 }
 
 .modal-wrapper .modal .modal-inner .close-btn.left {
@@ -3741,7 +3742,7 @@
 
 .song-view .view-body .artists .iconfont {
     font-size: 24px;
-    color: #ff410f
+    color: #00ae75;
 }
 
 .song-view .view-body > .song-name {
@@ -3792,7 +3793,7 @@
 }
 
 .song-view .view-body .song-operations .button .favorite {
-    color: #ff410f
+    color: #00ae75;
 }
 
 .song-view .view-body .artists, .song-view .view-body .comment-list-wrapper, .song-view .view-body .related, .song-view .view-body .song-lyric, .song-view .view-body .song-operations, .song-view .view-body .song-subname, .song-view .view-body > .song-tags {
@@ -3853,9 +3854,9 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     display: block;
-    width: 85px;
-    height: 105px;
-    background: url("//img.alicdn.com/tfs/TB1e63KC1uSBuNjy1XcXXcYjFXa-170-210.png") no-repeat 50%;
+    width: 170px;
+    height: 210px;
+    background: url("/image/logo.png") no-repeat 50%;
     background-size: contain
 }
 
@@ -3915,7 +3916,7 @@
     padding: 0;
     border: none;
     border-radius: 4px;
-    background-color: #ff410f;
+    background-color: #00ae75;
     font-size: 12px;
     color: #fff;
     cursor: pointer
@@ -4021,7 +4022,7 @@
 
 #forget-container .forget-tab span.current {
     font-weight: 700;
-    color: #ff410f
+    color: #00ae75;
 }
 
 #forget-container #mobile {
@@ -4351,7 +4352,7 @@
 }
 
 .add-song .add {
-    color: #ff410f;
+    color: #00ae75;
     text-align: right;
     cursor: pointer
 }
@@ -4439,7 +4440,7 @@
 }
 
 .collect-handler .iconfont.favor {
-    color: #ff410f
+    color:   #00ae75
 }
 
 .collect-handler .edit-icon {
@@ -4903,7 +4904,7 @@
     padding-top: 100%;
     border-radius: 2px;
     background: #d9d9d9 no-repeat 50%;
-    background-size: contain;
+    background-size: 100% 100%;
     box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .05), inset -1px -1px 0 rgba(0, 0, 0, .05)
 }
 
@@ -12306,7 +12307,7 @@ button.swiper-pagination-bullet {
 
 #login-container .login-tab span.current {
     font-weight: 700;
-    color: #ff410f
+    color: #31c27c;
 }
 
 #login-container .form-thirdlogin {
@@ -12448,7 +12449,7 @@ button.swiper-pagination-bullet {
     bottom: 30px;
     width: 100%;
     text-align: center;
-    color: #ff410f
+    color: #31c27c;
 }
 
 .popup-login {
@@ -13735,21 +13736,21 @@ button, input, textarea {
 }
 
 .rc-pagination-item:hover {
-    border-color: #ff410f
+    color: #31c27c;
 }
 
 .rc-pagination-item:hover a {
-    color: #ff410f
+    color: #31c27c;
 }
 
 .rc-pagination-item-active a {
-    color: #ff410f;
+    color: #31c27c;
     outline: none;
     font-weight: 700
 }
 
 .rc-pagination-item-active:hover a {
-    color: #ff410f
+    color: #31c27c;
 }
 
 .rc-pagination-jump-next:after, .rc-pagination-jump-prev:after {
@@ -13762,7 +13763,7 @@ button, input, textarea {
 }
 
 .rc-pagination-jump-next:hover:after, .rc-pagination-jump-prev:hover:after {
-    color: #ff410f
+    color: #31c27c;
 }
 
 .rc-pagination-jump-prev:hover:after {
@@ -13993,7 +13994,7 @@ h2 {
 }
 
 .highlight {
-    color: #ff410f
+    color: #31c27c;
 }
 
 .dialog {
@@ -14047,7 +14048,7 @@ pre {
     position: relative;
     overflow: hidden;
     color: #4a4a4a;
-    padding-bottom: 390px;
+    padding-bottom: 20px;
     min-height: 100%;
     background-color: #fff
 }

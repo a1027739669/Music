@@ -25,12 +25,12 @@ public class UserCollection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer songId;
+    private Integer sheetId;
     private Integer userId;
-    @ManyToOne(targetEntity = Song.class,fetch = FetchType.LAZY)
-    @JoinColumn(name="songId",insertable =false,updatable =false)
+    @ManyToOne(targetEntity = SongSheet.class,fetch = FetchType.EAGER)
+    @JoinColumn(name="sheetId",insertable =false,updatable =false)
     @JsonIgnore
-    private Song song;
+    private SongSheet songSheet;
     @ManyToOne(targetEntity = User.class,fetch = FetchType.EAGER)
     @JoinColumn(name = "userId" , insertable = false, updatable = false, referencedColumnName = "id")
     private User user;

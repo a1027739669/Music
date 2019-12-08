@@ -8,12 +8,11 @@
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta http-equiv="Content-Language" content="zh-cn">
-    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
-    <meta name="description"
-          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
-    <meta name="mobile-agent" content="format==[html5];url=https://y.qq.com/m/index.html">
+
+
+
     <meta name="applicable-device" content="pc">
-    <title>专辑库 - QQ音乐-千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
+    <title>个人主页</title>
     <link rel="stylesheet" type="text/css" href="/css/stylelogin.css"/>
     <script src="/js/head.js"></script>
     <script src="/js/index.js"></script>
@@ -56,8 +55,8 @@
             <#--                <a href="/" class="logo" title="首页"><img src="image/logo.png"></a>-->
         </h1>
         <ul class="header-top-nav">
-            <li class="top-nav-item active"><a href="#" class="tnav-link" title="音乐馆">主页</a></li>
-            <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
+            <li class="top-nav-item"><a href="/guest/index" class="tnav-link" title="音乐馆">主页</a></li>
+            <li class="top-nav-item  active"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
             <li class="top-nav-item"><a href="/guest/rank" class="tnav-link" title="音乐号">排行榜</a></li>
             <li class="top-nav-item"><a href="/guest/sheetlist" class="tnav-link" title="音乐号">分类歌单</a></li>
 
@@ -65,8 +64,8 @@
         </ul>
         <div class="header-search">
             <div class="search-input ">
-                <input type="text" placeholder="搜索音乐、MV、歌单、用户">
-                <button class="search-btn">
+                <input type="text" id="info" placeholder="搜索音乐、MV、歌单、用户">
+                <button class="search-btn" id="searchbutton">
                     <i class="icon-search sprite"></i>
                 </button>
             </div>
@@ -76,7 +75,7 @@
                         <dt>热门搜索</dt>
                         <dd>
                             <#list hotSearch as hot>
-                                <a href="/guest/detail?songId=${hot.song_id}" class="hot-link">
+                                <a href="/guest/detail?songId=${hot.songId}" class="hot-link">
                                     <span class="hot-num">${hot_index+1}</span>
                                     <span class="hot-name">${hot.song_name}</span>
                                     <span class="hot-people">${(hot.getInfo().info_search/10000) ? int}w</span>
@@ -102,7 +101,7 @@
                 <span class="mod_top_login">
 		    <a class="top_login__link js_logined"
                style=""><img id="userImg"
-                             src="/upload/${user.user_image}"
+                             src="/upload/${Session["user"].user_image}"
                              class="top_login__cover js_user_img"></a>
                 </span>
                 <!-- 用户信息 -->
@@ -120,13 +119,12 @@
 
                         <div class="popup_user_toolbar__item">
                             <div class="popup_user_toolbar__tit js_msgcenterdiv"><a
-                                        href="//y.qq.com/portal/msg_center.html#stat=y_new.top.pop.msg_center"
-                                        onclick="setStatCookie&amp;&amp;setStatCookie();">评论通知</a>
+                                        onclick="stertfind()">修改密码</a>
                             </div>
                         </div>
                         <div class="popup_user_toolbar__item">
-                            <div class="popup_user_toolbar__tit"><a href="javascript:;" class="js_logout"
-                                                                    data-stat="y_new.top.pop.logout">退出QQ登录</a>
+                            <div class="popup_user_toolbar__tit"><a href="/user/loginout" class="js_logout"
+                                                                    data-stat="y_new.top.pop.logout">退出登录</a>
                             </div>
                         </div>
 
@@ -134,6 +132,7 @@
                 </div>
             <#else >
                 <a href="javascript:;" class="h-login" id="openlogin">登录</a>
+                <a href="javascript:;" class="h-login" id="aregister">注册</a>
                 <div class="login-mark"></div>
             </#if>
         </div>
@@ -141,83 +140,7 @@
 </header>
 <!--main content-->
 
-<div class="loginmask"></div>
 
-<div id="loginalert">
-
-    <div class="pd20 loginpd">
-        <h3><i class="closealert fr"></i>
-            <div class="clear"></div>
-        </h3>
-        <div class="loginwrap">
-            <div class="loginh">
-                <div class="fl">会员登录</div>
-                <div class="fr">还没有账号<a id="sigup_now" href="javascript:void(0);">立即注册</a></div>
-            </div>
-            <h3><span class="fl">手机登录</span><span class="login_warning" style="display:none">用户名或密码错误</span>
-                <div class="clear"></div>
-            </h3>
-            <form id="login_form">
-                <div class="logininput">
-                    <input type="text" name="username" class="loginusername" value="" placeholder="手机/用户名"/>
-                    <input type="password" name="password" class="loginuserpasswordt" value="" placeholder="密码"/>
-                </div>
-                <div class="loginbtn">
-                    <div class="loginsubmit fl"><input type="button" value="登录" class="btn" id="submit"/></div>
-                    <div class="fl" style="margin:26px 0 0 0;"><input id="bcdl" type="checkbox" checked="true"/>保持登录
-                    </div>
-                    <div class="fr" style="margin:26px 0 0 0;"><a href="http://www.jb51.net/">忘记密码?</a></div>
-                    <div class="clear"></div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <#--    <div class="thirdlogin">-->
-    <#--        <div class="pd50">-->
-    <#--            <h4>用第三方帐号直接登录</h4>-->
-    <#--            <ul>-->
-    <#--                <li id="sinal"><a href="http://www.jb51.net">微博帐号注册</a></li>-->
-    <#--                <li id="qql"><a href="http://www.jb51.net">QQ帐号注册</a></li>-->
-    <#--            </ul>-->
-    <#--            <div class="clear"></div>-->
-    <#--        </div>-->
-    <#--    </div>-->
-
-</div>
-<div id="reg_setp">
-    <div class="back_setp">返回</div>
-    <div class="blogo"></div>
-    <div id="setp_quicklogin">
-        <h3>您可以选择以下第三方帐号直接登录代码笔记，一分钟完成注册</h3>
-        <ul class="quicklogin_socical">
-            <li class="quicklogin_socical_weibo"><a href="http://www.jb51.net">微博帐号注册</a></li>
-            <li class="quicklogin_socical_qq" style="margin:0;"><a href="http://www.jb51.net">QQ帐号注册</a></li>
-        </ul>
-    </div>
-    <!-- 会员注册 -->
-    <div id='regist_container' style="display: none;">
-        <div id="lab1">
-            <span id="lab_login">会员注册</span>
-            <span id="lab_toLogin">
-						&emsp;已有账号&nbsp;
-						<span id='toLogin' style="color: #EB9316;cursor: pointer;">立即登录</span>
-					</span>
-        </div>
-        <div id="form_container2" style="padding-top: 25px;">
-
-            <input type="text" class="form-control" value="admin" placeholder="用户名" id="regist_account"/>
-            <input type="password" class="form-control" placeholder="密码" id="regist_password1"/>
-            <input type="password" class="form-control" placeholder="确认密码" id="regist_password2"/>
-            <input type="text" class="form-control" placeholder="手机号" id="regist_phone"/>
-            <input type="text" class="form-control" placeholder="验证码" id="regist_vcode"/>
-            <!--<button id="getVCode" type="button" class="btn btn-success" >获取验证码</button>-->
-            <input id="getVCode" type="button" class="btn btn-success" value="点击发送验证码" onclick="sendCode(this)"/>
-
-        </div>
-        <input type="button" value="注册" class="btn btn-success" id="regist_btn"/>
-    </div>
-</div>
 <body data-spm="12028041">
 <div id="app">
     <div class="page-container">
@@ -231,7 +154,7 @@
                                 <div class="avatar"
                                      style="opacity: 1; background-image: url('/upload/${user.user_image}');"></div>
                                 <div class="name">
-                                    ${user.username}
+                                    ${user.nicheng}
                                 </div>
                                 <div class="tag clearfix">
                                     <div class="iconfont levelTag"></div>
@@ -246,11 +169,11 @@
                                     </div>
                                 </div>
                                 <div class="talentDes"></div>
-                                <div class="signature">我还没想好要写什么...</div>
-                                <div class="description">来自宇宙深处的，2019年10月加入</div>
-                                <div class="info-count"><a href="https://www.xiami.com/record/430803050">
+                                <div class="signature">${user.introduction}</div>
+                                <div class="description">来自宇宙深处的，${user.create_date}加入</div>
+                                <div class="info-count"><a href="">
                                         <div class="item">
-                                            <div class="item-count">0</div>
+                                            <div class="item-count"></div>
                                         </div>
                                     </a>
                                 </div>
@@ -273,7 +196,7 @@
                                 <div class="count-wrap">
                                     <div class="iconfont"></div>
                                     <div class="content">
-                                        <div class="count">${myCollection ? size}</div>
+                                        <div class="count">0</div>
                                         <div class="name">所有收藏</div>
                                     </div>
                                 </div>
@@ -285,8 +208,8 @@
                                 <a href="/user/create" class="mod_btn js_follow"><i class="mod_btn__icon_more"
                                                                                     data-status="0"></i>新建歌单</a>
                                 <a
-                                        href="">
-                                    <div class="action">|全部
+                                        href="/user/usercreated?userId=${user.id}">
+                                    <div class="action" >|全部
                                         <div class="button unselectable action round">
                                             <div class="iconfont"></div>
                                             <span class="ripple"
@@ -319,6 +242,11 @@
                                             </div>
                                         </div>
                                     </#list>
+                                    <#else >
+                                        <div class="none_txt">
+                                            <i class="none_txt__symbol"></i>
+                                            <p>什么都没有</p>
+                                        </div>
                                 </#if>
                             </div>
                         </div>
@@ -326,7 +254,7 @@
                     <div class="collect-list">
                         <div class="block-title unselectable"><h2>收藏的歌单</h2>
                             <div class="external"><a
-                                        href="https://www.xiami.com/list/collect?id=430803050&amp;type=favorite">
+                                        href="/user/usercollections?userId=${user.id}">
                                     <div class="action">全部
                                         <div class="button unselectable action round">
                                             <div class="iconfont"></div>
@@ -344,7 +272,7 @@
                                                     <div class="cover"
                                                          style="background-image: url('/upload/${collection.sheetImg}');">
                                                         <div class="count"><i
-                                                                    class="iconfont"></i>${collection.support}</div>
+                                                                    class="iconfont"></i>${collection.getSongSheet().support}</div>
                                                         <div class="action">
                                                             <button class="play"><i class="iconfont"></i></button>
                                                         </div>
@@ -352,10 +280,10 @@
                                                 </a></div>
                                             <div class="info">
                                                 <div class="name"><a
-                                                            href="https://www.xiami.com/collect/365764247">${collection.sheetName}</a>
+                                                            href="https://www.xiami.com/collect/365764247">${collection.getSongSheet().sheetName}</a>
                                                 </div>
                                                 <div class="author"><a
-                                                            href="https://www.xiami.com/user/52300480">${collection.getUser().nicheng}</a>
+                                                            href="https://www.xiami.com/user/52300480">${collection.getSongSheet().getUser().nicheng}</a>
                                                 </div>
                                                 <div class="song-tags" data-spm="songtags">
                                                     <#list collection.labels ? split(',') as label>
@@ -367,6 +295,11 @@
                                             </div>
                                         </div>
                                     </#list>
+                                    <#else >
+                                        <div class="none_txt">
+                                            <i class="none_txt__symbol"></i>
+                                            <p>什么都没有</p>
+                                        </div>
                                 </#if>
                             </div>
                         </div>
@@ -387,74 +320,206 @@
 
 
 <div class="modal-wrapper">
-    <div class="modal opened" data-spm-anchor-id="a2oj1.12028197.0.i1.9d682791YSjW3g">
-        <div class="modal-inner"><span class="close-btn iconfont white left"></span>
-            <div class="setting-modal">
+    <div class="modal opened" id="loginmodel">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel1"></span>
+            <div class="popup-login">
                 <div id="passport-form" class="need-validata">
                     <div class="passport-form-movie">
-                        <video loop="" autoplay=""
-                               src="https://files.xiami.com/webh5/files/video/30b4a859bbf33d5fc708685d6ddd2a0f.123222.mp4"></video>
                         <i></i></div>
                     <div class="passport-form-content">
-                        <div class="set-password">
-                            <div class="setting-form verify-mobile">
-                                <div class="title">请先验证手机号</div>
-                                <form>
-                                    <div class="form-block"><label>手机号</label>
-                                        <div style="background-color: rgb(247, 247, 247); width: 100%; height: 30px; line-height: 30px; padding: 0px 8px;">
-                                            +86 ${user.mobile}
+                        <div class="popup-login-wrapper">
+                            <div id="login-container">
+                                <div class="login-tab"><span class="current"
+                                    >账户登录</span><span
+                                            class=""
+                                            data-spm-anchor-id="a2oj1.12028025.0.i1.54776ee1fdgM1B">手机验证码</span></div>
+                                <form id="loginform">
+                                    <div class="account-login">
+                                        <div class="form-block"><label for="account">账号</label><input id="username"
+                                                                                                      type="text"
+                                                                                                      placeholder="请输入邮箱或手机"
+                                                                                                      autocomplete="off"
+                                                                                                      autocorrect="off"
+                                                                                                      autocapitalize="off"
+                                                                                                      spellcheck="false"
+                                                                                                      class=""></div>
+                                        <div class="form-block"><label for="password">密码</label><input id="password"
+                                                                                                       type="password"
+                                                                                                       placeholder="请输入密码">
                                         </div>
+                                        <div class="form-block form-action">
+                                            <button id="account-login-submit" type="button">登录</button>
+                                        </div>
+                                        <div class="form-block form-extra"><a class="right"
+                                                                              onclick="stertfind()">忘记密码？</a><a
+                                                    id="loginregister">注册</a></div>
+
                                     </div>
-                                    <div class="form-block">
-                                        <div id="captcha_verifyMobile" class="nc-container" data-nc-idx="1">
-                                            <div id="nc_1_wrapper" class="nc_wrapper">
-                                                <div id="nc_1_n1t" class="nc_scale">
-                                                    <div id="nc_1__bg" class="nc_bg"></div>
-                                                    <span id="nc_1_n1z" class="nc_iconfont btn_slide"></span>
-                                                    <div id="nc_1_clickCaptcha" class="clickCaptcha">
-                                                        <div class="clickCaptcha_text">
-                                                            <b id="nc_1__captcha_text" class="nc_captch_text"></b>
-                                                            <i id="nc_1__btn_2"
-                                                               class="nc_iconfont nc_btn_2 btn_refresh"></i>
-                                                        </div>
-                                                        <div class="clickCaptcha_img"></div>
-                                                        <div class="clickCaptcha_btn"></div>
-                                                    </div>
-                                                    <div id="nc_1_imgCaptcha" class="imgCaptcha">
-                                                        <div class="imgCaptcha_text"><input id="nc_1_captcha_input"
-                                                                                            maxlength="6" type="text"
-                                                                                            style="ime-mode:disabled">
-                                                        </div>
-                                                        <div class="imgCaptcha_img" id="nc_1__imgCaptcha_img"></div>
-                                                        <i id="nc_1__btn_1" class="nc_iconfont nc_btn_1 btn_refresh"
-                                                           onclick="document.getElementById('nc_1__imgCaptcha_img').children[0].click()"></i>
-                                                        <div class="imgCaptcha_btn">
-                                                            <div id="nc_1__captcha_img_text"
-                                                                 class="nc_captcha_img_text"></div>
-                                                            <div id="nc_1_scale_submit" class="nc_scale_submit"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="nc_1_cc" class="nc-cc"></div>
-                                                    <i id="nc_1__voicebtn" tabindex="0" role="button"
-                                                       class="nc_voicebtn nc_iconfont" style="display:none"></i>
-                                                    <b id="nc_1__helpbtn" class="nc_helpbtn"><span class="nc-lang-cnt"
-                                                                                                   data-nc-lang="_learning">了解新功能</span></b>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-wrapper">
+    <div class="modal opened" id="registermodel">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel2"></span>
+            <div class="popup-login">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="popup-register-wrapper">
+                            <div id="agreement-container">
+                                <div class="agreement-title">新用户注册<em>轻松两步即可完成注册</em></div>
+                                <form id="registerform">
+                                    <div class="agreement-content">
+                                        <div class="form-block"><label for="telephone">手机号</label>
+                                            <div class="form-input-inline">
+                                                <input id="telephone" name="telephone" type="tel" placeholder="请输入手机号"
+                                                       autocomplete="off"
+                                                       autocorrect="off" autocapitalize="off" spellcheck="false"
+                                                       maxlength="11" class=""></div>
+                                        </div>
+                                        <div class="form-block"><label>验证码</label>
+                                            <div class="form-input-inline"><input id="smsCode" type="text"
+                                                                                  placeholder="请输入验证码" maxlength="6"
+                                                                                  pattern="\d*" class="" value="">
+                                                <div class="sms-code">
+                                                    <button id="sms_code">发送验证码</button>
                                                 </div>
-                                                <div id="nc_1__voice" class="nc_voice"></div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-block"><label>验证码</label>
-                                        <div class="form-input-inline"><input id="smsCode" placeholder="请输入验证码"
-                                                                              maxlength="6" pattern="\d*" value="">
-                                            <div class="sms-code">
-                                                <button disabled="">发送验证码</button>
-                                            </div>
+                                        <div class="form-block form-action">
+                                            <button id="agreement-submit" onclick="nextstep()" type="button">下一步
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="button unselectable submit-button disabled">下一步<span class="ripple"
-                                                                                                 style="height: 280px; width: 280px; top: 0px; left: 0px;"></span>
+                                <div class="step-notice"><a id="returnlogin">返回登录</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-wrapper">
+    <div class="modal opened" id="secondstep">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel3"></span>
+            <div class="popup-login">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="popup-register-wrapper">
+                            <div id="register-container">
+                                <div class="register-title">设置密码<em>请输入6-12位密码</em></div>
+                                <form id="last">
+                                    <div class="register-pwd">
+                                        <div class="form-block"><label for="newpassword">密码</label><input
+                                                    id="newpassword" name="newpassword"
+                                                    type="password"
+                                                    placeholder="请输入你要设定的密码"
+                                                    autocomplete="off"
+                                                    class=""></div>
+                                        <div class="form-block"><label for="pw2">重复密码</label><input id="pw2"
+                                                                                                    name="pw2"
+                                                                                                    type="password"
+                                                                                                    placeholder="再输入一次你设定的密码"
+                                                                                                    autocomplete="off"
+                                                                                                    class=""></div>
+                                        <div class="form-block form-action">
+                                            <button id="register-submit">完成</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="step-notice"><a id="laststep">返回上一步</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-wrapper">
+    <div class="modal opened" id="findmodel">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel4"></span>
+            <div class="popup-login">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="popup-register-wrapper">
+                            <div id="agreement-container">
+                                <div class="agreement-title">找回密码<em></em></div>
+                                <form id="findform">
+                                    <div class="agreement-content">
+                                        <div class="form-block"><label for="findmobile">手机号</label>
+                                            <div class="form-input-inline">
+                                                <input id="findmobile" name="findmobile" type="tel" placeholder="请输入手机号"
+                                                       autocomplete="off"
+                                                       autocorrect="off" autocapitalize="off" spellcheck="false"
+                                                       maxlength="11" class=""></div>
+                                        </div>
+                                        <div class="form-block"><label>验证码</label>
+                                            <div class="form-input-inline"><input id="findsms" type="text"
+                                                                                  placeholder="请输入验证码" maxlength="6"
+                                                                                  pattern="\d*" class="" value="">
+                                                <div class="sms-code">
+                                                    <button id="findbutton">发送验证码</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-block form-action">
+                                            <button onclick="nextstep2()" type="button">下一步</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-wrapper">
+    <div class="modal  opened" id="lastfindmodel">
+        <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel5"></span>
+            <div class="setting-modal">
+                <div id="passport-form" class="need-validata">
+                    <div class="passport-form-movie">
+                        <i></i></div>
+                    <div class="passport-form-content">
+                        <div class="set-password">
+                            <div class="setting-form set-password">
+                                <div class="title">设置密码</div>
+                                <form id="lastfindform">
+                                    <div class="form-block"><label>密码</label><input type="password"
+                                                                                    placeholder="输入6-12位数字或英文密码"
+                                                                                    class="" maxlength="12" value=""
+                                                                                    id="lastfindpassword"
+                                                                                    name="lastfindpassword"
+                                        >
+                                    </div>
+                                    <div class="form-block"><label>重复密码</label><input type="password"
+                                                                                      placeholder="再输入一遍你设定的密码" class=""
+                                                                                      maxlength="12" value=""
+                                                                                      id="lastfindpw2"
+                                                                                      name="lastfindpw2"
+                                        ></div>
+                                </form>
+                                <div class="button unselectable submit-button" onclick="finish()">完成设置<span
+                                            onclick="finish()" class="ripple"
+                                            style="height: 280px; width: 280px; top: 0px; left: 0px;"></span>
                                 </div>
                             </div>
                         </div>
@@ -473,15 +538,410 @@
         $("#userImg").mouseover(function () {
             $(".popup_user").addClass("drop");
         })
-        $("#userImg").mouseout(function () {
+        $("#userImg").mouse(function () {
             $('.popup_user').removeClass("drop");
         })
         $(".popup_user").mouseover(function () {
             $(".popup_user").addClass("drop");
         })
-        $(".popup_user").mouseout(function () {
+        $(".popup_user").mouseleave(function () {
             $('.popup_user').removeClass("drop");
         })
+        $("#searchbutton").click(function () {
+            var key = $("#info").val();
+            window.location.href = "/guest/search?info=" + key;
+        });
     });
+
+    function toAllCreate(userId) {
+        window.location.href="/user/usercreated?userId="+userId;
+    }
+
+</script>
+<script type="text/javascript">
+    function playAll() {
+        window.open("/guest/playAll");
+    }
+
+    function playAllSheet(sheetId) {
+        window.open("/guest/playSheet?sheetId=" + sheetId);
+    }
+
+    function playAllAlbum(albumId) {
+        window.open("/guest/playAlbum?albumId=" + albumId);
+    }
+
+    function playSong(songId) {
+        window.open("/guest/playSong?id=" + songId);
+    }
+
+
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+        });
+        $('#account-login-submit').click(function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "text",//预期服务器返回的数据类型
+                url: "/guest/login",//url
+                data: {"username": username, "password": password},
+                async: false,
+                success: function (result) {
+                    if (result != "登录成功") {
+                        layer.alert(result);
+                    } else {
+                        location.reload();
+                        layer.msg("登录成功!");
+                    }
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    function toHome() {
+        <#if Session["user"] ? exists>
+        window.location.href = "/user/home";
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        </#if>
+    }
+
+    function platindexrank(id) {
+        window.open("/guest/playindexrank?id="+id);
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#openlogin").click(function () {
+            $("#loginmodel").addClass("active");
+        });
+        $("#loginregister").click(function () {
+            $("#loginmodel").removeClass("active");
+            $("#registermodel").addClass("active");
+        });
+        $("#returnlogin").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").addClass("active");
+        });
+        $("#cancel1").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+            $("#secondstep").removeClass("active");
+            $("#findmodel").removeClass("active");
+            $("#lastfindmodel").removeClass("active");
+        });
+        $("#cancel2").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+            $("#secondstep").removeClass("active");
+            $("#findmodel").removeClass("active");
+            $("#lastfindmodel").removeClass("active");
+        });
+
+        $("#cancel3").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+            $("#secondstep").removeClass("active");
+            $("#findmodel").removeClass("active");
+            $("#lastfindmodel").removeClass("active");
+        });
+
+        $("#cancel4").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+            $("#secondstep").removeClass("active");
+            $("#findmodel").removeClass("active");
+            $("#lastfindmodel").removeClass("active");
+        });
+
+        $("#cancel5").click(function () {
+            $("#registermodel").removeClass("active");
+            $("#loginmodel").removeClass("active");
+            $("#secondstep").removeClass("active");
+            $("#findmodel").removeClass("active");
+            $("#lastfindmodel").removeClass("active");
+        });
+    });
+</script>
+<script type="text/javascript">
+
+    $("#aregister").click(function () {
+        $("#registermodel").addClass("active");
+    });
+
+    $("#findbutton").click(function () {
+        $("#findform").validate({
+            debug: false,
+            rules: {
+                findmobile: {
+                    required: true,
+                    isMobile: true,
+                },
+            },
+            messages: {
+                findmobile: "请输入正确手机号",
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            },
+            onkeyup: false,
+            focusCleanup: true,
+            success: "valid",
+            submitHandler: function (form) {
+                setSMS();
+            }
+        });
+    });
+
+    function setSMS() {
+        var telephone = $("#findmobile").val();
+
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "/user/SMSVerification",//url
+            data: {"telephone": telephone},
+            async: false,
+            success: function (result) {
+                if (result == "手机号已注册") {
+                    layer.msg(result);
+                    return;
+                }
+            },
+
+        });
+
+        var count = 60;
+        var countdown = setInterval(CountDown, 1000);
+
+        function CountDown() {
+            $("#findbutton").attr("disabled", true);
+            $("#findbutton").text(count);
+            if (count == 0) {
+                $("#findbutton").text("发送验证码").removeAttr("disabled");
+                clearInterval(countdown);
+            }
+            count--;
+        }
+    }
+
+    function nextstep2() {
+        var frontcode = $("#findsms").val();
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "/user/modify",//url
+            data: {"frontcode": frontcode},
+            async: false,
+            success: function (result) {
+                if (result == "OK") {
+                    $("#findmodel").removeClass("active");
+                    $("#lastfindmodel").addClass("active");
+                } else {
+                    layer.msg("验证码错误");
+                }
+            },
+
+        });
+    }
+
+    function finish() {
+        var password1 = $("#lastfindpassword").val();
+        var password2 = $("#lastfindpw2").val();
+        if (password1 == "") {
+            layer.msg("请输入密码");
+            return;
+        }
+        else if (password1.length<=6) {
+            layer.msg("密码应大于6位");
+            return;
+        }
+        else if (password2 == "") {
+            layer.msg("请再次输入密码");
+            return;
+        }
+        else if (password1 != password2) {
+            layer.msg("两次密码不一致");
+            return;
+        }
+        else {
+            toRegister2();
+        }
+    }
+
+
+    function toRegister2() {
+        var password = $("#lastfindpassword").val();
+        var telephone = "11111111111";
+        <#if Session['usertele'] ? exists>
+        telephone = "${Session['usertele']}";
+        </#if>
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "/user/modifypass",//url
+            data: {"password": password, "telephone": telephone},
+            async: false,
+            success: function (result) {
+                if (result == "OK") {
+                    layer.msg("成功");
+                    location.reload();
+                } else {
+                    layer.msg("失败");
+                }
+            },
+
+        });
+    }
+
+
+    $("#sms_code").click(function () {
+        $("#registerform").validate({
+            debug: false,
+            rules: {
+                telephone: {
+                    required: true,
+                    isMobile: true,
+                },
+            },
+            messages: {
+                telephone: "请输入正确手机号",
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            },
+            onkeyup: false,
+            focusCleanup: true,
+            success: "valid",
+            submitHandler: function (form) {
+                getSMSCode();
+            }
+        });
+    });
+
+
+
+    $("#register-submit").click(function () {
+
+        var password1 = $("#newpassword").val();
+        var password2 = $("#pw2").val();
+        if (password1 == "") {
+            layer.msg("请输入密码");
+            return;
+        }
+        else if (password1.length<=6) {
+            layer.msg("密码应大于6位");
+            return;
+        }
+        else if (password2 == "") {
+            layer.msg("请再次输入密码");
+            return;
+        }
+        else if (password1 != password2) {
+            layer.msg("两次密码不一致");
+            return;
+        }
+        else {
+            toRegister();
+        }
+    });
+
+    function getSMSCode() {
+        var telephone = $("#telephone").val();
+
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "/guest/SMSVerification",//url
+            data: {"telephone": telephone},
+            async: false,
+            success: function (result) {
+                if (result == "手机号已注册") {
+                    layer.msg(result);
+                    return;
+                }
+            },
+
+        });
+
+        var count = 60;
+        var countdown = setInterval(CountDown, 1000);
+
+        function CountDown() {
+            $("#sms_code").attr("disabled", true);
+            $("#sms_code").text(count);
+            if (count == 0) {
+                $("#sms_code").text("发送验证码").removeAttr("disabled");
+                clearInterval(countdown);
+            }
+            count--;
+        }
+    }
+
+    function nextstep() {
+        var frontcode = $("#smsCode").val();
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "/guest/vertify",//url
+            data: {"frontcode": frontcode},
+            async: false,
+            success: function (result) {
+                if (result == "OK") {
+                    $("#registermodel").removeClass("active");
+                    $("#secondstep").addClass("active");
+                } else {
+                    layer.msg("验证码错误");
+                }
+            },
+
+        });
+    }
+
+    function toRegister() {
+        var password = $("#newpassword").val();
+        var telephone = "11111111111";
+        <#if Session['teleph'] ? exists>
+        telephone = "${Session['teleph']}";
+        </#if>
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "text",//预期服务器返回的数据类型
+            url: "/guest/register",//url
+            data: {"password": password, "telephone": telephone},
+            async: false,
+            success: function (result) {
+                if (result == "OK") {
+                    layer.msg("注册成功");
+                    location.reload();
+                } else {
+                    layer.msg("注册失败");
+                }
+            },
+
+        });
+    }
+
+    function stertfind() {
+        $("#findmodel").addClass("active");
+    }
 </script>
 </html>

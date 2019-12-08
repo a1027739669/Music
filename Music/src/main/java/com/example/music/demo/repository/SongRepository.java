@@ -3,6 +3,7 @@ package com.example.music.demo.repository;
 import com.example.music.demo.entity.Comment;
 import com.example.music.demo.entity.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Repository
-public interface SongRepository extends JpaRepository<Song, Integer> {
+public interface SongRepository extends JpaRepository<Song, Integer>, JpaSpecificationExecutor<Song> {
     @Query(nativeQuery = true, value = "select  c.* from song c,info b where c.song_id = b.song_id order by b.info_plays desc  ")
     public List<Song> getMorePlays();
 
@@ -43,4 +44,7 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
     public List<Song> findAllBySongLabelLike(String lebel);
 
     public List<Song> findAllBySongLanguages(String language);
+
+    public List<Song> findAllBySongIdIsIn(Integer[] ids);
+
 }

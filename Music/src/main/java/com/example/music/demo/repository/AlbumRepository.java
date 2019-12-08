@@ -33,4 +33,6 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
 
     @Query(nativeQuery = true, value = "select * from album c where c.album_singer =:singerId order by c.album_release desc limit 7")
     public List<Album> findAllByAlbum_singer2(Integer singerId);
+
+    public List<Album> findAllByAlbumNameLike(String name);
 }

@@ -37,5 +37,8 @@ public class Comment implements Serializable {
     @ManyToOne(targetEntity = User.class,fetch = FetchType.LAZY)
     @JoinColumn(name = "comment_user",insertable = false,updatable = false,referencedColumnName = "id")
     private User user;
+    @ManyToOne(targetEntity = Song.class,fetch = FetchType.LAZY)
+    @JoinColumn(name = "songId",insertable = false,updatable = false,referencedColumnName = "songId")
+    private Song song;
 
 }

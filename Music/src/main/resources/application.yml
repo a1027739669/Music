@@ -1,4 +1,11 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+    devtools:
+      restart:
+        enabled: true
   freemarker:
     cache: false
     charset: UTF-8
@@ -14,3 +21,7 @@ spring:
     host: localhost
   jpa:
     generate-ddl: true
+server:
+  servlet:
+    session:
+      timeout: 1800

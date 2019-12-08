@@ -5,10 +5,10 @@
 
         </div>
 
-        <div class="mod_songlist">
+        <div class="mod_songlist" id="songList">
             <ul class="songlist__header">
                 <li class="songlist__edit songlist__edit--check sprite">
-                    <input type="checkbox" class="songlist__checkbox">
+                    <input type="checkbox" class="songlist__checkbox" onclick="allclick(this)">
                 </li>
                 <li class="songlist__header_name">歌曲</li>
                 <li class="songlist__header_album">专辑</li>
@@ -18,42 +18,42 @@
             <ul class="songlist__list">
                 <#if songPage ? exists>
                     <#list songPage.content as song>
-                        <li mid="237773700">
+                        <li mid="237773700" ix="${song.songId}">
                             <div class="songlist__item">
                                 <div class="songlist__edit songlist__edit--check sprite">
-                                    <input type="checkbox" class="songlist__checkbox">
+                                    <input type="checkbox" class="songlist__checkbox" onclick="changestate(this)">
                                 </div>
                                 <div class="songlist__number">${song_index+1}</div>
                                 <div class="songlist__songname">
 
                                     <span class="songlist__songname_txt"><a
-                                                href="//y.qq.com/n/yqq/song/001qvvgF38HVc4.html"
-                                                class="js_song" title="说好不哭（with 五月天阿信）">${song.song_name}</a></span>
+                                               href="/guest/songDetail?songId=${song.songId}"
+                                                class="js_song" >${song.song_name}</a></span>
                                     <div class="mod_list_menu">
-                                        <a href="//y.qq.com/portal/player.html"
+                                        <a onclick="playSong(${song.songId})"
                                            class="list_menu__item list_menu__play js_play" title="播放">
                                             <i class="list_menu__icon_play"></i>
                                             <span class="icon_txt">播放</span>
                                         </a>
-                                        <a href="javascript:;" class="list_menu__item list_menu__add js_fav"
+                                        <a onclick="addtosheet(this,${song.songId})" class="list_menu__item list_menu__add js_fav"
                                            title="添加到歌单"
                                            aria-haspopup="true" data-target="menu_add">
                                             <i class="list_menu__icon_add"></i>
                                             <span class="icon_txt">添加到歌单</span>
                                         </a>
 
-                                        <a href="javascript:;" class="list_menu__item list_menu__down js_down"
-                                           title="VIP下载"
+                                        <a onclick="singledown(${song.songId})" class="list_menu__item list_menu__down js_down"
+                                           title="下载"
                                            aria-haspopup="true" data-target="menu_down">
                                             <i class="list_menu__icon_down_vip"></i>
-                                            <span class="icon_txt">VIP下载</span>
+                                            <span class="icon_txt">下载</span>
                                         </a>
 
                                     </div>
                                 </div>
                                 <div class="songlist__album">
 
-                                    <a href="" title="说好不哭（with 五月天阿信）">${song.getAlbum().album_name}</a>
+                                    <a href="" title="说好不哭（with 五月天阿信）">${song.getAlbum().albumName}</a>
 
                                 </div>
                                 <div class="songlist__time">${song.song_time}</div>
@@ -64,9 +64,9 @@
                     </#list>
 
                 <#else >
-                    <div class="none_txt" style="display:none;">
+                    <div class="none_txt">
                         <i class="none_txt__symbol"></i>
-                        <p>该歌手还没有发表过专辑</p>
+                        <p>什么都没有</p>
                     </div>
                 </#if>
             </ul>

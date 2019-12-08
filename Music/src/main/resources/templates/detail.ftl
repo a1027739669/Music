@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta http-equiv="Content-Language" content="zh-cn"/>
     <meta name="keywords" content="重生,重生,蔡徐坤,蔡徐坤 重生,重生歌词,重生在线试听,重生下载,重生mv,重生视频,重生评论,无损音乐,在线听歌,音乐下载,音乐播放器,QQ音乐"/>
-    <meta name="description"
-          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。"/>
-    <meta name="mobile-agent" content="format==[html5];url=https://y.qq.com/m/index.html">
     <meta name="applicable-device" content="pc">
     <title>${song.song_name} &#45; ${song.getSinger().singerName} - 千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
@@ -230,140 +227,10 @@
 </div>
 <footer class="footer-container">
     <div class="section-container">
-        <div class="footer-info">
-            <div class="footer-download">
-                <h3 class="footer-tit">下载QQ音乐客户端</h3>
-                <ul class="download-list">
-                    <li class="download-item">
-                        <a href="javascript:;" class="download-link">
-                            <i class="icon-pc footer"></i>
-                            PC版
-                        </a>
-                    </li>
-                    <li class="download-item">
-                        <a href="javascript:;" class="download-link">
-                            <i class="icon-mac footer"></i>
-                            Mac版
-                        </a>
-                    </li>
-                    <li class="download-item">
-                        <a href="javascript:;" class="download-link">
-                            <i class="icon-android footer"></i>
-                            Android版
-                        </a>
-                    </li>
-                    <li class="download-item">
-                        <a href="javascript:;" class="download-link">
-                            <i class="icon-iphone footer"></i>
-                            iPhone版
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer-product">
-                <h3 class="footer-tit">特色产品</h3>
-                <ul class="product-list">
-                    <li class="product-item product-img">
-                        <a href="javascript:;" class="product-link">
-                            <i class="icon-kg footer"></i>
-                            全民K歌
-                        </a>
-                    </li>
-                    <li class="product-item product-img">
-                        <a href="javascript:;" class="product-link">
-                            <i class="icon-super footer"></i>
-                            Super Sound
-                        </a>
-                    </li>
-                    <li class="product-item product-img">
-                        <a href="javascript:;" class="product-link">
-                            <i class="icon-qplay footer"></i>
-                            QPlay
-                        </a>
-                    </li>
-                    <li class="product-item">
-                        <a href="javascript:;" class="product-link">车载互动</a>
-                    </li>
-                    <li class="product-item">
-                        <a href="javascript:;" class="product-link">QQ演出</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-group">
-                <h3 class="footer-tit">TME集团官网</h3>
-                <ul class="group-list">
-                    <li class="group-item">
-                        <a href="javascript:;" class="group-link">腾讯音乐</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-link">
-                <h3 class="footer-tit">合作链接</h3>
-                <ul class="footer_link_list">
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">CJ ENM</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯视频</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">手机QQ空间</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">最新版QQ</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯社交广告</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">电脑管家</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">QQ浏览器</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯微云</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">腾讯云</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">企鹅FM</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">智能电视网</a>
-                    </li>
-                    <li class="footer_link_item"><a href="javascript:;" target="_blank" class="js_other_link">当贝市场</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-platform">
-                <h3 class="footer-tit">开放平台</h3>
-                <ul class="platform-list">
-                    <li class="platform-item">
-                        <a href="javascript:;" class="platform-link">腾讯音乐人</a>
-                    </li>
-                    <li class="platform-item">
-                        <a href="javascript:;" class="platform-link">音乐号认证</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="footer-copyright">
-
             <p class="copyright-p">
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="关于腾讯">关于腾讯</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="About Tencent">About Tencent</a>
-                |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="服务条款">服务条款</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="用户服务协议">用户服务协议</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="隐私政策">隐私政策</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="权利声明">权利声明</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="广告服务">广告服务</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="腾讯招聘">腾讯招聘</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="客服中心">客服中心</a> |
-                <a href="javascript:;" class="copyright-p-link" target="_blank" title="网站导航">网站导航</a>
+            <h3  target="_blank" title="隐私政策">我的音乐</h3>
             </p>
-
-            <p class="copyright-p">Copyright &copy; 1998 - <span id="copyYear">2019</span> Tencent. <a target="_blank"
-                                                                                                       href="javascript:;"
-                                                                                                       title="All Rights Reserved."
-                                                                                                       class="copyright-p-link">All
-                    Rights Reserved.</a></p>
-            <p class="copyright-p">腾讯公司 <a class="copyright-p-link" target="_blank" href="javascript:;" title="版权所有">版权所有</a>
-                <a target="_blank" href="javascript:;" class="copyright-p-link" title="腾讯网络文化经营许可证">腾讯网络文化经营许可证</a></p>
         </div>
     </div>
 </footer>
@@ -383,6 +250,22 @@
             success: function (data) {
                 $("#comment_box").empty();
                 $("#comment_box").append(data);
+            }
+        });
+    }
+
+    function remark(userId) {
+        var text=$("#reply_text_blur").text();
+        $.ajax({
+            url: '/user/tocomment',
+            type: 'GET',
+            data: {
+                'songId': songId,
+                'pageId': num,
+            },
+            success: function (data) {
+                $("#commentTable").empty();
+                $("#commentTable").append(data);
             }
         });
     }

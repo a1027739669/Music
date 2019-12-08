@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.zip.Inflater;
 
 /**
  * @ProjectName: Music
@@ -29,12 +30,11 @@ public class Song implements Serializable {
     private static final Long serialVersionUID = 21464638383509887L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer song_id;
+    private Integer songId;
     private String song_name;
-    private Integer song_singer;
+    private Integer songSinger;
     private String song_time;
     private String songLanguages;
-    private Integer songType;
     @Temporal(TemporalType.DATE)
     private Date song_release;
     private String song_img;
@@ -43,15 +43,16 @@ public class Song implements Serializable {
     private Integer album_id;
     private Integer isOnline;
     private String songLabel;
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinTable(name = "Info", joinColumns = {@JoinColumn(name = "song_id")}, inverseJoinColumns = {@JoinColumn(name = "song_id")})
+
+    @OneToOne(mappedBy = "song")
     private Info info;
-    @ManyToOne(targetEntity = Album.class,fetch = FetchType.LAZY)
-    @JoinColumn(name="album_id",insertable =false,updatable =false)
+
+    @ManyToOne(targetEntity = Album.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "album_id", insertable = false, updatable = false)
     @JsonIgnore
     private Album album;
-    @ManyToOne(targetEntity = Singer.class,fetch = FetchType.EAGER)
-    @JoinColumn(name = "song_singer",insertable = false,updatable = false)
+    @ManyToOne(targetEntity = Singer.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "songSinger", insertable = false, updatable = false)
     private Singer singer;
     @Transient
     private Integer totalComNum;

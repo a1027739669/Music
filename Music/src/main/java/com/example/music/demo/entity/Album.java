@@ -28,7 +28,7 @@ public class Album implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer albumId;
-    private String album_name;
+    private String albumName;
     private String album_img;
     @Temporal(TemporalType.DATE)
     private Date album_release;

@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Entity
 @Data
-@Table(name = "songsheet")
+@Table(name ="songsheet")
 public class SongSheet  implements Serializable {
     private static final Long serialVersionUID = 24646383756924598L;
     @Id

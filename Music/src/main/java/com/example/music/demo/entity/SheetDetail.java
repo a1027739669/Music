@@ -29,7 +29,7 @@ public class SheetDetail  implements Serializable {
     private Integer songId;
     private Integer sheetId;
     @ManyToOne(cascade = CascadeType.ALL,targetEntity = Song.class,fetch = FetchType.EAGER)
-    @JoinColumn(name="songId",insertable = false,updatable = false,referencedColumnName="song_id")
+    @JoinColumn(name="songId",insertable = false,updatable = false,referencedColumnName="songId")
     @JsonIgnore
     private Song song;
     @ManyToOne(targetEntity = SongSheet.class,fetch = FetchType.EAGER)

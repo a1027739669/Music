@@ -1,15 +1,13 @@
 package com.example.music.demo.service;
 
-import com.example.music.demo.entity.Comment;
-import com.example.music.demo.entity.Label;
-import com.example.music.demo.entity.Song;
-import com.example.music.demo.entity.SongSheet;
+import com.example.music.demo.entity.*;
 import com.example.music.demo.repository.LabelRepository;
 import com.example.music.demo.repository.SongRepository;
 import com.example.music.demo.repository.SongSheetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -33,6 +31,10 @@ public class IndexService {
     private LabelRepository labelRepository;
     @Autowired
     private SongSheetRepository songSheetRepository;
+    @Autowired
+    private InfoService infoService;
+    @Autowired
+    private SingerService singerService;
 
     public List<Song> getSongWithHot() {
         return songRepository.getMorePlays();
@@ -56,17 +58,24 @@ public class IndexService {
 
     public List<Song> setPlaySong(HttpSession httpSession, Integer id) {
         Song song = songRepository.getOne(id);
-        List<Song> playlist= (List<Song>) httpSession.getAttribute("playlist");
-        if (playlist!=null) {
-            int index=playlist.indexOf(song);
-            if(index==-1)
-            playlist.add(0, song);
-            else
-                {
-                    Song temp=playlist.get(0);
-                    playlist.set(0,song);
-                    playlist.set(index,temp);
+        Info info = song.getInfo();
+        info.setInfo_plays(info.getInfo_plays() + 1);
+        Singer singer = song.getSinger();
+        singer.setSupport(singer.getSupport() + 1);
+        singerService.save(singer);
+        List<Song> playlist = (List<Song>) httpSession.getAttribute("playlist");
+        if (playlist != null) {
+            int i;
+            for(i=0;i<playlist.size();i++){
+                if(playlist.get(i).getSongId().equals(id)){
+                    Song temp = playlist.get(0);
+                    playlist.set(0, song);
+                    playlist.set(i, temp);
+                    break;
                 }
+            }
+            if(i==playlist.size())
+                playlist.add(song);
             httpSession.setAttribute("playlist", playlist);
         } else {
             playlist = new ArrayList<>();
@@ -75,33 +84,35 @@ public class IndexService {
         }
         return playlist;
     }
+
     public Page<SongSheet> getSheetList(Integer page, Integer rankMethod) {
         Pageable pageable = PageRequest.of(page - 1, 20);
         List<SongSheet> songSheetList;
-        if(rankMethod==1)
-        songSheetList =songSheetRepository.findAll1();
-        else{
-            songSheetList =songSheetRepository.findAll2();
+        if (rankMethod == 1)
+            songSheetList = songSheetRepository.findAll1();
+        else {
+            songSheetList = songSheetRepository.findAll2();
         }
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
         Page<SongSheet> songSheetsPage = new PageImpl<>(songSheetList.subList(start, end), pageable, songSheetList.size());
-        List<SongSheet> test=songSheetsPage.getContent();
+        List<SongSheet> test = songSheetsPage.getContent();
         return songSheetsPage;
     }
-    public Page<SongSheet> getSheetList(Integer page, Integer rankMethod,String label) {
+
+    public Page<SongSheet> getSheetList(Integer page, Integer rankMethod, String label) {
         Pageable pageable = PageRequest.of(page - 1, 20);
         List<SongSheet> songSheetList;
-        if(rankMethod==1)
-            songSheetList =songSheetRepository.findAll1();
-        else{
-            songSheetList =songSheetRepository.findAll2();
+        if (rankMethod == 1)
+            songSheetList = songSheetRepository.findAll1();
+        else {
+            songSheetList = songSheetRepository.findAll2();
         }
-        if(!label.equals("全部"))
-        for (int i = songSheetList.size()-1; i>=0 ; i--) {
-            if(!songSheetList.get(i).getLabels().contains(label))
-                songSheetList.remove(i);
-        }
+        if (!label.equals("全部"))
+            for (int i = songSheetList.size() - 1; i >= 0; i--) {
+                if (!songSheetList.get(i).getLabels().contains(label))
+                    songSheetList.remove(i);
+            }
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
         Page<SongSheet> songSheetsPage = new PageImpl<>(songSheetList.subList(start, end), pageable, songSheetList.size());

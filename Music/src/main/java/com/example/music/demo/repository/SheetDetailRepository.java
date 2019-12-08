@@ -22,4 +22,6 @@ import java.util.List;
 @Repository
 public interface SheetDetailRepository extends JpaRepository<SheetDetail,Integer> {
     public List<SheetDetail> findAllBySheetId(Integer sheetId);
+
+    public SheetDetail findSheetDetailBySongIdAndSheetId(Integer sheetId,Integer songId);
 }

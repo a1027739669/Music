@@ -1,7 +1,7 @@
 package com.example.music.demo.service;
 
 import com.example.music.demo.entity.Album;
-import com.example.music.demo.entity.Singer;
+import com.example.music.demo.entity.Album;
 import com.example.music.demo.entity.SongSheet;
 import com.example.music.demo.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +49,8 @@ public class AlbumService {
                 return -o1.getAlbum_release().compareTo(o2.getAlbum_release());
             }
         });
-        for (int i = albumList.size() -1; i >=0 ; i--) {
-            if(albumList.get(i).getAlbumId().equals(1))
+        for (int i = albumList.size() - 1; i >= 0; i--) {
+            if (albumList.get(i).getAlbumId().equals(1))
                 albumList.remove(i);
         }
         int start = (int) pageable.getOffset();
@@ -59,11 +59,33 @@ public class AlbumService {
         return albums;
     }
 
-    public Album findByAlbumId(Integer albumId){
+    public Album findByAlbumId(Integer albumId) {
         return albumRepository.findAlbumByAlbumId(albumId);
     }
 
     public List<Album> findOthers(Integer id) {
         return albumRepository.findAllByAlbum_singer2(id);
+    }
+
+    public Page<Album> findAllByInfo(String info,Integer pageId) {
+        List<Album> albumList = albumRepository.findAllByAlbumNameLike("%" + info + "%");
+        for (int i = albumList.size() - 1; i >= 0; i--) {
+            if (albumList.get(i).getAlbumId()==1)
+            albumList.remove(i);
+        }
+        Pageable pageable = PageRequest.of(pageId - 1, 20);
+
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > albumList.size() ? albumList.size() : (start + pageable.getPageSize());
+        Page<Album> albumPage = new PageImpl<>(albumList.subList(start, end), pageable, albumList.size());
+        return albumPage;
+    }
+
+    public List<Album> findAll() {
+        return albumRepository.findAll();
+    }
+
+    public void save(Album album) {
+        albumRepository.save(album);
     }
 }

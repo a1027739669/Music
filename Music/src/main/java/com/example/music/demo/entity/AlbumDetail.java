@@ -29,7 +29,7 @@ public class AlbumDetail implements Serializable {
     private Integer songId;
     private Integer albumId;
     @ManyToOne(cascade = CascadeType.ALL,targetEntity = Song.class,fetch = FetchType.EAGER)
-    @JoinColumn(name="songId",insertable = false,updatable = false,referencedColumnName="song_id")
+    @JoinColumn(name="songId",insertable = false,updatable = false,referencedColumnName="songId")
     @JsonIgnore
     private Song song;
     @ManyToOne(targetEntity = Album.class,fetch = FetchType.EAGER)

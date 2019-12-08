@@ -27,15 +27,6 @@ body{
     height: 90px;
 }
 
-.header .header-box2{
-    position: relative;
-    padding-top: 90px;
-    margin: 0 auto;
-    max-width: 1200px;
-    min-width: 1100px;
-    height: 90px;
-}
-
 .header-box .header-title{
     position: absolute;
     top: 5px;
@@ -44,7 +35,6 @@ body{
 .logo-img{
     width: 170px;
     height: 46px;
-    vertical-align: middle;
 }
 .header-top-nav{
     height: 90px;

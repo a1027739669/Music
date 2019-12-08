@@ -113,6 +113,8 @@
     </div>
 
 </div>
+    <#if singerPage? exists>
+
 <div id="mod-singerlist" id="singerlist">
 
     <div class="mod_singer_list">
@@ -256,6 +258,12 @@
     </div>
 
 </div>
+        <#else >
+            <div class="none_txt">
+            <i class="none_txt__symbol"></i>
+            <p>什么都没有</p>
+        </div>
+    </#if>
 </div>
 <script type="text/javascript">
     function toList(page,coun,sex,label) {

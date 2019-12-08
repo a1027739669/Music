@@ -1,5 +1,8 @@
 package com.example.music.demo.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,9 +23,6 @@ import java.util.List;
  * @Version: 1.0
  */
 public class test2 {
-    public static void main(String[] args) {
-        String test = "[00:32.25]";
-        System.out.println(test.split("]")[0]);
-
+    public static void main(String[] args) throws IOException {
     }
 }

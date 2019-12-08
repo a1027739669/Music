@@ -1,5 +1,6 @@
 package com.example.music.demo.service;
 
+import com.example.music.demo.entity.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -26,6 +27,8 @@ import java.util.concurrent.TimeUnit;
 public class RedisService {
     @Resource
     RedisTemplate<String,Object> redisTemplate;
+    @Autowired
+    private IndexService indexService;
     public void set(String key,Object value){
 //        redisTemplate.setKeySerializer(new StringRedisSerializer());
         ValueOperations<String,Object> vo=redisTemplate.opsForValue();
@@ -40,5 +43,26 @@ public class RedisService {
     public Object get(String key){
         ValueOperations<String,Object> vo=redisTemplate.opsForValue();
         return vo.get(key);
+    }
+
+    public void remove(String key){
+       redisTemplate.delete(key);
+    }
+
+    public List<Song> getHotSearch() {
+        if (this.get("hotSearch") != null) {
+            List<Song> hotSearch = (List<Song>) this.get("hotSearch");
+            if (hotSearch.size() >= 5)
+                return hotSearch.subList(0,5);
+            else
+                return hotSearch;
+        } else {
+            List<Song> hotSearch = indexService.getMoreSearchMusics();
+            this.set("hotSearch", hotSearch, (long) 1, TimeUnit.DAYS);
+            if (hotSearch.size() >= 5)
+               return hotSearch.subList(0,5);
+            else
+                return hotSearch;
+        }
     }
 }
