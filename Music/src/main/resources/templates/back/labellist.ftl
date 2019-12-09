@@ -180,6 +180,7 @@
                         <th width="25"><input type="checkbox" name="" value=""></th>
                         <th width="80">ID</th>
                         <th width="100">标签名称</th>
+                        <th width="100">操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -190,7 +191,14 @@
                             <td><u style="cursor:pointer" class="text-primary"
                                    onclick="member_show('张三','member-show.html','10001','360','400')">${label.label_name}</u>
                             </td>
+                            <td class="td-manage"><a title="编辑" href="javascript:;"
+                                                     onclick="member_edit('编辑','/back/modifylabel?labelId=${label.id}','4','','510')"
+                                                     class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                                <a title="删除" href="javascript:;" onclick="member_del(this,${label.id})" class="ml-5"
+                                   style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                        </tr>
                     </#list>
+
                     </tbody>
                 </table>
             </div>
@@ -272,20 +280,20 @@
     /*用户-删除*/
     function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
-            // // $(obj).parents("tr").remove();
-            // $.ajax({
-            //     type: "GET",
-            //     dataType: "text",
-            //     url: "/back/delete",
-            //     async: false,
-            //     success: function (result) {
-            //         layer.msg(result, {icon: 5, time: 1000});
-            //     },
-            //     error: function () {
-            //         alert("异常！");
-            //     }
-            // });
-            layer.msg('权限不足!',{icon:5,time:3000});
+            // $(obj).parents("tr").remove();
+            $.ajax({
+                type: "GET",
+                dataType: "text",
+                url: "/back/deletelabel?labelId="+id,
+                async: false,
+                success: function (result) {
+                    layer.msg(result, {icon: 1, time: 1000});
+                    setTimeout('shuaxin()',3000);
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            });
         });
     }
 
@@ -299,25 +307,24 @@
         if (Checkbox){//boolean值为true
             layer.confirm("是否确认删除?",function(index)
             {
-                // obj = document.getElementsByName("hello");//将复选框定义成一个jquery对象
-                // check_val = [];//定义一个数组
-                // for(k in obj){//k相当于i,往这个jquery对象添加勾选的id;
-                //     if(obj[k].checked)//选中的都放进 数组里
-                //         check_val.push(obj[k].value.replace(',',''));
-                // }
-                //
-                // $.ajax({//利用ajax发出请求
-                //     type:"POST",//post类型
-                //     url:"/back/deleteComment?ids="+check_val, //向Controller里的deleteSelect传输ids
-                //     success:function(data){//删除成功后，deleteMany会返回一个"ok";
-                //         if(data=="ok"){
-                //             layer.msg('已删除!',{icon:1,time:3000});
-                //             setTimeout('shuaxin()',3000);
-                //         }
-                //
-                //     }
-                // });
-                layer.msg('权限不足!',{icon:5,time:3000});
+                obj = document.getElementsByName("hello");//将复选框定义成一个jquery对象
+                check_val = [];//定义一个数组
+                for(k in obj){//k相当于i,往这个jquery对象添加勾选的id;
+                    if(obj[k].checked)//选中的都放进 数组里
+                        check_val.push(obj[k].value.replace(',',''));
+                }
+
+                $.ajax({//利用ajax发出请求
+                    type:"POST",//post类型
+                    url:"/back/deletelabels?ids="+check_val, //向Controller里的deleteSelect传输ids
+                    success:function(data){//删除成功后，deleteMany会返回一个"ok";
+                        if(data=="ok"){
+                            layer.msg('已删除!',{icon:1,time:3000});
+                            setTimeout('shuaxin()',3000);
+                        }
+
+                    }
+                });
             });
 
         }

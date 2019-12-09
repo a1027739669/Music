@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Repository
+@Transactional
 public interface LabelRepository extends JpaRepository<Label,Integer> {
     public Label getLabelById(Integer id);
 
@@ -27,4 +29,6 @@ public interface LabelRepository extends JpaRepository<Label,Integer> {
 
     @Query(nativeQuery = true,value = "select  * from label where label_name=:labelName")
     public Label findLabelByLabel_name(String labelName);
+
+    public void deleteLabelByIdIn(Integer [] ids);
 }

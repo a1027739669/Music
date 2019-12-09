@@ -70,7 +70,7 @@
                 </div>
                 <#if playlist ? exists>
                 <#list playlist as playsong>
-                <div class="list-item" data-url="/getwav/${playsong.song_file}" data-pic="/upload/${playsong.song_img}" data-lrc="/getlyric/${playsong.song_lyrics}" data-no="${playsong_index+1}" data-name="${playsong.song_name}">
+                <div class="list-item" data-url="/getwav/${playsong.song_file}" data-pic="/upload/${playsong.song_img}" data-lrc="/guest/${playsong.song_lyrics}" data-no="${playsong_index+1}" data-name="${playsong.song_name}">
                     <span class="list-num">${playsong_index+1}</span>
                     <span class="list-mobile-menu"></span>
                     <span class="music-album">${playsong.song_time}</span>
@@ -92,7 +92,7 @@
             <!--滚动歌词-->
             <div class="lyric">
                 <ul id="lyric">
-<#--                    <li class='lyric-tip'>gsgds</li>-->
+                    <li class='lyric-tip'></li>
                 </ul>
             </div>
             <div id="music-info" title="点击查看歌曲信息"></div>

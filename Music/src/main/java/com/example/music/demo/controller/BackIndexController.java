@@ -447,4 +447,34 @@ public class BackIndexController {
         }
     }
 
+    @GetMapping("/back/modifylabel")
+    public String modifyLabel(ModelMap modelMap,Integer labelId){
+        Label label=labelService.getLabelById(labelId);
+        modelMap.addAttribute("label",label);
+        return "back/modifylabel";
+    }
+
+    @PostMapping("/back/tomodifylabel")
+    @ResponseBody
+    public String toModifyLabel(Integer labelId,String labelname){
+        Label label=labelService.getLabelById(labelId);
+        label.setLabel_name(labelname);
+        labelService.save(label);
+        return "修改成功";
+    }
+
+    @GetMapping("/back/deletelabel")
+    @ResponseBody
+    public String deleteLabel(Integer labelId){
+        labelService.deleteById(labelId);
+        return "删除成功";
+    }
+
+    @PostMapping("/back/deletelabels")
+    @ResponseBody
+    public String deletelabels(Integer [] ids){
+        labelService.deleteByIds(ids);
+        return "ok";
+    }
+
 }

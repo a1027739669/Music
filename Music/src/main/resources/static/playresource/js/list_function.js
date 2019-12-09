@@ -90,8 +90,7 @@ function appendlistMenu(){
 	    '</span>' +
 	    '<div class="list-menu" data-no="' + num + '">' +
 	        '<span class="list-icon icon-play" data-function="play" title="播放"></span>' +
-	        '<span class="list-icon icon-download" data-function="download" title="下载"></span>' +
-	        '<span class="list-icon icon-share" data-function="share" title="分享"></span>' +
+	        '<span class="list-icon icon-download" data-function="download" title="下载"></span>' + +
 	    '</div>';
 	    target.html(html);
 	});

@@ -40,4 +40,12 @@ public class LabelService {
     public void save(Label label) {
         labelRepository.save(label);
     }
+
+    public void deleteById(Integer labelId) {
+        labelRepository.deleteById(labelId);
+    }
+
+    public void deleteByIds(Integer[] ids) {
+        labelRepository.deleteLabelByIdIn(ids);
+    }
 }
