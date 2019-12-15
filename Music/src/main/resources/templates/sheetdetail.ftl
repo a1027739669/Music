@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
-    <meta name="description"
-          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
     <title>我的音乐</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -567,15 +564,7 @@
         </div>
     </div>
 </div>
-<footer class="footer-container">
-    <div class="section-container">
-        <div class="footer-copyright">
-            <p class="copyright-p">
-            <h3 target="_blank" title="隐私政策">我的音乐</h3>
-            </p>
-        </div>
-    </div>
-</footer>
+<#include "footer.ftl">
 <!-- 添加到 -->
 <div class="mod_operate_menu js_menu_box" id="first_menu_1" data-aria="popup"
      style="left: 790px; top: 442px; display: none;">

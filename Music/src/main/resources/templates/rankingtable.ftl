@@ -253,6 +253,7 @@
             <p>什么都没有</p>
         </div>
 </#if>
+<#if songList? exists>
 <div class="mod_page_nav js_pager_comment" id="js_pager_comment">
     <#if (songList.totalPages==1)>
         <strong class="current">1</strong>
@@ -356,7 +357,7 @@
         </#if>
     </#if>
 </div>
-
+</#if>
 <script type="text/javascript">
     function toPage(num, classId) {
         $.ajax({
@@ -369,7 +370,7 @@
             success: function (data) {
                 $("#songList").empty();
                 $("#songList").append(data);
-                window.location.hash = "#rankName";
+                window.location.hash = "#rankName2";
             }
         });
     }

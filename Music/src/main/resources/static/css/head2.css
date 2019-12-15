@@ -1044,7 +1044,7 @@ body{
     overflow: hidden;
     border-bottom: 1px solid #353535;
     position: relative;
-    padding-bottom: 45px;
+    padding-bottom: 0px;
 }
 .footer-download{
     position: absolute;

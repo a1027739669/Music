@@ -83,6 +83,7 @@
             </div>
         </#if>
     </div>
+    <#if albumPage? exists>
     <div class="mod_page_nav js_pager_comment">
         <#if (albumPage.totalPages==1)>
             <strong class="current">1</strong>
@@ -186,6 +187,7 @@
             </#if>
         </#if>
     </div>
+    </#if>
 </div>
 <script type="text/javascript">
     function toList(page, cate) {

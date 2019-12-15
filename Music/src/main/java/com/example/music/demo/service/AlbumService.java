@@ -37,12 +37,26 @@ public class AlbumService {
     }
 
     public List<Album> findAlbumBySingerId(Integer singerId) {
+
+
         return albumRepository.findAllByAlbum_singer(singerId);
     }
 
     public Page<Album> getAlbumList(Integer page, String category) {
         Pageable pageable = PageRequest.of(page - 1, 20);
-        List<Album> albumList = albumRepository.findByLabelsLike("%" + category + "%");
+        List<Album> albumList = albumRepository.findAll();
+        if (!category.equalsIgnoreCase("华语")) {
+            for (int i = albumList.size() - 1; i >= 0; i--) {
+                if (!albumList.get(i).getSinger().getCountry().equalsIgnoreCase(category))
+                    albumList.remove(i);
+            }
+        } else {
+            for (int i = albumList.size() - 1; i >= 0; i--) {
+                if (!albumList.get(i).getSinger().getCountry().equalsIgnoreCase("内地"))
+                    albumList.remove(i);
+            }
+        }
+
         Collections.sort(albumList, new Comparator<Album>() {
             @Override
             public int compare(Album o1, Album o2) {
@@ -60,18 +74,20 @@ public class AlbumService {
     }
 
     public Album findByAlbumId(Integer albumId) {
+
         return albumRepository.findAlbumByAlbumId(albumId);
     }
 
     public List<Album> findOthers(Integer id) {
+
         return albumRepository.findAllByAlbum_singer2(id);
     }
 
-    public Page<Album> findAllByInfo(String info,Integer pageId) {
+    public Page<Album> findAllByInfo(String info, Integer pageId) {
         List<Album> albumList = albumRepository.findAllByAlbumNameLike("%" + info + "%");
         for (int i = albumList.size() - 1; i >= 0; i--) {
-            if (albumList.get(i).getAlbumId()==1)
-            albumList.remove(i);
+            if (albumList.get(i).getAlbumId() == 1)
+                albumList.remove(i);
         }
         Pageable pageable = PageRequest.of(pageId - 1, 20);
 

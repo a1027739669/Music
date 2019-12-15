@@ -8,8 +8,8 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="Bookmark" href="favicon.ico">
-    <link rel="Shortcut Icon" href="favicon.ico"/>
+    <link rel="Bookmark" href="/static/favicon.ico">
+    <link rel="Shortcut Icon" href="/static/favicon.ico"/>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/lib/html5.js"></script>
     <script type="text/javascript" src="/lib/respond.min.js"></script>
@@ -148,8 +148,8 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span
-                class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r"
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 歌曲管理 <span
+                class="c-gray en">&gt;</span> 歌曲列表<a class="btn btn-success radius r"
                                                      style="line-height:1.6em;margin-top:3px"
                                                      href="javascript:location.replace(location.href);" title="刷新"><i
                     class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -161,10 +161,7 @@
                 -
                 <input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})"
                        id="datemax" class="input-text Wdate" style="width:120px;">
-                <input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
-                <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i>
-                    搜用户
-                </button>
+
             </div>
             <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a  onclick="deleteAll()"
                                                                        class="btn btn-danger radius"><i
@@ -189,6 +186,7 @@
                         <th width="80">歌曲文件</th>
                         <th width="80">专辑名</th>
                         <th width="130">标签</th>
+                        <th width="70">状态</th>
                         <th width="100">操作</th>
                     </tr>
                     </thead>
@@ -216,7 +214,15 @@
                             </td>
                             <td>${song.getAlbum().albumName}</td>
                             <td>${song.songLabel}</td>
-                            <td class="td-manage"><a title="编辑" href="javascript:;"
+                            <#if song.isOnline==1>
+                                <td class="td-status"><span class="label label-success radius">正常</span></td>
+                            <#else >
+                                <td class="td-status"><span class="label label-defaunt radius">下线</span></td>
+                            </#if>
+                            <td class="td-manage">
+                                <a style="text-decoration:none" onClick="member_stop(this,${song.songId})"
+                                   href="javascript:;" title="封禁"><i class="Hui-iconfont">&#xe631;</i></a>
+                                <a title="编辑" href="javascript:;"
                                                      onclick="member_edit('编辑','/back/modifysong?songId=${song.songId}','4','','510')"
                                                      class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                                 <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5"
@@ -274,21 +280,39 @@
 
     /*用户-停用*/
     function member_stop(obj, id) {
-        layer.confirm('确认要停用吗？', function (index) {
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
+        layer.confirm('确认要下线吗？', function (index) {
+            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,'+id+')" href="javascript:;" title="上线"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">下线</span>');
             $(obj).remove();
-            layer.msg('已停用!', {icon: 5, time: 1000});
+            $.ajax({//利用ajax发出请求
+                type:"GET",//post类型
+                url:"/back/prohibition?userId="+id, //向Controller里的deleteSelect传输ids
+                success:function(data){//删除成功后，deleteMany会返回一个"ok";
+                    if(data=="ok"){
+                        layer.msg('已下线!', {icon: 5, time: 1000});
+                    }
+
+                }
+            });
         });
     }
 
     /*用户-启用*/
     function member_start(obj, id) {
-        layer.confirm('确认要启用吗？', function (index) {
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+        layer.confirm('确认要上线吗？', function (index) {
+            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,'+id+')" href="javascript:;" title="下线"><i class="Hui-iconfont">&#xe631;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">正常</span>');
             $(obj).remove();
-            layer.msg('已启用!', {icon: 6, time: 1000});
+            $.ajax({//利用ajax发出请求
+                type:"GET",//get类型
+                url:"/back/unsealing?userId="+id, //向Controller里的deleteSelect传输ids
+                success:function(data){//删除成功后，deleteMany会返回一个"ok";
+                    if(data=="ok"){
+                        layer.msg('已上线!', {icon: 6, time: 1000});
+                    }
+
+                }
+            });
         });
     }
 

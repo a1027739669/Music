@@ -24,11 +24,10 @@ import java.util.List;
 @Transactional
 public interface LabelRepository extends JpaRepository<Label,Integer> {
     public Label getLabelById(Integer id);
-
     public List<Label> findAll();
-
-    @Query(nativeQuery = true,value = "select  * from label where label_name=:labelName")
+    @Query(nativeQuery = true,value = "select  * from label where "
+            +
+            "label_name=:labelName")
     public Label findLabelByLabel_name(String labelName);
-
     public void deleteLabelByIdIn(Integer [] ids);
 }

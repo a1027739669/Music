@@ -28,30 +28,23 @@ import org.springframework.stereotype.Service;
 public class SongSheetService {
     @Autowired
     private SongSheetRepository songSheetRepository;
-
     @Autowired
     private UserCollectionRepository userCollectionRepository;
-
     public Integer getSize() {
         return songSheetRepository.findAll().size();
     }
-
     public List<SongSheet> getRandomSheet(List<Integer> numbers) {
         return songSheetRepository.findByIdIn(numbers);
     }
-
     public SongSheet findById(Integer id) {
         return songSheetRepository.findSongSheetById(id);
     }
-
     public List<SongSheet> findAllLikeSheet(Integer id) {
         return songSheetRepository.findAllByUserIdOrCreateId(id);
     }
-
     public List<SongSheet> findMyCreate(Integer id) {
         return songSheetRepository.findAllByCreateId(id);
     }
-
     public List<SongSheet> findMyCreateLimit(Integer id) {
         Pageable pageable = PageRequest.of(0, 5);
         List<SongSheet> songSheetList = songSheetRepository.findAllByCreateId(id);
@@ -59,19 +52,15 @@ public class SongSheetService {
         int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
         return songSheetList.subList(start, end);
     }
-
     public List<UserCollection> findMyConlection(Integer id) {
         return userCollectionRepository.findAllByUserId(id);
     }
-
     public void insertSheet(SongSheet songSheet) {
         songSheetRepository.save(songSheet);
     }
-
     public List<SongSheet> findByCreateId(Integer id) {
         return songSheetRepository.findAllByCreateId(id);
     }
-
     public List<SongSheet> findByLabelsLike(String label) {
         Pageable pageable = PageRequest.of(0, 6);
         String[] labels = label.split(",");
@@ -92,7 +81,6 @@ public class SongSheetService {
         int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
         return songSheetList.subList(start, end);
     }
-
     public List<SongSheet> findRelative(Integer songId) {
         List<SongSheet> ans = new ArrayList<>();
         List<SongSheet> temp = songSheetRepository.findAll3();
@@ -111,8 +99,6 @@ public class SongSheetService {
         }
         return ans;
     }
-
-
     public Page<SongSheet> findAllByInfo(String info, Integer pageId) {
         List<SongSheet> sheetList = songSheetRepository.findAllBySheetNameLike("%" + info + "%");
         Pageable pageable = PageRequest.of(pageId - 1, 20);
@@ -122,11 +108,9 @@ public class SongSheetService {
         Page<SongSheet> sheetPage = new PageImpl<>(sheetList.subList(start, end), pageable, sheetList.size());
         return sheetPage;
     }
-
     public void save(SongSheet songSheet) {
         songSheetRepository.save(songSheet);
     }
-
     public void deleteSheet(Integer sheetId) {
         songSheetRepository.deleteSongSheetById(sheetId);
     }

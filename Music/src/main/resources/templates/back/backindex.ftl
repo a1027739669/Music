@@ -8,8 +8,8 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="Bookmark" href="favicon.ico">
-    <link rel="Shortcut Icon" href="favicon.ico"/>
+    <link rel="Bookmark" href="/static/favicon.ico">
+    <link rel="Shortcut Icon" href="/static/favicon.ico"/>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/lib/html5.js"></script>
     <script type="text/javascript" src="/lib/respond.min.js"></script>
@@ -155,11 +155,8 @@
            href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="Hui-article">
         <article class="cl pd-20">
-            <p class="f-20 text-success">欢迎使用H-ui.admin
-                <span class="f-14">v2.3</span>
-                后台模版！</p>
-            <p>登录次数：18 </p>
-            <p>上次登录IP：222.35.131.79.1 上次登录时间：2014-6-14 11:19:55</p>
+            <p class="f-20 text-success">欢迎我的音乐网站后台管理系统
+            </p>
             <table class="table table-border table-bordered table-bg">
                 <thead>
                 <tr>
@@ -183,38 +180,7 @@
                     <td>8</td>
                     <td>20</td>
                 </tr>
-                <tr class="text-c">
-                    <td>今日</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr class="text-c">
-                    <td>昨日</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr class="text-c">
-                    <td>本周</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr class="text-c">
-                    <td>本月</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
+
                 </tbody>
             </table>
             <table class="table table-border table-bordered table-bg mt-20">

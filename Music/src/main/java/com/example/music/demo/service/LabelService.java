@@ -26,26 +26,32 @@ public class LabelService {
     private LabelRepository labelRepository;
 
     public Label getLabelById(Integer labelId) {
-        return labelRepository.getLabelById(labelId);
+        return
+                labelRepository.getLabelById(labelId);
     }
 
     public List<Label> findAll(){
-        return labelRepository.findAll();
+        return
+                labelRepository.findAll();
     }
 
     public Label findByLabelName(String labelname) {
-        return labelRepository.findLabelByLabel_name(labelname);
+        return
+                labelRepository.findLabelByLabel_name(labelname);
     }
 
     public void save(Label label) {
+
         labelRepository.save(label);
     }
 
     public void deleteById(Integer labelId) {
+
         labelRepository.deleteById(labelId);
     }
 
     public void deleteByIds(Integer[] ids) {
+
         labelRepository.deleteLabelByIdIn(ids);
     }
 }

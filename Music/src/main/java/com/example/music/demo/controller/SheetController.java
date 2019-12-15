@@ -91,7 +91,6 @@ public class SheetController {
         }
         return "sheetdetail";
     }
-
     @GetMapping("/guest/playSheetAll")
     public String playSheetAll(ModelMap modelMap, Integer sheetId,HttpSession session) {
         List<SheetDetail> sheetDetails = sheetDetailService.findAllBySheetId(sheetId);
@@ -116,10 +115,10 @@ public class SheetController {
         }
         return "play";
     }
-
     @ResponseBody
     @PostMapping("/user/createSheet")
-    public String createSheet(@RequestParam("file") MultipartFile file, String sheetName, String textArea, String tags, Integer userId) throws IOException {
+    public String createSheet(@RequestParam("file") MultipartFile file, String sheetName,
+                              String textArea, String tags, Integer userId) throws IOException {
         Pattern pattern = Pattern.compile("\\S+");
         Matcher matcher = pattern.matcher(tags);
         String tag = "";
@@ -146,7 +145,6 @@ public class SheetController {
         songSheetService.insertSheet(songSheet);
         return "success";
     }
-
     @GetMapping("/guest/sheettable")
     public String getSheetList(ModelMap modelMap, Integer rankMethod, Integer pageId, String label) {
 
@@ -157,7 +155,6 @@ public class SheetController {
         modelMap.addAttribute("sheetsPage", sheetsPage);
         return "sheettable";
     }
-
     @GetMapping("/guest/sheetlist")
     public String detail(ModelMap modelMap) {
         List<Label> labelList = labelService.findAll();
@@ -179,7 +176,6 @@ public class SheetController {
         modelMap.addAttribute("tempLabel", "全部");
         return "sheetlist";
     }
-
     @GetMapping("/user/addtosheet")
     @ResponseBody
     public String addtosheet(Integer sheetId, Integer[] songId, HttpSession session) {
@@ -208,7 +204,6 @@ public class SheetController {
             return "添加成功";
         }
     }
-
     @GetMapping("/user/toCollect")
     @ResponseBody
     public String toCollect(Integer sheetId,HttpSession session){
@@ -237,7 +232,6 @@ public class SheetController {
         }
         return "错误";
     }
-
     @GetMapping("/user/usercreated")
     public String usercreated(ModelMap modelMap,Integer userId){
         List<SongSheet> songSheetList=songSheetService.findByCreateId(userId);
@@ -249,7 +243,6 @@ public class SheetController {
         modelMap.addAttribute("hotSearch",hotSearch);
         return "usercreatelist";
     }
-
     @GetMapping("/user/usercollections")
     public String usercollections(ModelMap modelMap,Integer userId){
         List<SongSheet> songSheetList=songSheetService.findByCreateId(userId);
@@ -261,7 +254,6 @@ public class SheetController {
         modelMap.addAttribute("hotSearch",hotSearch);
         return "usercollections";
     }
-
     @GetMapping("/user/deletesheet")
     public String deleteSheet(Integer sheetId){
         songSheetService.deleteSheet(sheetId);

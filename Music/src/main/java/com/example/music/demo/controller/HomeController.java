@@ -46,7 +46,6 @@ public class HomeController {
     @Autowired
     private UserCollectionRepository userCollectionRepository;
     private UploadFile uploadFile = new UploadFile();
-
     @GetMapping("/user/home")
     public String toHome(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -84,9 +83,8 @@ public class HomeController {
         else
             modelMap.addAttribute("hotSearch", hotSearch);
 
-        return "home2";
+        return "home";
     }
-
     @GetMapping("/user/create")
     public String create(ModelMap modelMap) {
         List<Label> labelList = labelService.findAll();
@@ -98,7 +96,6 @@ public class HomeController {
             modelMap.addAttribute("hotSearch", hotSearch);
         return "createsheet";
     }
-
     @GetMapping("/user/userinfo")
     public String userInfo(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -111,7 +108,6 @@ public class HomeController {
             modelMap.addAttribute("hotSearch", hotSearch);
         return "myinfo";
     }
-
     @GetMapping("/user/recentplay")
     public String recentPlay(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -127,7 +123,6 @@ public class HomeController {
             modelMap.addAttribute("recentPlay", recentPlay);
         return "recentplay";
     }
-
     @GetMapping("/user/mycollection")
     public String mycollection(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -143,10 +138,10 @@ public class HomeController {
             modelMap.addAttribute("myCollection", myCollection);
         return "mycollection";
     }
-
     @PostMapping("/user/modifyinfo")
     @ResponseBody
-    public String modifyinfo(MultipartFile file, String nicheng, String mobile, String email, String introduction, String usersex, Integer userId) throws IOException {
+    public String modifyinfo(MultipartFile file, String nicheng, String mobile,
+                             String email, String introduction, String usersex, Integer userId) throws IOException {
         User user = userService.findById(userId);
         if (file != null) {
             String fileName = uploadFile.uploadFile(file);
@@ -160,7 +155,6 @@ public class HomeController {
         userService.saveUser(user);
         return "SUCCESE";
     }
-
     @PostMapping(value = "/user/SMSVerification")
     @ResponseBody
     public String SMSVerification(String telephone, HttpSession session) throws ClientException {
@@ -178,7 +172,6 @@ public class HomeController {
         System.out.println("BizId=" + response.getBizId());
         return "验证码已发送";
     }
-
     @PostMapping("/user/modify")
     @ResponseBody
     public String modifyCode(String frontcode) {
@@ -187,7 +180,6 @@ public class HomeController {
             return "OK";
         return "OK";
     }
-
     @PostMapping("/user/modifypass")
     @ResponseBody
     public String register2(String password, String telephone, HttpSession session) {
@@ -200,5 +192,4 @@ public class HomeController {
         }
         return "失败";
     }
-
 }

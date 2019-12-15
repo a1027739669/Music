@@ -42,10 +42,10 @@ public class LoginController {
     private SongSheetService songSheetService;
     @Autowired
     private RedisService redisService;
-
     @PostMapping(value = "/guest/SMSVerification")
     @ResponseBody
-    public String SMSVerification(String telephone, HttpSession session) throws ClientException {
+    public String SMSVerification(String telephone, HttpSession session)
+            throws ClientException {
         List<User> userList=userService.findAll();
         for(int i=0;i<userList.size();i++){
             if(userList.get(i).getMobile().equalsIgnoreCase(telephone))
@@ -65,10 +65,10 @@ public class LoginController {
         System.out.println("BizId=" + response.getBizId());
         return "验证码已发送";
     }
-
     @PostMapping(value = "/guest/login")
     @ResponseBody
-    public String login(@RequestParam String username, @RequestParam String password, HttpSession session) {
+    public String login(@RequestParam String username, @RequestParam String password,
+                        HttpSession session) {
         User user = userService.findByUserName(username);
         if (user == null) {
             user = userService.findByPhone(username);
@@ -86,13 +86,11 @@ public class LoginController {
             return "登录成功";
         }
     }
-
     @GetMapping("/user/loginout")
     public String loginout(HttpSession session) {
         session.removeAttribute("user");
         return "redirect:/guest/index";
     }
-
     @PostMapping("/guest/vertify")
     @ResponseBody
     public String vertifyCode(String frontcode) {
@@ -102,10 +100,10 @@ public class LoginController {
             return "OK";
         return "FALSE";
     }
-
     @PostMapping("/guest/register")
     @ResponseBody
-    public String register(String password, String telephone,HttpSession session) {
+    public String register(String password, String telephone,HttpSession
+            session) {
         User user = new User();
         user.setIsAlive(1);
         user.setIntroduction("暂无介绍");

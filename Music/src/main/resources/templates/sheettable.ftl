@@ -47,6 +47,7 @@
             <p>什么都没有</p>
         </div>
     </#if>
+    <#if sheetsPage? exists>
     <div class="mod_page_nav js_pager_comment">
         <#if (sheetsPage.totalPages==1)>
             <strong class="current">1</strong>
@@ -160,7 +161,7 @@
             </#if>
         </#if>
     </div>
-
+    </#if>
 </div>
 
 <script type="text/javascript">

@@ -8,8 +8,8 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="Bookmark" href="favicon.ico">
-    <link rel="Shortcut Icon" href="favicon.ico"/>
+    <link rel="Bookmark" href="/static/favicon.ico">
+    <link rel="Shortcut Icon" href="/static/favicon.ico"/>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/lib/html5.js"></script>
     <script type="text/javascript" src="/lib/respond.min.js"></script>
@@ -148,8 +148,8 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span
-                class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r"
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 标签管理 <span
+                class="c-gray en">&gt;</span> 标签列表<a class="btn btn-success radius r"
                                                      style="line-height:1.6em;margin-top:3px"
                                                      href="javascript:location.replace(location.href);" title="刷新"><i
                     class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -161,10 +161,7 @@
                 -
                 <input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})"
                        id="datemax" class="input-text Wdate" style="width:120px;">
-                <input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
-                <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i>
-                    搜用户
-                </button>
+                
             </div>
             <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a  onclick="deleteAll()"
                                                                         class="btn btn-danger radius"><i

@@ -8,8 +8,8 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="Bookmark" href="favicon.ico">
-    <link rel="Shortcut Icon" href="favicon.ico"/>
+    <link rel="Bookmark" href="/static/favicon.ico">
+    <link rel="Shortcut Icon" href="/static/favicon.ico"/>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/lib/html5.js"></script>
     <script type="text/javascript" src="/lib/respond.min.js"></script>
@@ -182,8 +182,8 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span
-                class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r"
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论管理 <span
+                class="c-gray en">&gt;</span> 评论列表<a class="btn btn-success radius r"
                                                      style="line-height:1.6em;margin-top:3px"
                                                      href="javascript:location.replace(location.href);" title="刷新"><i
                     class="Hui-iconfont">&#xe68f;</i></a></nav>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.text.Collator;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,19 +23,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-/**
- * @ProjectName: MusicPro
- * @Package: com.example.music.demo.controller
- * @ClassName: BackIndexController
- * @Description: java类作用描述
- * @Author: 章宇翔
- * @CreateDate: 2019/12/1 10:51
- * @UpdateUser: 更新者
- * @UpdateDate: 2019/12/1 10:51
- * @UpdateRemark: 更新说明
- * @Version: 1.0
- */
 @Controller
 public class BackIndexController {
     @Autowired
@@ -165,7 +153,9 @@ public class BackIndexController {
 
     @PostMapping("/back/modifysinger")
     @ResponseBody
-    public String modifySinger(MultipartFile file, String singerName, String birthday, String introduction, String country, String sex, String[] labels) throws ParseException, IOException {
+    public String modifySinger(MultipartFile file, String singerName, String birthday,
+                               String introduction, String country, String sex,
+                               String[] labels) throws ParseException, IOException {
         Singer singer = new Singer();
         singer.setSingerName(singerName);
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(birthday);
@@ -210,7 +200,9 @@ public class BackIndexController {
 
     @PostMapping("/back/changesinger")
     @ResponseBody
-    public String modifySinger(MultipartFile file, String singerName, String birthday, String introduction, String country, String sex, String[] labels, Integer singerId) throws ParseException, IOException {
+    public String modifySinger(MultipartFile file, String singerName, String birthday,
+                               String introduction, String country, String sex,
+                               String[] labels, Integer singerId) throws ParseException, IOException {
         Singer singer = singerService.getSingerById(singerId);
         singer.setSingerName(singerName);
         Pattern pattern = Pattern.compile("-?[1-9]\\d*");
@@ -238,9 +230,12 @@ public class BackIndexController {
 
     @PostMapping("/back/tomodifysong")
     @ResponseBody
-    public String toModifySong(MultipartFile file1, MultipartFile file2, MultipartFile file3,
+    public String toModifySong(MultipartFile file1, MultipartFile file2, MultipartFile
+            file3,
                                String songname, Integer singerId,
-                               String languages, String release, Integer albumId, String[] labels,Integer songId) throws IOException, ParseException {
+                               String languages, String release, Integer albumId,
+                               String[] labels,Integer songId)
+            throws IOException, ParseException {
         Song song=songService.getOneDetail(songId);
         song.setSong_name(songname);
         song.setSongSinger(singerId);
@@ -310,7 +305,8 @@ public class BackIndexController {
     @ResponseBody
     public String toaddsong(MultipartFile file1, MultipartFile file2, MultipartFile file3,
                             String songname, Integer singerId,
-                            String languages, String release, Integer albumId, String[] labels) throws IOException, ParseException {
+                            String languages, String release, Integer albumId,
+                            String[] labels) throws IOException, ParseException {
 
         Song song = new Song();
         song.setSong_name(songname);
@@ -359,7 +355,9 @@ public class BackIndexController {
 
     @PostMapping("/back/toaddalbum")
     @ResponseBody
-    public String toAddAlbum(MultipartFile file,String albumname,Integer singerId,String release,String []labels,String introduction) throws IOException, ParseException {
+    public String toAddAlbum(MultipartFile file,String albumname,Integer singerId,
+                             String release,String []labels,String introduction)
+            throws IOException, ParseException {
         Album album=new Album();
         String albumImg=uploadFile.uploadFile(file);
         album.setAlbum_img(albumImg);
@@ -396,7 +394,9 @@ public class BackIndexController {
 
     @PostMapping("/back/tomodifyalbum")
     @ResponseBody
-    public String toModifyAlbum(MultipartFile file,String albumname,Integer singerId,String release,String []labels,String introduction,Integer albumId) throws IOException, ParseException {
+    public String toModifyAlbum(MultipartFile file,String albumname,Integer
+            singerId,String release,String []labels,String introduction,Integer albumId)
+            throws IOException, ParseException {
         Album album=albumService.findByAlbumId(albumId);
         album.setIntroduction(introduction);
         album.setAlbumName(albumname);
@@ -476,5 +476,47 @@ public class BackIndexController {
         labelService.deleteByIds(ids);
         return "ok";
     }
+
+    @GetMapping("/back/login")
+    public String backLosin(){
+        return "back/login";
+    }
+
+    @PostMapping("/back/tologin")
+    @ResponseBody
+    public String tologing( String username, String password, HttpSession session){
+        User user=userService.findByUserName(username);
+        if(user==null){
+            user=userService.findByPhone(username);
+            if(user==null){
+                return "用户不存在";
+            }
+            else
+                if(!user.getPassword().equals(password))
+                    return "密码不正确";
+                else {
+                    if (user.getIs_super().equals(1))
+                    session.setAttribute("user",user);
+                    else
+                        return "权限不足";
+                }
+        }
+        else {
+            if(!user.getPassword().equals(password))
+                return "密码不正确";
+            else {
+                if (user.getIs_super().equals(1))
+                    session.setAttribute("user",user);
+                else
+                    return "权限不足";
+            }
+        }
+        return "OK";
+    }
+
+    @GetMapping("/back/index")
+    public String toIndex(ModelMap modelMap){
+        return "back/backindex";
+   }
 
 }

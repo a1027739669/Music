@@ -29,34 +29,22 @@ import java.util.List;
 @Transactional
 public interface SongSheetRepository extends JpaRepository<SongSheet, Integer> {
     public List<SongSheet> findByIdIn(List<Integer> numbers);
-
     public SongSheet findSongSheetById(Integer id);
-
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  order by play_count desc ")
     public List<SongSheet> findAll1();
-
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  order by support desc limit 1000")
     public List<SongSheet> findAll3();
-
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  order by create_date desc ")
     public List<SongSheet> findAll2();
-
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  where c.user_id=:userId or c.create_id=:userId")
     public List<SongSheet> findAllByUserIdOrCreateId(Integer userId);
-
     public List<SongSheet> findAllByCreateId(Integer id);
-
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  where c.user_id=:userId and c.create_id !=:userId")
     public List<SongSheet> findAllByUserId(Integer userId);
-
     @Query(nativeQuery = true, value = "select  c.* from songsheet c  where  c.create_id =:id order by create_date desc limit 5")
     public List<SongSheet> findByCreateId(Integer id);
-
     public List<SongSheet> findByLabelsLike(String labels);
-
     public List<SongSheet> findAllBySheetNameLike(String name);
-
     @Modifying
     public void deleteSongSheetById(Integer sheetId);
-
 }

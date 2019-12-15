@@ -23,20 +23,21 @@ import java.util.List;
 public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
-
     public List<Comment> allComment() {
-        return commentRepository.findAll();
+        return
+                commentRepository.findAll();
     }
+    public void deleteBatch(Integer[] ids)
+    {
 
-    public void deleteBatch(Integer[] ids) {
         commentRepository.deleteAllByIds(ids);
     }
-
     public void deleteOne(Integer id) {
+
         commentRepository.deleteOneById(id);
     }
-
     public void save(Comment comment) {
+
         commentRepository.save(comment);
     }
 }

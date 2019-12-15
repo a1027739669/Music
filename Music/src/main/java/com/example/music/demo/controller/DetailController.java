@@ -5,6 +5,7 @@ import com.example.music.demo.entity.Comment;
 import com.example.music.demo.entity.Song;
 import com.example.music.demo.entity.SongSheet;
 import com.example.music.demo.service.DetailService;
+import com.example.music.demo.service.RedisService;
 import com.example.music.demo.service.SongService;
 import com.example.music.demo.service.SongSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,8 @@ public class DetailController {
     private SongService songService;
     @Autowired
     private SongSheetService songSheetService;
+    @Autowired
+    private RedisService redisService;
     @GetMapping("/guest/songDetail")
     public String getDetail(ModelMap modelMap, Integer songId, Integer pageId) {
         Song song = songService.getOneDetail(songId);
@@ -73,6 +76,8 @@ public class DetailController {
             if(lyric.size()!=0)
             modelMap.addAttribute("lyric",lyric);
         }
-        return "detail2";
+        List<Song> hotSeatch=redisService.getHotSearch();
+        modelMap.addAttribute("hotSearch",hotSeatch);
+        return "detail";
     }
 }

@@ -41,20 +41,19 @@ public class SongService {
     private UserCollectionRepository userCollectionRepository;
     @Autowired
     private InfoRepository infoRepository;
-
     public List<UserCollection> getMyCollection(Integer id) {
+
         return userCollectionRepository.findAllByUserId(id);
     }
-
     public Song getOneDetail(Integer id) {
+
         return songRepository.getOne(id);
     }
-
-
-    public List<Song> getNewMusicies() {
-        return songRepository.getNewMusics();
+    public List<Song> getNewMusicies()
+    {
+        return
+                songRepository.getNewMusics();
     }
-
     public Page<Song> getSongPages(Integer page, Integer singerId) {
         Pageable pageable = PageRequest.of(page - 1, 20);
         List<Song> songList = songRepository.findAllBySingerId(singerId);
@@ -63,19 +62,17 @@ public class SongService {
         Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
         return songPage;
     }
-
     public Integer getTotalSongNumber(Integer singerId) {
-        return songRepository.findAllBySingerId(singerId).size();
+        return
+                songRepository.findAllBySingerId(singerId).size();
     }
-
     public List<Song> findAllByLabelsLike(String label) {
         return songRepository.findAllBySongLabelLike("%" + label + "%");
     }
-
     public List<Song> findAllByLauguage(String language) {
-        return songRepository.findAllBySongLanguages(language);
+        return
+                songRepository.findAllBySongLanguages(language);
     }
-
     public Page<Song> findAllByInfo(String key, Integer page) {
         Pageable pageable = PageRequest.of(page - 1, 60);
         List<Song> songList = songRepository.findAll(this.getWhereClause(key));
@@ -97,7 +94,6 @@ public class SongService {
         Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
         return songPage;
     }
-
     public Specification<Song> getWhereClause(String keyword) {
         return new Specification<Song>() {
             @Override
@@ -122,19 +118,17 @@ public class SongService {
             }
         };
     }
-
     public List<Song> findAllByIds(Integer[] ids) {
-        return songRepository.findAllBySongIdIsIn(ids);
+        return
+                songRepository.findAllBySongIdIsIn(ids);
     }
-
     public List<Song> findAllbySingerId(Integer singerId) {
-        return songRepository.findAllBySingerId(singerId);
+        return
+                songRepository.findAllBySingerId(singerId);
     }
-
     public List<Song> findAll() {
         return songRepository.findAll();
     }
-
     public Song save(Song song) {
         return songRepository.save(song);
     }

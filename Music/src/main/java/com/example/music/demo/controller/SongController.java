@@ -9,12 +9,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -53,19 +56,18 @@ public class SongController {
     @Autowired
     private CommentService commentService;
     private Download download = new Download();
-
     @GetMapping("/guest/singerSongs")
-    public String getSingerSongs(ModelMap modelMap, Integer singerId, Integer pageId) {
+    public String getSingerSongs(ModelMap modelMap, Integer singerId,
+                                 Integer pageId) {
         Page<Song> songPage = songService.getSongPages(pageId, singerId);
         Singer singer = singerService.getSingerById(singerId);
         modelMap.addAttribute("singer", singer);
         modelMap.addAttribute("songPage", songPage);
         return "singersongstable";
     }
-
-
     @GetMapping(value = "/user/downsong")
-    public void downSong(HttpServletResponse response, String[] names, String[] paths) {
+    public void downSong(HttpServletResponse response, String[] names,
+                         String[] paths) {
 
         String directory = "D:\\MUSICRESOURCE\\zip";
         File directoryFile = new File(directory);
@@ -123,9 +125,9 @@ public class SongController {
             zipFile.delete();
         }
     }
-
     @GetMapping(value = "/user/downsongbyids")
-    public void downSongByIds(HttpServletResponse response, Integer[] ids) {
+    public void downSongByIds(HttpServletResponse response,
+                              Integer[] ids) {
         List<Song> songList = songService.findAllByIds(ids);
         for (int i = 0; i < songList.size(); i++) {
             Song song = songList.get(i);
@@ -202,9 +204,9 @@ public class SongController {
             zipFile.delete();
         }
     }
-
     @GetMapping(value = "/user/downsinglesong")
-    public void downSongSingle(HttpServletResponse response, Integer id) {
+    public void downSongSingle(HttpServletResponse response,
+                               Integer id) {
         Song song = songService.getOneDetail(id);
         Info info = song.getInfo();
         Singer singer = song.getSinger();
@@ -220,7 +222,6 @@ public class SongController {
             download.downFile(response, name, path);
         }
     }
-
     @GetMapping("/guest/playAll")
     public String playAll(ModelMap modelMap,HttpSession session) {
         List<Song> playlist = (List<Song>) redisService.get("newMusices");
@@ -242,7 +243,6 @@ public class SongController {
         }
         return "play";
     }
-
     @GetMapping("/user/recentallplay")
     public String recentAllPlay(ModelMap modelMap,HttpSession session){
         User user= (User) session.getAttribute("user");
@@ -254,9 +254,9 @@ public class SongController {
         }
         return "play";
     }
-
     @GetMapping("/guest/playSheet")
-    public String playSheet(ModelMap modelMap, Integer sheetId,HttpSession session) {
+    public String playSheet(ModelMap modelMap, Integer sheetId,
+                            HttpSession session) {
         SongSheet songSheet = songSheetService.findById(sheetId);
         songSheet.setPlayCount(songSheet.getPlayCount()+1);
         songSheetService.save(songSheet);
@@ -284,9 +284,9 @@ public class SongController {
         }
         return "play";
     }
-
     @GetMapping("/guest/playAlbum")
-    public String playAlbum(ModelMap modelMap, Integer albumId,HttpSession session) {
+    public String playAlbum(ModelMap modelMap, Integer albumId,
+                            HttpSession session) {
         Album album = albumService.findByAlbumId(albumId);
         List<Song> playlist = new ArrayList<>();
         List<AlbumDetail> albumDetails = album.getDetails();
@@ -312,9 +312,9 @@ public class SongController {
         }
         return "play";
     }
-
     @GetMapping("/guest/playAllRank")
-    public String playAllRank(ModelMap modelMap, Integer[] ids,HttpSession session) {
+    public String playAllRank(ModelMap modelMap, Integer[] ids,
+                              HttpSession session) {
         List<Song> playlist = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
             playlist.add(songService.getOneDetail(ids[i]));
@@ -337,9 +337,9 @@ public class SongController {
         }
         return "play";
     }
-
     @RequestMapping("/guest/playSong")
-    public String play(HttpSession httpSession, Integer id, ModelMap modelMap,HttpSession session){
+    public String play(HttpSession httpSession, Integer id,
+                       ModelMap modelMap,HttpSession session){
         List<Song> playlist=indexService.setPlaySong(httpSession,id);
         modelMap.addAttribute("playlist",playlist);
         User user= (User) session.getAttribute("user");
@@ -358,9 +358,9 @@ public class SongController {
         }
         return "play";
     }
-
     @GetMapping("/guest/playsingerall")
-    public String playSingerAll(ModelMap modelMap,Integer singerId,HttpSession session){
+    public String playSingerAll(ModelMap modelMap,Integer singerId,
+                                HttpSession session){
         List<Song> playlist=songService.findAllbySingerId(singerId);
         addSupport(playlist);
         modelMap.addAttribute("playlist",playlist);
@@ -380,7 +380,6 @@ public class SongController {
         }
         return "play";
     }
-
     public void addSupport(List<Song> playlist){
         for (int i = 0; i < playlist.size(); i++) {
             Song song = playlist.get(i);
@@ -392,10 +391,10 @@ public class SongController {
             infoService.save(info);
         }
     }
-
     @GetMapping("/user/tocomment")
     @ResponseBody
-    public String toComment(String text,Integer songId,HttpSession session){
+    public String toComment(String text,Integer songId,HttpSession
+            session){
         User user= (User) session.getAttribute("user");
         Comment comment=new Comment();
         comment.setComment_text(text);
@@ -405,5 +404,15 @@ public class SongController {
         comment.setSupport(0);
         commentService.save(comment);
         return "评论成功";
+    }
+    @PostMapping("/guest/getlyric")
+    @ResponseBody
+    public String getLyric(String path) throws IOException {
+        List<String> temp= Files.readAllLines(Paths.get("D:/MUSICRESOURCE/lyic/"+path));
+        String ans="";
+        for (int i = 0; i <temp.size() ; i++) {
+            ans+=(temp.get(i)+"\n");
+        }
+        return ans;
     }
 }

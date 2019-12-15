@@ -24,5 +24,11 @@ import java.util.List;
  */
 public class test2 {
     public static void main(String[] args) throws IOException {
+        List<String> test=Files.readAllLines(Paths.get("D:\\MUSICRESOURCE\\lyic\\桃花诺-G1575773184574.E"));
+        String ans="";
+        for (int i = 0; i <test.size() ; i++) {
+           ans+=test.get(i)+"\n";
+        }
+        System.out.println(ans);
     }
 }

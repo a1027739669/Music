@@ -21,18 +21,18 @@ import java.util.List;
  */
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
-    @Query(nativeQuery = true, value = "select * from album c order by c.album_release desc limit 10")
+    @Query(nativeQuery = true, value = "select * from album c " +
+            "order by c.album_release desc limit 10")
     public List<Album> getNewAlbums();
-
-    @Query(nativeQuery = true, value = "select * from album c where c.album_singer =:singerId order by c.album_release desc limit 5")
+    @Query(nativeQuery = true, value = "select * from album c " +
+            "where c.album_singer =:singerId order by c.album_release" +
+            " desc limit 5")
     public List<Album> findAllByAlbum_singer(Integer singerId);
-
     public List<Album> findByLabelsLike(String label);
-
     public Album findAlbumByAlbumId(Integer albumId);
-
-    @Query(nativeQuery = true, value = "select * from album c where c.album_singer =:singerId order by c.album_release desc limit 7")
+    @Query(nativeQuery = true, value = "select * from album c " +
+            "where c.album_singer =:singerId order by c.album_release" +
+            " desc limit 7")
     public List<Album> findAllByAlbum_singer2(Integer singerId);
-
     public List<Album> findAllByAlbumNameLike(String name);
 }

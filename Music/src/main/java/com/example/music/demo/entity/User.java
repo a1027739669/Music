@@ -46,6 +46,7 @@ public class User  implements Serializable {
     private Integer isAlive;
     private Integer reported;
     private String userSex;
-    @OneToMany(targetEntity = UserCollection.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy ="user")
+    @OneToMany(targetEntity = UserCollection.class,cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,mappedBy ="user")
     public List<UserCollection> userCollections;
 }

@@ -47,7 +47,6 @@ public class IndexController {
     private InfoService infoService;
     @Autowired
     private UserCollectionRepository userCollectionRepository;
-
     @GetMapping("/guest/index")
     public String randomSheet(ModelMap modelMap) {
         if (redisService.get("randomSheet") != null) {
@@ -206,7 +205,6 @@ public class IndexController {
 
         return "index";
     }
-
     @GetMapping("/guest/search")
     public String search(ModelMap modelMap, String info) {
         modelMap.addAttribute("info", info);
@@ -226,18 +224,15 @@ public class IndexController {
         }
         return "searchresult";
     }
-
     @GetMapping("/guest/SRtable")
     public String SRtable(ModelMap modelMap, String info, Integer pageId) {
         Page<Song> results = songService.findAllByInfo(info, pageId);
-
         if (results.getContent().size() > 0) {
             modelMap.addAttribute("resultList", results);
         }
         modelMap.addAttribute("info", info);
         return "songresult";
     }
-
     @GetMapping("/guest/singerresult")
     public String singerResult(ModelMap modelMap, String info, Integer pageId) {
         Page<Singer> results = singerService.findAllByInfo(info, pageId);
@@ -246,7 +241,6 @@ public class IndexController {
         modelMap.addAttribute("info", info);
         return "singerresult";
     }
-
     @GetMapping("/guest/albumsearch")
     public String albumResult(ModelMap modelMap, String info, Integer pageId) {
         Page<Album> results = albumService.findAllByInfo(info, pageId);
@@ -255,7 +249,6 @@ public class IndexController {
         modelMap.addAttribute("info", info);
         return "albumresult";
     }
-
     @GetMapping("/guest/sheetsearch")
     public String sheetSearch(ModelMap modelMap, String info, Integer pageId) {
         Page<SongSheet> results = songSheetService.findAllByInfo(info, pageId);
@@ -264,7 +257,6 @@ public class IndexController {
         modelMap.addAttribute("info", info);
         return "sheetresult";
     }
-
     @GetMapping("/guest/userresult")
     public String userResult(ModelMap modelMap, String info, Integer pageId) {
         Page<User> results = userService.findAllByInfo(info, pageId);
@@ -273,7 +265,6 @@ public class IndexController {
         modelMap.addAttribute("info", info);
         return "userresult";
     }
-
     @GetMapping("/guest/playindexrank")
     public String playIndexRank(ModelMap modelMap, Integer id, HttpSession session) {
         List<Song> playlist = (List<Song>) redisService.get("indexlist" + id);
@@ -299,7 +290,6 @@ public class IndexController {
             modelMap.addAttribute("playlist", playlist);
         return "play";
     }
-
     public void addSupport(List<Song> playlist) {
         for (int i = 0; i < playlist.size(); i++) {
             Song song = playlist.get(i);
@@ -311,7 +301,6 @@ public class IndexController {
             infoService.save(info);
         }
     }
-
     @GetMapping("/guest/lokeother")
     public String lokeOther(ModelMap modelMap, Integer userId) {
         User user = userService.findById(userId);
@@ -343,6 +332,6 @@ public class IndexController {
             modelMap.addAttribute("myCollection", myCollection.subList(0, 10));
         else if (myCollection.size() > 0)
             modelMap.addAttribute("myCollection", myCollection);
-        return "home2";
+        return "home";
     }
 }

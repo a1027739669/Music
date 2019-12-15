@@ -24,17 +24,12 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     public User findByUsernameAndPassword(String username, String password);
-
     public User findUserByUsername(String username);
-
     public User findByMobile(String username);
-
-    @Query(nativeQuery = true, value = "select * from myuser c where c.is_super !=1 order by reported desc ")
+    @Query(nativeQuery = true, value = "select * from myuser c " +
+            "where c.is_super !=1 order by reported desc ")
     public List<User> findWithNotSuper();
-
     public User findUserById(Integer userId);
-
     public List<User> findAllByNichengLike(String name);
-
     public User findUserByMobile(String mobile);
 }

@@ -32,10 +32,12 @@ public class SingerService {
     private SingerRepository singerRepository;
 
     public Singer getSingerById(Integer singerId) {
+
         return singerRepository.findSingerById(singerId);
     }
 
-    public Page<Singer> getSingerList(String country, String sex, String label, Integer pageId) {
+    public Page<Singer> getSingerList(String country, String sex,
+                                      String label, Integer pageId) {
         Pageable pageable = PageRequest.of(pageId - 1, 80);
         List<Singer> singerList = new ArrayList<>();
         if (label.equals("全部"))
@@ -90,6 +92,7 @@ public class SingerService {
     }
 
     public List<Singer> findSingerWithIdNotZero() {
+
         return singerRepository.findAllByIdNot(0);
     }
 
@@ -121,8 +124,8 @@ public class SingerService {
         singerRepository.save(singer);
         return "修改成功";
     }
-
     public List<Singer> findAll() {
+
         return singerRepository.findAll();
     }
 }

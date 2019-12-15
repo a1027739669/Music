@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
-    <meta name="description"
-          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
     <title>歌手列表</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -266,7 +263,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal-wrapper">
     <div class="modal opened" id="findmodel">
         <div class="modal-inner"><span class="close-btn iconfont white left" id="cancel4"></span>
@@ -348,6 +344,7 @@
         </div>
     </div>
 </div>
+<#include "footer.ftl">
 </body>
 <script type="text/javascript">
     $(function () {

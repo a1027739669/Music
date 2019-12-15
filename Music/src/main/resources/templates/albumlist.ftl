@@ -141,10 +141,6 @@
 <div class="mod_loading" id="before_page" style="display: none;"><i class="icon_txt">加载中</i></div>
 <div class="main" style="" id="main">
     <!-- 标签筛选 -->
-
-
-
-
 </div>
 <div class="modal-wrapper">
     <div class="modal opened" id="loginmodel">
@@ -356,16 +352,9 @@
         </div>
     </div>
 </div>
-<footer class="footer-container">
-    <div class="section-container">
-        <div class="footer-copyright">
-            <p class="copyright-p">
-            <h3  target="_blank" title="隐私政策">我的音乐</h3>
-            </p>
-        </div>
-    </div>
-</footer>
+<#include "footer.ftl">
 </body>
+
 <script type="text/javascript">
     $(function () {
         toList(1,"华语");

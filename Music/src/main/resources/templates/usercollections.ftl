@@ -404,6 +404,7 @@
         </div>
     </div>
 </div>
+<#include "footer.ftl">
 </body>
 <script type="text/javascript">
     function playAll() {
