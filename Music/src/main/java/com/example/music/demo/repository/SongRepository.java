@@ -25,24 +25,24 @@ import java.util.List;
 public interface SongRepository extends JpaRepository<Song, Integer>,
         JpaSpecificationExecutor<Song> {
     @Query(nativeQuery = true, value = "select  c.* from song c,info b " +
-            "where c.song_id = b.song_id order by b.info_plays desc  ")
+            "where c.song_id = b.song_id and c.is_online!=0 order by b.info_plays desc  ")
     public List<Song> getMorePlays();
-    @Query(nativeQuery = true, value = "select * from song c order by " +
+    @Query(nativeQuery = true, value = "select * from song c where c.is_online!=0 order by " +
             "c.song_release desc limit 36")
     public List<Song> getNewMusics();
     @Query(nativeQuery = true, value = "select  c.* from song c,info b " +
-            "where c.song_id = b.song_id order by b.info_search desc ")
+            "where c.song_id = b.song_id and c.is_online!=0 order by b.info_search desc ")
     public List<Song> getHotSearchMusics();
     @Query(nativeQuery = true, value = "select  c.* from song c,info b" +
-            " where c.song_id = b.song_id order by b.info_down desc ")
+            " where c.song_id = b.song_id and c.is_online!=0 order by b.info_down desc ")
     public List<Song> getMoreDownMusics();
     @Query(nativeQuery = true, value = "select  c.* from song c,info b " +
-            "where c.song_id = b.song_id and songorder by b.info_plays")
+            "where c.song_id = b.song_id and c.is_online!=0 order by b.info_plays")
     public List<Song> getSongPage();
-    @Query(nativeQuery = true, value = "select * from song where " +
-            "song_singer=:singerId  ")
+    @Query(nativeQuery = true, value = "select * from song  c where " +
+            "c.song_singer=:singerId and c.is_online!=0 ")
     public List<Song> findAllBySingerId(Integer singerId);
-    public List<Song> findAllBySongLabelLike(String lebel);
-    public List<Song> findAllBySongLanguages(String language);
-    public List<Song> findAllBySongIdIsIn(Integer[] ids);
+    public List<Song> findAllBySongLabelLikeAndIsOnlineNot(String lebel,Integer flag);
+    public List<Song> findAllBySongLanguagesAndIsOnlineNot(String language,Integer flag);
+    public List<Song> findAllBySongIdIsInAndIsOnlineNot(Integer[] ids,Integer flag);
 }

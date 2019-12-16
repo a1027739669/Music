@@ -1,6 +1,8 @@
 package com.example.music.demo.controller;
+
 import java.io.File;
 import java.io.IOException;
+
 import com.example.music.demo.entity.*;
 import com.example.music.demo.service.*;
 import com.example.music.demo.tools.UploadFile;
@@ -39,6 +41,8 @@ public class BackIndexController {
     private AlbumService albumService;
     @Autowired
     private InfoService infoService;
+    @Autowired
+    private AlbumDetailService albumDetailService;
     private UploadFile uploadFile = new UploadFile();
 
     @GetMapping("/back/userlist")
@@ -101,7 +105,6 @@ public class BackIndexController {
     public String delete() {
         return "权限不足";
     }
-
 
 
     @GetMapping("/back/commentlist")
@@ -176,7 +179,7 @@ public class BackIndexController {
 
 
     @GetMapping("/back/modifysong")
-    public String modifySong(ModelMap modelMap,Integer songId){
+    public String modifySong(ModelMap modelMap, Integer songId) {
         List<Label> labelList = labelService.findAll();
         List<Singer> singerList = singerService.findAll();
         Comparator<Object> comparator = Collator.getInstance(Locale.CHINA);
@@ -191,10 +194,10 @@ public class BackIndexController {
         modelMap.addAttribute("albumlist", albumList);
         modelMap.addAttribute("singerList", singerList);
         modelMap.addAttribute("labelList", labelList);
-        Song song=songService.getOneDetail(songId);
-        modelMap.addAttribute("song",song);
+        Song song = songService.getOneDetail(songId);
+        modelMap.addAttribute("song", song);
         List<String> songLabels = Arrays.asList(song.getSongLabel().split(","));
-        modelMap.addAttribute("songLabels",songLabels);
+        modelMap.addAttribute("songLabels", songLabels);
         return "back/modifysong";
     }
 
@@ -234,12 +237,12 @@ public class BackIndexController {
             file3,
                                String songname, Integer singerId,
                                String languages, String release, Integer albumId,
-                               String[] labels,Integer songId)
+                               String[] labels, Integer songId)
             throws IOException, ParseException {
-        Song song=songService.getOneDetail(songId);
+        Song song = songService.getOneDetail(songId);
         song.setSong_name(songname);
         song.setSongSinger(singerId);
-        if(file3!=null){
+        if (file3 != null) {
             String songfilename = uploadFile.uploadFileToMp3(file3);
             song.setSong_file(songfilename);
             File file = new File("D:/MUSICRESOURCE/yinpin/" + songfilename);
@@ -262,17 +265,17 @@ public class BackIndexController {
         while (matcher.find()) {
             release += matcher.group() + '-';
         }
-        release= release.substring(0, release.length() - 1);
+        release = release.substring(0, release.length() - 1);
         Date date = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA).parse(release);
         song.setSong_release(date);
-        if(file1!=null){
+        if (file1 != null) {
             song.setSong_img(uploadFile.uploadFile(file1));
         }
-        if(file2!=null){
+        if (file2 != null) {
             song.setSong_lyrics(uploadFile.uploadFileToLyric(file2));
         }
         song.setAlbum_id(albumId);
-        String label="";
+        String label = "";
         for (int i = 0; i < labels.length; i++) {
             label += labels[i] + ',';
         }
@@ -282,22 +285,22 @@ public class BackIndexController {
     }
 
     @GetMapping("/back/albumlist")
-    public String albumList(ModelMap modelMap){
-        List<Album> albumList=albumService.findAll();
-        modelMap.addAttribute("albumList",albumList);
+    public String albumList(ModelMap modelMap) {
+        List<Album> albumList = albumService.findAll();
+        modelMap.addAttribute("albumList", albumList);
         return "back/albumlist";
     }
 
     @GetMapping("/back/addalbum")
-    public String addalbum(ModelMap modelMap){
-        List <Label> labelList=labelService.findAll();
-        List<Singer> singerList=singerService.findAll();
-        modelMap.addAttribute("labelList",labelList);
+    public String addalbum(ModelMap modelMap) {
+        List<Label> labelList = labelService.findAll();
+        List<Singer> singerList = singerService.findAll();
+        modelMap.addAttribute("labelList", labelList);
         Comparator<Object> comparator = Collator.getInstance(Locale.CHINA);
         Collections.sort(singerList, (e1, e2) -> {
             return comparator.compare(e1.getSingerName(), e2.getSingerName());
         });
-        modelMap.addAttribute("singerList",singerList);
+        modelMap.addAttribute("singerList", singerList);
         return "back/addalbum";
     }
 
@@ -350,16 +353,20 @@ public class BackIndexController {
         info.setSongId(song1.getSongId());
         infoService.save(info);
         song1.setInfo(info);
+        AlbumDetail albumDetail = new AlbumDetail();
+        albumDetail.setSongId(song1.getSongId());
+        albumDetail.setAlbumId(albumId);
+        albumDetailService.saveAlbumDetail(albumDetail);
         return "添加成功";
     }
 
     @PostMapping("/back/toaddalbum")
     @ResponseBody
-    public String toAddAlbum(MultipartFile file,String albumname,Integer singerId,
-                             String release,String []labels,String introduction)
+    public String toAddAlbum(MultipartFile file, String albumname, Integer singerId,
+                             String release, String[] labels, String introduction)
             throws IOException, ParseException {
-        Album album=new Album();
-        String albumImg=uploadFile.uploadFile(file);
+        Album album = new Album();
+        String albumImg = uploadFile.uploadFile(file);
         album.setAlbum_img(albumImg);
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(release);
         album.setAlbum_release(date);
@@ -376,28 +383,28 @@ public class BackIndexController {
     }
 
     @GetMapping("/back/modifyalbum")
-    public String modifyAlbum(Integer albumId, ModelMap modelMap){
-        List <Label> labelList=labelService.findAll();
-        List<Singer> singerList=singerService.findAll();
-        modelMap.addAttribute("labelList",labelList);
+    public String modifyAlbum(Integer albumId, ModelMap modelMap) {
+        List<Label> labelList = labelService.findAll();
+        List<Singer> singerList = singerService.findAll();
+        modelMap.addAttribute("labelList", labelList);
         Comparator<Object> comparator = Collator.getInstance(Locale.CHINA);
         Collections.sort(singerList, (e1, e2) -> {
             return comparator.compare(e1.getSingerName(), e2.getSingerName());
         });
-        modelMap.addAttribute("singerList",singerList);
-        Album album=albumService.findByAlbumId(albumId);
-        modelMap.addAttribute("album",album);
+        modelMap.addAttribute("singerList", singerList);
+        Album album = albumService.findByAlbumId(albumId);
+        modelMap.addAttribute("album", album);
         List<String> albumLabels = Arrays.asList(album.getLabels().split(","));
-        modelMap.addAttribute("albumLabels",albumLabels);
+        modelMap.addAttribute("albumLabels", albumLabels);
         return "back/modifyalbum";
     }
 
     @PostMapping("/back/tomodifyalbum")
     @ResponseBody
-    public String toModifyAlbum(MultipartFile file,String albumname,Integer
-            singerId,String release,String []labels,String introduction,Integer albumId)
+    public String toModifyAlbum(MultipartFile file, String albumname, Integer
+            singerId, String release, String[] labels, String introduction, Integer albumId)
             throws IOException, ParseException {
-        Album album=albumService.findByAlbumId(albumId);
+        Album album = albumService.findByAlbumId(albumId);
         album.setIntroduction(introduction);
         album.setAlbumName(albumname);
         album.setAlbum_singer(singerId);
@@ -407,13 +414,13 @@ public class BackIndexController {
         while (matcher.find()) {
             release += matcher.group() + '-';
         }
-        release= release.substring(0, release.length() - 1);
+        release = release.substring(0, release.length() - 1);
         Date date = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA).parse(release);
-      album.setAlbum_release(date);
-      if(file!=null){
-          album.setAlbum_img(uploadFile.uploadFile(file));
-      }
-        String label="";
+        album.setAlbum_release(date);
+        if (file != null) {
+            album.setAlbum_img(uploadFile.uploadFile(file));
+        }
+        String label = "";
         for (int i = 0; i < labels.length; i++) {
             label += labels[i] + ',';
         }
@@ -423,41 +430,42 @@ public class BackIndexController {
     }
 
     @GetMapping("/back/labellist")
-    public String labelList(ModelMap modelMap){
-        List<Label> labelList=labelService.findAll();
-        modelMap.addAttribute("labellist",labelList);
+    public String labelList(ModelMap modelMap) {
+        List<Label> labelList = labelService.findAll();
+        modelMap.addAttribute("labellist", labelList);
         return "back/labellist";
     }
 
     @GetMapping("/back/addlabel")
-    public String addlabel(){
+    public String addlabel() {
         return "back/addlabel";
     }
+
     @PostMapping("/back/toaddlabel")
     @ResponseBody
-    public String toAddLabel(String labelname){
-      Label label=labelService.findByLabelName(labelname);
-        if(label!=null)
+    public String toAddLabel(String labelname) {
+        Label label = labelService.findByLabelName(labelname);
+        if (label != null)
             return "标签已存在";
         else {
-            label=new Label();
-         label.setLabel_name(labelname);
-         labelService.save(label);
-         return "添加成功";
+            label = new Label();
+            label.setLabel_name(labelname);
+            labelService.save(label);
+            return "添加成功";
         }
     }
 
     @GetMapping("/back/modifylabel")
-    public String modifyLabel(ModelMap modelMap,Integer labelId){
-        Label label=labelService.getLabelById(labelId);
-        modelMap.addAttribute("label",label);
+    public String modifyLabel(ModelMap modelMap, Integer labelId) {
+        Label label = labelService.getLabelById(labelId);
+        modelMap.addAttribute("label", label);
         return "back/modifylabel";
     }
 
     @PostMapping("/back/tomodifylabel")
     @ResponseBody
-    public String toModifyLabel(Integer labelId,String labelname){
-        Label label=labelService.getLabelById(labelId);
+    public String toModifyLabel(Integer labelId, String labelname) {
+        Label label = labelService.getLabelById(labelId);
         label.setLabel_name(labelname);
         labelService.save(label);
         return "修改成功";
@@ -465,23 +473,23 @@ public class BackIndexController {
 
     @GetMapping("/back/deletelabel")
     @ResponseBody
-    public String deleteLabel(Integer labelId){
+    public String deleteLabel(Integer labelId) {
         labelService.deleteById(labelId);
         return "删除成功";
     }
 
     @PostMapping("/back/deletelabels")
     @ResponseBody
-    public String deletelabels(Integer [] ids){
+    public String deletelabels(Integer[] ids) {
         labelService.deleteByIds(ids);
         return "ok";
     }
 
     @GetMapping("/back/login")
-    public String backLosin(HttpSession session){
-        User user= (User) session.getAttribute("user");
-        if(user!=null){
-            if(user.getIs_super()==1){
+    public String backLosin(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
+            if (user.getIs_super() == 1) {
                 session.removeAttribute("user");
             }
         }
@@ -490,29 +498,26 @@ public class BackIndexController {
 
     @PostMapping("/back/tologin")
     @ResponseBody
-    public String tologing( String username, String password, HttpSession session){
-        User user=userService.findByUserName(username);
-        if(user==null){
-            user=userService.findByPhone(username);
-            if(user==null){
+    public String tologing(String username, String password, HttpSession session) {
+        User user = userService.findByUserName(username);
+        if (user == null) {
+            user = userService.findByPhone(username);
+            if (user == null) {
                 return "用户不存在";
-            }
-            else
-                if(!user.getPassword().equals(password))
-                    return "密码不正确";
-                else {
-                    if (user.getIs_super().equals(1))
-                    session.setAttribute("user",user);
-                    else
-                        return "权限不足";
-                }
-        }
-        else {
-            if(!user.getPassword().equals(password))
+            } else if (!user.getPassword().equals(password))
                 return "密码不正确";
             else {
                 if (user.getIs_super().equals(1))
-                    session.setAttribute("user",user);
+                    session.setAttribute("user", user);
+                else
+                    return "权限不足";
+            }
+        } else {
+            if (!user.getPassword().equals(password))
+                return "密码不正确";
+            else {
+                if (user.getIs_super().equals(1))
+                    session.setAttribute("user", user);
                 else
                     return "权限不足";
             }
@@ -521,8 +526,8 @@ public class BackIndexController {
     }
 
     @GetMapping("/back/index")
-    public String toIndex(ModelMap modelMap){
+    public String toIndex(ModelMap modelMap) {
         return "back/backindex";
-   }
+    }
 
 }

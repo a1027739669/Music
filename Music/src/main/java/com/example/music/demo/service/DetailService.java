@@ -31,9 +31,8 @@ public class DetailService {
         List<Comment> commentList = commentRepository.findAllBySongId(songId);
         if (commentList != null) {
             int start = (int) pageable.getOffset();
-            int end = (start + pageable.getPageSize()) > commentList.size() ? commentList.size() : (start + pageable.getPageSize());
-            Page<Comment> commentPage = new PageImpl<>(commentList.subList(start, end), pageable, commentList.size());
-            return commentPage;
+            int end = Math.min((start + pageable.getPageSize()), commentList.size());
+            return new PageImpl<>(commentList.subList(start, end), pageable, commentList.size());
         }
         return null;
     }

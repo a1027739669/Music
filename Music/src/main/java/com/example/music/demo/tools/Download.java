@@ -1,7 +1,4 @@
 package com.example.music.demo.tools;
-
-import org.springframework.util.Base64Utils;
-
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
@@ -26,9 +23,7 @@ public class Download {
             try {
                 File file = new File(path);
                 if (file.exists()) {
-                    //设置Headers
                     response.setHeader("Content-Type","application/octet-stream");
-                    //设置下载的文件的名称-该方式已解决中文乱码问题
                     response.setHeader("Content-Disposition","attachment;filename=" +  new String( filename.getBytes("gb2312"), "ISO8859-1" ));
                     is = new FileInputStream(file);
                     bs =new BufferedInputStream(is);

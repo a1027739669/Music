@@ -1,7 +1,6 @@
 package com.example.music.demo.service;
 
 import com.example.music.demo.entity.*;
-import com.example.music.demo.repository.LabelRepository;
 import com.example.music.demo.repository.SongRepository;
 import com.example.music.demo.repository.SongSheetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,22 +27,13 @@ public class IndexService {
     @Autowired
     private SongRepository songRepository;
     @Autowired
-    private LabelRepository labelRepository;
-    @Autowired
     private SongSheetRepository songSheetRepository;
-    @Autowired
-    private InfoService infoService;
     @Autowired
     private SingerService singerService;
 
     public List<Song> getSongWithHot() {
         return songRepository.getMorePlays();
     }
-
-    public List<Label> getAllLabel() {
-        return labelRepository.findAll();
-    }
-
     public List<Song> getNewMusics() {
         return songRepository.getNewMusics();
     }
@@ -94,7 +84,7 @@ public class IndexService {
             songSheetList = songSheetRepository.findAll2();
         }
         int start = (int) pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
+        int end = Math.min((start + pageable.getPageSize()), songSheetList.size());
         Page<SongSheet> songSheetsPage = new PageImpl<>(songSheetList.subList(start, end), pageable, songSheetList.size());
         List<SongSheet> test = songSheetsPage.getContent();
         return songSheetsPage;
@@ -114,7 +104,7 @@ public class IndexService {
                     songSheetList.remove(i);
             }
         int start = (int) pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > songSheetList.size() ? songSheetList.size() : (start + pageable.getPageSize());
+        int end = Math.min((start + pageable.getPageSize()), songSheetList.size());
         Page<SongSheet> songSheetsPage = new PageImpl<>(songSheetList.subList(start, end), pageable, songSheetList.size());
         return songSheetsPage;
     }

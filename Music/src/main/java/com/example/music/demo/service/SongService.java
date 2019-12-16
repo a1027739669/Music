@@ -61,7 +61,7 @@ public class SongService {
         Pageable pageable = PageRequest.of(page - 1, 20);
         List<Song> songList = songRepository.findAllBySingerId(singerId);
         int start = (int) pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > songList.size() ? songList.size() : (start + pageable.getPageSize());
+        int end = Math.min((start + pageable.getPageSize()), songList.size());
         Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
         return songPage;
     }
@@ -72,11 +72,11 @@ public class SongService {
     }
 
     public List<Song> findAllByLabelsLike(String label) {
-        return songRepository.findAllBySongLabelLike("%" + label + "%");
+        return songRepository.findAllBySongLabelLikeAndIsOnlineNot("%" + label + "%",0);
     }
 
     public List<Song> findAllByLauguage(String language) {
-        return songRepository.findAllBySongLanguages(language);
+        return songRepository.findAllBySongLanguagesAndIsOnlineNot(language,0);
     }
 
     public Page<Song> findAllByInfo(String key, Integer page) {
@@ -107,9 +107,6 @@ public class SongService {
             @Override
             public Predicate toPredicate(Root<Song> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
-                /**
-                 * 多表查询
-                 */
                 Join<Song, Singer> sroot = root.join("singer", JoinType.LEFT);
                 if (StringUtils.isNotBlank(keyword)) {
                     predicates.add(
@@ -129,7 +126,7 @@ public class SongService {
 
     public List<Song> findAllByIds(Integer[] ids) {
         return
-                songRepository.findAllBySongIdIsIn(ids);
+                songRepository.findAllBySongIdIsInAndIsOnlineNot(ids,0);
     }
 
     public List<Song> findAllbySingerId(Integer singerId) {
