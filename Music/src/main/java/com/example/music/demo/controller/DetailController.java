@@ -50,6 +50,7 @@ public class DetailController {
         song.setTotalComNum(detailService.getTotalComNub(songId));
         modelMap.addAttribute("song", song);
         Page<Comment> commentPage = detailService.getSongPages(pageId, songId);
+        if(commentPage!=null&&commentPage.getContent().size()>0)
         modelMap.addAttribute("commentPage", commentPage);
         return "commenttable";
     }
@@ -60,6 +61,7 @@ public class DetailController {
         song.setTotalComNum(detailService.getTotalComNub(songId));
         modelMap.addAttribute("song", song);
         List<SongSheet> relative=songSheetService.findRelative(songId);
+        if (relative!=null&&relative.size()>0)
         modelMap.addAttribute("relativeSheet",relative);
         String filePath="D:/MUSICRESOURCE/lyic/"+song.getSong_lyrics();
         File file = new File(filePath);

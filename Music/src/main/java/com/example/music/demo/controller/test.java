@@ -82,7 +82,7 @@ public class test {
 //        redisService.set("user2",songList2);
 //        redisService.set("user3",songList3);
 //        redisService.set("user4",songList4);
-       return "back/backindex";
+       return "player";
     }
 
 }

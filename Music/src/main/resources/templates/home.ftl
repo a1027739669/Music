@@ -312,6 +312,7 @@
                                                                              style="height: 40px; width: 40px; top: 0px; left: 0px;"></span>
             </div>
         </div>
+        <#include "footer.ftl">
     </div>
 </div>
 
@@ -527,7 +528,7 @@
     </div>
 </div>
 
-<#include "footer.ftl">
+
 </body>
 <script type="text/javascript">
 

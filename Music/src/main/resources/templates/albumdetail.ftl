@@ -5,9 +5,6 @@
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <meta name="keywords" content="音乐,QQ音乐,在线听歌,音乐下载,音乐播放器,音乐网站,MV,巅峰榜,音乐排行榜,翻译歌曲,热门歌曲,经典老歌,无损音乐,无损曲库">
-    <meta name="description"
-          content="QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。">
     <title>我的音乐</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -198,7 +195,7 @@
 
                                         <span class="songlist__songname_txt"><a
                                                     href="/guest/songDetail?songId=${detail.getSong().songId}"
-                                                    title="C位爱情">${detail.getSong().song_name}</a></span>
+                                                   >${detail.getSong().song_name}</a></span>
                                         <div class="mod_list_menu">
                                             <a onclick="playSong(${detail.getSong().songId})"
                                                class="list_menu__item list_menu__play js_play" title="播放">
@@ -224,7 +221,7 @@
                                     <div class="songlist__artist">
 
 
-                                        <a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html" title="黑龙"
+                                        <a href="//y.qq.com/n/yqq/singer/001C0c6j1VyLfh.html"
                                            class="singer_name">${detail.getSong().getSinger().singerName}</a>
 
                                     </div>
@@ -243,7 +240,6 @@
                                 <div class="songlist__number">${detail_index+1}</div>
                                 <div class="songlist__songname">
 
-                                    <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
 
 
                                     <span class="songlist__songname_txt"><a
@@ -341,7 +337,10 @@
                                 </li>
                             </#list>
                             <#else >
-                            <p>暂无其他专辑</p>
+                                <div class="none_txt">
+                                    <i class="none_txt__symbol"></i>
+                                    <p>暂无其他专辑</p>
+                                </div>
                         </#if>
                     </ul>
                 </div>

@@ -14,18 +14,7 @@
 
 
     <link rel="stylesheet" href="/mediastyle/yqq/popup_login.css?max_age=25920000">
-    <style type="text/css">.emojicon-m {
-            min-height: 1em !important;
-            min-width: 1em !important;
-            max-height: 1em !important;
-            max-width: 1em !important;
-            vertical-align: middle !important;
-            float: none !important;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            display: inline-block;
-        }</style>
+
     <link rel="stylesheet" type="text/css"
           href="/qqmusiccss/qb-ie-remind.css">
 

@@ -30,6 +30,7 @@
         </div>
     </div>
     <div class="mod_all_comment js_mod_all">
+        <#if commentPage ? exists>
         <div class="comment_type__title c_b_normal">
             <h2 class="comment_new_count">最新评论(${song.totalComNum})</h2>
         </div>
@@ -78,7 +79,6 @@
                 </#list>
             </#if>
         </ul>
-
         <div class="mod_page_nav js_pager_comment">
             <#if (commentPage.totalPages==1)>
                 <strong class="current">1</strong>
@@ -182,6 +182,12 @@
                 </#if>
             </#if>
         </div>
+            <#else >
+                <div class="none_txt">
+                    <i class="none_txt__symbol"></i>
+                    <p>什么都没有</p>
+                </div>
+        </#if>
     </div>
 </div>
 <script type="text/javascript">

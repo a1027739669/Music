@@ -23,7 +23,7 @@
         </div>
         <div class="footer-copyright">
             <p class="copyright-p"> 如有问题<img class="BDE_Smiley" changedsize="false" src="https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/editor/images/client/image_emoticon25.png" width="30" height="30">概不负责</p>
-            <p class="copyright-p"><img class="BDE_Smiley" changedsize="false" src="https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/editor/images/client/image_emoticon25.png" width="30" height="30">某不知名的<a class="copyright-p-link" target="_blank" href="javascript:;"  title="版权所有">版权所有</a> </p>
+            <p class="copyright-p"><img class="BDE_Smiley" changedsize="false" src="https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/editor/images/client/image_emoticon25.png" width="30" height="30">此网站为仿照QQ音乐制作而成<a class="copyright-p-link" target="_blank" href="javascript:;"  title="版权所有">，仅供个人使用</a> </p>
         </div>
     </div>
 </footer>

@@ -21,7 +21,7 @@ public class UploadFile {
     public String uploadFile(MultipartFile file) throws IOException {
         String fileName = file.getOriginalFilename();
         String[] s = fileName.split("\\.");
-        fileName = s[0] + System.currentTimeMillis() + '.' + s[1];
+        fileName =System.currentTimeMillis() + '.' + s[1];
         File path = new File("D:/MUSICRESOURCE/image/" + fileName);
         file.transferTo(path);
         return fileName;
@@ -29,7 +29,7 @@ public class UploadFile {
     public String uploadFileToMp3(MultipartFile file) throws IOException {
         String fileName = file.getOriginalFilename();
         String[] s = fileName.split("\\.");
-        fileName = s[0] + System.currentTimeMillis() + '.' + s[1];
+        fileName = System.currentTimeMillis() + '.' + s[1];
         File path = new File("D:/MUSICRESOURCE/yinpin/" + fileName);
         file.transferTo(path);
         return fileName;
@@ -37,7 +37,7 @@ public class UploadFile {
     public String uploadFileToLyric(MultipartFile file) throws IOException {
         String fileName = file.getOriginalFilename();
         String[] s = fileName.split("\\.");
-        fileName = s[0] + System.currentTimeMillis() + '.' + s[1];
+        fileName = System.currentTimeMillis() + '.' + s[1];
         File path = new File("D:/MUSICRESOURCE/lyic/" + fileName);
         file.transferTo(path);
         return fileName;

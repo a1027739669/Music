@@ -163,15 +163,7 @@
         </div>
     </div>
 </div>
-<footer class="footer-container">
-    <div class="section-container">
-        <div class="footer-copyright">
-            <p class="copyright-p">
-            <h3  target="_blank" title="隐私政策">我的音乐</h3>
-            </p>
-        </div>
-    </div>
-</footer>
+
 
 <div class="mod_operate_menu" style="position: absolute; display: none; left: 434px; top: 594px;" id="fav_pop">
     <div class="operate_menu__cont">

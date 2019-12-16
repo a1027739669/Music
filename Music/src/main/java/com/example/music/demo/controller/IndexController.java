@@ -227,7 +227,7 @@ public class IndexController {
     @GetMapping("/guest/SRtable")
     public String SRtable(ModelMap modelMap, String info, Integer pageId) {
         Page<Song> results = songService.findAllByInfo(info, pageId);
-        if (results.getContent().size() > 0) {
+        if (results!=null) {
             modelMap.addAttribute("resultList", results);
         }
         modelMap.addAttribute("info", info);

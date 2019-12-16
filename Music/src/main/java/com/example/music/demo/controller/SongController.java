@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -405,7 +404,7 @@ public class SongController {
         commentService.save(comment);
         return "评论成功";
     }
-    @PostMapping("/guest/getlyric")
+    @GetMapping("/guest/getlyric")
     @ResponseBody
     public String getLyric(String path) throws IOException {
         List<String> temp= Files.readAllLines(Paths.get("D:/MUSICRESOURCE/lyic/"+path));

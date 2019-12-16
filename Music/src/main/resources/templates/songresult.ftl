@@ -32,13 +32,13 @@
                                             <div class="column paused" style="animation-delay: -0.9s;"></div>
                                             <div class="column paused" style="animation-delay: -0.6s;"></div>
                                         </div>
-                                        <div class="iconfont play-btn" onclick="playSong(result.songId)"></div>
+                                        <div class="iconfont play-btn" onclick="playSong(${result.songId})"></div>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="songName-container">
                                         <div class="song-name em"><a
-                                                    href="/guest/songDetail?songId=${result.songId}"><span>${result.song_name}</span></a></div>
+                                                    href="/guest/detail?songId=${result.songId}"><span>${result.song_name}</span></a></div>
                                     </div>
                                 </td>
                                 <td>
@@ -87,7 +87,7 @@
                                 <td>
                                     <div class="songName-container">
                                         <div class="song-name em"><a
-                                                    href="/guest/songDetail?songId=${result.songId}"><span>${result.song_name}</span></a></div>
+                                                    href="/guest/detail?songId=${result.songId}"><span>${result.song_name}</span></a></div>
                                     </div>
                                 </td>
                                 <td>

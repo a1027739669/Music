@@ -258,6 +258,11 @@
                                     </div>
                                 </li>
                             </#list>
+                            <#else >
+                                <div class="none_txt">
+                                    <i class="none_txt__symbol"></i>
+                                    <p>什么都没有</p>
+                                </div>
                         </#if>
                     </ul>
                 </div>

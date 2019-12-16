@@ -16,14 +16,13 @@ function lyricCallback(url) {
     
     $.ajax({  //异步请求获取歌词
         url:url,
-        type:"post",
+        type:"get",
         success:function(data){
 
             if(data == '') {
                 lyricTip('乐诗、悦动你的生活');
                 return false;
             }
-
             lyricText = parseLyric(data);    // 解析获取到的歌词
 
             if(lyricText === '') {

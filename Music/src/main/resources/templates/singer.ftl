@@ -357,15 +357,7 @@
 <div class="bg_detail"><i class="bg_detail__pic"
                           style="background-image:url(//y.gtimg.cn/music/photo_new/T001R300x300M0000025NhlN2yWrP4.jpg?max_age=2592000);"></i>
 </div>
-<footer class="footer-container">
-    <div class="section-container">
-        <div class="footer-copyright">
-            <p class="copyright-p">
-            <h3  target="_blank" title="隐私政策">我的音乐</h3>
-            </p>
-        </div>
-    </div>
-</footer>
+
 <div class="mod_operate_menu" style="position: absolute; display: none; left: 434px; top: 594px;" id="fav_pop">
     <div class="operate_menu__cont">
         <a href="javascript:;" class="operate_menu__link js_addto_playlist">播放队列</a>

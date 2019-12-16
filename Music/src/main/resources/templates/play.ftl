@@ -20,7 +20,14 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="x5-page-mode" content="app">
 
-    <title>Lily_music</title>
+    <title>我的音乐</title>
+    <link rel="stylesheet" href="/mediastyle/yqq/player_0611.css?max_age=2592000&amp;v=20190611">
+
+
+    <link rel="stylesheet" href="/mediastyle/yqq/popup_login.css?max_age=25920000">
+
+    <link rel="stylesheet" type="text/css"
+          href="/qqmusiccss/qb-ie-remind.css">
 
     <!-- 引入jQuery官方类库 -->
     <script src="/playresource/js/jquery.min.js"></script>
@@ -36,14 +43,34 @@
 <#--    <link type="text/css" rel="stylesheet" href="playresource/css/kr-loading.css" />-->
 </head>
 <body>
-
+<h1 class="player_logo"><a href=""
+    rel="noopener" target="_blank"><img
+                class="player_logo__pic"
+                src="/image/logo.png" alt="我的音乐"></a></h1>
+<div class="mod_player_login">
+    <span id="player_login" style="">
+		<a class="player_login__link" href="https://y.qq.com/portal/profile.html#stat=y_new.player.header.user_pic"
+           target="_blank"><img
+                    src="http://thirdqq.qlogo.csonn/g?b=sdk&amp;k=ZbfpT8QjY6vdqW4ePRkkIg&amp;s=140&amp;t=1558784273"
+                    onerror="this.src='//y.gtimg.cn/mediastyle/global/img/person_300.png?max_age=2592000';this.onerror=null;"
+                    class="player_login__cover js_user_img"><span
+                    class="player_login__txt">ZYX</span></a>
+		<a href="javascript:;" class="player_login__out js_logout" data-stat="y_new.player.header.logout">退出</a>
+		<a class="player_login__link player_login__link--set js_opts_login" href="javascript:;"><span
+                    class="player_login__txt">设置</span></a>
+	</span>
+    <a class="player_login__link player_login__link--unlogin js_login" data-stat="y_new.player.header.login"
+       href="javascript:;" style="display: none;">
+        <span class="player_login__txt">登录</span>
+    </a>
+    <a class="player_login__link player_login__link--set js_opts_unlogin" href="javascript:;"
+       style="display: none;"><span class="player_login__txt">设置</span></a>
+</div>
 <div id="blur-img"></div>
 
 <!-- 头部logo -->
 <div class="header">
-    <div class="logo">
-       历史播放列表
-    </div>
+
 </div>
 
 <!-- 中间 -->
@@ -55,9 +82,16 @@
                 <span class="btn" data-action="player" hidden>正在播放</span>
                 <span class="btn active" data-action="list" title="正在播放列表">播放列表</span>
             </div>
-            <div class="serchsongs">
-                <input type="text" name="keywords" maxlength="17" id="krserwords"/>
-                <div class="searchDivIcon" ><span class="searchIcon" ></span></div>
+<#--            <div class="serchsongs">-->
+<#--                <input type="text" name="keywords" maxlength="17" id="krserwords"/>-->
+<#--                <div class="searchDivIcon" ><span class="searchIcon" ></span></div>-->
+<#--            </div>-->
+            <div class="mod_songlist_toolbar">
+                <a href="javascript:;" class="mod_btn js_all_like" data-stat="y_new.player.songlist.loveall"><i class="mod_btn_green__icon_like"></i> <font color="white">收藏</font><span class="mod_btn__border"></span></a>
+                <a href="javascript:;" class="mod_btn js_all_fav" data-stat="y_new.player.songlist.addall"><i class="mod_btn_green__icon_add"></i><font color="white">添加到</font><span class="mod_btn__border"></span></a>
+                <a href="javascript:;" class="mod_btn js_all_down" data-stat="y_new.player.songlist.downloadall"><i class="mod_btn_green__icon_down"></i><font color="white">下载</font><span class="mod_btn__border"></span></a>
+                <a href="javascript:;" class="mod_btn js_all_delete" data-stat="y_new.player.songlist.deleteall"><i class="mod_btn_green__icon_delete"></i><font color="white">删除</font><span class="mod_btn__border"></span></a>
+                <a href="javascript:;" class="mod_btn js_all_deleted" data-stat="y_new.player.songlist.deleteallonce"><i class="mod_btn_green__icon_clear"></i><font color="white">清空列表</font><span class="mod_btn__border"></span></a>
             </div>
         </div>
 
@@ -70,7 +104,7 @@
                 </div>
                 <#if playlist ? exists>
                 <#list playlist as playsong>
-                <div class="list-item" data-url="/getwav/${playsong.song_file}" data-pic="/upload/${playsong.song_img}" data-lrc="/guest/${playsong.song_lyrics}" data-no="${playsong_index+1}" data-name="${playsong.song_name}">
+                <div class="list-item" data-url="/getwav/${playsong.song_file}" data-pic="/upload/${playsong.song_img}" data-lrc="/guest/getlyric?path=${playsong.song_lyrics}" data-no="${playsong_index+1}" data-name="${playsong.song_name}">
                     <span class="list-num">${playsong_index+1}</span>
                     <span class="list-mobile-menu"></span>
                     <span class="music-album">${playsong.song_time}</span>

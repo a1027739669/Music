@@ -41,19 +41,22 @@ public class SongService {
     private UserCollectionRepository userCollectionRepository;
     @Autowired
     private InfoRepository infoRepository;
+
     public List<UserCollection> getMyCollection(Integer id) {
 
         return userCollectionRepository.findAllByUserId(id);
     }
+
     public Song getOneDetail(Integer id) {
 
         return songRepository.getOne(id);
     }
-    public List<Song> getNewMusicies()
-    {
+
+    public List<Song> getNewMusicies() {
         return
                 songRepository.getNewMusics();
     }
+
     public Page<Song> getSongPages(Integer page, Integer singerId) {
         Pageable pageable = PageRequest.of(page - 1, 20);
         List<Song> songList = songRepository.findAllBySingerId(singerId);
@@ -62,38 +65,43 @@ public class SongService {
         Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
         return songPage;
     }
+
     public Integer getTotalSongNumber(Integer singerId) {
         return
                 songRepository.findAllBySingerId(singerId).size();
     }
+
     public List<Song> findAllByLabelsLike(String label) {
         return songRepository.findAllBySongLabelLike("%" + label + "%");
     }
+
     public List<Song> findAllByLauguage(String language) {
-        return
-                songRepository.findAllBySongLanguages(language);
+        return songRepository.findAllBySongLanguages(language);
     }
+
     public Page<Song> findAllByInfo(String key, Integer page) {
         Pageable pageable = PageRequest.of(page - 1, 60);
         List<Song> songList = songRepository.findAll(this.getWhereClause(key));
-       Song song=songList.get(0);
-        System.out.println(song.getInfo()==null);
-        for(int i=0;i<songList.size();i++){
-            Info info=songList.get(i).getInfo();
-            info.setInfo_search(info.getInfo_search()+1);
-            infoRepository.save(info);
-        }
-        Collections.sort(songList, new Comparator<Song>() {
-            @Override
-            public int compare(Song o1, Song o2) {
-                return -o1.getInfo().getInfo_plays().compareTo(o2.getInfo().getInfo_plays());
+        if (songList.size() > 0) {
+            for (int i = 0; i < songList.size(); i++) {
+                Info info = songList.get(i).getInfo();
+                info.setInfo_search(info.getInfo_search() + 1);
+                infoRepository.save(info);
             }
-        });
-        int start = (int) pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > songList.size() ? songList.size() : (start + pageable.getPageSize());
-        Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
-        return songPage;
+            Collections.sort(songList, new Comparator<Song>() {
+                @Override
+                public int compare(Song o1, Song o2) {
+                    return -o1.getInfo().getInfo_plays().compareTo(o2.getInfo().getInfo_plays());
+                }
+            });
+            int start = (int) pageable.getOffset();
+            int end = Math.min((start + pageable.getPageSize()), songList.size());
+            Page<Song> songPage = new PageImpl<>(songList.subList(start, end), pageable, songList.size());
+            return songPage;
+        }
+        return null;
     }
+
     public Specification<Song> getWhereClause(String keyword) {
         return new Specification<Song>() {
             @Override
@@ -118,17 +126,21 @@ public class SongService {
             }
         };
     }
+
     public List<Song> findAllByIds(Integer[] ids) {
         return
                 songRepository.findAllBySongIdIsIn(ids);
     }
+
     public List<Song> findAllbySingerId(Integer singerId) {
         return
                 songRepository.findAllBySingerId(singerId);
     }
+
     public List<Song> findAll() {
         return songRepository.findAll();
     }
+
     public Song save(Song song) {
         return songRepository.save(song);
     }
