@@ -478,7 +478,13 @@ public class BackIndexController {
     }
 
     @GetMapping("/back/login")
-    public String backLosin(){
+    public String backLosin(HttpSession session){
+        User user= (User) session.getAttribute("user");
+        if(user!=null){
+            if(user.getIs_super()==1){
+                session.removeAttribute("user");
+            }
+        }
         return "back/login";
     }
 
