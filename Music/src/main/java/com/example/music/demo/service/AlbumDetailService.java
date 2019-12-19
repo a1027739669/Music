@@ -25,4 +25,8 @@ public class AlbumDetailService {
     public void saveAlbumDetail(AlbumDetail albumDetail){
         albumDetailRepository.save(albumDetail);
     }
+
+    public AlbumDetail findByAlbumIdAndSongId(Integer albumId, Integer songId) {
+        return albumDetailRepository.findAlbumDetailByAlbumIdAndSongId(albumId, songId);
+    }
 }

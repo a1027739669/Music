@@ -267,7 +267,7 @@
                                         <div class="collect-item unselectable" style="flex: 0 0 20%; max-width: 20%;">
                                             <div class="wrapper"><a href="https://www.xiami.com/collect/365764247">
                                                     <div class="cover"
-                                                         style="background-image: url('/upload/${collection.sheetImg}');">
+                                                         style="background-image: url('/upload/${collection.songSheet.sheetImg}');">
                                                         <div class="count"><i
                                                                     class="iconfont"></i>${collection.getSongSheet().support}</div>
                                                         <div class="action">
@@ -283,7 +283,7 @@
                                                             href="https://www.xiami.com/user/52300480">${collection.getSongSheet().getUser().nicheng}</a>
                                                 </div>
                                                 <div class="song-tags" data-spm="songtags">
-                                                    <#list collection.labels ? split(',') as label>
+                                                    <#list collection.getSongSheet().labels ? split(',') as label>
                                                         <span class="tag-tag"><a
                                                                     href="">${label}</a></span>
                                                     </#list>
@@ -536,7 +536,7 @@
         $("#userImg").mouseover(function () {
             $(".popup_user").addClass("drop");
         })
-        $("#userImg").mouse(function () {
+        $("#userImg").mouseleave(function () {
             $('.popup_user').removeClass("drop");
         })
         $(".popup_user").mouseover(function () {

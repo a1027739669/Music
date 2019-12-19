@@ -196,7 +196,7 @@
                         </div>
                         <div class="form-card">
                             <div class="form-name">邮箱<span class="limit-txt">绑定之后可用邮箱登录</span></div>
-                            <div><input class="text-form" type="text" placeholder="" value="${user.email}" id="useremail"></div>
+                            <div><input class="text-form" type="text" placeholder="" value="${(user.email)!'暂无邮箱'}" id="useremail"></div>
                         </div>
                         <div class="form-card">
                             <div class="form-name">签名<span class="limit-txt"></span></div>
@@ -234,15 +234,7 @@
             </div>
         </div>
     </div>
-    <footer class="footer-container">
-        <div class="section-container">
-            <div class="footer-copyright">
-                <p class="copyright-p">
-                <h3  target="_blank" title="隐私政策">我的音乐</h3>
-                </p>
-            </div>
-        </div>
-    </footer>
+    <#include "footer.ftl">
 </div>
 <div class="modal-wrapper"></div>
 
@@ -307,6 +299,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <div class="modal-wrapper">
@@ -474,7 +467,7 @@
         </div>
     </div>
 </div>
-<#include "footer.ftl">
+
 </body>
 <script type="text/javascript">
     function playAll() {

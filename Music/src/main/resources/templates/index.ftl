@@ -166,9 +166,9 @@
                                 <div class="play-people">
                                     播放量：
                                     <#if (sheet.playCount>=10000)>
-                                    ${(sheet.playCount/10000) ? int}万
-                                        <#else >
-                                            ${sheet.playCount}
+                                        ${(sheet.playCount/10000) ? int}万
+                                    <#else >
+                                        ${sheet.playCount}
                                     </#if>
 
                                 </div>
@@ -190,7 +190,7 @@
                                 <div class="play-people">
                                     播放量：
                                     <#if (sheet.playCount>=10000)>
-                                    ${(sheet.playCount/10000) ? int}万
+                                        ${(sheet.playCount/10000) ? int}万
                                     <#else >
                                         ${sheet.playCount}
                                     </#if>
@@ -486,15 +486,15 @@
                             <i class="icon-play play litter-icon" onclick="platindexrank(1)"></i>
                             <i class="chart-line"></i>
                             <h3 class="chart-head">
-                                <a   class="chart-title">流行指数</a>
+                                <a class="chart-title">流行指数</a>
                             </h3>
                             <ul class="chart-songList">
                                 <#list indexlist1 as list>
-                                <li class="chart-song">
-                                    <div class="chart-num">${list_index+1}</div>
-                                    <div class="chart-name">${list.song_name}</div>
-                                    <div class="chart-author">${list.getSinger().singerName}</div>
-                                </li>
+                                    <li class="chart-song">
+                                        <div class="chart-num">${list_index+1}</div>
+                                        <div class="chart-name">${list.song_name}</div>
+                                        <div class="chart-author">${list.getSinger().singerName}</div>
+                                    </li>
                                 </#list>
 
                             </ul>
@@ -503,7 +503,7 @@
                     <li class="chart-item">
                         <div class="chart-box">
                             <div class="chart-bg"></div>
-                            <i class="icon-play play litter-icon" onclick="platindexrank(2)" ></i>
+                            <i class="icon-play play litter-icon" onclick="platindexrank(2)"></i>
                             <i class="chart-line"></i>
                             <h3 class="chart-head">
                                 <a class="chart-title">热歌</a>
@@ -523,7 +523,7 @@
                     <li class="chart-item">
                         <div class="chart-box">
                             <div class="chart-bg"></div>
-                            <i class="icon-play play litter-icon"  onclick="platindexrank(3)" ></i>
+                            <i class="icon-play play litter-icon" onclick="platindexrank(3)"></i>
                             <i class="chart-line"></i>
                             <h3 class="chart-head">
                                 <a class="chart-title">新歌</a>
@@ -546,9 +546,9 @@
                             <i class="icon-play play litter-icon" onclick="platindexrank(4)"></i>
                             <i class="chart-line"></i>
                             <h3 class="chart-head">
-                                <a   class="chart-title">欧美</a>
+                                <a class="chart-title">欧美</a>
                             </h3>
-                              <ul class="chart-songList">
+                            <ul class="chart-songList">
                                 <#list indexlist4 as list>
                                     <li class="chart-song">
                                         <div class="chart-num">${list_index+1}</div>
@@ -566,7 +566,7 @@
                             <i class="icon-play play litter-icon" onclick="platindexrank(5)"></i>
                             <i class="chart-line"></i>
                             <h3 class="chart-head">
-                                <a   class="chart-title">韩国</a>
+                                <a class="chart-title">韩国</a>
                             </h3>
                             <ul class="chart-songList">
                                 <#list indexlist5 as list>

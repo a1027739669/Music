@@ -18,4 +18,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AlbumDetailRepository extends JpaRepository<AlbumDetail,Integer> {
+    public AlbumDetail findAlbumDetailByAlbumIdAndSongId(Integer albumId,Integer songId);
 }

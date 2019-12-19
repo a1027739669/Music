@@ -1,7 +1,6 @@
 package com.example.music.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -33,7 +32,7 @@ public class Info implements Serializable {
     private Integer songId;
 
     @OneToOne(cascade=CascadeType.PERSIST)
-    @JsonIgnoreProperties(value = {"songId"})
+    @JsonIgnore
     @JoinColumn(name = "songId", referencedColumnName = "songId",insertable = false,updatable =false)
     private Song song;
 

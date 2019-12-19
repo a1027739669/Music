@@ -182,10 +182,10 @@
                         <div class="edit-collect-title edit-collect-item">
                             <div class="title">
                                 <div>标题</div>
-                                <div class="subtitle" id="sheetName">最多30个字符</div>
+                                <div class="subtitle">最多30个字符</div>
                                 <div class="public-status"><span class="iconfont"></span></div>
                             </div>
-                            <div class="input"><input type="text" value=""></div>
+                            <div class="input"><input type="text" value="" id="sheetName"></div>
                         </div>
                         <div class="edit-collect-tag edit-collect-item">
                             <div class="title">
@@ -234,15 +234,7 @@
 
 
     </div>
-    <footer class="footer-container">
-        <div class="section-container">
-            <div class="footer-copyright">
-                <p class="copyright-p">
-                <h3  target="_blank" title="隐私政策">我的音乐</h3>
-                </p>
-            </div>
-        </div>
-    </footer>
+    <#include "footer.ftl">
 </div>
 
 <div class="modal-wrapper">
@@ -455,7 +447,7 @@
         </div>
     </div>
 </div>
-<#include "footer.ftl">
+
 </body>
 <script type="text/javascript">
 
@@ -536,7 +528,7 @@
         var myform = new FormData();
         var sheetName = $("#sheetName").val();
 
-        if (sheetName.length === 0) {
+        if (sheetName.length ==0) {
             layer.msg("标题不能为空");
             return;
         }
@@ -556,7 +548,7 @@
             contentType: false,
             processData: false,
             success: function (result) {
-                alert("成功");
+                layer.msg("创建成功");
             },
             error: function (data) {
                 $.messager.alert("警告", "文件上传失败！", "warning", function () {

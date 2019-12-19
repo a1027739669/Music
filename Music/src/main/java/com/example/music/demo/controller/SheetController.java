@@ -129,7 +129,7 @@ public class SheetController {
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
             String[] s = fileName.split("\\.");
-            fileName = s[0] + System.currentTimeMillis() + '.' + s[1];
+            fileName =System.currentTimeMillis() + '.' + s[1];
             File path = new File("D:/MUSICRESOURCE/image/" + fileName);
             file.transferTo(path);
             songSheet.setSheetImg(fileName);
@@ -139,6 +139,7 @@ public class SheetController {
         songSheet.setSupport((float) 0);
         songSheet.setCreateDate(new Date());
         songSheet.setIntroduction(textArea);
+        songSheet.setIsShare(1);
         songSheet.setCreateId(userId);
         songSheet.setPlayCount(0);
         songSheet.setLabels(tag);

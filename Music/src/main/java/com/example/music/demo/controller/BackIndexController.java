@@ -274,6 +274,9 @@ public class BackIndexController {
         if (file2 != null) {
             song.setSong_lyrics(uploadFile.uploadFileToLyric(file2));
         }
+        AlbumDetail albumDetail=albumDetailService.findByAlbumIdAndSongId(song.getAlbum_id(),song.getSongId());
+        albumDetail.setAlbumId(albumId);
+        albumDetailService.saveAlbumDetail(albumDetail);
         song.setAlbum_id(albumId);
         String label = "";
         for (int i = 0; i < labels.length; i++) {
@@ -281,6 +284,7 @@ public class BackIndexController {
         }
         song.setSongLabel(label);
         songService.save(song);
+
         return "修改成功";
     }
 

@@ -347,7 +347,14 @@ public class SongController {
             List<Song> recentPlay= (List<Song>) redisService.get(key);
             for(int i=0;i<playlist.size(); i++){
                 Song song = playlist.get(i);
-                if(!recentPlay.contains(song)){
+                int flag=1;
+                for (Song value : recentPlay) {
+                    if (value.getSongId().equals(song.getSongId())) {
+                        flag = 0;
+                        break;
+                    }
+                }
+                if(flag!=0){
                     recentPlay.add(song);
                 }
                 if(recentPlay.size()>=101)

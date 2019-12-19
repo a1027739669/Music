@@ -76,9 +76,6 @@
             <dd>
                 <ul>
                     <li><a href="/back/singerlist" title="管理员列表">歌手列表</a></li>
-                    <li><a href="admin-role.html" title="角色管理">角色管理</a></li>
-                    <li><a href="admin-permission.html" title="权限管理">权限管理</a></li>
-
                 </ul>
             </dd>
         </dl>

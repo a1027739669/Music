@@ -48,7 +48,6 @@ public class AlbumController {
         modelMap.addAttribute("albumPage", albumPage);
         return "albumtable";
     }
-
     @GetMapping("/guest/albumlist")
     public String detail(ModelMap modelMap) {
         if (redisService.get("hotSearch") != null) {
