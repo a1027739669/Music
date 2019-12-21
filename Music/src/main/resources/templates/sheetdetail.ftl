@@ -276,7 +276,7 @@
                                         <span class="songlist__songname_txt"><a
                                                     href="https://y.qq.com/n/yqq/song/001b9vZQ2XkXQ2.html"
                                                     class="js_song"
-                                                    title="墨书 ">${detail.getSong().getSinger().singerName}<span
+                                                    title="墨书 ">${detail.getSong().song_name}<span
                                                         class="songlist__song_txt"></span></a></span>
                                         <div class="mod_list_menu">
                                             <a onclick="playSong(${detail.getSong().songId})"

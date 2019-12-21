@@ -39,6 +39,13 @@ public class MyInterceptor implements HandlerInterceptor {
                 response.sendRedirect("/back/login");
             return false;
         } else {
+            String s = request.getRequestURI().split("/")[1];
+            if (s.equalsIgnoreCase("back")){
+                if(user.getIs_super()==0){
+                    response.sendRedirect("/back/login");
+                }
+                return false;
+            }
             return true;
         }
     }

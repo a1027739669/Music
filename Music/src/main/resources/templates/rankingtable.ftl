@@ -42,7 +42,7 @@
 
                             <a onclick="singledown(${song.songId})" class="list_menu__item list_menu__down js_down" title="下载"
                                aria-haspopup="true" data-target="menu_down">
-                                <i class="list_menu__icon_down_vip"></i>
+                                <i class="list_menu__icon_down"></i>
                                 <span class="icon_txt">下载</span>
                             </a>
 
@@ -96,7 +96,7 @@
 
                             <a onclick="singledown(${song.songId})" class="list_menu__item list_menu__down js_down" title="下载"
                                aria-haspopup="true" data-target="menu_down">
-                                <i class="list_menu__icon_down_vip"></i>
+                                <i class="list_menu__icon_down"></i>
                                 <span class="icon_txt">下载</span>
                             </a>
 
@@ -160,7 +160,7 @@
 
                             <a onclick="singledown(${song.songId})" class="list_menu__item list_menu__down js_down" title="下载"
                                aria-haspopup="true" data-target="menu_down">
-                                <i class="list_menu__icon_down_vip"></i>
+                                <i class="list_menu__icon_down"></i>
                                 <span class="icon_txt">下载</span>
                             </a>
 
@@ -222,7 +222,7 @@
 
                             <a onclick="singledown(${song.songId})" class="list_menu__item list_menu__down js_down" title="下载"
                                aria-haspopup="true" data-target="menu_down">
-                                <i class="list_menu__icon_down_vip"></i>
+                                <i class="list_menu__icon_down"></i>
                                 <span class="icon_txt">下载</span>
                             </a>
 
