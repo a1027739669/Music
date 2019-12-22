@@ -40,8 +40,8 @@
         <ul class="header-top-nav">
             <li class="top-nav-item active"><a href="/guest/index" class="tnav-link" title="音乐馆">主页</a></li>
             <li class="top-nav-item"><a onclick="toHome()" class="tnav-link" title="我的音乐">个人中心</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">排行榜</a></li>
-            <li class="top-nav-item"><a href="#" class="tnav-link" title="音乐号">分类歌单</a></li>
+            <li class="top-nav-item"><a href="/guest/rank" class="tnav-link" title="音乐号">排行榜</a></li>
+            <li class="top-nav-item"><a href="/guest/sheetlist" class="tnav-link" title="音乐号">分类歌单</a></li>
 
 
         </ul>

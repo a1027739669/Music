@@ -49,7 +49,7 @@
                 src="/image/logo.png" alt="我的音乐"></a></h1>
 <div class="mod_player_login">
     <span id="player_login" style="">
-		<a class="player_login__link" href="https://y.qq.com/portal/profile.html#stat=y_new.player.header.user_pic"
+		<a class="player_login__link" href=""
            target="_blank"><img
                     src="http://thirdqq.qlogo.csonn/g?b=sdk&amp;k=ZbfpT8QjY6vdqW4ePRkkIg&amp;s=140&amp;t=1558784273"
                     onerror="this.src='//y.gtimg.cn/mediastyle/global/img/person_300.png?max_age=2592000';this.onerror=null;"

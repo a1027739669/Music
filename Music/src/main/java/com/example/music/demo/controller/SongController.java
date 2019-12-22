@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class SongController {
     public void downSong(HttpServletResponse response, String[] names,
                          String[] paths) {
 
-        String directory = "D:\\MUSICRESOURCE\\zip";
+        String directory = "C:\\MUSICRESOURCE\\zip";
         File directoryFile = new File(directory);
         if (!directoryFile.isDirectory() && !directoryFile.exists()) {
             directoryFile.mkdirs();
@@ -145,9 +146,9 @@ public class SongController {
             String[] temp = tempname.split("\\.");
             String suffix = temp[temp.length - 1];
             names[i] = songList.get(i).getSong_name() + '.' + suffix;
-            paths[i] = "D:/MUSICRESOURCE/yinpin/" + songList.get(i).getSong_file();
+            paths[i] = "C:/MUSICRESOURCE/yinpin/" + songList.get(i).getSong_file();
         }
-        String directory = "D:\\MUSICRESOURCE\\zip";
+        String directory = "C:\\MUSICRESOURCE\\zip";
         File directoryFile = new File(directory);
         if (!directoryFile.isDirectory() && !directoryFile.exists()) {
             directoryFile.mkdirs();
@@ -215,7 +216,7 @@ public class SongController {
         singerService.save(singer);
         String[] temp = song.getSong_file().split("\\.");
         String name = song.getSong_name() + '.' + temp[temp.length - 1];
-        String path = "D:/MUSICRESOURCE/yinpin/" + song.getSong_file();
+        String path = "C:/MUSICRESOURCE/yinpin/" + song.getSong_file();
         File file = new File(path);
         if (file.exists()) {
             download.downFile(response, name, path);
@@ -414,7 +415,7 @@ public class SongController {
     @GetMapping("/guest/getlyric")
     @ResponseBody
     public String getLyric(String path) throws IOException {
-        List<String> temp= Files.readAllLines(Paths.get("D:/MUSICRESOURCE/lyic/"+path));
+        List<String> temp= Files.readAllLines(Paths.get("C:/MUSICRESOURCE/lyic/"+path));
         String ans="";
         for (int i = 0; i <temp.size() ; i++) {
             ans+=(temp.get(i)+"\n");

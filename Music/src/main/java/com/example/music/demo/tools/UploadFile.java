@@ -22,7 +22,7 @@ public class UploadFile {
         String fileName = file.getOriginalFilename();
         String[] s = fileName.split("\\.");
         fileName =System.currentTimeMillis() + '.' + s[1];
-        File path = new File("D:/MUSICRESOURCE/image/" + fileName);
+        File path = new File("C:/MUSICRESOURCE/image/" + fileName);
         file.transferTo(path);
         return fileName;
     }
@@ -30,7 +30,7 @@ public class UploadFile {
         String fileName = file.getOriginalFilename();
         String[] s = fileName.split("\\.");
         fileName = System.currentTimeMillis() + '.' + s[1];
-        File path = new File("D:/MUSICRESOURCE/yinpin/" + fileName);
+        File path = new File("C:/MUSICRESOURCE/yinpin/" + fileName);
         file.transferTo(path);
         return fileName;
     }
@@ -38,7 +38,7 @@ public class UploadFile {
         String fileName = file.getOriginalFilename();
         String[] s = fileName.split("\\.");
         fileName = System.currentTimeMillis() + '.' + s[1];
-        File path = new File("D:/MUSICRESOURCE/lyic/" + fileName);
+        File path = new File("C:/MUSICRESOURCE/lyic/" + fileName);
         file.transferTo(path);
         return fileName;
     }

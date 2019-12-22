@@ -22,8 +22,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class PathConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/upload/**").addResourceLocations("file:D:/MUSICRESOURCE/image/");
-        registry.addResourceHandler("/getwav/**").addResourceLocations("file:D:/MUSICRESOURCE/yinpin/");
-        registry.addResourceHandler("/getlyric/**").addResourceLocations("file:D:/MUSICRESOURCE/lyic/");
+        registry.addResourceHandler("/upload/**").addResourceLocations("file:C:/MUSICRESOURCE/image/");
+        registry.addResourceHandler("/getwav/**").addResourceLocations("file:C:/MUSICRESOURCE/yinpin/");
+        registry.addResourceHandler("/getlyric/**").addResourceLocations("file:C:/MUSICRESOURCE/lyic/");
     }
 }

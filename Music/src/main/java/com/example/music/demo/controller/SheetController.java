@@ -130,7 +130,7 @@ public class SheetController {
             String fileName = file.getOriginalFilename();
             String[] s = fileName.split("\\.");
             fileName =System.currentTimeMillis() + '.' + s[1];
-            File path = new File("D:/MUSICRESOURCE/image/" + fileName);
+            File path = new File("C:/MUSICRESOURCE/image/" + fileName);
             file.transferTo(path);
             songSheet.setSheetImg(fileName);
         }

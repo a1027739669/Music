@@ -105,14 +105,14 @@
                 <div class="popup_user">
 
                     <div class="popup_user_toolbar">
-                        <!--绿钻-->
+
                         <div class="popup_user_toolbar__item">
                             <div class="popup_user_toolbar__tit"><a href="/user/userinfo"
                                                                     target="_blank" rel="noopener">个人信息</a>
                             </div>
                         </div>
 
-                        <!--付费包-->
+
 
                         <div class="popup_user_toolbar__item">
                             <div class="popup_user_toolbar__tit js_msgcenterdiv"><a
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="talentDes"></div>
                                 <div class="signature">${user.introduction}</div>
-                                <div class="description">来自宇宙深处的，${user.create_date}加入</div>
+                                <div class="description">来自宇宙深处的，${user.create_date ? date}加入</div>
                                 <div class="info-count"><a href="">
                                         <div class="item">
                                             <div class="item-count"></div>

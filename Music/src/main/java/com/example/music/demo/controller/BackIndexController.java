@@ -245,7 +245,7 @@ public class BackIndexController {
         if (file3 != null) {
             String songfilename = uploadFile.uploadFileToMp3(file3);
             song.setSong_file(songfilename);
-            File file = new File("D:/MUSICRESOURCE/yinpin/" + songfilename);
+            File file = new File("C:/MUSICRESOURCE/yinpin/" + songfilename);
             try {
                 MP3File f = (MP3File) AudioFileIO.read(file);
                 MP3AudioHeader audioHeader = (MP3AudioHeader) f.getAudioHeader();
@@ -274,7 +274,7 @@ public class BackIndexController {
         if (file2 != null) {
             song.setSong_lyrics(uploadFile.uploadFileToLyric(file2));
         }
-        AlbumDetail albumDetail=albumDetailService.findByAlbumIdAndSongId(song.getAlbum_id(),song.getSongId());
+        AlbumDetail albumDetail = albumDetailService.findByAlbumIdAndSongId(song.getAlbum_id(), song.getSongId());
         albumDetail.setAlbumId(albumId);
         albumDetailService.saveAlbumDetail(albumDetail);
         song.setAlbum_id(albumId);
@@ -320,7 +320,7 @@ public class BackIndexController {
         song.setSongSinger(singerId);
         String songfilename = uploadFile.uploadFileToMp3(file3);
         song.setSong_file(songfilename);
-        File file = new File("D:/MUSICRESOURCE/yinpin/" + songfilename);
+        File file = new File("C:/MUSICRESOURCE/yinpin/" + songfilename);
         try {
             MP3File f = (MP3File) AudioFileIO.read(file);
             MP3AudioHeader audioHeader = (MP3AudioHeader) f.getAudioHeader();

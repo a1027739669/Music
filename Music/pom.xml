@@ -12,12 +12,36 @@
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
+<!--    <packaging>war</packaging>-->
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
     </properties>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--            &lt;!&ndash; 移除嵌入式tomcat插件 &ndash;&gt;-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>javax.servlet-api</artifactId>-->
+<!--            <version>3.1.0</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat</groupId>-->
+<!--            <artifactId>tomcat-juli</artifactId>-->
+<!--            <version>${tomcat.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
@@ -100,6 +124,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <finalName>music</finalName>&lt;!&ndash; 打包后的war名称&ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

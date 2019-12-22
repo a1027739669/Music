@@ -30,21 +30,20 @@ public class MyInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
 
         User user = (User) session.getAttribute("user");
-
+        String s = request.getRequestURI().split("/")[1];
         if (user == null) {
-            String s = request.getRequestURI().split("/")[1];
             if (s.equalsIgnoreCase("user"))
                 response.sendRedirect("/guest/index");
             else if (s.equalsIgnoreCase("back"))
                 response.sendRedirect("/back/login");
             return false;
         } else {
-            String s = request.getRequestURI().split("/")[1];
-            if (s.equalsIgnoreCase("back")){
-                if(user.getIs_super()==0){
+            if (s.equalsIgnoreCase("back")) {
+                if (user.getIs_super() == 0) {
                     response.sendRedirect("/back/login");
+                    return false;
                 }
-                return false;
+                return true;
             }
             return true;
         }

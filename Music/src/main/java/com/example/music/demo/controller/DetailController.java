@@ -62,7 +62,7 @@ public class DetailController {
         List<SongSheet> relative=songSheetService.findRelative(songId);
         if (relative!=null&&relative.size()>0)
         modelMap.addAttribute("relativeSheet",relative);
-        String filePath="D:/MUSICRESOURCE/lyic/"+song.getSong_lyrics();
+        String filePath="C:/MUSICRESOURCE/lyic/"+song.getSong_lyrics();
         File file = new File(filePath);
         if (file.exists()) {
             List<String> temp = Files.readAllLines(Paths.get(filePath));
