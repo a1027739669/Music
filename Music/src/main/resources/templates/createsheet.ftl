@@ -532,8 +532,13 @@
             layer.msg("标题不能为空");
             return;
         }
+        file=$("#file")[0].files[0];
+        if (file==null) {
+            layer.msg("封面不能为空");
+            return;
+        }
 
-        myform.append('file', $("#file")[0].files[0]);
+        myform.append('file',file);
         myform.append('sheetName', $("#sheetName").val());
         myform.append('textArea', $("#textarea").val());
         var userId = '${Session["user"].id}';

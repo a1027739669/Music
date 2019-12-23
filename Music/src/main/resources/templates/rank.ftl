@@ -302,16 +302,6 @@
         var left = $(t).offset().left;
         var top = $(t).offset().top;
         var songIdList = [];
-        <#if Session['user'] ? exists>
-        $("#fav_pop").css("left", left + 15 + "px");
-        $("#fav_pop").css("top", top + 20 + "px");
-        $("#fav_pop").css("display", "block");
-        $("#fav_pop").data("songId", songIdList);
-        <#else >
-        layer.msg("请登录");
-        $("#openlogin").click();
-        return;
-        </#if>
         if($("#songList").hasClass("mod_songlist--edit")) {
             $("#songList li").each(function (index, item) {
                 if (typeof ($(item).attr("ix")) != "undefined") {
@@ -324,6 +314,16 @@
             layer.msg("请先进行批量操作");
             return;
         }
+        <#if Session['user'] ? exists>
+        $("#fav_pop").css("left", left + 15 + "px");
+        $("#fav_pop").css("top", top + 20 + "px");
+        $("#fav_pop").css("display", "block");
+        $("#fav_pop").data("songId", songIdList);
+        <#else >
+        layer.msg("请登录");
+        $("#openlogin").click();
+        return;
+        </#if>
     }
 
     function addtosheet(t, songId) {

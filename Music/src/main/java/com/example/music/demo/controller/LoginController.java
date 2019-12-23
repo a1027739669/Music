@@ -86,7 +86,7 @@ public class LoginController {
             session.setAttribute("loginusersheet", songSheetList);
             session.setAttribute("user", user);
             List<Song> list = (List<Song>) redisService.get("user" + user.getId());
-            if (list != null) {
+            if (list == null) {
                 list = new ArrayList<>();
                 redisService.set("user" + user.getId(), list);
             }

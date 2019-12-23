@@ -1107,7 +1107,7 @@
             async: false,
             success: function (result) {
                 layer.msg(result);
-                location.reload();
+                window.setTimeout("location.reload()", 2000);
             },
             error: function () {
                 alert("异常！");

@@ -27,7 +27,7 @@ import java.util.List;
 @Transactional
 public interface CommentRepository extends JpaRepository<Comment,Integer> {
     @Query(nativeQuery = true,value = "select * from comment where" +
-            " song_id=:songId order by comment_date desc ")
+            " song_id=:songId order by comment_id desc ")
     public List<Comment> findAllBySongId(Integer songId);
     @Query(value = "delete from comment where comment_id in (?1)",
             nativeQuery = true)

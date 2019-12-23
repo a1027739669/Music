@@ -137,9 +137,6 @@ $(".btn-download").click(function(){
 function thisDownload(url,title) {
 	//下载
 	var eledow = dom("downabo");
-	alert(eledow==null);
-	alert(url);
-	alert(title);
 	eledow.setAttribute("href",url);
 	eledow.setAttribute("download",title+".mp3");
 	eledow.click();
