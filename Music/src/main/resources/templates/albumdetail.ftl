@@ -298,7 +298,7 @@
         <div class="detail_layout__other">
             <div class="mod_about" id="album_desc" style="display:block;">
                 <h3 class="about__tit">简介</h3>
-                <div class="about__cont">
+                <div >
                     <p>
                         ${album.introduction}</p>
                 </div>

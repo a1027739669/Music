@@ -62,6 +62,7 @@ public class SongController {
         Page<Song> songPage = songService.getSongPages(pageId, singerId);
         Singer singer = singerService.getSingerById(singerId);
         modelMap.addAttribute("singer", singer);
+        if (songPage.getContent().size()>0)
         modelMap.addAttribute("songPage", songPage);
         return "singersongstable";
     }

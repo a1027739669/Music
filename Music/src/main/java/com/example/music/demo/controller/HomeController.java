@@ -141,7 +141,7 @@ public class HomeController {
     @PostMapping("/user/modifyinfo")
     @ResponseBody
     public String modifyinfo(MultipartFile file, String nicheng, String mobile,
-                             String email, String introduction, String usersex, Integer userId) throws IOException {
+                             String email, String introduction, String usersex, Integer userId,HttpSession session) throws IOException {
         User user = userService.findById(userId);
         if (file != null) {
             String fileName = uploadFile.uploadFile(file);
@@ -153,6 +153,7 @@ public class HomeController {
         user.setUserSex(usersex);
         user.setEmail(email);
         userService.saveUser(user);
+        session.setAttribute("user",user);
         return "SUCCESE";
     }
     @PostMapping(value = "/user/SMSVerification")

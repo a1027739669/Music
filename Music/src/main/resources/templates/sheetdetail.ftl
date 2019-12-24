@@ -195,7 +195,8 @@
                 </ul>
 
                 <ul class="songlist__list">
-                    <#list sheetDetail.getDetails() as detail>
+                    <#if sheetsonglist ?exists>
+                    <#list sheetDetail as detail>
                         <#if (detail_index%2==0)>
                             <li ix="${detail.getSong().getSongId()}">
 
@@ -329,6 +330,12 @@
                             </li>
                         </#if>
                     </#list>
+                        <#else >
+                            <div class="none_txt">
+                                <i class="none_txt__symbol"></i>
+                                <p>什么都没有</p>
+                            </div>
+                    </#if>
                 </ul>
             </div>
 
@@ -338,7 +345,7 @@
 
             <div class="mod_about js_box" id="album_desc" style="display:block;">
                 <h3 class="about__tit">简介</h3>
-                <div class="about__cont">
+                <div >
                     <p>${sheetDetail.introduction} </p>
                 </div>
             </div>
@@ -355,6 +362,7 @@
         </div>
         <div class="mod_playlist">
             <ul class="playlist__list" id="albumlist">
+                <#if others ? exists>
                 <#list others as other>
                     <li class="playlist__item" onmouseover="this.className=(this.className+' playlist__item--hover')"
                         onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
@@ -382,6 +390,12 @@
                         </div>
                     </li>
                 </#list>
+                    <#else >
+                        <div class="none_txt">
+                            <i class="none_txt__symbol"></i>
+                            <p>什么都没有</p>
+                        </div>
+                </#if>
             </ul>
         </div>
     </div>
@@ -393,6 +407,7 @@
         </div>
         <div class="mod_playlist">
             <ul class="playlist__list" id="albumlist">
+                <#if likes ? exists>
                 <#list likes as like>
                     <li class="playlist__item" onmouseover="this.className=(this.className+' playlist__item--hover')"
                         onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')">
@@ -420,6 +435,12 @@
                         </div>
                     </li>
                 </#list>
+                    <#else >
+                        <div class="none_txt">
+                            <i class="none_txt__symbol"></i>
+                            <p>什么都没有</p>
+                        </div>
+                </#if>
             </ul>
         </div>
     </div>

@@ -893,7 +893,8 @@
             contentType: false,
             processData: false,
             success: function (result) {
-                alert("修改成功");
+                layer.msg("修改成功");
+                setTimeout("location.reload()",2000);
             },
             error: function (data) {
                 layer.alert("警告", "文件上传失败！", "warning", function () {

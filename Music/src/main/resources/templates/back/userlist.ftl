@@ -84,12 +84,16 @@
                             <td>${user.create_date}</td>
                             <#if user.isAlive==1>
                                 <td class="td-status"><span class="label label-success radius">正常</span></td>
+                                <td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,${user.id})"
+                                                         href="javascript:;" title="封禁"><i class="Hui-iconfont">&#xe631;</i></a>
+                                </td>
                             <#else >
                                 <td class="td-status"><span class="label label-defaunt radius">封禁</span></td>
+                                <td class="td-manage"><a style="text-decoration:none" onClick="member_start(this,${user.id})"
+                                                         href="javascript:;" title="解封"><i class="Hui-iconfont">&#xe631;</i></a>
+                                </td>
                             </#if>
-                            <td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,${user.id})"
-                                                     href="javascript:;" title="封禁"><i class="Hui-iconfont">&#xe631;</i></a>
-                            </td>
+
                         </tr>
                     </#list>
                     </tbody>

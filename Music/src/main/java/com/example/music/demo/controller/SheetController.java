@@ -54,12 +54,19 @@ public class SheetController {
     @GetMapping("/guest/sheetDetail")
     public String sheetDetail(ModelMap modelMap, Integer sheetId,HttpSession session) {
         SongSheet songSheet = songSheetService.findById(sheetId);
+        if (songSheet.getDetails().size()>0)
+        modelMap.addAttribute("sheetsonglist", songSheet.getDetails());
         modelMap.addAttribute("sheetDetail", songSheet);
         List<SongSheet> others = songSheetService.findMyCreateLimit(songSheet.getUser().getId());
+        for (int i = others.size()-1;i>=0 ; i--) {
+            if(others.get(i).getId().equals(sheetId))
+                others.remove(i);
+        }
+        if(others.size()>0)
         modelMap.addAttribute("others", others);
         List<SongSheet> likes = songSheetService.findByLabelsLike(songSheet.getLabels());
         for (int i = 0; i < likes.size(); i++) {
-            if (likes.get(i).getId() == songSheet.getId()) {
+            if (likes.get(i).getId().equals(songSheet.getId())) {
                 likes.remove(i);
                 break;
             }
@@ -67,6 +74,11 @@ public class SheetController {
         if(likes.size()>5){
             likes.remove(5);
         }
+        for (int i = likes.size()-1;i>=0 ; i--) {
+            if(likes.get(i).getId().equals(sheetId))
+                likes.remove(i);
+        }
+        if(likes.size()>0)
         modelMap.addAttribute("likes", likes);
         if (redisService.get("hotSearch") != null) {
             List<Song> hotSearch = (List<Song>) redisService.get("hotSearch");
