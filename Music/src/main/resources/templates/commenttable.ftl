@@ -202,6 +202,7 @@
             success: function (data) {
                 $("#commentTable").empty();
                 $("#commentTable").append(data);
+                window.location.hash = "#commentTable";
             }
         });
     }

@@ -25,7 +25,7 @@
                                            >${result.sheetName}</a></span></h4>
                             <div class="playlist__author">
 
-                                <a href="" class="js_user" data-uin="NKcl7wSP7Kvq"
+                                <a class="js_user" data-uin="NKcl7wSP7Kvq"
                                    >${result.getUser().nicheng}</a>
 
                             </div>
@@ -47,35 +47,35 @@
                 <strong class="current">1</strong>
             <#elseif (resultList.totalPages>1)&&(resultList.totalPages<=4)>
                 <#if ((resultList.getNumber()+1)!=1)>
-                    <a href="javascript:;" class="next js_pageindex" title="上一页"
-                       hidefocus="" onclick="toSheetPage(${resultList.getNumber()},${info})"><span>&lt;</span></a>
+                    <a  class="next js_pageindex" title="上一页"
+                        hidefocus="" onclick="toPage4(${resultList.getNumber()},'${info}')"><span>&lt;</span></a>
                 </#if>
                 <#list 1..resultList.totalPages as curindex>
                     <#if (resultList.getNumber()+1)==curindex>
                         <strong class="current">${curindex}</strong>
                     <#else >
-                        <a href="javascript:;" class="js_pageindex" hidefocus=""
-                           onclick="toSheetPage(${curindex},${info})">${curindex}</a>
+                        <a  class="js_pageindex" hidefocus=""
+                            onclick="toPage4(${curindex},'${info}')">${curindex}</a>
                     </#if>
                 <#else>
                     <strong class="current">${curindex}</strong>
                 </#list>
                 <#if ((resultList.getNumber()+1)!=resultList.totalPages)>
-                    <a href="javascript:;" class="next js_pageindex" title="下一页"
-                       hidefocus="" onclick="toSheetPage(${resultList.getNumber()+2},${info})"><span>&gt;</span></a>
+                    <a  class="next js_pageindex" title="下一页"
+                        hidefocus="" onclick="toPage4(${resultList.getNumber()+2},'${info}')"><span>&gt;</span></a>
                 </#if>
             <#elseif (resultList.totalPages>=5)&&(resultList.totalPages<9)>
                 <#if ((resultList.getNumber()+1)!=1)>
-                    <a href="javascript:;" class="next js_pageindex" title="上一页"
-                       hidefocus="" onclick="toSheetPage(${resultList.getNumber()},${info})"><span>&lt;</span></a>
+                    <a  class="next js_pageindex" title="上一页"
+                        hidefocus="" onclick="toPage4(${resultList.getNumber()},'${info}')"><span>&lt;</span></a>
                 </#if>
                 <#if (resultList.getNumber()>3)>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toSheetPage(1,${info})">1</a>
+                    <a  class="js_pageindex" hidefocus="" onclick="toPage4(1,'${info}')">1</a>
                     <strong class="more">...</strong>
                     <#list 3..resultList.totalPages as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
-                            <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toSheetPage(${curindex},${info})">${curindex}</a>
+                            <a  class="js_pageindex" hidefocus=""
+                                onclick="toPage4(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
@@ -83,67 +83,69 @@
                 <#else>
                     <#list 1..7 as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
-                            <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toSheetPage(${curindex},${info})">${curindex}</a>
+                            <a  class="js_pageindex" hidefocus=""
+                                onclick="toPage4(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                     <strong class="more">...</strong>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toSheetPage(9,${info})">9</a>
+                    <a  class="js_pageindex" hidefocus="" onclick="toPage4(9,'${info}')">9</a>
                 </#if>
                 <#if ((resultList.getNumber()+1)!=resultList.totalPages)>
-                    <a href="javascript:;" class="next js_pageindex" title="下一页"
-                       hidefocus="" onclick="toSheetPage(${resultList.getNumber()+2},${info})"><span>&gt;</span></a>
+                    <a  class="next js_pageindex" title="下一页"
+                        hidefocus="" onclick="toPage4(${resultList.getNumber()+2},'${info}')"><span>&gt;</span></a>
                 </#if>
             <#elseif (resultList.totalPages>=9)>
                 <#if ((resultList.getNumber()+1)!=1)>
-                    <a href="javascript:;" class="next js_pageindex" title="上一页"
-                       hidefocus="" onclick="toSheetPage(${resultList.getNumber()},${info})"><span>&lt;</span></a>
+                    <a  class="next js_pageindex" title="上一页"
+                        hidefocus="" onclick="toPage4(${resultList.getNumber()},'${info}')"><span>&lt;</span></a>
                 </#if>
                 <#if ((resultList.getNumber()+1)<=4)>
                     <#list 1..7 as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
-                            <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toSheetPage(${curindex},${info})">${curindex}</a>
+                            <a  class="js_pageindex" hidefocus=""
+                                onclick="toPage4(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                     <strong class="more">...</strong>
-                    <a href="javascript:;" class="js_pageindex" hidefocus=""
-                       onclick="toSheetPage(${resultList.totalPages},${info})">${resultList.totalPages}</a>
+                    <a  class="js_pageindex" hidefocus=""
+                        onclick="toPage4(${resultList.totalPages},'${info}')">${resultList.totalPages}</a>
                 <#elseif ((resultList.totalPages-resultList.getNumber()-1)>=4)>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toSheetPage(1,${info})">1</a>
+                    <a  class="js_pageindex" hidefocus="" onclick="toPage4(1,'${info}')">1</a>
                     <strong class="more">...</strong>
                     <#list (resultList.totalPages-5)..resultList.totalPages as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
-                            <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toSheetPage(${curindex},${info})">${curindex}</a>
+                            <a  class="js_pageindex" hidefocus=""
+                                onclick="toPage4(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                 <#else>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toSheetPage(1,${info})">1</a>
+                    <a  class="js_pageindex" hidefocus="" onclick="toPage4(1,'${info}')">1</a>
                     <strong class="more">...</strong>
                     <#list (resultList.getNumber()+1-2)..(resultList.getNumber()+1+2) as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
-                            <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toSheetPage(${curindex},${info})">${curindex}</a>
+                            <a  class="js_pageindex" hidefocus=""
+                                onclick="toPage4(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                     <strong class="more">...</strong>
-                    <a href="javascript:;" class="js_pageindex" hidefocus=""
-                       onclick="toSheetPage(${resultList.totalPages},${info})">${resultList.totalPages}</a>
+                    <a  class="js_pageindex" hidefocus=""
+                        onclick="toPage4(${resultList.totalPages},'${info}')">${resultList.totalPages}</a>
                 </#if>
                 <#if ((resultList.getNumber()+1)!=resultList.totalPages)>
-                    <a href="javascript:;" class="next js_pageindex" title="下一页"
-                       hidefocus="" onclick="toSheetPage(${resultList.getNumber()+2},${info})"><span>&gt;</span></a>
+                    <a  class="next js_pageindex" title="下一页"
+                        hidefocus="" onclick="toPage4(${resultList.getNumber()+2},'${info}')"><span>&gt;</span></a>
                 </#if>
             </#if>
+
+
         </div>
 
 
@@ -157,19 +159,3 @@
         </div>
     </#if>
 </div>
-<script type="text/javascript">
-    function toSheetPage(pageId, key) {
-        $.ajax({
-            url: '/guest/sheetsearch',
-            type: 'GET',
-            data: {
-                'info': key,
-                'pageId': pageId,
-            },
-            success: function (data) {
-                $("#result").empty();
-                $("#result").append(data);
-            }
-        });
-    }
-</script>

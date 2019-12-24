@@ -161,6 +161,7 @@
             <div style="clear:both"></div>
 
         </div>
+        <#include "footer.ftl">
     </div>
 </div>
 
@@ -393,7 +394,7 @@
         </div>
     </div>
 </div>
-<#include "footer.ftl">
+
 </body>
 <script type="text/javascript">
     $(function () {

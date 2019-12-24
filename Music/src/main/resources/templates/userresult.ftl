@@ -20,34 +20,34 @@
             <#elseif (resultList.totalPages>1)&&(resultList.totalPages<=4)>
                 <#if ((resultList.getNumber()+1)!=1)>
                     <a href="javascript:;" class="next js_pageindex" title="上一页"
-                       hidefocus="" onclick="toUserPage(${resultList.getNumber()},${info})"><span>&lt;</span></a>
+                       hidefocus="" onclick="toUserPage(${resultList.getNumber()},'${info}')"><span>&lt;</span></a>
                 </#if>
                 <#list 1..resultList.totalPages as curindex>
                     <#if (resultList.getNumber()+1)==curindex>
                         <strong class="current">${curindex}</strong>
                     <#else >
                         <a href="javascript:;" class="js_pageindex" hidefocus=""
-                           onclick="toUserPage(${curindex},${info})">${curindex}</a>
+                           onclick="toUserPage(${curindex},'${info}')">${curindex}</a>
                     </#if>
                 <#else>
                     <strong class="current">${curindex}</strong>
                 </#list>
                 <#if ((resultList.getNumber()+1)!=resultList.totalPages)>
                     <a href="javascript:;" class="next js_pageindex" title="下一页"
-                       hidefocus="" onclick="toUserPage(${resultList.getNumber()+2},${info})"><span>&gt;</span></a>
+                       hidefocus="" onclick="toUserPage(${resultList.getNumber()+2},'${info}')"><span>&gt;</span></a>
                 </#if>
             <#elseif (resultList.totalPages>=5)&&(resultList.totalPages<9)>
                 <#if ((resultList.getNumber()+1)!=1)>
                     <a href="javascript:;" class="next js_pageindex" title="上一页"
-                       hidefocus="" onclick="toUserPage(${resultList.getNumber()},${info})"><span>&lt;</span></a>
+                       hidefocus="" onclick="toUserPage(${resultList.getNumber()},'${info}')"><span>&lt;</span></a>
                 </#if>
                 <#if (resultList.getNumber()>3)>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(1,${info})">1</a>
+                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(1,'${info}')">1</a>
                     <strong class="more">...</strong>
                     <#list 3..resultList.totalPages as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
                             <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toUserPage(${curindex},${info})">${curindex}</a>
+                               onclick="toUserPage(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
@@ -56,64 +56,64 @@
                     <#list 1..7 as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
                             <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toUserPage(${curindex},${info})">${curindex}</a>
+                               onclick="toUserPage(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                     <strong class="more">...</strong>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(9,${info})">9</a>
+                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(9,'${info}')">9</a>
                 </#if>
                 <#if ((resultList.getNumber()+1)!=resultList.totalPages)>
                     <a href="javascript:;" class="next js_pageindex" title="下一页"
-                       hidefocus="" onclick="toUserPage(${resultList.getNumber()+2},${info})"><span>&gt;</span></a>
+                       hidefocus="" onclick="toUserPage(${resultList.getNumber()+2},'${info}')"><span>&gt;</span></a>
                 </#if>
             <#elseif (resultList.totalPages>=9)>
                 <#if ((resultList.getNumber()+1)!=1)>
                     <a href="javascript:;" class="next js_pageindex" title="上一页"
-                       hidefocus="" onclick="toUserPage(${resultList.getNumber()},${info})"><span>&lt;</span></a>
+                       hidefocus="" onclick="toUserPage(${resultList.getNumber()},'${info}')"><span>&lt;</span></a>
                 </#if>
                 <#if ((resultList.getNumber()+1)<=4)>
                     <#list 1..7 as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
                             <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toUserPage(${curindex},${info})">${curindex}</a>
+                               onclick="toUserPage(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                     <strong class="more">...</strong>
                     <a href="javascript:;" class="js_pageindex" hidefocus=""
-                       onclick="toUserPage(${resultList.totalPages},${info})">${resultList.totalPages}</a>
+                       onclick="toUserPage(${resultList.totalPages},'${info}')">${resultList.totalPages}</a>
                 <#elseif ((resultList.totalPages-resultList.getNumber()-1)>=4)>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(1,${info})">1</a>
+                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(1,'${info}')">1</a>
                     <strong class="more">...</strong>
                     <#list (resultList.totalPages-5)..resultList.totalPages as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
                             <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toUserPage(${curindex},${info})">${curindex}</a>
+                               onclick="toUserPage(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                 <#else>
-                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(1,${info})">1</a>
+                    <a href="javascript:;" class="js_pageindex" hidefocus="" onclick="toUserPage(1,'${info}')">1</a>
                     <strong class="more">...</strong>
                     <#list (resultList.getNumber()+1-2)..(resultList.getNumber()+1+2) as curindex>
                         <#if (resultList.getNumber()+1)==curindex>
                             <a href="javascript:;" class="js_pageindex" hidefocus=""
-                               onclick="toUserPage(${curindex},${info})">${curindex}</a>
+                               onclick="toUserPage(${curindex},'${info}')">${curindex}</a>
                         </#if>
                     <#else>
                         <strong class="current">${curindex}</strong>
                     </#list>
                     <strong class="more">...</strong>
                     <a href="javascript:;" class="js_pageindex" hidefocus=""
-                       onclick="toUserPage(${resultList.totalPages},${info})">${resultList.totalPages}</a>
+                       onclick="toUserPage(${resultList.totalPages},'${info}')">${resultList.totalPages}</a>
                 </#if>
                 <#if ((resultList.getNumber()+1)!=resultList.totalPages)>
                     <a href="javascript:;" class="next js_pageindex" title="下一页"
-                       hidefocus="" onclick="toUserPage(${resultList.getNumber()+2},${info})"><span>&gt;</span></a>
+                       hidefocus="" onclick="toUserPage(${resultList.getNumber()+2},'${info}')"><span>&gt;</span></a>
                 </#if>
             </#if>
         </div>

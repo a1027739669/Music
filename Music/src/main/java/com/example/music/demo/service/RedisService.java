@@ -34,7 +34,8 @@ public class RedisService {
         ValueOperations<String,Object> vo=redisTemplate.opsForValue();
         vo.set(key, value);
     }
-    public void set(String key, Object value, Long time, TimeUnit unit){
+    public void set(String key, Object value,
+                    Long time, TimeUnit unit){
 //        redisTemplate.setKeySerializer(new StringRedisSerializer());
         ValueOperations<String,Object> vo=redisTemplate.opsForValue();
         vo.set(key,value,time,unit);
